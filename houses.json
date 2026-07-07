@@ -3,6 +3,10 @@
     {
       "id": "vontobel",
       "name": "Vontobel"
+    },
+    {
+      "id": "bluebox",
+      "name": "BlueBox"
     }
   ]
 }
