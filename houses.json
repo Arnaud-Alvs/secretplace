@@ -1,3 +1,8 @@
 {
-  "houses": []
+  "houses": [
+    {
+      "id": "vontobel",
+      "name": "Vontobel"
+    }
+  ]
 }
