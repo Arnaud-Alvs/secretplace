@@ -327,11 +327,11 @@ th button.srt.on{color:var(--ink)}
 .more-btn.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .export-btn{font-family:inherit;font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--corporate-blue);color:#fff;border:none;padding:6px 12px;cursor:pointer;transition:opacity .12s}
 .export-btn:hover{opacity:.85}
- 
+
 /* ── PANEL COLUMN HEADERS (mini labels above rows) ── */
 .col-hdr{display:flex;align-items:center;gap:8px;padding:0 4px 6px;margin-bottom:6px;border-bottom:1px solid var(--border)}
 .col-hdr span{font-size:7.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
- 
+
 /* ── INFO TOOLTIP (floating bubble) ── */
 .info-tip{position:relative;display:inline-flex;align-items:center;justify-content:center;width:13px;height:13px;border-radius:50%;border:1px solid var(--muted);color:var(--muted);font-size:8px;font-weight:700;margin-left:5px;cursor:help;vertical-align:middle;text-transform:none;letter-spacing:0}
 .info-tip:hover{border-color:var(--ink);color:var(--ink)}
@@ -406,7 +406,7 @@ th button.srt.on{color:var(--ink)}
  */
 (function () {
 'use strict';
- 
+
 /* ════════════════════════════════════════════════════
  * CONFIG — every tunable constant in one place.
  * Change behaviour here, not in the code below.
@@ -437,7 +437,7 @@ var CONFIG = {
     risks:     ['All', 'low', 'medium', 'high'],
   },
 };
- 
+
 // ════════════════════════════════════════════════════
 // STATE
 // ════════════════════════════════════════════════════
@@ -670,7 +670,7 @@ function normalizeRegion(raw) {
  
 /** Regions that map 1:1 to a country — no country suffix needed in labels. */
 var SINGLE_COUNTRY_REGIONS = ['USA', 'UK', 'Switzerland', 'Canada'];
- 
+
 function normalizeTier(v) {
   if (!v) return '';
   var u = String(v).trim().toUpperCase();
@@ -731,7 +731,7 @@ function parseCSV(text) {
   var allRows = tokenize(text, sep);
   return buildRows(allRows);
 }
- 
+
 // ── Parse an .xlsx / .xls workbook (binary) into row objects ──
 // Reads the first sheet as an array-of-arrays via SheetJS, then reuses the
 // exact same header-detection + normalization pipeline as the CSV path, so
@@ -743,11 +743,11 @@ function parseXLSX(arrayBuffer) {
   var aoa = XLSX.utils.sheet_to_json(ws, { header: 1, raw: true, defval: '' });
   return buildRows(aoa);
 }
- 
+
 // ── Shared: turn a raw array-of-arrays into ISIN-keyed row objects ──
 function buildRows(allRows) {
   if (!allRows || allRows.length < 2) return [];
- 
+
   // Find the real header (field-name) row within the first 8 rows. The
   // Bloomberg export stacks a section-title row above it, so we look for the
   // first row that actually contains an ISIN column.
@@ -758,12 +758,12 @@ function buildRows(allRows) {
       headerIdx = i; break;
     }
   }
- 
+
   // Normalize headers: lowercase, collapse whitespace, strip quotes
   var headers = allRows[headerIdx].map(function(h) {
     return String(h == null ? '' : h).toLowerCase().replace(/['"]/g, '').replace(/[\r\n\t]+/g, ' ').replace(/\s+/g, ' ').trim();
   });
- 
+
   // Deduplicate repeated header names (Bloomberg repeats e.g. Best PE, Price)
   // by appending _2, _3 — first occurrence keeps the clean key.
   var seen = {};
@@ -773,14 +773,14 @@ function buildRows(allRows) {
     seen[h]++;
     return h + '_' + seen[h];
   });
- 
+
   var rows = allRows.slice(headerIdx + 1).map(function(cols) {
     return headers.reduce(function(acc, h, i) {
       acc[h] = String(cols[i] == null ? '' : cols[i]).trim();
       return acc;
     }, {});
   });
- 
+
   // Keep only rows with a syntactically valid ISIN — this automatically
   // discards the Bloomberg mnemonic row and the "enter tickers" hint row.
   return rows.filter(function(r) {
@@ -820,7 +820,7 @@ function handleFile(key, inp) {
   if (!file) return;
   loadFileObject(file);
 }
- 
+
 // Shared loader used by both the file input and drag-and-drop
 function loadFileObject(file) {
   var name = (file.name || '').toLowerCase();
@@ -852,13 +852,13 @@ function loadFileObject(file) {
   };
   if (isExcel) reader.readAsArrayBuffer(file); else reader.readAsText(file);
 }
- 
+
 function uploadError(msg) {
   renderUpload();
   var e = document.getElementById('upload-err');
   if (e) { e.textContent = '\u26A0 ' + msg; e.classList.add('show'); }
 }
- 
+
 // Drag-and-drop wiring for the dropzone
 function dzDrop(ev) {
   ev.preventDefault();
@@ -881,7 +881,7 @@ function dzLeave(ev) { var el = document.getElementById('dropzone'); if (el) el.
  */
 function runFusion() {
   if (!raw.main || !raw.main.length) return;
- 
+
   universe = raw.main.map(function(r) {
     // ── helpers: read a field case-insensitively ──
     function g(keys) {
@@ -892,14 +892,14 @@ function runFusion() {
       }
       return '';
     }
- 
+
     var isinRaw = g(['ISIN','isin','ID_ISIN','id_isin']);
     if (!isinRaw) return null;
- 
+
     // ── Tier from cfra Rating ──
     var ratingRaw = g(['cfra Rating','cfra rating']);
     var tier      = normalizeTier(ratingRaw);
- 
+
     // ── Identity ──
     var name    = g(['Company Name','company name']);
     var ticker  = g(['Ticker','ticker']);
@@ -915,7 +915,7 @@ function runFusion() {
     var prc     = cN(g(['PRC','prc']));
     var invested= g(['Invested (Y/N)','invested (y/n)']);
     var inUniverse = !!(g(['cfra investmenet universe','cfra investment universe']) || ratingRaw);
- 
+
     // ── Pricing & targets ──
     var lastPx      = g(['Price','price']);
     var ptOverride  = g(['HC Target price','hc target price']);
@@ -924,14 +924,14 @@ function runFusion() {
     var target = tier === 'HC'
       ? (ptOverride || ptCFRA || ptConsensus)
       : (ptConsensus || ptCFRA);
- 
+
     // ── Upside: file stores it as a decimal fraction (0.28 = 28%). Some
     // Bloomberg exports use a percentage number (28.0) instead — detect and
     // normalise both to a fraction so pct() renders correctly. ──
     var upsideRaw = g(['Analyst Upside %','analyst upside %']);
     var upside = cN(upsideRaw);
     if (upside !== null && Math.abs(upside) > 1.5) upside = upside / 100;
- 
+
     // ── Performance — absolute. The BBG_RAW export labels these
     // "1M/3M/6M Price Performance" (not "Change %"), so map both. ──
     var ret1w = g(['1W Change %','1w change %']);
@@ -940,14 +940,14 @@ function runFusion() {
     var ret6m = g(['6M Change %','6m change %','6M Price Performance','6m price performance']);
     var ret1y = g(['12M Change %','12m change %']);
     var ytdRet= g(['YTD Change %','ytd change %']);
- 
+
     // ── Performance — relative (working) ──
     var perfRel1m = g(['Relative vs World 1M performance','relative vs world 1m performance']);
     var perfRel3m = g(['Relative World 3M performance','relative world 3m performance']);
     var perfRel6m = g(['Relative World 6M performance','relative world 6m performance']);
     var perfRel1y = g(['RELATIVE PERFORMANCE 12m EXL. Last month','relative performance 12m exl. last month']);
     var dist52hi  = g(['Distance to 52w high','distance to 52w high']);
- 
+
     // ── Valuation ──
     var fwdPE    = g(['Best PE','best pe']);
     var evEbitda = g(['Best EV/EBITDA','best ev/ebitda']);
@@ -959,7 +959,7 @@ function runFusion() {
     var roe      = g(['ROE LF','roe lf','Return on Equity','return on equity']);
     var roa      = g(['ROA LF','roa lf','Return on Assets','return on assets']);
     var opm      = g(['Operating Margin','operating margin','OPM LF','opm lf']);
- 
+
     // ── Quant scores ──
     var qCombined  = parseInt(g(['Combined Quartile','combined quartile'])) || 0;
     var qQuality   = parseInt(g(['Quality Q','quality q'])) || 0;
@@ -973,31 +973,31 @@ function runFusion() {
     var qMomentum  = parseInt(g(['Momentum Q','momentum q'])) || 0;
     var qValue     = qVL; // alias for legacy code
     var combinedScore = cN(g(['Combined Score','combined score']));
- 
+
     // ── Technical ──
     var tech     = g(['Bollinger %B (30D)','bollinger %b (30d)','Bollinger %B','bollinger %b']);
     var techNum  = cN(tech);
     // Interpret Bollinger %B: >0.8 overbought, <0.2 oversold
     var techLabel = techNum !== null ? (techNum > 0.8 ? 'Overbought' : techNum < 0.2 ? 'Oversold' : 'Neutral') : '';
     var stopLoss = ''; // no longer in file
- 
+
     // ── Crowding signals (NEW) ──
     var putCallRatio  = cN(g(['Put/Call Volume Ratio','put/call volume ratio']));
     var shortInterest = cN(g(['Short Interest Ratio','short interest ratio']));
     var revBreadth    = cN(g(['Net Revision Breadth','net revision breadth']));
- 
+
     // ── EPS revisions ──
     var epsRev3m = g(['EPS Rev 3M','eps rev 3m']);
     var epsRev1m = g(['EPS Rev 4W','eps rev 4w']);
- 
+
     // ── Growth ──
     var expGr   = g(['FY1-FY3 EPS CAGR','fy1-fy3 eps cagr']);
     var ytdRel  = perfRel1y; // best proxy
- 
+
     // ── Coverage ──
     var hasQuant = qCombined > 0;
     var coverage = hasQuant ? 'quant' : 'basic';
- 
+
     // ── Risk flags ──
     var flags = [];
     if (upside !== null && upside < CONFIG.risk.lowUpsideBelow) flags.push('Low Upside');
@@ -1006,12 +1006,12 @@ function runFusion() {
     if (ratingRaw.toLowerCase().indexOf('sell') > -1) flags.push('Sell');
     // Crowding flag: high P/C ratio + low short interest = crowded long
     if (putCallRatio !== null && putCallRatio > CONFIG.risk.crowdingPutCallAbove && shortInterest !== null && shortInterest < CONFIG.risk.crowdingShortIntBelow) flags.push('Crowding Risk');
- 
+
     // Legacy qual scores (not in new file — keep structure for AI prompt compat)
     var qualScores = { moat: null, mgmt: null, scalability: null, rd: null,
                        customer: null, adaptability: null, regulatory: null, brand: null };
     var qualAvg = null;
- 
+
     return {
       id_isin: isinRaw, ticker: ticker, name: name || isinRaw,
       region: region, sector: sector || 'Other', country: country, crncy: crncy,
@@ -1038,7 +1038,7 @@ function runFusion() {
       risk: flags.length >= CONFIG.risk.highAtFlags ? 'high' : flags.length === 1 ? 'medium' : 'low'
     };
   }).filter(Boolean);
- 
+
   // Precompute the numeric view of string-typed fields once, so sorting and
   // filtering never re-parse formatted strings inside comparators
   // (~30k cN() calls saved per sort of the full universe).
@@ -1049,7 +1049,7 @@ function runFusion() {
       ytdRet: cN(s.ytdRet), fcfYield: cN(s.fcfYield), netDebtEb: cN(s.netDebtEb), roe: cN(s.roe),
     };
   });
- 
+
   showView('macro');
 }
  
@@ -1197,12 +1197,12 @@ function renderFiles() {
 function renderUpload() {
   // If data already loaded, show compact file manager instead
   if (universe.length > 0) { renderFiles(); return; }
- 
+
   var meta = loadMeta();
   var m = meta.main;
   var loaded = !!(raw.main && raw.main.length);
   var hasCache = Object.keys(meta).length > 0;
- 
+
   // ── Validation report ──
   var valRows = '';
   if (loaded) {
@@ -1223,7 +1223,7 @@ function renderUpload() {
     valRows += row('Diversification', Object.keys(sectors).length + ' sectors · ' + Object.keys(regions).length + ' countries');
     valRows += row('Optional fields missing', 'Dividend Yield, Core/Satellite (not provided by this export)', 'val-warn');
   }
- 
+
   var dzInner = loaded ?
     '<div class="dz-ico" style="color:var(--green)">&#10003;</div>' +
     '<div class="dz-primary">' + raw.main.length + ' securities loaded</div>' +
@@ -1234,14 +1234,14 @@ function renderUpload() {
     '<div class="dz-primary">Drop the BBG_RAW file here, or click to browse</div>' +
     '<div class="dz-secondary">Full Bloomberg export — universe, quant scores and signals in a single file</div>' +
     '<div class="dz-formats"><span class="dz-fmt">.xlsx</span><span class="dz-fmt">.xls</span><span class="dz-fmt">.csv</span></div>';
- 
+
   document.getElementById('main').innerHTML =
     '<div class="upload-wrap">' +
     '<div style="font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:8px">Mirabaud Equity Screener</div>' +
     '<div class="upload-title">Investment Universe</div>' +
     '<div class="upload-title-rule"></div>' +
     '<div class="upload-sub">One file · BBG_RAW export · .xlsx / .xls / .csv formats</div>' +
- 
+
     // Expected schema panel
     '<div class="schema-box">' +
       '<div class="schema-title">Expected fields in the file</div>' +
@@ -1254,12 +1254,12 @@ function renderUpload() {
         '<div class="schema-item"><b>Signals</b>EPS Rev 3M, Put/Call, Short Interest, Net Revision, PRC, ESG</div>' +
       '</div>' +
     '</div>' +
- 
+
     (hasCache ? '<div style="background:#fdf9ef;border:1px solid var(--accent);padding:10px 14px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;font-size:9px">' +
       '<span><b style="color:var(--accent-dark)">&#128190; Data in memory</b> — the last file is stored locally in this browser.</span>' +
       '<button onclick="clearStorageAndReset()" style="font-family:inherit;font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:none;border:1px solid var(--muted);padding:4px 10px;cursor:pointer;color:var(--muted)">&#10005; Clear cache</button>' +
       '</div>' : '') +
- 
+
     // Dropzone
     '<div id="dropzone" class="dropzone' + (loaded ? ' loaded' : '') + '" role="button" tabindex="0" aria-label="Load the BBG_RAW file" ' +
       'ondragover="dzOver(event)" ondragleave="dzLeave(event)" ondrop="dzDrop(event)" ' +
@@ -1268,20 +1268,20 @@ function renderUpload() {
       dzInner +
     '</div>' +
     '<input type="file" id="fi-main" accept=".xlsx,.xls,.xlsm,.csv,.txt" onchange="handleFile(\'main\',this)" style="display:none">' +
- 
+
     '<div id="upload-err" class="err-box"></div>' +
- 
+
     '<div id="storage-warn" style="display:none;background:#f8d7da;border:1px solid var(--red);padding:10px 14px;margin-top:14px;font-size:9px;color:#842029">' +
       '<b>&#9888; File too large for the browser cache.</b> The file works for this session but will not be saved. ' +
       'Workaround: export only the columns in use from Bloomberg.' +
     '</div>' +
- 
+
     (loaded ? '<div class="upload-actions" style="margin-top:20px">' +
       '<button class="run-btn" onclick="runFusion()">&#8594; Open the universe</button>' +
     '</div>' : '') +
- 
+
     '<div class="val-report ' + (valRows ? 'show' : '') + '" style="margin-top:20px"><div class="val-title">Load check</div>' + valRows + '</div>' +
- 
+
     '<p class="upload-note val-note" style="margin-top:16px"><b>Note:</b> the section-title row and the Bloomberg mnemonic row are skipped automatically (only rows with a valid ISIN are kept). ' +
     '.xlsx files are read natively; the CSV separator (tab / ; / ,) is detected automatically. ' +
     'Data stays in your browser (localStorage) and is not sent anywhere.</p>' +
@@ -1670,19 +1670,19 @@ var SCREEN_COLUMNS = [
       return '<td>' + s.flags.map(function (f) { return '<span class="fg' + (f === 'Stop Loss' || f === 'Sell' ? ' fgr' : '') + '">' + esc(f) + '</span>'; }).join('') + '</td>';
     } },
 ];
- 
+
 /** Columns active for the current data state (resolves `when` gates). */
 function activeColumns() {
   return SCREEN_COLUMNS.filter(function (c) { return !c.when || c.when(); });
 }
- 
+
 /** One filter chip. `call` is the inline handler expression, `on` toggles the
  *  active class, `cls` optionally overrides/extends the class (tier & quartile
  *  chips carry their own colour classes). */
 function chipHTML(call, on, label, cls, attrs) {
   return '<button class="' + (cls || ('chip' + (on ? ' on' : ''))) + '" onclick="' + call + '"' + (attrs || '') + '>' + label + '</button>';
 }
- 
+
 function buildScreen() {
   // Adopt a freshly-set drill preset; otherwise keep the current base so
   // filter/sort clicks don't silently drop the drill subset.
@@ -1800,7 +1800,7 @@ function buildScreen() {
     }).join('') +
     '</tr></thead><tbody id="ut-body">' + _screenRows(data) + '</tbody></table></div>';
 }
- 
+
 /* ════════════════════════════════════════════════════
  * SORT REGISTRY — one entry per sortable column.
  * `num(s)` extracts a numeric key (its `nul` value is used when the field
@@ -1825,7 +1825,7 @@ var SORTS = {
   qualAvg:   { num: function (s) { return s.qualAvg || 9999; } },
   divYield:  { num: function (s) { return s.nums.divYield || -999; } },
 };
- 
+
 /** Stable, non-mutating sort of `data` by a SORTS entry. Unknown fields = no-op order. */
 function sortBy(data, field, dirWord) {
   var spec = SORTS[field];
@@ -1836,7 +1836,7 @@ function sortBy(data, field, dirWord) {
     return dir * (spec.num(a) - spec.num(b));
   });
 }
- 
+
 // ── Filter + sort the current base into the visible dataset (also sets _sd) ──
 /**
  * VIEW-MODEL — applies every active filter to the current base
@@ -1869,7 +1869,7 @@ function _screenData() {
   window._sd = data;
   return data;
 }
- 
+
 // ── Build just the <tbody> rows for the current dataset ──
 function _screenRows(data) {
   var cols = activeColumns();
@@ -1880,7 +1880,7 @@ function _screenRows(data) {
       '</tr>';
   }).join('');
 }
- 
+
 // ── Partial update: refresh rows + count only, preserving the search input ──
 function updateScreenRows() {
   var data = _screenData();
@@ -2148,7 +2148,7 @@ function setFcfMin(v) { filters.fcfMin = parseFloat(v) || 0; buildScreen(); }
 function setNdMax(v) { filters.ndMax = parseFloat(v) || 0; buildScreen(); }
 function setHeld(v) { filters.held = v; buildScreen(); }
 function toggleMoreFilters() { showMoreFilters = !showMoreFilters; buildScreen(); }
- 
+
 /** Human-readable summary of active filters — used on the Excel info sheet. */
 function activeFilterSummary() {
   var out = [];
@@ -2170,7 +2170,7 @@ function activeFilterSummary() {
   if (window._screenLabel) out.push('Drill subset: ' + window._screenLabel);
   return out.length ? out : ['None (full universe)'];
 }
- 
+
 /**
  * EXPORT — writes the currently displayed screen (filters + sort applied)
  * to an .xlsx with two sheets: the data and an audit sheet recording when,
@@ -2364,7 +2364,7 @@ function openStockModal(s) {
       'Positive = consensus drifting <b>up</b> (green); negative = drifting down (red).' +
       '</span></span></span><span style="font-weight:700;color:' + (s.revBreadth > 0 ? 'var(--green)' : 'var(--red)') + '">' + (s.revBreadth > 0 ? '+' : '') + s.revBreadth.toFixed(2) + '</span></div>' : '') +
     '</div></div>' : '') +
- 
+
     // Qual
     '<div class="msec"><div class="mst"><span>Qualitative Scores' +
       '<span class="info-tip" tabindex="0" onclick="event.stopPropagation()">i<span class="tip-bubble">' +
@@ -2496,16 +2496,42 @@ function generateSummary(aiId) {
  
 function closeModal() { var m = document.getElementById('modal'); if (m) m.remove(); }
  
-// ── INIT — auto-load from localStorage ──────────────
+// ── SHARED DATA LAYER — try loading from portal data folder ──────
+function tryLoadFromPortal() {
+  return fetch('../data/equity-universe.json', { credentials: 'include' })
+    .then(function(r) { return r.ok ? r.json() : null; })
+    .then(function(json) {
+      if (!json) return false;
+      var data = json.data || json;
+      if (!Array.isArray(data) || data.length < 10) return false;
+      raw.main = data;
+      console.log('[screener] Loaded', data.length, 'securities from portal data layer');
+      runFusion();
+      return true;
+    })
+    .catch(function(e) {
+      console.log('[screener] Portal data not available:', e.message, '— falling back to upload');
+      return false;
+    });
+}
+
+// ── INIT — cache → portal data → manual upload ──────────────
 function init() {
+  // 1. Try localStorage cache (instant)
   var hadCache = loadAllRaw();
   if (hadCache && raw.main && raw.main.length) {
     runFusion();
-  } else {
-    renderUpload();
+    return;
   }
+  // 2. Try shared portal data layer (async fetch)
+  tryLoadFromPortal().then(function(loaded) {
+    if (!loaded) {
+      // 3. Fall back to manual file upload
+      renderUpload();
+    }
+  });
 }
- 
+
 /* ════════════════════════════════════════════════════════════════════
  * PUBLIC API — explicit export table.
  * These are the ONLY symbols reachable from inline on* handlers in the
@@ -2533,7 +2559,7 @@ var PUBLIC = {
   saveApiKeyFromInput: saveApiKeyFromInput, clearApiKeyAndRefresh: clearApiKeyAndRefresh,
 };
 Object.keys(PUBLIC).forEach(function (k) { window[k] = PUBLIC[k]; });
- 
+
 /** Namespaced debug/test surface — not used by templates. */
 window.App = {
   version: '2.1.0',
@@ -2550,10 +2576,9 @@ window.App = {
     sd: function () { return window._sd; },
   },
 };
- 
+
 init();
 })();
 </script>
 </body>
 </html>
- 
