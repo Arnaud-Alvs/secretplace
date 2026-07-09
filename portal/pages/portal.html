@@ -20,7 +20,7 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{zoom:1.1}html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);font-family:var(--font-d);font-size:13px}
- 
+
 /* NAV */
 .g-nav{background:var(--navy);height:52px;display:flex;align-items:center;padding:0 28px;gap:0;position:sticky;top:0;z-index:300;border-bottom:1px solid rgba(255,255,255,.08)}
 .g-logo{font-family:var(--font-d);font-weight:700;font-size:15px;letter-spacing:2.5px;text-transform:uppercase;color:#fff;text-decoration:none;flex-shrink:0}
@@ -35,13 +35,13 @@ html{zoom:1.1}html,body{height:100%;overflow:hidden;background:var(--bg);color:v
 .g-badge{margin-left:auto;font-family:var(--font-d);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(188,150,84,.8);flex-shrink:0;padding:3px 10px;border:1px solid rgba(188,150,84,.3);border-radius:1px}
 .g-admin-btn{font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);background:none;border:1px solid rgba(255,255,255,.14);padding:3px 8px;cursor:pointer;border-radius:1px;margin-left:8px;transition:all .15s}
 .g-admin-btn:hover{color:#fff;border-color:rgba(255,255,255,.4)}
- 
+
 /* LAYOUT */
 #app{display:flex;flex-direction:column;height:calc(100vh - 52px);overflow:hidden}
- 
+
 /* ── STRATEGY BAR (top horizontal, 3 blocks) ── */
 #strategy-bar{flex-shrink:0;display:flex;height:290px;border-bottom:2px solid var(--border);background:var(--navy)}
- 
+
 .strat-block{display:flex;flex-direction:column;padding:10px 14px;overflow:hidden;position:relative}
 .strat-block+.strat-block{border-left:1px solid rgba(255,255,255,.1)}
 .strat-lbl{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;display:flex;align-items:center;gap:6px;min-height:22px}
@@ -50,27 +50,27 @@ html{zoom:1.1}html,body{height:100%;overflow:hidden;background:var(--bg);color:v
 .strat-content{flex:1;overflow-y:auto;font-family:var(--font-d);font-size:12px;color:rgba(255,255,255,.82);line-height:1.7;border-left:2px solid var(--gold);padding-left:9px;white-space:pre-wrap}
 .strat-content::-webkit-scrollbar{width:2px}
 .strat-content::-webkit-scrollbar-thumb{background:rgba(188,150,84,.3)}
- 
+
 /* WIM & Forex block specifics */
 #wim-block-new .strat-content,#forex-block .strat-content{border-left:none;padding-left:0;font-size:12px}
 .wim-pdf-btn{font-size:7.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:2px 7px;border:1px solid rgba(188,150,84,.35);color:var(--gold);background:transparent;cursor:pointer;border-radius:1px;text-decoration:none;transition:all .15s;flex-shrink:0}
 .wim-pdf-btn:hover{background:rgba(188,150,84,.1)}
- 
+
 /* ── MAIN BODY (below strategy bar) ── */
 #main-body{flex:1;display:flex;min-height:0;overflow:hidden}
- 
+
 /* left = content area 80% */
 #content-area{flex:1;min-width:0;display:flex;flex-direction:column;overflow:hidden;border-right:2px solid var(--border)}
- 
+
 /* right = sidebar 20% */
 #right-sidebar{width:15%;flex-shrink:0;display:flex;flex-direction:column;overflow:hidden;background:var(--surface)}
- 
+
 /* ── INVESTMENT IDEAS ── */
 #ideas-section{flex:0.75;min-height:0;display:flex;flex-direction:column;background:var(--surface);overflow:hidden}
 .sec-hdr{padding:7px 14px;border-bottom:1px solid var(--border);background:var(--s2);display:flex;align-items:center;gap:10px}
 .sec-title{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--navy)}
 .sec-sub{font-size:11px;color:var(--tm);font-family:var(--font-b);font-style:italic;flex:1}
- 
+
 /* Ideas 4-column layout */
 #ideas-grid{flex:1;min-height:0;display:flex;gap:0;border-top:1px solid var(--border);overflow:hidden}
 .ideas-col{flex:1 1 0;min-width:0;display:flex;flex-direction:column;border-right:1px solid var(--border);overflow:hidden;height:100%;min-height:0}
@@ -103,11 +103,11 @@ html{zoom:1.1}html,body{height:100%;overflow:hidden;background:var(--bg);color:v
 .idea-foot{display:flex;align-items:center;gap:3px;margin-top:1px}
 .idea-pdf-btn{font-size:7px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);background:var(--blue-pale);border:1px solid rgba(57,122,169,.2);padding:2px 6px;border-radius:1px;cursor:pointer;transition:all .12s}
 .idea-pdf-btn:hover{background:var(--blue);color:#fff}
- 
+
 /* View PDF Report button (shared by Latest Research + Investment Ideas) */
 .view-pdf-btn{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-d);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--navy);border:2px solid var(--gold);padding:10px 24px;border-radius:3px;cursor:pointer;transition:all .15s}
 .view-pdf-btn:hover{background:var(--gold)}
- 
+
 /* ── LATEST RESEARCH -- horizontal carousel ── */
 #carousel-section{flex:0.675;min-height:0;display:flex;flex-direction:column;background:var(--s2);border-bottom:2px solid var(--border);overflow:hidden}
 #res-search-bar{display:flex;align-items:center;gap:8px;padding:4px 12px;border-bottom:1px solid var(--border);background:var(--surface);flex-shrink:0}
@@ -146,10 +146,10 @@ html{zoom:1.1}html,body{height:100%;overflow:hidden;background:var(--bg);color:v
 .r-hold{background:var(--blue-pale);color:var(--blue);border:1px solid rgba(57,122,169,.18)}
 .r-add{background:rgba(180,83,9,.07);color:var(--amber);border:1px solid rgba(180,83,9,.18)}
 .r-sell{background:var(--rp);color:var(--red);border:1px solid rgba(192,57,43,.18)}
- 
- 
- 
- 
+
+
+
+
 /* ── LOGOS ── */
 .idea-logo-wrap{height:36px;display:flex;align-items:center;margin-bottom:4px}
 .idea-logo{height:28px;width:auto;max-width:80px;object-fit:contain;border-radius:2px;opacity:.9}
@@ -177,24 +177,24 @@ html{zoom:1.1}html,body{height:100%;overflow:hidden;background:var(--bg);color:v
 .tag-Trend-Alert{background:rgba(234,88,12,.1);color:#c2410c;border-color:rgba(234,88,12,.2)}
 .tag-Focus-Stock{background:rgba(15,118,110,.1);color:#0f766e;border-color:rgba(15,118,110,.2)}
 .tag-row{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px}
- 
+
 /* tag filter buttons */
 .tag-filters{display:flex;flex-wrap:wrap;gap:3px;padding:5px 12px;border-bottom:1px solid var(--border);background:var(--s2)}
 .tf-btn{font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border:1px solid var(--border);background:var(--surface);color:var(--tm);cursor:pointer;border-radius:2px;transition:all .12s}
 .tf-btn:hover{border-color:var(--blue-lt);color:var(--navy)}
 .tf-btn.on{background:var(--navy);color:#fff;border-color:var(--navy)}
- 
- 
+
+
 /* ── PDF MODAL ── */
- 
+
 .idea-card.has-pdf{cursor:pointer}
 .idea-card.has-pdf:hover{background:rgba(188,150,84,.06);border-left-color:var(--gold)!important}
- 
+
 #pdf-modal.open{display:flex!important}
 /* ── RIGHT SIDEBAR ── */
 .sb-hdr{padding:4px 8px;border-bottom:1px solid var(--border);background:var(--s2);flex-shrink:0}
 .sb-title{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy)}
- 
+
 /* AGENDA */
 #agenda-section{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden;border-bottom:2px solid var(--border)}
 #agenda-scroll{flex:1;overflow-y:auto}
@@ -217,7 +217,7 @@ html{zoom:1.1}html,body{height:100%;overflow:hidden;background:var(--bg);color:v
 .t-earn{background:rgba(45,106,79,.1);color:var(--green);border:1px solid rgba(45,106,79,.18)}
 .t-macro{background:var(--blue-pale);color:var(--blue);border:1px solid rgba(57,122,169,.18)}
 .t-cb{background:rgba(180,83,9,.07);color:var(--amber);border:1px solid rgba(180,83,9,.18)}
- 
+
 /* NEWS */
 #news-section{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden}
 #news-list{flex:1;overflow-y:auto}
@@ -232,7 +232,7 @@ html{zoom:1.1}html,body{height:100%;overflow:hidden;background:var(--bg);color:v
 .nws-time{font-size:8px;color:var(--tm);font-family:var(--font-b);font-style:italic;margin-bottom:1px}
 .nws-title{font-size:10px;color:var(--tb);line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .nws-src{font-size:8px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--tm);margin-top:2px}
- 
+
 /* MODALS */
 #adv-modal{display:none;position:fixed;inset:0;background:rgba(0,20,40,.45);z-index:600;align-items:center;justify-content:center}
 #adv-modal.open{display:flex}
@@ -246,7 +246,7 @@ html{zoom:1.1}html,body{height:100%;overflow:hidden;background:var(--bg);color:v
 .adv-mbtns{display:flex;gap:7px;justify-content:flex-end}
 .btn-p{font-family:var(--font-d);font-size:8.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;background:var(--navy);color:#fff;border:none;padding:7px 18px;cursor:pointer;border-radius:1px}
 .btn-g{font-family:var(--font-d);font-size:8.5px;letter-spacing:.09em;text-transform:uppercase;background:none;color:var(--tm);border:1px solid var(--border);padding:7px 14px;cursor:pointer;border-radius:1px}
- 
+
 /* NEWS MODAL */
 #news-modal{display:none;position:fixed;inset:0;background:rgba(0,20,40,.5);z-index:600;align-items:center;justify-content:center}
 #news-modal.open{display:flex}
@@ -259,7 +259,7 @@ html{zoom:1.1}html,body{height:100%;overflow:hidden;background:var(--bg);color:v
 .nm-desc{font-size:11.5px;color:var(--tb);line-height:1.65}
 .nm-link{display:inline-block;margin-top:14px;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);text-decoration:none;border:1px solid var(--blue);padding:4px 12px;border-radius:1px}
 .nm-link:hover{background:var(--blue);color:#fff}
- 
+
 /* RESEARCH MODAL */
 #res-modal{display:none;position:fixed;inset:0;background:rgba(0,20,40,.5);z-index:600;align-items:center;justify-content:center}
 #res-modal.open{display:flex}
@@ -274,31 +274,62 @@ html{zoom:1.1}html,body{height:100%;overflow:hidden;background:var(--bg);color:v
 .na-eq{background:var(--gp);color:var(--green);border:1px solid rgba(45,106,79,.18)}
 .na-fi{background:var(--blue-pale);color:var(--blue);border:1px solid rgba(57,122,169,.18)}
 .s-rec{font-size:8px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 5px;border-radius:1px;flex-shrink:0}
- 
+
 /* COMPANY LOGO */
 .comp-logo{border-radius:4px;object-fit:contain;background:#fff;border:1px solid var(--border);padding:2px;flex-shrink:0;vertical-align:middle;display:inline-block}
 .comp-logo-fallback{border-radius:4px;background:var(--navy);color:#fff;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;vertical-align:middle;letter-spacing:.04em;border:1px solid rgba(255,255,255,.08)}
- 
+
 </style>
 </head>
 <body style="display:flex;flex-direction:column;height:100vh;overflow:hidden">
- 
+
 <nav class="g-nav">
   <a href="portal.html" class="g-logo">MIRABAUD<span class="g-logo-sub">Financial Research</span></a>
   <div class="g-divider"></div>
   <div class="g-links"><a href="portal.html" class="g-link active">Portal</a><a href="equity_heli.html" class="g-link">Equity</a><a href="fixed_income.html" class="g-link">Fixed Income</a><a href="esg_sri.html" class="g-link">ESG & SRI</a><a href="structured_products.html" class="g-link">Structured Products</a><a href="funds_etf.html" class="g-link">Funds &amp; ETFs</a><a href="thematics_amc.html" class="g-link">AMC</a><a href="research.html" class="g-link">Research Notes</a></div>
   <div style="display:flex;align-items:center;gap:10px;margin-left:auto;flex-shrink:0">
     <span class="g-date" id="nav-date"></span>
+    <button id="settings-btn" style="font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);background:none;border:1px solid rgba(255,255,255,.14);padding:3px 8px;cursor:pointer;border-radius:1px" onclick="toggleSettings()" title="API key settings">&#9881; Keys</button>
     <button style="font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);background:none;border:1px solid rgba(255,255,255,.14);padding:3px 8px;cursor:pointer;border-radius:1px" onclick="window.location.href='admin.html'">Admin</button>
     <span class="g-badge">Internal Use Only</span>
   </div>
 </nav>
- 
+
+<!-- API KEY SETTINGS PANEL -->
+<div id="settings-panel" style="display:none;position:absolute;top:38px;right:60px;z-index:9999;background:#fff;border:1px solid var(--border);box-shadow:0 4px 12px rgba(0,42,74,.12);width:380px;padding:16px 18px;font-family:var(--font-d)">
+  <div style="font-size:8px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px">API Configuration</div>
+  <div style="font-size:10px;color:var(--tm);line-height:1.5;margin-bottom:12px">Keys are stored in this browser only (localStorage). They are never committed to source code or sent anywhere except the respective API endpoints.</div>
+
+  <div style="margin-bottom:12px">
+    <div style="font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin-bottom:4px">Anthropic API key</div>
+    <div style="font-size:9px;color:var(--tm);margin-bottom:4px">Powers AI summaries across all portal pages. Get one at console.anthropic.com.</div>
+    <div id="ak-status" style="display:flex;align-items:center;gap:6px">
+      <input id="ak-input" type="password" autocomplete="off" placeholder="sk-ant-api03-..." style="flex:1;font-family:monospace;font-size:10px;padding:5px 8px;border:1px solid var(--border);color:var(--navy)" onkeydown="if(event.key==='Enter')saveAKFromSettings()">
+      <button onclick="saveAKFromSettings()" style="font-family:var(--font-d);font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--navy);color:#fff;border:none;padding:5px 12px;cursor:pointer">Save</button>
+    </div>
+  </div>
+
+  <div style="margin-bottom:8px">
+    <div style="font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin-bottom:4px">FMP API key <span style="font-weight:400;color:var(--tm)">(optional)</span></div>
+    <div style="font-size:9px;color:var(--tm);margin-bottom:4px">Earnings calendar. Free at financialmodelingprep.com (250 calls/day).</div>
+    <div style="display:flex;align-items:center;gap:6px">
+      <input id="fmp-input" type="password" autocomplete="off" placeholder="your-fmp-key..." style="flex:1;font-family:monospace;font-size:10px;padding:5px 8px;border:1px solid var(--border);color:var(--navy)" onkeydown="if(event.key==='Enter')saveFMPFromSettings()">
+      <button onclick="saveFMPFromSettings()" style="font-family:var(--font-d);font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--navy);color:#fff;border:none;padding:5px 12px;cursor:pointer">Save</button>
+    </div>
+  </div>
+
+  <div id="keys-saved-status" style="font-size:9px;margin-top:8px"></div>
+  <div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+    <button onclick="clearAllKeys()" style="font-family:var(--font-d);font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:none;border:1px solid var(--red);color:var(--red);padding:3px 10px;cursor:pointer">Clear all keys</button>
+    <button onclick="toggleSettings()" style="font-family:var(--font-d);font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:none;border:1px solid var(--border);color:var(--tm);padding:3px 10px;cursor:pointer">Close</button>
+  </div>
+</div>
+
 <div id="app">
- 
+
   <!-- ════ STRATEGY BAR (top, 4 blocks: 20/20/30/30) ════ -->
   <div id="strategy-bar">
- 
+
     <!-- Block 1: Advisory Narrative (20%) -->
     <div class="strat-block" style="flex:0 0 20%;min-width:0">
       <div class="strat-lbl">
@@ -306,7 +337,7 @@ html{zoom:1.1}html,body{height:100%;overflow:hidden;background:var(--bg);color:v
       </div>
       <div id="adv-text-left" class="strat-content"></div>
     </div>
- 
+
     <!-- Block 2: IC Message (20%) -->
     <div class="strat-block" style="flex:0 0 20%;min-width:0">
       <div class="strat-lbl">
@@ -318,7 +349,7 @@ Within equities, favour Quality Growth over Value.
 In FI, stay short duration with preference for IG credit over govies.
 Continue to reduce USD exposure as Fed divergence widens vs ECB.</div>
     </div>
- 
+
     <!-- Block 3: WIM (30%) -->
     <div class="strat-block" id="wim-block-new" style="flex:0 0 30%;min-width:0">
       <div class="strat-lbl" style="justify-content:flex-start">
@@ -331,7 +362,7 @@ Continue to reduce USD exposure as Fed divergence widens vs ECB.</div>
         <span style="font-size:9.5px;color:rgba(255,255,255,.28);font-style:italic;font-family:var(--font-b);line-height:1.5">No WIM summary yet. Upload PDF via Admin.</span>
       </div>
     </div>
- 
+
     <!-- Block 4: Weekly Forex (30%) -->
     <div class="strat-block" id="forex-block" style="flex:0 0 30%;min-width:0">
       <div class="strat-lbl" style="justify-content:flex-start">
@@ -344,15 +375,15 @@ Continue to reduce USD exposure as Fed divergence widens vs ECB.</div>
         <span style="font-size:9.5px;color:rgba(255,255,255,.28);font-style:italic;font-family:var(--font-b);line-height:1.5">No Forex note yet. Upload PDF via Admin.</span>
       </div>
     </div>
- 
+
   </div><!-- /strategy-bar -->
- 
+
   <!-- ════ MAIN BODY ════ -->
   <div id="main-body">
- 
+
     <!-- LEFT: content area 80% -->
     <div id="content-area">
- 
+
       <!-- LATEST RESEARCH (now on top, 50%) -->
       <div id="carousel-section">
         <div class="sec-hdr" style="padding:5px 10px">
@@ -392,7 +423,7 @@ Continue to reduce USD exposure as Fed divergence widens vs ECB.</div>
           <button class="res-nav-btn" id="res-next" onclick="resScroll(1)">&#8250;</button>
         </div>
       </div>
- 
+
       <!-- INVESTMENT IDEAS (now below, 50%) -->
       <div id="ideas-section">
         <div class="sec-hdr">
@@ -401,12 +432,12 @@ Continue to reduce USD exposure as Fed divergence widens vs ECB.</div>
         </div>
         <div id="ideas-grid"></div>
       </div>
- 
+
     </div><!-- /content-area -->
- 
+
     <!-- RIGHT: sidebar 20% -->
     <div id="right-sidebar">
- 
+
       <!-- AGENDA -->
       <div id="agenda-section">
         <div class="sb-hdr" style="display:flex;align-items:center;gap:6px">
@@ -415,7 +446,7 @@ Continue to reduce USD exposure as Fed divergence widens vs ECB.</div>
         </div>
         <div id="agenda-scroll"></div>
       </div>
- 
+
       <!-- TOP NEWS -->
       <div id="news-section">
         <div class="sb-hdr" style="display:flex;align-items:center">
@@ -426,13 +457,13 @@ Continue to reduce USD exposure as Fed divergence widens vs ECB.</div>
           <div style="padding:8px 10px;font-size:9px;color:var(--tm);font-style:italic;font-family:var(--font-b)" id="news-loading">Loading…</div>
         </div>
       </div>
- 
+
     </div><!-- /right-sidebar -->
- 
+
   </div><!-- /main-body -->
- 
+
 </div><!-- /app -->
- 
+
 <!-- RESEARCH MODAL -->
 <div id="res-modal">
   <div class="rm-box">
@@ -446,7 +477,7 @@ Continue to reduce USD exposure as Fed divergence widens vs ECB.</div>
     </div>
   </div>
 </div>
- 
+
 <!-- NEWS MODAL -->
 <div id="news-modal">
   <div class="nm-box">
@@ -461,9 +492,9 @@ Continue to reduce USD exposure as Fed divergence widens vs ECB.</div>
     </div>
   </div>
 </div>
- 
+
 <!-- Advisory editing managed via admin.html -->
- 
+
 <!-- PDF VIEWER MODAL -->
 <div id="pdf-modal" style="display:none;position:fixed;inset:0;background:rgba(0,15,35,.75);z-index:700;align-items:stretch;justify-content:center;backdrop-filter:blur(2px)">
   <div style="display:flex;flex-direction:column;width:92vw;max-width:1100px;height:92vh;margin:auto;background:#1a1a2e;border-radius:4px;overflow:hidden;box-shadow:0 16px 64px rgba(0,0,0,.5)">
@@ -475,12 +506,12 @@ Continue to reduce USD exposure as Fed divergence widens vs ECB.</div>
     <iframe id="pdf-modal-frame" src="" style="flex:1;border:none;background:#fff"></iframe>
   </div>
 </div>
- 
+
 <script>
- 
+
 /* ════ SHARED LOGO SYSTEM ════ */
 const LOGO_MAP = {"Alphabet Inc": "google.com", "Meta Platforms Inc": "meta.com", "Netflix Inc": "netflix.com", "Deutsche Telekom AG": "telekom.com", "BCE Inc": "bce.ca", "TELUS Corp": "telus.com", "Swisscom AG": "swisscom.ch", "Baidu Inc": "baidu.com", "NetEase Inc": "netease.com", "Tencent Music Entertainment Group": "tencentmusic.com", "Cellnex Telecom SA": "cellnex.com", "Koninklijke KPN NV": "kpn.com", "Orange SA": "orange.com", "Publicis Groupe SA": "publicisgroupe.com", "Singapore Telecomm": "singtel.com", "Vodafone Group PLC": "vodafone.com", "Amazon.com Inc": "amazon.com", "Ferrari NV": "ferrari.com", "Compass Group PLC": "compass-group.com", "McDonald's Corp": "mcdonalds.com", "Richemont": "richemont.com", "Cie Financiere Richemont SA": "richemont.com", "LVMH": "lvmh.com", "Kering SA": "kering.com", "Hermes International SCA": "hermes.com", "Booking Holdings Inc": "booking.com", "Tesla Inc": "tesla.com", "Toyota Motor Corp": "toyota.com", "Stellantis NV": "stellantis.com", "Volkswagen AG": "volkswagen.com", "BMW AG": "bmw.com", "Daimler": "mercedes-benz.com", "JD.com Inc": "jd.com", "Alibaba Group": "alibaba.com", "MercadoLibre Inc": "mercadolibre.com", "Adidas AG": "adidas.com", "Nike Inc": "nike.com", "Marriott International Inc": "marriott.com", "Airbnb Inc": "airbnb.com", "Procter & Gamble Co": "pg.com", "Walmart Inc": "walmart.com", "Nestle SA": "nestle.com", "Unilever PLC": "unilever.com", "Danone SA": "danone.com", "Diageo PLC": "diageo.com", "Heineken NV": "theheinekencompany.com", "Pernod Ricard SA": "pernod-ricard.com", "Coca-Cola Co": "coca-cola.com", "PepsiCo Inc": "pepsico.com", "Philip Morris International Inc": "pmi.com", "L'Oreal SA": "loreal.com", "Estee Lauder": "elcompanies.com", "Shell PLC": "shell.com", "TotalEnergies SE": "totalenergies.com", "BP PLC": "bp.com", "Exxon Mobil Corp": "exxonmobil.com", "Chevron Corp": "chevron.com", "Schlumberger Ltd": "slb.com", "Canadian Natural Resources Ltd": "cnq.ca", "AXA SA": "axa.com", "JPMorgan Chase & Co": "jpmorganchase.com", "Mastercard Inc": "mastercard.com", "Morgan Stanley": "morganstanley.com", "Visa Inc": "visa.com", "UBS Group AG": "ubs.com", "Partners Group Holding AG": "partnersgroup.com", "Allianz SE": "allianz.com", "BNP Paribas SA": "bnpparibas.com", "Banco Santander SA": "santander.com", "HSBC Holdings PLC": "hsbc.com", "Zurich Insurance Group AG": "zurich.com", "Swiss Life Holding AG": "swisslife.com", "Julius Baer Group Ltd": "juliusbaer.com", "Blackstone Inc": "blackstone.com", "Goldman Sachs Group Inc": "goldmansachs.com", "Bank of America Corp": "bankofamerica.com", "Citigroup Inc": "citigroup.com", "Wells Fargo & Co": "wellsfargo.com", "American Express Co": "americanexpress.com", "MetLife Inc": "metlife.com", "Prudential Financial Inc": "prudential.com", "Eli Lilly and Co": "lilly.com", "Roche Holding AG": "roche.com", "Novartis AG": "novartis.com", "AstraZeneca PLC": "astrazeneca.com", "Johnson & Johnson": "jnj.com", "Pfizer Inc": "pfizer.com", "Merck & Co Inc": "merck.com", "Abbott Laboratories": "abbott.com", "Thermo Fisher Scientific Inc": "thermofisher.com", "Lonza Group AG": "lonza.com", "Straumann Holding AG": "straumann.com", "Stryker Corp": "stryker.com", "Intuitive Surgical Inc": "intuitive.com", "Bristol-Myers Squibb Co": "bms.com", "Sanofi SA": "sanofi.com", "Bayer AG": "bayer.com", "Fresenius SE": "fresenius.com", "Sandoz Group AG": "sandoz.com", "Airbus SE": "airbus.com", "Schneider Electric SE": "se.com", "Uber Technologies Inc": "uber.com", "Siemens AG": "siemens.com", "ABB Ltd": "abb.com", "Honeywell International Inc": "honeywell.com", "Caterpillar Inc": "caterpillar.com", "Boeing Co": "boeing.com", "Lockheed Martin Corp": "lockheedmartin.com", "Northrop Grumman Corp": "northropgrumman.com", "Raytheon Technologies Corp": "rtx.com", "General Electric Co": "ge.com", "Vinci SA": "vinci.com", "Safran SA": "safran-group.com", "Thales SA": "thalesgroup.com", "DKSH Holding AG": "dksh.com", "ASML Holding NV": "asml.com", "SAP SE": "sap.com", "Accenture PLC": "accenture.com", "Apple Inc": "apple.com", "Broadcom Inc": "broadcom.com", "Microsoft Corp": "microsoft.com", "Nvidia Corp": "nvidia.com", "Oracle Corp": "oracle.com", "Taiwan Semiconductor Manufacturing": "tsmc.com", "Samsung Electronics": "samsung.com", "Capgemini SE": "capgemini.com", "Salesforce Inc": "salesforce.com", "Adobe Inc": "adobe.com", "Cisco Systems Inc": "cisco.com", "Intel Corp": "intel.com", "Qualcomm Inc": "qualcomm.com", "Texas Instruments Inc": "ti.com", "Applied Materials Inc": "appliedmaterials.com", "Infineon Technologies AG": "infineon.com", "STMicroelectronics NV": "st.com", "Amadeus IT Group SA": "amadeus.com", "Air Liquide SA": "airliquide.com", "Sika AG": "sika.com", "Linde PLC": "linde.com", "BASF SE": "basf.com", "Givaudan SA": "givaudan.com", "Holcim Ltd": "holcim.com", "Geberit AG": "geberit.com", "Enel SpA": "enel.com", "Iberdrola SA": "iberdrola.com", "E.ON SE": "eon.com", "Orsted": "orsted.com", "Vestas Wind Systems": "vestas.com", "RWE AG": "rwe.com", "AbbVie Inc": "abbvie.com", "General Motors Financial": "gm.com", "Hyundai Capital": "hyundaiusa.com", "Novartis": "novartis.com", "Sandoz": "sandoz.com", "Mirabaud": "mirabaud.com", "Diversified Liquid Alt AMC": "mirabaud.com", "Haussmann": "mirabaud.com", "Mirabaud Discovery Europe": "mirabaud.com", "UBS": "ubs.com", "BlackRock": "blackrock.com", "iShares": "blackrock.com", "Candriam": "candriam.com", "Natixis": "natixis.com", "Invesco": "invesco.com", "PIMCO": "pimco.com", "Schroders": "schroders.com", "Polar Capital": "polarcapital.co.uk", "SMI": "six-group.com", "SPX": "spglobal.com", "SX5E": "stoxx.com", "Rolls-Royce": "rolls-royce.com", "Amazon": "amazon.com", "Alphabet": "google.com"};
- 
+
 function getLogoDomain(name){
   if(!name) return null;
   if(LOGO_MAP[name]) return LOGO_MAP[name];
@@ -511,7 +542,7 @@ function getLogoDomain(name){
   }
   return null;
 }
- 
+
 function logoHTML(name, size){
   size = size || 20;
   var initials = name.replace(/\b(Inc|Corp|PLC|SA|AG|SE|NV|Ltd|Co|Group|Holding|Holdings|International|Technologies|Systems|Platforms)\b/gi,'').trim().split(/\s+/).map(function(w){return w[0];}).join('').slice(0,2).toUpperCase();
@@ -520,21 +551,39 @@ function logoHTML(name, size){
   var fb = encodeURIComponent('<span class=comp-logo-fallback style=width:'+size+'px;height:'+size+'px;font-size:'+Math.round(size*0.38)+'px>'+initials+'</span>');
   return '<img class="comp-logo" src="https://www.google.com/s2/favicons?domain='+domain+'&sz=64" style="width:'+size+'px;height:'+size+'px" onerror="this.outerHTML=decodeURIComponent(this.dataset.fb)" data-fb="'+fb+'" alt="">';
 }
-/* ════════════════════════════ */
-var _AK='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';
- 
-// ════ FMP API KEY (paste your Financial Modeling Prep key here) ════
-// Free signup: site.financialmodelingprep.com (250 calls/day)
-// Once pasted, the Week Ahead sidebar will populate with earnings + macro events
-var _FMP_KEY='f2FrVDxgVzLVTcbCQekrFe3L3Zg3facM';
- 
+/* ════════════════════════════════════════════════════
+ * API KEYS — stored in localStorage only, NEVER in source code.
+ * The Anthropic key uses the same storage key as the equity screener
+ * ('mhc_api_key') so entering it in either page shares it to both.
+ * ════════════════════════════════════════════════════ */
+var _AK = '';
+var _FMP_KEY = '';
+var _KEY_STORE = { ak: 'mhc_api_key', fmp: 'mhc_fmp_key' };
+
+function _loadKeys() {
+  try { _AK = localStorage.getItem(_KEY_STORE.ak) || ''; } catch(e) {}
+  try { _FMP_KEY = localStorage.getItem(_KEY_STORE.fmp) || ''; } catch(e) {}
+}
+function _saveKey(which, val) {
+  try { localStorage.setItem(_KEY_STORE[which], val); } catch(e) {}
+  if (which === 'ak') _AK = val;
+  if (which === 'fmp') _FMP_KEY = val;
+}
+function _clearKey(which) {
+  try { localStorage.removeItem(_KEY_STORE[which]); } catch(e) {}
+  if (which === 'ak') _AK = '';
+  if (which === 'fmp') _FMP_KEY = '';
+}
+function _hasKeys() { return !!_AK; }
+_loadKeys();
+
 // ════ UTILS ════
 function esc(s){if(!s)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 // Convert markdown **bold** to <strong> after esc() (safe because esc only touches & < > ")
 function mdInline(s){return s.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');}
 function ls(k){try{var v=localStorage.getItem(k);return v?JSON.parse(v):null;}catch(e){return null;}}
 function ss(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
- 
+
 // ════ INVESTMENT IDEAS — 4 fixed columns ════
 var IDEAS_COLS={
   eq:[
@@ -560,18 +609,18 @@ var IDEAS_COLS={
     {date:'2026-03-20',title:'Mirabaud Discovery Europe A',excerpt:'European small & mid-cap equity fund. Bottom-up stock picking focused on quality growth at reasonable valuations. AUM EUR 350m. Strong track record: +12.4% annualized over 5 years vs +8.1% benchmark. Active share above 85% with typically 35-50 holdings.',detail:'Mirabaud Discovery Europe is a European small/mid-cap equity fund.\n\nKey stats:\n- AUM: EUR 350m\n- 5Y annualized: +12.4% vs +8.1% benchmark\n- Active share: >85%\n- 35-50 holdings typically\n\nBottom-up quality growth approach at reasonable valuations.',pdf:null,tags:['Fund','Idea']},
   ]
 };
- 
+
 var COL_META={
   eq:{label:'Equity',cls:'cat-eq',acCls:'na-eq'},
   fi:{label:'Fixed Income',cls:'cat-fi',acCls:'na-fi'},
   sp:{label:'Str. Products',cls:'cat-sp',acCls:'na-sp'},
   fund:{label:'Funds & ETFs',cls:'cat-fund',acCls:'na-fund'},
 };
- 
+
 function catLabel(c){return COL_META[c]?COL_META[c].label:c;}
- 
- 
- 
+
+
+
 var _ideaFilter='all';
 function ideaFilter(f,btn){
   _ideaFilter=f;
@@ -579,7 +628,7 @@ function ideaFilter(f,btn){
   if(btn)btn.classList.add('on');
   renderIdeas();
 }
- 
+
 function tagPills(tags){
   if(!tags||!tags.length)return'';
   return'<div class="tag-row">'+tags.map(function(t){
@@ -587,7 +636,7 @@ function tagPills(tags){
     return'<span class="tag-pill '+cls+'">'+esc(t)+'</span>';
   }).join('')+'</div>';
 }
- 
+
 function renderIdeas(){
   var grid=document.getElementById('ideas-grid');if(!grid)return;
   var cats=['eq','fi','sp','fund'];
@@ -619,7 +668,7 @@ function renderIdeas(){
       +'<div class="ideas-col-body">'+cards+empty+'</div>'
       +'</div>';
   }).join('');
- 
+
   // Generate AI excerpts for cards (~100 chars, single sentence)
   cats.forEach(function(cat){
     var allIdeas=IDEAS_COLS[cat]||[];
@@ -656,7 +705,7 @@ function renderIdeas(){
     });
   });
 }
- 
+
 function openIdeaModal(cat,i){
   // Apply same Sell-filter as the display so the index matches
   var ideas=(IDEAS_COLS[cat]||[]).filter(function(it){
@@ -712,20 +761,20 @@ function openIdeaModal(cat,i){
   }
 }
 function closePdfResModal(){document.getElementById('res-modal').classList.remove('open');}
- 
+
 function openPdfModal(pdfPath,title){
   document.getElementById('pdf-modal-title').textContent=title||'';
   document.getElementById('pdf-modal-frame').src=pdfPath;
   document.getElementById('pdf-modal-ext').href=pdfPath;
   document.getElementById('pdf-modal').classList.add('open');
 }
- 
+
 function closePdfModal(){
   document.getElementById('pdf-modal').classList.remove('open');
   document.getElementById('pdf-modal-frame').src='';
 }
 document.addEventListener('DOMContentLoaded',function(){var m=document.getElementById('pdf-modal');if(m)m.addEventListener('click',function(e){if(e.target===this)closePdfModal();});});
- 
+
 // Share PDF via Outlook (backend opens Outlook with file attached)
 function sharePdf(pdfPath,title){
   if(!pdfPath){alert('No PDF to share.');return;}
@@ -746,7 +795,7 @@ function sharePdf(pdfPath,title){
     alert('Could not open Outlook.\n\n'+e.message);
   });
 }
- 
+
 // ════ CAROUSEL DATA ════
 var RESEARCH=[
   {ac:'equity',type:'sell',date:'2026-04-07',title:'Canadian Natural Resources — Downgrade to Sell',ticker:'CA1363851017',excerpt:'CFRA downgraded CNQ to Sell after 42% YTD rally. Fully valued, limited upside. WTI normalization risk.',rec:'Sell',tags:['Equity','Sell','Update']},
@@ -831,7 +880,7 @@ var RESEARCH=[
   {ac:'equity',type:'update',date:'2025-12-01',title:'Smart Transition ESG - Dec 2025',pdf:'/z/Thematics Report/Smart Transition -ESG - Dec 2025 USD.pdf',rec:null,tags:['Thematic','ESG','Update']},
   {ac:'equity',type:'update',date:'2025-12-01',title:'Opportunistic Thematic - Dec 2025',pdf:'/z/Thematics Report/Opportunistic Thematic Basket - USD - 2025.12.pdf',rec:null,tags:['Thematic','Update']},
 ];
- 
+
 // ─── Live publications refresh ────────────────────────────────────
 // After the page has loaded with the hardcoded fallback data, ask the server
 // for the actual list of PDFs currently on disk. If successful, merge any
@@ -843,7 +892,7 @@ async function refreshPublicationsFromServer(){
     if(!resp.ok)return;
     var data=await resp.json();
     if(!data||!data.publications||!data.publications.length)return;
- 
+
     // Human date formatter: "2026-04-13" -> "13 Apr 2026"
     var MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     function humanDate(iso){
@@ -854,11 +903,11 @@ async function refreshPublicationsFromServer(){
       if(m<0||m>11)return iso;
       return d+' '+MONTHS[m]+' '+y;
     }
- 
+
     // Build a fast lookup of what's already in RESEARCH (by title + date)
     var seen={};
     RESEARCH.forEach(function(r){seen[(r.title||'').toLowerCase()+'|'+(r.date||'')]=1;});
- 
+
     // Map server items into the RESEARCH card format
     var added=0;
     data.publications.forEach(function(p){
@@ -885,7 +934,7 @@ async function refreshPublicationsFromServer(){
       });
       seen[key]=1;added++;
     });
- 
+
     if(added>0 && typeof renderResearch==='function'){
       renderResearch();
     }
@@ -896,37 +945,37 @@ async function refreshPublicationsFromServer(){
 // Kick off the refresh without blocking initial render
 setTimeout(refreshPublicationsFromServer,200);
 // ──────────────────────────────────────────────────────────────────
- 
+
 // ════ LATEST RESEARCH -- 5 columns ════
 // Add ESG items to RESEARCH
- 
+
 function recTagClass(r){if(!r)return'';return r==='HC'?'r-hc':r==='Buy'?'r-buy':r==='Hold'?'r-hold':r==='Add'?'r-add':'r-sell';}
 function typeLabel(t){return t==='new'?'New Launch':t==='sell'?'Sell':t==='initiation'?'Initiation':t==='update'?'Update':'Research';}
 function acCls(a){return a==='equity'?'ac-eq':a==='fi'?'ac-fi':a==='sp'?'ac-sp':a==='esg'?'ac-esg':'ac-fund';}
 function acTopCls(a){return a==='equity'?'ac-eq-top':a==='fi'?'ac-fi-top':a==='sp'?'ac-sp-top':a==='esg'?'ac-esg-top':'ac-fund-top';}
 function acShort(a){return a==='equity'?'EQ':a==='fi'?'FI':a==='sp'?'SP':a==='esg'?'ESG':'FUND';}
- 
+
 var _resModalData=[];
 var _resTagFilter='all';
 var _resSearchQ='';
- 
+
 function resFilter(f,btn){
   _resTagFilter=f;
   document.querySelectorAll('.car-filters .tf-btn').forEach(function(b){b.classList.remove('on');});
   if(btn)btn.classList.add('on');
   renderResearch();
 }
- 
+
 function resSearch(q){
   _resSearchQ=(q||'').toLowerCase().trim();
   renderResearch();
 }
- 
+
 function resScroll(dir){
   var el=document.getElementById('res-cards');
   if(el)el.scrollBy({left:dir*260,behavior:'smooth'});
 }
- 
+
 function renderResearch(){
   var all=RESEARCH.slice().sort(function(a,b){return new Date(b.date)-new Date(a.date);});
   _resModalData=all;
@@ -987,7 +1036,7 @@ function renderResearch(){
     if(n.rec)skip[n.rec.toUpperCase()]=1;
     (n.tags||[]).forEach(function(t){if(!skip[t.toUpperCase()])addTag(t,t);});
     var tagsHtml=tagParts.slice(0,5).join('');
- 
+
     return'<div class="res-card '+acTopCls(n.ac)+'" onclick="openResModal('+n._idx+')">'
       +'<div class="res-card-top">'
       
@@ -998,7 +1047,7 @@ function renderResearch(){
       +'<span class="res-card-date">'+df+'</span>'
       +'</div>';
   }).join('');
- 
+
   // Generate AI excerpts for cards (2 short paragraphs, ~80-110 chars each)
   filtered.forEach(function(n){
     if(n._aiExcerpt){var e=document.getElementById('res-exc-'+n._idx);if(e)e.innerHTML=n._aiExcerpt.split('\n\n').map(function(s){return '<p style="margin:0 0 8px 0">'+esc(s.trim())+'</p>';}).join('');return;}
@@ -1025,7 +1074,7 @@ function renderResearch(){
     }
   });
 }
- 
+
 function openResModal(i){
   var n=_resModalData[i];if(!n)return;
   var acLabel=n.ac==='equity'?'Equity':n.ac==='fi'?'Fixed Income':n.ac==='sp'?'Structured Products':n.ac==='esg'?'ESG':'Fund';
@@ -1035,22 +1084,22 @@ function openResModal(i){
   if(n.type){var tl=typeLabel(n.type);if(tl)allTags.push(tl.toUpperCase());}
   (n.tags||[]).forEach(function(t){var u=t.toUpperCase();if(allTags.indexOf(u)<0)allTags.push(u);});
   var tagsHtml=allTags.map(function(t){return'<span class="tag-pill tag-'+t.replace(/[^a-zA-Z0-9]/g,'-')+'">'+esc(t)+'</span>';}).join('');
- 
+
   document.getElementById('rm-title').textContent=n.title||'';
   var df=n.date?new Date(n.date).toLocaleDateString('en-GB',{day:'2-digit',month:'long',year:'numeric'}):'';
   document.getElementById('rm-meta').innerHTML=
     '<span class="note-ac na-eq" style="background:var(--s2);color:var(--tm);border-color:var(--border)">'+acLabel+'</span>'
     +(df?'<span style="font-size:8px;color:var(--tm);font-family:var(--font-b);font-style:italic">'+df+'</span>':'')
     +'<div class="tag-row" style="margin-top:8px;margin-bottom:0">'+tagsHtml+'</div>';
- 
+
   // Show excerpt immediately, then Claude enhances it
   var detailText=n.detail||n.excerpt||'';
   var html='<div id="rm-res-text" style="white-space:pre-wrap;line-height:1.85;margin-bottom:18px">'+esc(detailText).replace(/\n/g,'<br>')+'</div>';
   if(n.pdf) html+='<div style="padding-top:14px;border-top:1px solid var(--border);display:flex;gap:10px;flex-wrap:wrap"><button class="view-pdf-btn" onclick="closeResModal();openPdfModal(\''+esc(n.pdf)+'\',\''+esc(n.title)+'\')">View PDF Report</button><button class="view-pdf-btn" style="background:var(--surface);color:var(--navy);border:2px solid var(--navy)" onclick="sharePdf(\''+esc(n.pdf)+'\',\''+esc(n.title)+'\')">Share PDF</button></div>';
- 
+
   document.getElementById('rm-text').innerHTML=html;
   document.getElementById('res-modal').classList.add('open');
- 
+
   // Claude API: generate expanded summary asynchronously
   if(detailText.length<400){
     // Show loading indicator
@@ -1086,11 +1135,11 @@ function openResModal(i){
     }).catch(function(){});
   }
 }
- 
- 
+
+
 function closeResModal(){document.getElementById('res-modal').classList.remove('open');}
 document.getElementById('res-modal').addEventListener('click',function(e){if(e.target===this)closeResModal();});
- 
+
 // ════ CALENDAR ════
 // CALENDAR is populated at runtime by:
 //   1. Fetching the investment universe from /api/universe (server reads CFRA Universe xlsx)
@@ -1100,7 +1149,7 @@ document.getElementById('res-modal').addEventListener('click',function(e){if(e.t
 //   5. Merging with MACRO_EVENTS (hardcoded below) for central bank meetings and key releases
 // To enable: paste your FMP API key into _FMP_KEY near the top of this script.
 var CALENDAR=[];
- 
+
 // ─── MACRO_EVENTS ────────────────────────────────────────────────
 // Hardcoded known macro events for 2026. Central bank meeting dates are published in
 // advance and stable. Update this array roughly once a quarter or when the schedule
@@ -1111,7 +1160,7 @@ var MACRO_EVENTS=[
   {dt:'2026-04-23',t:'15:45',n:'US S&P Global Flash PMIs (Apr)',m:'Mfg 52.5e · Services 50.5e',tag:'macro'},
   {dt:'2026-04-24',t:'14:30',n:'US Durable Goods Orders (Mar)',m:'Consensus: +1.5% MoM',tag:'macro'},
   {dt:'2026-04-24',t:'14:30',n:'US Weekly Jobless Claims',m:'Consensus: 215k',tag:'macro'},
- 
+
   // ─── Week of Apr 27 2026 (FOMC week + ECB + BoE) ───
   {dt:'2026-04-28',t:'16:00',n:'US Conference Board Consumer Confidence (Apr)',m:'Previous: 91.8',tag:'macro'},
   {dt:'2026-04-29',t:'14:30',n:'US Durable Goods Orders (Mar)',m:'Previous: -1.4%',tag:'macro'},
@@ -1123,20 +1172,20 @@ var MACRO_EVENTS=[
   {dt:'2026-04-30',t:'14:30',n:'US Core PCE Price Index (Mar)',m:'MoM +0.4%e · YoY +3.0%e',tag:'macro'},
   {dt:'2026-04-30',t:'14:30',n:'US GDP Q1 (Advance)',m:'QoQ +0.5%e',tag:'macro'},
   {dt:'2026-05-01',t:'14:30',n:'US Non-Farm Payrolls (Apr)',m:'Consensus TBC',tag:'macro'},
- 
+
   // ─── Week of May 4 2026 ───
   {dt:'2026-05-05',t:'15:45',n:'US ISM Services PMI (Apr)',m:'',tag:'macro'},
   {dt:'2026-05-07',t:'14:30',n:'US Weekly Jobless Claims',m:'',tag:'macro'},
 ];
 // ─────────────────────────────────────────────────────────────────
- 
+
 // Helper: given a ticker and a universe dict, return enriched info or null
 function _lookupUniverse(ticker, universe){
   if(!ticker||!universe)return null;
   var u=universe[ticker.toUpperCase()];
   return u||null;
 }
- 
+
 // Helper: derive a Q# FY label from a fiscal ending date string (YYYY-MM-DD)
 function _quarterLabel(fiscalEnd){
   if(!fiscalEnd)return'';
@@ -1147,14 +1196,14 @@ function _quarterLabel(fiscalEnd){
   var q=month<=3?'Q1':month<=6?'Q2':month<=9?'Q3':'Q4';
   return q+' '+year;
 }
- 
+
 // ─── EU/CH earnings via Claude web_search ──────────────────────
 // Claude API with web_search activated searches MarketScreener / Reuters / IR pages
 // for upcoming earnings of non-US tickers in the universe. Result is cached
 // in localStorage for 7 days to avoid repeated API calls.
 var _EUCH_CACHE_KEY='mhc_euch_earnings_v1';
 var _EUCH_CACHE_DAYS=7;
- 
+
 function _euChCacheLoad(){
   try{
     var raw=localStorage.getItem(_EUCH_CACHE_KEY);
@@ -1166,22 +1215,22 @@ function _euChCacheLoad(){
     return obj.data;
   }catch(e){return null;}
 }
- 
+
 function _euChCacheSave(data){
   try{
     localStorage.setItem(_EUCH_CACHE_KEY,JSON.stringify({ts:Date.now(),data:data}));
   }catch(e){}
 }
- 
+
 function _euChClearCache(){
   try{localStorage.removeItem(_EUCH_CACHE_KEY);}catch(e){}
 }
- 
+
 // Call Anthropic API with web_search tool to find upcoming EU/CH earnings.
 // Returns an array of {date, ticker, company, time, type, quarter, sector} or null on failure.
 async function _loadEuChFromClaude(nonUsUniverse, fromDate, toDate){
   if(!_AK||!nonUsUniverse||Object.keys(nonUsUniverse).length===0)return null;
- 
+
   // Build compact list (ticker | name) for the prompt. Limit to 200 tickers max.
   var items=[];
   Object.keys(nonUsUniverse).slice(0,200).forEach(function(k){
@@ -1189,7 +1238,7 @@ async function _loadEuChFromClaude(nonUsUniverse, fromDate, toDate){
     items.push(k+' | '+(u.name||''));
   });
   var listText=items.join('\n');
- 
+
   var prompt='Find upcoming earnings report or trading update dates for the following European/Swiss/UK companies, within the date window '+fromDate+' to '+toDate+'.\n\n'+
              'Company list (ticker | name):\n'+listText+'\n\n'+
              'Use web search on reliable sources (MarketScreener, Reuters, company IR pages, Bloomberg). '+
@@ -1206,7 +1255,7 @@ async function _loadEuChFromClaude(nonUsUniverse, fromDate, toDate){
              'If unsure about a date, skip that company rather than guess.\n'+
              'Example output:\n'+
              '[{"date":"2026-04-24","ticker":"NESN","company":"Nestle","time":"Pre-mkt","type":"Trading Update","quarter":"Q1 2026","sector":"Consumer Staples"}]';
- 
+
   try{
     var resp=await fetch('https://api.anthropic.com/v1/messages',{
       method:'POST',
@@ -1226,13 +1275,13 @@ async function _loadEuChFromClaude(nonUsUniverse, fromDate, toDate){
     if(!resp.ok){console.log('[calendar] Claude API error:',resp.status);return null;}
     var data=await resp.json();
     if(!data||!data.content)return null;
- 
+
     // Find the text block containing the JSON (Claude may emit tool_use + tool_result + text)
     var fullText='';
     data.content.forEach(function(block){
       if(block.type==='text'&&block.text)fullText+=block.text+'\n';
     });
- 
+
     // Extract the JSON array from the text (may be wrapped in markdown or prose)
     var m=fullText.match(/\[[\s\S]*\]/);
     if(!m){console.log('[calendar] Claude response had no JSON array');return null;}
@@ -1245,7 +1294,7 @@ async function _loadEuChFromClaude(nonUsUniverse, fromDate, toDate){
     return null;
   }
 }
- 
+
 // Exposed on window so admin.html or console can force a refresh
 window.refreshEuChEarnings=async function(){
   _euChClearCache();
@@ -1253,7 +1302,7 @@ window.refreshEuChEarnings=async function(){
   await loadCalendarFromServer();
 };
 // ──────────────────────────────────────────────────────────────
- 
+
 // Fetch JSON from a URL, trying direct first then corsproxy.io as fallback.
 async function _fmpFetch(url){
   try{
@@ -1266,7 +1315,7 @@ async function _fmpFetch(url){
   }catch(e){}
   return [];
 }
- 
+
 // Fetch the investment universe from the local server
 async function _loadUniverse(){
   try{
@@ -1276,18 +1325,18 @@ async function _loadUniverse(){
     return data.universe||{};
   }catch(e){return{};}
 }
- 
+
 // Transform FMP earnings + EU/CH earnings + macro events into the {dt, ev:[{t,n,m,tag}]} format
 function _buildCalendar(fmpEarnings, universe, euChEarnings){
   var byDate={};
- 
+
   // FMP earnings (US): filter to universe + enrich
   (fmpEarnings||[]).forEach(function(it){
     if(!it||!it.date||!it.symbol)return;
     var u=_lookupUniverse(it.symbol,universe);
     if(!u)return; // skip tickers not covered by the bank
     if(it.epsEstimated===null||it.epsEstimated===undefined)return;
- 
+
     var tRaw=(it.time||'').toLowerCase();
     // No time hint in the response? Default to "After-hrs" since ~70% of
     // US earnings are released after market close. This is more useful than
@@ -1303,11 +1352,11 @@ function _buildCalendar(fmpEarnings, universe, euChEarnings){
     if(epsStr)metaBits.push(epsStr);
     if(u.sector)metaBits.push(u.sector);
     var meta=metaBits.join(' \u00b7 ');
- 
+
     if(!byDate[it.date])byDate[it.date]=[];
     byDate[it.date].push({t:tLabel,n:title,m:meta,tag:'earn',_rank:1});
   });
- 
+
   // EU/CH earnings from Claude web_search: no EPS estimate, use type + quarter
   (euChEarnings||[]).forEach(function(it){
     if(!it||!it.date)return;
@@ -1321,18 +1370,18 @@ function _buildCalendar(fmpEarnings, universe, euChEarnings){
     if(it.ticker)metaBits.push(it.ticker);
     var meta=metaBits.join(' \u00b7 ');
     var tLabel=it.time||'TBC';
- 
+
     if(!byDate[it.date])byDate[it.date]=[];
     byDate[it.date].push({t:tLabel,n:title,m:meta,tag:'earn',_rank:1});
   });
- 
+
   // Macro events: hardcoded array
   MACRO_EVENTS.forEach(function(e){
     if(!e.dt)return;
     if(!byDate[e.dt])byDate[e.dt]=[];
     byDate[e.dt].push({t:e.t,n:e.n,m:e.m,tag:e.tag,_rank:e.tag==='cb'?0:2});
   });
- 
+
   // Sort each day and output
   var result=[];
   Object.keys(byDate).sort().forEach(function(dt){
@@ -1343,17 +1392,17 @@ function _buildCalendar(fmpEarnings, universe, euChEarnings){
   });
   return result;
 }
- 
+
 async function loadCalendarFromServer(){
   var today=new Date();
   var end=new Date();end.setDate(today.getDate()+14);
   function ymd(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
   var from=ymd(today), to=ymd(end);
- 
+
   // Always load the universe (needed for both FMP filtering and Claude call)
   var universe=await _loadUniverse();
   var universeSize=Object.keys(universe).length;
- 
+
   // Split universe into US and non-US for parallel processing
   var nonUsUniverse={};
   Object.keys(universe).forEach(function(k){
@@ -1361,7 +1410,7 @@ async function loadCalendarFromServer(){
     if(u.region&&u.region.toUpperCase()!=='US')nonUsUniverse[k]=u;
   });
   var nonUsSize=Object.keys(nonUsUniverse).length;
- 
+
   // Source 1 (US earnings): FMP
   // We try the legacy /api/v3/earning_calendar endpoint FIRST because it returns
   // the "time" field (bmo/amc) which is valuable for the calendar UI. If it fails
@@ -1386,7 +1435,7 @@ async function loadCalendarFromServer(){
   } else {
     console.log('[calendar] _FMP_KEY is empty - US earnings disabled.');
   }
- 
+
   // Source 2 (EU/CH earnings): Claude web_search with 7-day cache
   var euChEarnings=_euChCacheLoad();
   if(euChEarnings){
@@ -1405,29 +1454,29 @@ async function loadCalendarFromServer(){
   } else {
     euChEarnings=[];
   }
- 
+
   // Source 3 (macro): hardcoded MACRO_EVENTS (handled inside _buildCalendar)
- 
+
   console.log('[calendar] Summary: FMP',fmpEarnings.length,'| EU/CH',euChEarnings.length,'| Universe',universeSize,'('+nonUsSize+' non-US)');
- 
+
   CALENDAR=_buildCalendar(fmpEarnings,universe,euChEarnings);
   if(typeof renderCalendar==='function')renderCalendar();
   console.log('[calendar] Rendered '+CALENDAR.length+' day(s).');
 }
 setTimeout(loadCalendarFromServer,300);
 var TL={earn:'Earn',macro:'Macro',cb:'CB'};
- 
+
 function renderCalendar(){
   var el=document.getElementById('agenda-scroll');if(!el)return;
   var now=new Date();
   var todayStr=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');
   var dayNames=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   var monNames=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
- 
+
   // Build index of calendar events by date
   var byDate={};
   CALENDAR.forEach(function(d){ byDate[d.dt]=d; });
- 
+
   // Generate 7 business days (skip Saturdays and Sundays) starting from today.
   // If today is a weekend, start from the next Monday.
   var days=[];
@@ -1445,18 +1494,18 @@ function renderCalendar(){
     }
     cursor.setDate(cursor.getDate()+1);
   }
- 
+
   el.innerHTML=days.map(function(day){
     var dayLabel=dayNames[day.dayObj.getDay()]+' '+day.dayObj.getDate()+' '+monNames[day.dayObj.getMonth()];
     var hdr='<div class="ag-day-hdr"><span class="ag-dlabel'+(day.isToday?' today':'')+'">'+dayLabel+'</span>'+(day.isToday?'<span class="ag-today-tag">Today</span>':'')+'</div>';
- 
+
     // Weekday with no events
     if(!day.entry){
       return '<div class="ag-day ag-empty">'+hdr
         +'<div class="ag-placeholder">No major events scheduled</div>'
       +'</div>';
     }
- 
+
     // Normal day with events
     var evs=day.entry.ev.map(function(e){
       return'<div class="ag-ev">'
@@ -1469,7 +1518,7 @@ function renderCalendar(){
     return'<div class="ag-day">'+hdr+evs+'</div>';
   }).join('');
 }
- 
+
 // ════ NEWS — investment-focused sources (CNBC, MarketWatch, Yahoo Finance, Le Temps) ════
 var NEWS_FEEDS=[
   {url:'https://www.cnbc.com/id/100003114/device/rss/rss.html',name:'CNBC'},                  // CNBC Top News
@@ -1480,7 +1529,7 @@ var NEWS_FEEDS=[
   {url:'https://finance.yahoo.com/news/rssindex',name:'Yahoo Finance'},                       // Yahoo Finance
   {url:'https://www.letemps.ch/feeds/economie.rss',name:'Le Temps'},                          // Le Temps Economie
 ];
- 
+
 // Keywords filter: keep only investment-relevant news
 // Matches any of these (case-insensitive) in title or excerpt
 var NEWS_KEYWORDS=[
@@ -1505,7 +1554,7 @@ var NEWS_KEYWORDS=[
   // Currency
   'dollar','euro','franc','currency','forex','exchange rate','devise','monnaie'
 ];
- 
+
 function isInvestmentRelevant(title, excerpt) {
   var text = ((title||'') + ' ' + (excerpt||'')).toLowerCase();
   for (var i = 0; i < NEWS_KEYWORDS.length; i++) {
@@ -1517,11 +1566,11 @@ var _newsFeedIdx=0;
 var _newsCountdownTimer=null;
 var NEWS_INTERVAL=15*60;
 var _newsCountdown=NEWS_INTERVAL;
- 
+
 function timeSince(s){
   try{var d=new Date(s),m=Math.floor((new Date()-d)/60000);if(isNaN(m))return'';return m<1?'now':m<60?m+'m':Math.floor(m/60)+'h';}catch(e){return'';}
 }
- 
+
 function startNewsCountdown(){
   _newsCountdown=NEWS_INTERVAL;
   if(_newsCountdownTimer)clearInterval(_newsCountdownTimer);
@@ -1530,7 +1579,7 @@ function startNewsCountdown(){
     if(_newsCountdown<=0){clearInterval(_newsCountdownTimer);fetchNews();}
   },1000);
 }
- 
+
 function parseRSS(xmlStr,srcName){
   try{
     var parser=new DOMParser();
@@ -1548,7 +1597,7 @@ function parseRSS(xmlStr,srcName){
     }).filter(function(i){return i.title&&i.title.length>10;});
   }catch(e){return null;}
 }
- 
+
 // Fetch a single feed, trying multiple proxies until one works
 // Returns a Promise that resolves with an array of items (or empty array on failure)
 function fetchSingleFeed(feed) {
@@ -1579,7 +1628,7 @@ function fetchSingleFeed(feed) {
   }
   return tryProxy(0);
 }
- 
+
 function fetchFeed(feedIdx, attempt) {
   // Fetch ALL feeds in parallel, merge results
   Promise.all(NEWS_FEEDS.map(function(f){ return fetchSingleFeed(f); }))
@@ -1604,12 +1653,12 @@ function fetchFeed(feedIdx, attempt) {
     })
     .catch(function(){ renderNewsFallback(); });
 }
- 
+
 function fetchNews(){
   fetchFeed(0,0);
   startNewsCountdown();
 }
- 
+
 function renderNews(items,src){
   var el=document.getElementById('news-list');
   var ld=document.getElementById('news-loading');
@@ -1643,7 +1692,7 @@ function renderNews(items,src){
       +'</div>';
   }).join('');
 }
- 
+
 function renderNewsFallback(){
   var el=document.getElementById('news-list');
   var ld=document.getElementById('news-loading');
@@ -1670,7 +1719,7 @@ function renderNewsFallback(){
   }).join('');
   startNewsCountdown();
 }
- 
+
 async function openNewsModal(idx){
   var items=window._newsItems||[];
   var item=items[idx];if(!item)return;
@@ -1709,7 +1758,7 @@ async function openNewsModal(idx){
 }
 function closeNewsModal(){document.getElementById('news-modal').classList.remove('open');}
 document.getElementById('news-modal').addEventListener('click',function(e){if(e.target===this)closeNewsModal();});
- 
+
 // ════ FOREX ════
 async function handleForexPdf(files){
   if(!files||!files.length)return;
@@ -1735,7 +1784,7 @@ async function handleForexPdf(files){
     if(content)content.innerHTML='<div style="font-size:9px;color:rgba(255,255,255,.4);font-style:italic;font-family:var(--font-b)">Error — check API access.</div>';
   }
 }
- 
+
 function renderForexSummary(text){
   var content=document.getElementById('forex-content');
   var meta=document.getElementById('forex-meta-display');
@@ -1766,7 +1815,7 @@ function renderForexSummary(text){
   }).join('');
   content.innerHTML=html||'<div style="font-size:11px;color:rgba(255,255,255,.4);font-style:italic;font-family:var(--font-b)">No content extracted.</div>';
 }
- 
+
 // ════ WIM ════
 async function handleWimPdf(files){
   if(!files||!files.length)return;
@@ -1792,7 +1841,7 @@ async function handleWimPdf(files){
     if(content)content.innerHTML='<div style="font-size:9px;color:rgba(255,255,255,.4);font-style:italic;font-family:var(--font-b)">Error — check API access.</div>';
   }
 }
- 
+
 function renderWimSummary(text){
   var content=document.getElementById('wim-content');
   var meta=document.getElementById('wim-meta-display');
@@ -1823,9 +1872,82 @@ function renderWimSummary(text){
   }).join('');
   content.innerHTML=html||'<div style="font-size:11px;color:rgba(255,255,255,.4);font-style:italic;font-family:var(--font-b)">No content extracted.</div>';
 }
- 
+
 // Advisory editing removed - managed via admin.html
- 
+
+// ════ SETTINGS PANEL — API key management ════
+function toggleSettings() {
+  var p = document.getElementById('settings-panel');
+  var visible = p.style.display !== 'none';
+  p.style.display = visible ? 'none' : 'block';
+  if (!visible) refreshSettingsUI();
+}
+function refreshSettingsUI() {
+  var akInp = document.getElementById('ak-input');
+  var fmpInp = document.getElementById('fmp-input');
+  if (_AK) {
+    akInp.value = '';
+    akInp.placeholder = '\u2713 Saved: ' + _AK.slice(0, 12) + '...';
+    akInp.style.borderColor = '#2d6a4f';
+  } else {
+    akInp.value = '';
+    akInp.placeholder = 'sk-ant-api03-...';
+    akInp.style.borderColor = '';
+  }
+  if (_FMP_KEY) {
+    fmpInp.value = '';
+    fmpInp.placeholder = '\u2713 Saved: ' + _FMP_KEY.slice(0, 8) + '...';
+    fmpInp.style.borderColor = '#2d6a4f';
+  } else {
+    fmpInp.value = '';
+    fmpInp.placeholder = 'your-fmp-key...';
+    fmpInp.style.borderColor = '';
+  }
+  // Update nav button indicator
+  var btn = document.getElementById('settings-btn');
+  if (btn) btn.style.color = _AK ? 'rgba(45,106,79,.8)' : 'rgba(255,255,255,.4)';
+}
+function saveAKFromSettings() {
+  var inp = document.getElementById('ak-input');
+  var val = inp.value.trim();
+  if (!val) return;
+  if (val.indexOf('sk-ant-') !== 0) {
+    inp.value = '';
+    inp.placeholder = '\u26A0 Must start with sk-ant-';
+    inp.style.borderColor = '#c0392b';
+    return;
+  }
+  _saveKey('ak', val);
+  refreshSettingsUI();
+  showKeyStatus('\u2713 Anthropic key saved — AI features now active across all pages.');
+}
+function saveFMPFromSettings() {
+  var inp = document.getElementById('fmp-input');
+  var val = inp.value.trim();
+  if (!val) return;
+  _saveKey('fmp', val);
+  refreshSettingsUI();
+  showKeyStatus('\u2713 FMP key saved — earnings calendar will populate on next load.');
+}
+function clearAllKeys() {
+  _clearKey('ak');
+  _clearKey('fmp');
+  refreshSettingsUI();
+  showKeyStatus('All keys removed.');
+}
+function showKeyStatus(msg) {
+  var el = document.getElementById('keys-saved-status');
+  if (el) { el.textContent = msg; setTimeout(function() { el.textContent = ''; }, 4000); }
+}
+// Close settings panel when clicking outside
+document.addEventListener('click', function(e) {
+  var p = document.getElementById('settings-panel');
+  var btn = document.getElementById('settings-btn');
+  if (p && p.style.display !== 'none' && !p.contains(e.target) && e.target !== btn) {
+    p.style.display = 'none';
+  }
+});
+
 // ════ INIT ════
 (function(){
   var d=new Date();
@@ -1834,17 +1956,17 @@ function renderWimSummary(text){
   if(nd)nd.textContent=fmt({weekday:'long',day:'numeric',month:'long',year:'numeric'});
   var icd=document.getElementById('ic-date');
   if(icd)icd.textContent='Week of '+fmt({day:'2-digit',month:'short',year:'numeric'});
- 
+
   // Restore Advisory
   var sa=ls('mhc_advisory');
   var rawAdv=sa&&sa.text?sa.text:'Central banks remain on hold amid resilient labour markets and sticky services inflation. Equity valuations are pricing in a soft landing — selectivity is key.\n\nIn Fixed Income, short duration IG corporates offer compelling carry.\n\nThematic focus: AI infrastructure and European defence remain our top convictions.';
   rawAdv=rawAdv.replace(/<br\s*\/?>/gi,'\n').replace(/<[^>]+>/g,'');
   document.getElementById('adv-text-left').textContent=rawAdv;
- 
+
   // Restore IC
   var si=ls('mhc_ic');
   if(si&&si.text){document.getElementById('ic-text').textContent=si.text.replace(/<br\s*\/?>/gi,'\n').replace(/<[^>]+>/g,'');}
- 
+
   // Restore WIM
   var sw=ls('mhc_wim_summary');
   if(sw&&sw.text){
@@ -1858,7 +1980,7 @@ function renderWimSummary(text){
     var pdfLink=document.getElementById('wim-pdf-link');
     if(wimName&&pdfLink){var wimUrl='/wim/'+encodeURIComponent(wimName);pdfLink.href=wimUrl;pdfLink.setAttribute('data-pdf',wimUrl);pdfLink.style.display='inline-block';}
   }catch(e){}
- 
+
   // Restore Forex
   var sf=ls('mhc_forex_summary');
   if(sf&&sf.text){
@@ -1872,12 +1994,19 @@ function renderWimSummary(text){
     var forexLink=document.getElementById('forex-pdf-link');
     if(forexName&&forexLink){var forexUrl='/forex/'+encodeURIComponent(forexName);forexLink.href=forexUrl;forexLink.setAttribute('data-pdf',forexUrl);forexLink.style.display='inline-block';}
   }catch(e){}
- 
+
   renderCalendar();
   renderIdeas();
   renderResearch();
   fetchNews();
- 
+  refreshSettingsUI();
+
+  // Subtle hint if no API key configured
+  if (!_AK) {
+    var btn = document.getElementById('settings-btn');
+    if (btn) { btn.style.border = '1px solid rgba(188,150,84,.6)'; btn.style.color = 'rgba(188,150,84,.8)'; }
+  }
+
   // Auto-refresh news and calendar every 15 minutes
   setInterval(function(){ fetchNews(); loadCalendarFromServer(); }, 15 * 60 * 1000);
 })();
