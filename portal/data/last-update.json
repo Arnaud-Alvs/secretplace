@@ -1,1 +1,6 @@
-
+{
+  "equity":    { "updated": "2026-07-09T14:00:00Z", "file": "sample_data.xlsx", "securities": 25, "status": "sample" },
+  "research":  { "updated": "2026-07-09T14:00:00Z", "entries": 8, "status": "sample" },
+  "ideas":     { "updated": "2026-07-09T14:00:00Z", "entries": 6, "status": "sample" },
+  "narrative": { "updated": "2026-07-09T14:00:00Z", "status": "live" }
+}

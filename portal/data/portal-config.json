@@ -1,1 +1,38 @@
-{hello}
+{
+  "version": "1.0",
+  "updated": "2026-07-09T14:00:00Z",
+  "dataRoot": "../data/",
+  "pubRoot": "../publications/",
+
+  "apiKey": "",
+
+  "strategy": {
+    "narrative": "Central banks remain on hold amid resilient labour markets and sticky services inflation.\n\nEquity valuations are pricing in a soft landing — selectivity is key.\n\nIn Fixed Income, short duration IG corporates offer compelling carry.\n\nThematic focus: AI infrastructure and European defence remain our top convictions.",
+    "icMessage": "Maintain overweight Equities vs Fixed Income.\nWithin equities, favour Quality Growth over Value.\nIn FI, stay short duration with preference for IG credit over govies.\nContinue to reduce USD exposure as Fed divergence widens vs ECB.",
+    "icDate": "7 July 2026",
+    "wimSummary": "",
+    "forexSummary": ""
+  },
+
+  "dataSources": {
+    "equity":    { "file": "equity-universe.json",    "label": "Equity Universe",     "updated": null },
+    "fi":        { "file": "fi-universe.json",         "label": "FI Universe",         "updated": null },
+    "ideas":     { "file": "investment-ideas.json",    "label": "Investment Ideas",     "updated": null },
+    "research":  { "file": "research-notes.json",      "label": "Research Notes",       "updated": null },
+    "funds":     { "file": "fund-list.json",           "label": "Fund List",            "updated": null },
+    "esg":       { "file": "esg-data.json",            "label": "ESG Data",             "updated": null },
+    "narrative": { "file": "advisory-narrative.json",  "label": "Advisory Narrative",   "updated": null }
+  },
+
+  "nav": [
+    { "label": "Portal",              "href": "portal.html",              "active": true },
+    { "label": "Equity",              "href": "equity_screener.html",     "active": true },
+    { "label": "Fixed Income",        "href": "fixed_income.html",        "active": false },
+    { "label": "ESG & SRI",           "href": "esg_sri.html",             "active": false },
+    { "label": "Structured Products", "href": "structured_products.html", "active": false },
+    { "label": "Funds & ETFs",        "href": "funds_etf.html",           "active": false },
+    { "label": "AMC",                 "href": "thematics_amc.html",       "active": false },
+    { "label": "Research Notes",      "href": "research.html",            "active": false },
+    { "label": "Admin",               "href": "admin.html",               "active": false, "role": "admin" }
+  ]
+}

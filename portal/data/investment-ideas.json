@@ -1,1 +1,19 @@
-
+{
+  "meta": { "generated": "2026-07-09T14:00:00Z" },
+  "ideas": {
+    "equity": [
+      {"title":"ASML — HC Target EUR 1,150","detail":"High-NA EUV monopoly. Order book through 2028. Secular AI capex beneficiary.","tags":["HC","Equity"],"ticker":"ASML NA","date":"2026-07-04"},
+      {"title":"European Momentum Basket — Q3 2026","detail":"Rotating into quality momentum names across EU defence, industrials, and tech.","tags":["Thematic","Equity"],"ticker":"","date":"2026-07-01"}
+    ],
+    "fi": [
+      {"title":"Enel SpA — FT rated to BBB 11","detail":"Italian utility with EUR 8bn committed EBITDA and EUR 6bn debt redemption. Improving credit metrics.","tags":["Buy","FI"],"ticker":"ENEL IM","date":"2026-06-28"},
+      {"title":"Hyundai Capital USD 2y/3y/5y","detail":"Korean auto finance. BBB+ rated. Attractive spread over US Treasury curve.","tags":["New Issue","FI"],"ticker":"","date":"2026-06-25"}
+    ],
+    "sp": [
+      {"title":"BRC SX5E 04.27","detail":"Barrier reverse convertible. 8.2% coupon, 60% barrier, 12-month. Suits moderate risk appetite.","tags":["New Launch","SP"],"ticker":"SXSE","date":"2026-07-01"}
+    ],
+    "fund": [
+      {"title":"Diversified Liquid Alt AMC","detail":"Multi-strategy liquid alternatives. 4.8% net return with 4.6% vol. Low correlation to equity.","tags":["Fund","Alternatives"],"ticker":"","date":"2026-06-20"}
+    ]
+  }
+}

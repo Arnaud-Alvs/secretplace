@@ -1,1 +1,11 @@
-
+{
+  "meta": { "generated": "2026-07-09T14:00:00Z", "count": 6 },
+  "notes": [
+    {"title":"Trend Alert — AI Infrastructure Capex Cycle","date":"2026-07-07","ac":"equity","type":"TrendAlert","tags":["Thematic","Macro"],"excerpt":"Hyperscaler capex commitments for 2026 now exceed $280bn. We see durable demand for semiconductor equipment, power infrastructure, and cooling solutions through 2028.","rec":"","ticker":""},
+    {"title":"The Week Ahead — 7 July 2026","date":"2026-07-07","ac":"equity","type":"WeekAhead","tags":["Macro"],"excerpt":"US payrolls surprised to the upside. European PMIs stabilising. Focus this week: ECB minutes (Wed), US CPI (Thu), earnings pre-season begins.","rec":"","ticker":""},
+    {"title":"Focus Stock: ASML — Secular Winner in Litho","date":"2026-07-04","ac":"equity","type":"FocusStock","tags":["Equity"],"excerpt":"ASML's High-NA EUV monopoly positions it as the critical enabler of sub-2nm chips. Order book visibility through 2028 supports our HC conviction.","rec":"HC","ticker":"ASML NA"},
+    {"title":"European Defence — Structural Rearmament","date":"2026-07-02","ac":"equity","type":"TrendAlert","tags":["Thematic"],"excerpt":"NATO spending commitments now averaging 2.8% of GDP across European members. Rheinmetall, BAE Systems, and Thales remain our top picks.","rec":"Buy","ticker":""},
+    {"title":"Canadian Natural Resources — Downgrade to Hold","date":"2026-06-28","ac":"equity","type":"FocusStock","tags":["Equity"],"excerpt":"Oil price normalisation below $70 pressures FCF generation. Valuation now fair at 6.2x EV/EBITDA. We move to Hold from Buy.","rec":"Sell","ticker":"CNQ CN"},
+    {"title":"SP New Launch: SXSE 04.27","date":"2026-07-01","ac":"sp","type":"NewLaunch","tags":["SP","New Launch"],"excerpt":"Barrier reverse convertible on Euro Stoxx 50, 8.2% p.a. coupon, 60% barrier, 12-month maturity. Attractive risk-reward in current vol regime.","rec":"","ticker":"SXSE"}
+  ]
+}
