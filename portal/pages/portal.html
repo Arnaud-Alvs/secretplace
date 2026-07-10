@@ -19,8 +19,8 @@
   --font-b:'Baskerville','Georgia',serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{zoom:1.1}html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);font-family:var(--font-d);font-size:13px}
-
+html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);font-family:var(--font-d);font-size:13px}
+@media(min-width:1600px){html{zoom:1.1}}
 /* NAV */
 .g-nav{background:var(--navy);height:52px;display:flex;align-items:center;padding:0 28px;gap:0;position:sticky;top:0;z-index:300;border-bottom:1px solid rgba(255,255,255,.08)}
 .g-logo{font-family:var(--font-d);font-weight:700;font-size:15px;letter-spacing:2.5px;text-transform:uppercase;color:#fff;text-decoration:none;flex-shrink:0}
@@ -279,10 +279,107 @@ html{zoom:1.1}html,body{height:100%;overflow:hidden;background:var(--bg);color:v
 .comp-logo{border-radius:4px;object-fit:contain;background:#fff;border:1px solid var(--border);padding:2px;flex-shrink:0;vertical-align:middle;display:inline-block}
 .comp-logo-fallback{border-radius:4px;background:var(--navy);color:#fff;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;vertical-align:middle;letter-spacing:.04em;border:1px solid rgba(255,255,255,.08)}
 
+/* ═══════════════════════════════════════════════
+ * RESPONSIVE — progressive collapse from large to small
+ * ═══════════════════════════════════════════════ */
+
+/* ── MEDIUM (≤1400px): tighter spacing, smaller cards ── */
+@media(max-width:1400px){
+  .g-nav{padding:0 16px}
+  .g-link{font-size:9px;padding:6px 8px;letter-spacing:.08em}
+  .g-divider{margin:0 12px}
+  #strategy-bar{height:260px}
+  .strat-block{padding:8px 10px}
+  .strat-content{font-size:11px;line-height:1.6}
+  .res-card{width:280px;height:240px}
+  .res-card-title{font-size:14px}
+  .idea-card{min-height:100px;padding:6px 8px}
+}
+
+/* ── COMPACT (≤1200px): strategy bar 2×2, sidebar narrower ── */
+@media(max-width:1200px){
+  #strategy-bar{height:auto;flex-wrap:wrap}
+  #strategy-bar .strat-block{flex:0 0 50%!important;min-width:0;max-height:180px}
+  #strategy-bar .strat-block+.strat-block{border-left:none;border-top:1px solid rgba(255,255,255,.1)}
+  #strategy-bar .strat-block:nth-child(2n){border-left:1px solid rgba(255,255,255,.1)}
+  .strat-content{font-size:11px;column-count:1!important}
+  #right-sidebar{width:20%}
+  .res-card{width:260px;height:230px}
+  .res-card-excerpt{-webkit-line-clamp:6}
+  .idea-excerpt{-webkit-line-clamp:2}
+  .g-badge{display:none}
+}
+
+/* ── TABLET (≤1024px): full vertical stack ── */
+@media(max-width:1024px){
+  #portal-body{overflow:auto;height:auto;min-height:100vh}
+  html,body{overflow:auto}
+  #app{height:auto;overflow:visible}
+  #strategy-bar{height:auto;flex-wrap:wrap}
+  #strategy-bar .strat-block{flex:0 0 50%!important;max-height:200px;overflow-y:auto}
+  #main-body{flex-direction:column;overflow:visible}
+  #content-area{border-right:none;border-bottom:2px solid var(--border);overflow:visible}
+  #right-sidebar{width:100%;flex-direction:row;height:auto;min-height:200px;max-height:400px;border-top:2px solid var(--border)}
+  #agenda-section{flex:1;border-bottom:none;border-right:2px solid var(--border)}
+  #news-section{flex:1}
+  #carousel-section{flex:none;height:auto;max-height:380px;overflow:visible}
+  #ideas-section{flex:none;height:auto;min-height:300px;overflow:visible}
+  #ideas-grid{flex-wrap:wrap;overflow:visible}
+  .ideas-col{flex:1 1 48%;min-width:200px;max-height:350px}
+  .ideas-col-body{max-height:300px}
+  .g-nav{flex-wrap:wrap;height:auto;padding:8px 16px;gap:6px}
+  .g-links{flex-wrap:wrap;gap:0}
+  .g-link{padding:4px 8px;font-size:9px}
+  .g-date{display:none}
+  .sec-hdr{flex-wrap:wrap;gap:4px}
+  .car-filters{margin-top:4px}
+  .res-card{width:240px;height:220px}
+}
+
+/* ── SMALL TABLET (≤768px): single column ideas, stacked strategy ── */
+@media(max-width:768px){
+  #strategy-bar .strat-block{flex:0 0 100%!important;max-height:160px}
+  #strategy-bar .strat-block+.strat-block{border-left:none!important}
+  #right-sidebar{flex-direction:column;max-height:none}
+  #agenda-section{border-right:none;border-bottom:2px solid var(--border);max-height:250px}
+  #news-section{max-height:250px}
+  #ideas-grid{flex-direction:column;overflow:visible}
+  .ideas-col{flex:none;width:100%;max-height:280px;border-right:none;border-bottom:1px solid var(--border)}
+  .ideas-col-body{max-height:240px}
+  .g-logo-sub{display:none}
+  #res-search-bar{flex:0.5!important}
+  .tf-btn{font-size:7px;padding:1px 5px}
+  .res-card{width:220px;height:200px;padding:10px 12px}
+  .res-card-title{font-size:13px}
+  .res-card-excerpt{font-size:10px;-webkit-line-clamp:5}
+  .nm-box,.rm-box{width:96vw;max-width:96vw}
+  .adv-mbox{width:96vw;max-width:96vw}
+}
+
+/* ── MOBILE (≤560px): maximum collapse ── */
+@media(max-width:560px){
+  .g-nav{padding:6px 10px}
+  .g-logo{font-size:13px;letter-spacing:1.5px}
+  .g-links{gap:0;overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .g-links::-webkit-scrollbar{display:none}
+  .g-link{flex-shrink:0;padding:4px 6px;font-size:8px}
+  .g-divider{display:none}
+  #strategy-bar .strat-block{padding:6px 8px}
+  .strat-lbl{font-size:8px;letter-spacing:.15em}
+  .strat-content{font-size:10px;line-height:1.5}
+  .sec-hdr{padding:4px 8px}
+  .sec-title{font-size:8px}
+  .car-filters{display:none}
+  #res-search-bar{display:none!important}
+  .res-card{width:200px;height:190px;padding:8px 10px}
+  .idea-card{min-height:80px}
+  #pdf-modal>div{width:98vw;height:96vh}
+  #settings-panel{width:calc(100vw - 20px);right:10px;left:10px}
+}
+  
 </style>
 </head>
-<body style="display:flex;flex-direction:column;height:100vh;overflow:hidden">
-
+<body style="display:flex;flex-direction:column;height:100vh;overflow:hidden" id="portal-body">
 <nav class="g-nav">
   <a href="portal.html" class="g-logo">MIRABAUD<span class="g-logo-sub">Financial Research</span></a>
   <div class="g-divider"></div>
