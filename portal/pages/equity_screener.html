@@ -344,6 +344,36 @@ th button.srt.on{color:var(--ink)}
 .tip-bubble .tip-title{font-size:8px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
 .tip-bubble ul{margin:4px 0 6px;padding-left:14px}
 .tip-bubble li{margin-bottom:2px}
+  /* ── BASKET / CART ── */
+.basket-fab{position:fixed;bottom:28px;right:28px;z-index:80;width:48px;height:48px;border-radius:50%;background:var(--corporate-blue);color:#fff;border:none;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,42,74,.3);transition:all .15s}
+.basket-fab:hover{background:var(--ink);box-shadow:0 6px 24px rgba(0,42,74,.4);transform:scale(1.05)}
+.basket-fab.has-items{background:var(--accent);animation:fabPulse .3s ease}
+@keyframes fabPulse{0%{transform:scale(1)}50%{transform:scale(1.15)}100%{transform:scale(1)}}
+.basket-badge{position:absolute;top:-4px;right:-4px;min-width:18px;height:18px;border-radius:9px;background:var(--red);color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 4px;border:2px solid var(--white)}
+.basket-panel{position:fixed;top:56px;right:0;bottom:0;width:440px;background:var(--white);border-left:3px solid var(--accent);display:flex;flex-direction:column;z-index:55;transform:translateX(100%);transition:transform .25s cubic-bezier(.4,0,.2,1)}
+.basket-panel.open{transform:translateX(0)}
+.bp-header{background:#002A4A;color:#FFFFFF;padding:14px 16px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--accent)}
+.bp-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.bp-subtitle{font-size:9px;color:var(--accent);margin-top:3px}
+.bp-close{font-family:Arial,sans-serif;font-size:9px;font-weight:700;background:none;border:none;color:#AFBED6;cursor:pointer;transition:color .15s;padding:0 0 0 12px;flex-shrink:0}
+.bp-close:hover{color:var(--accent)}
+.bp-actions{padding:9px 14px;border-bottom:1px solid var(--border);display:flex;gap:8px;align-items:center;flex-shrink:0;background:var(--cream)}
+.bp-body{flex:1;overflow-y:auto}
+.bp-empty{padding:40px 20px;text-align:center;color:var(--muted);font-size:10px;letter-spacing:.1em}
+.bp-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--border);transition:background .1s}
+.bp-item:hover{background:var(--cream)}
+.bp-item-info{flex:1;min-width:0;cursor:pointer}
+.bp-item-name{font-size:11px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bp-item-meta{font-size:9px;color:var(--muted);margin-top:1px}
+.bp-item-remove{font-family:Arial,sans-serif;font-size:14px;color:var(--muted);background:none;border:none;cursor:pointer;padding:4px;line-height:1;transition:color .12s;flex-shrink:0}
+.bp-item-remove:hover{color:var(--red)}
+.bsk-btn{font-family:Arial,sans-serif;font-size:12px;width:22px;height:22px;border-radius:50%;border:1.5px solid var(--border);background:var(--white);color:var(--muted);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:all .12s;flex-shrink:0;padding:0;line-height:1}
+.bsk-btn:hover{border-color:var(--corporate-blue);color:var(--corporate-blue);background:var(--cream)}
+.bsk-btn.in{border-color:var(--accent);background:var(--accent);color:#fff}
+.bsk-btn.in:hover{background:var(--red);border-color:var(--red)}
+table.ut tbody tr.in-basket{background:rgba(188,150,84,.06)}
+table.ut tbody tr.in-basket:nth-child(even){background:rgba(188,150,84,.08)}
+.mom-card.in-basket{border-color:var(--accent);background:rgba(188,150,84,.04)}
 </style>
 </head>
 <body>
@@ -355,6 +385,7 @@ th button.srt.on{color:var(--ink)}
       <button onclick="showView('screen')" id="btn-screen">Universe Screen</button>
       <button onclick="showView('momentum')" id="btn-momentum">&#9650; Momentum</button>
       <button onclick="showView('files')" id="btn-files">&#128190; Data Files</button>
+      <button onclick="toggleBasketPanel()" id="btn-basket" style="position:relative">&#128722; Selection <span id="nav-basket-count" style="font-size:8px;color:var(--accent);font-weight:700"></span></button>
       <button onclick="reset()" style="color:#555!important">&#8635; Reset</button>
     </nav>
   </header>
@@ -373,6 +404,27 @@ th button.srt.on{color:var(--ink)}
   </div>
   <div class="dp-body" id="dp-body"></div>
 </div>
+  <!-- BASKET PANEL -->
+<div class="basket-panel" id="basket-panel">
+  <div class="bp-header">
+    <div><div class="bp-title" id="bp-title">My Selection</div><div class="bp-subtitle" id="bp-subtitle">0 securities</div></div>
+    <button class="bp-close" onclick="closeBasket()">&#10005;</button>
+  </div>
+  <div class="bp-actions">
+    <button class="dp-action-btn" onclick="exportBasket()" id="bp-export-btn" disabled>&#8681; Export Excel</button>
+    <button class="dp-action-btn" style="background:var(--red)" onclick="clearBasket()" id="bp-clear-btn">&#10005; Clear all</button>
+    <span class="dp-count" id="bp-count"></span>
+  </div>
+  <div class="bp-body" id="bp-body">
+    <div class="bp-empty">Your selection is empty.<br>Add securities from the Universe Screen or Momentum view.</div>
+  </div>
+</div>
+
+<!-- BASKET FLOATING BUTTON -->
+<button class="basket-fab" id="basket-fab" style="display:none" onclick="toggleBasketPanel()" title="My Selection">
+  &#128722;
+  <span class="basket-badge" id="basket-badge" style="display:none">0</span>
+</button>
  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
@@ -542,6 +594,158 @@ window._sd = [];
 window._dpStocks = [];
 window._drillPreset = null;
 window._drillLabel = null;
+  // ════════════════════════════════════════════════════
+// BASKET — persistent selection cart for advisors
+// ════════════════════════════════════════════════════
+var BASKET_KEY = 'mhc_basket';
+var basket = []; // array of ISINs
+
+function loadBasket() {
+  try { var s = localStorage.getItem(BASKET_KEY); basket = s ? JSON.parse(s) : []; } catch(e) { basket = []; }
+}
+function saveBasket() {
+  try { localStorage.setItem(BASKET_KEY, JSON.stringify(basket)); } catch(e) {}
+  updateBasketUI();
+}
+function isInBasket(isin) {
+  return basket.indexOf(isin) > -1;
+}
+function toggleBasketItem(isin, event) {
+  if (event) { event.stopPropagation(); event.preventDefault(); }
+  var idx = basket.indexOf(isin);
+  if (idx > -1) basket.splice(idx, 1);
+  else basket.push(isin);
+  saveBasket();
+}
+function clearBasket() {
+  if (basket.length > 0 && !confirm('Remove all ' + basket.length + ' securities from your selection?')) return;
+  basket = [];
+  saveBasket();
+}
+function updateBasketUI() {
+  var fab = document.getElementById('basket-fab');
+  var badge = document.getElementById('basket-badge');
+  if (fab) fab.style.display = universe.length > 0 ? 'flex' : 'none';
+  if (fab) fab.classList.toggle('has-items', basket.length > 0);
+  if (badge) {
+    badge.textContent = basket.length;
+    badge.style.display = basket.length > 0 ? 'flex' : 'none';
+  }
+  var navCount = document.getElementById('nav-basket-count');
+  if (navCount) navCount.textContent = basket.length > 0 ? '(' + basket.length + ')' : '';
+  var sub = document.getElementById('bp-subtitle');
+  if (sub) sub.textContent = basket.length + (basket.length === 1 ? ' security' : ' securities');
+  var expBtn = document.getElementById('bp-export-btn');
+  if (expBtn) expBtn.disabled = basket.length === 0;
+  var clrBtn = document.getElementById('bp-clear-btn');
+  if (clrBtn) clrBtn.style.display = basket.length > 0 ? 'inline-block' : 'none';
+  // Update basket buttons in table
+  document.querySelectorAll('.bsk-btn').forEach(function(btn) {
+    var isin = btn.getAttribute('data-isin');
+    var inB = isInBasket(isin);
+    btn.classList.toggle('in', inB);
+    btn.innerHTML = inB ? '&#10003;' : '+';
+    btn.title = inB ? 'Remove from selection' : 'Add to selection';
+  });
+  // Update in-basket row highlights
+  document.querySelectorAll('table.ut tbody tr').forEach(function(tr) {
+    var nameCell = tr.querySelector('.ti');
+    if (nameCell) {
+      var isinMatch = nameCell.textContent.match(/^([A-Z0-9]{10,})/);
+      if (isinMatch) tr.classList.toggle('in-basket', isInBasket(isinMatch[1]));
+    }
+  });
+  // Update momentum card highlights
+  document.querySelectorAll('.mom-card').forEach(function(card) {
+    var btn = card.querySelector('.bsk-btn');
+    if (btn) card.classList.toggle('in-basket', isInBasket(btn.getAttribute('data-isin')));
+  });
+  // Render panel if open
+  if (document.getElementById('basket-panel').classList.contains('open')) renderBasketPanel();
+}
+function toggleBasketPanel() {
+  var panel = document.getElementById('basket-panel');
+  if (panel.classList.contains('open')) closeBasket();
+  else openBasket();
+}
+function openBasket() {
+  closeDrill();
+  renderBasketPanel();
+  document.getElementById('basket-panel').classList.add('open');
+}
+function closeBasket() {
+  document.getElementById('basket-panel').classList.remove('open');
+}
+function renderBasketPanel() {
+  var body = document.getElementById('bp-body');
+  if (!body) return;
+  if (basket.length === 0) {
+    body.innerHTML = '<div class="bp-empty">Your selection is empty.<br>Add securities from the Universe Screen or Momentum view.</div>';
+    return;
+  }
+  var uniMap = {};
+  universe.forEach(function(s) { uniMap[s.id_isin] = s; });
+  var items = basket.map(function(isin) { return uniMap[isin]; }).filter(Boolean);
+  var orphaned = basket.filter(function(isin) { return !uniMap[isin]; });
+
+  var rows = items.map(function(s, i) {
+    var upCol = s.upside > 0 ? 'var(--green)' : s.upside !== null && s.upside < 0 ? 'var(--red)' : 'var(--muted)';
+    return '<div class="bp-item">' +
+      '<span class="tier ' + tierCls(s.tier) + '" style="font-size:7px;padding:1px 5px;flex-shrink:0">' + esc(s.tier || '\u2014') + '</span>' +
+      '<div class="bp-item-info" onclick="openStockModal(window._basketStocks[' + i + '])">' +
+        '<div class="bp-item-name">' + esc(s.name) + '</div>' +
+        '<div class="bp-item-meta">' + esc(s.id_isin) + ' &middot; ' + esc(s.sector) + ' &middot; ' +
+          '<span style="color:' + upCol + ';font-weight:700">' + (s.upside !== null ? (s.upside > 0 ? '+' : '') + (s.upside * 100).toFixed(1) + '%' : '\u2014') + '</span>' +
+        '</div>' +
+      '</div>' +
+      '<button class="bp-item-remove" onclick="toggleBasketItem(\'' + esc(s.id_isin) + '\');renderBasketPanel()" title="Remove">&times;</button>' +
+      '</div>';
+  }).join('');
+
+  if (orphaned.length) {
+    rows += '<div style="padding:8px 14px;font-size:9px;color:var(--muted);background:#fef3cd;border-top:1px solid var(--border)">' +
+      orphaned.length + ' ISIN(s) no longer in the loaded universe.</div>';
+  }
+  window._basketStocks = items;
+  body.innerHTML = rows;
+}
+function exportBasket() {
+  if (!basket.length || typeof XLSX === 'undefined') return;
+  var uniMap = {};
+  universe.forEach(function(s) { uniMap[s.id_isin] = s; });
+  var items = basket.map(function(isin) { return uniMap[isin]; }).filter(Boolean);
+  if (!items.length) return;
+
+  var r1 = function(v) { return v !== null && v !== undefined ? Math.round(v * 10) / 10 : null; };
+  var header = ['ISIN', 'Ticker', 'Name', 'Region', 'Country', 'Sector', 'Currency', 'Tier',
+                'Combined Q', 'Mkt Cap (USD bn)', 'Price', 'Target Price', 'Upside %', 'Fwd P/E',
+                'Dividend Yield %', 'FCF Yield %', 'ROE %', 'Net Debt/EBITDA', 'Risk', 'Flags'];
+  var rows = items.map(function(s) {
+    return [s.id_isin, s.ticker || '', s.name, s.region, s.country || '', s.sector, s.crncy || '', s.tier || '',
+      s.qCombined || null, r1(s.nums.mktCap), r1(cN(s.lastPx)), r1(cN(s.target)),
+      s.upside !== null ? r1(s.upside * 100) : null, r1(s.nums.fwdPE),
+      r1(s.nums.divYield), r1(s.nums.fcfYield), r1(s.nums.roe),
+      s.nums.netDebtEb !== null ? Math.round(s.nums.netDebtEb * 100) / 100 : null,
+      s.risk, s.flags.join(', ')];
+  });
+  var ws = XLSX.utils.aoa_to_sheet([header].concat(rows));
+  ws['!cols'] = header.map(function(h, i) { return { wch: i === 2 ? 28 : Math.max(10, h.length + 2) }; });
+  var info = [
+    ['Mirabaud Equity Screener \u2014 Advisor Selection'],
+    [],
+    ['Exported', new Date().toISOString().slice(0, 16).replace('T', ' ')],
+    ['Securities selected', items.length],
+    [],
+    ['Source', 'Bloomberg & CFRA \u2014 Mirabaud internal use only.']
+  ];
+  var wsInfo = XLSX.utils.aoa_to_sheet(info);
+  wsInfo['!cols'] = [{ wch: 22 }, { wch: 60 }];
+  var wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, 'Selection');
+  XLSX.utils.book_append_sheet(wb, wsInfo, 'Export info');
+  XLSX.writeFile(wb, 'my_selection_' + new Date().toISOString().slice(0, 10) + '.xlsx');
+}
+loadBasket();
  
 // ════════════════════════════════════════════════════
 // CONSTANTS
@@ -1627,6 +1831,11 @@ function buildMacro() {
  * To add a column: one entry here + one entry in SORTS. Nothing else.
  * ════════════════════════════════════════════════════ */
 var SCREEN_COLUMNS = [
+  { key: '_basket', label: '', noSort: true,
+    cell: function (s) {
+      var inB = isInBasket(s.id_isin);
+      return '<td style="width:28px;padding:4px;text-align:center"><button class="bsk-btn' + (inB ? ' in' : '') + '" data-isin="' + esc(s.id_isin) + '" onclick="toggleBasketItem(\'' + esc(s.id_isin) + '\',event)" title="' + (inB ? 'Remove from selection' : 'Add to selection') + '">' + (inB ? '&#10003;' : '+') + '</button></td>';
+    } },
   { key: 'name',   label: 'Name',
     cell: function (s) { return '<td><div class="tn">' + esc(s.name) + '</div><div class="ti">' + esc(s.id_isin) + (s.ticker ? ' &middot; ' + esc(s.ticker) : '') + '</div></td>'; } },
   { key: 'tier',   label: 'Tier',
@@ -1795,6 +2004,7 @@ function buildScreen() {
     '<div class="twrap"><table class="ut">' +
     '<thead><tr>' +
     activeColumns().map(function (c) {
+      if (c.noSort) return '<th style="width:28px;padding:4px"></th>';
       var sub = c.sub ? '<div style="font-size:7px;color:var(--muted);font-weight:400">' + c.sub + '</div>' : '';
       return '<th' + (c.align ? ' class="' + c.align + '"' : '') + '>' + sh(c.key, c.label) + sub + '</th>';
     }).join('') +
@@ -1875,7 +2085,7 @@ function _screenRows(data) {
   var cols = activeColumns();
   if (!data.length) return '<tr><td colspan="' + cols.length + '"><div class="empty"><div class="eico">&#8709;</div><div class="emsg">No securities</div></div></td></tr>';
   return data.map(function (s, i) {
-    return '<tr onclick="openStockModal(window._sd[' + i + '])">' +
+    return '<tr class="' + (isInBasket(s.id_isin) ? 'in-basket' : '') + '" onclick="openStockModal(window._sd[' + i + '])">' +
       cols.map(function (c) { return c.cell(s); }).join('') +
       '</tr>';
   }).join('');
