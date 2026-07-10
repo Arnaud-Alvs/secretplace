@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mirabaud | ESG & SRI</title>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+:root{
+  --navy:#002a4a; --navy2:#013a63; --navy3:#01527a;
+  --blue:#397aa9; --blue-lt:#afbed6; --blue-pale:#e8edf5;
+  --gold:#bc9654; --gold-lt:#d4b06a; --gold-pale:#f5edd8; --gold-dim:rgba(188,150,84,.35);
+  --black:#131011; --white:#ffffff;
+  --bg:#f4f5f7; --surface:#ffffff; --surface-2:#f8f9fb;
+  --border:#dde3ec; --border-mid:#c8d2e0;
+  --text:#002a4a; --text-body:#1d3550; --text-muted:#6b8097; --text-label:#4a6278;
+  --green:#2d6a4f; --green-lt:#52b788; --green-pale:#d8f3dc;
+  --red:#c0392b; --red-pale:#fdecea;
+  --shadow-sm:0 1px 4px rgba(0,42,74,.08);
+  --shadow-md:0 4px 16px rgba(0,42,74,.12);
+  --shadow-lg:0 8px 32px rgba(0,42,74,.18);
+  --font-d:'Century Gothic','Trebuchet MS','Gill Sans MT',sans-serif;
+  --font-b:'Baskerville','Georgia','Times New Roman',serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{zoom:1.1}
+body{background:var(--bg);color:var(--text);font-family:var(--font-d);font-size:13px;line-height:1.55}
+
+/* ── GLOBAL NAV ─────────────────────────────────────────────────── */
+.g-nav{background:var(--navy);height:52px;display:flex;align-items:center;padding:0 28px;gap:0;position:sticky;top:0;z-index:300;border-bottom:1px solid rgba(255,255,255,.08)}
+.g-logo{font-family:var(--font-d);font-weight:700;font-size:15px;letter-spacing:2.5px;text-transform:uppercase;color:#fff;text-decoration:none;flex-shrink:0}
+.g-logo-sub{font-size:9px;font-weight:400;letter-spacing:.2em;color:var(--gold);margin-left:10px;opacity:.9}
+.g-divider{width:1px;height:22px;background:rgba(255,255,255,.18);margin:0 20px;flex-shrink:0}
+.g-links{display:flex;align-items:center;gap:2px;flex:1}
+.g-link{font-family:var(--font-d);font-size:10px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none;padding:6px 12px;border-bottom:2px solid transparent;transition:all .15s;white-space:nowrap;height:100%;height:100%}
+.g-link:hover{color:#fff;border-bottom-color:rgba(188,150,84,.5)}
+.g-link.active{color:#fff;border-bottom-color:var(--gold);font-weight:700}
+.g-badge{margin-left:auto;font-family:var(--font-d);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(188,150,84,.8);flex-shrink:0;padding:3px 10px;border:1px solid rgba(188,150,84,.3);border-radius:1px}
+
+/* ── PAGE HEADER STRIP ──────────────────────────────────────────── */
+.p-strip{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 28px;display:flex;align-items:baseline;gap:14px;flex-shrink:0}
+.p-title{font-size:18px;font-weight:700;color:var(--navy)}
+.p-sub{font-family:var(--font-b);font-size:12px;color:var(--text-muted);font-style:italic}
+.p-kpis{margin-left:auto;display:flex;gap:8px;align-items:center}
+.p-kpi{background:var(--blue-pale);border:1px solid var(--border);border-radius:2px;padding:3px 10px;font-size:11px;color:var(--text-label)}
+.p-kpi .val{color:var(--navy);font-weight:700;margin-left:4px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+/* HEADER */
+
+/* BREADCRUMB NAV */
+.breadcrumb{background:var(--surface);border-bottom:1px solid var(--border);padding:0 28px;height:42px;display:flex;align-items:center;gap:4px}
+.sec-btn{font-family:var(--font-d);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);background:var(--surface-2);border:1px solid var(--border);padding:6px 14px;border-radius:2px;cursor:pointer;transition:all .15s;white-space:nowrap}
+.sec-btn:hover{border-color:var(--gold);color:var(--navy);background:var(--gold-pale)}
+.sec-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.ref-btn-esg{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);background:var(--surface);border:1px solid var(--border);padding:4px 10px;border-radius:2px;cursor:pointer;text-decoration:none;transition:all .12s}
+.ref-btn-esg:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-pale)}
+
+/* MAIN LAYOUT */
+.layout{min-height:calc(100vh - 92px)}
+
+/* SIDEBAR */
+.sidebar{background:var(--surface);border-right:1px solid var(--border);padding:20px 0;position:sticky;top:92px;height:calc(100vh - 92px);overflow-y:auto}
+.sidebar-section-label{font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);padding:0 18px 6px;margin-top:10px}
+.sidebar-item{display:flex;align-items:center;gap:9px;padding:8px 18px;cursor:pointer;font-size:12px;color:var(--text-body);transition:background .12s;border-left:3px solid transparent;user-select:none}
+.sidebar-item:hover{background:#f0f4f8;color:var(--navy)}
+.sidebar-item.active{background:var(--gold-pale);color:var(--navy);border-left-color:var(--gold);font-weight:500}
+.sidebar-icon{font-size:14px;flex-shrink:0}
+.sidebar-count{margin-left:auto;background:var(--border);border-radius:10px;padding:1px 7px;font-size:10px;color:var(--text-muted)}
+.sidebar-item.active .sidebar-count{background:var(--gold-pale);color:var(--gold)}
+.sidebar-divider{height:1px;background:var(--border);margin:12px 18px}
+
+/* CONTENT */
+.content{padding:18px;overflow-y:auto}
+
+/* HOME TILES */
+.home-header{margin-bottom:24px}
+.home-header h1{font-family:var(--font-b);font-size:28px;font-weight:500;color:var(--navy);margin-bottom:4px}
+.home-header p{color:var(--text-muted);font-size:12px}
+.tiles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;max-width:none}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:6px;overflow:hidden;cursor:pointer;transition:box-shadow .18s,transform .15s;position:relative;aspect-ratio:1}
+.tile:hover{box-shadow:0 6px 20px rgba(0,42,74,.15);transform:translateY(-2px)}
+.tile-img{height:58%;display:flex;align-items:center;justify-content:center;font-size:42px;position:relative;overflow:hidden}
+.tile-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,.3))}
+.tile-body{padding:14px 16px 10px}
+.tile-title{font-family:var(--font-b);font-size:15px;font-weight:500;color:var(--navy);margin-bottom:4px}
+.tile-desc{font-size:11px;color:var(--text-muted);line-height:1.4}
+.tile-arrow{position:absolute;top:10px;right:10px;font-size:14px;color:rgba(255,255,255,.8);opacity:0;transition:opacity .15s}
+.tile:hover .tile-arrow{opacity:1}
+
+/* COMPANY LOGO */
+.comp-logo{width:28px;height:28px;border-radius:4px;object-fit:contain;background:#fff;border:1px solid var(--border);padding:2px;flex-shrink:0;vertical-align:middle;margin-right:8px}
+.comp-logo-fallback{width:28px;height:28px;border-radius:4px;background:var(--navy);color:#fff;font-size:10px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;vertical-align:middle;margin-right:8px;letter-spacing:.05em}
+
+/* SECTION HEADER */
+.section-header{margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.section-header h2{font-family:var(--font-b);font-size:22px;font-weight:500;color:var(--navy);margin-bottom:2px}
+.section-header p{font-size:11px;color:var(--text-muted)}
+
+/* FILTER BAR */
+.filter-bar{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;align-items:center}
+.filter-bar input,.filter-bar select{border:1px solid var(--border-mid);border-radius:3px;padding:6px 10px;font-size:12px;font-family:var(--font-d);color:var(--text);background:var(--surface);outline:none;transition:border .12s}
+.filter-bar input:focus,.filter-bar select:focus{border-color:var(--blue)}
+.filter-bar input{width:220px}
+.filter-bar select{min-width:130px}
+.filter-bar .filter-label{font-size:10px;color:var(--text-muted);letter-spacing:.08em;text-transform:uppercase;font-weight:500;margin-left:6px}
+.result-count{margin-left:auto;font-size:11px;color:var(--text-muted);font-style:italic}
+
+/* TABLE */
+.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:4px}
+table{width:100%;border-collapse:collapse}
+thead{background:var(--navy);position:sticky;top:0;z-index:10}
+thead th{padding:7px 8px;text-align:left;font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);border-right:1px solid rgba(255,255,255,.08);white-space:nowrap}
+thead th:last-child{border-right:none}
+tbody tr{border-bottom:1px solid var(--border);transition:background .1s}
+tbody tr:hover{background:#edf2f7}
+tbody tr:nth-child(even){background:#f7f9fb}
+tbody tr:nth-child(even):hover{background:#edf2f7}
+tbody td{padding:5px 8px;font-size:11px;color:var(--text-body);border-right:1px solid var(--border)}
+tbody td:last-child{border-right:none}
+.no-results{text-align:center;padding:32px;color:var(--text-muted);font-style:italic}
+
+/* BADGES */
+.badge{display:inline-block;padding:2px 8px;border-radius:2px;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.badge-sfdr8{background:rgba(57,122,169,.12);color:var(--sfdr8);border:1px solid rgba(57,122,169,.3)}
+.badge-sfdr9{background:rgba(45,106,79,.12);color:var(--sfdr9);border:1px solid rgba(45,106,79,.3)}
+.badge-fund{background:rgba(0,42,74,.08);color:var(--navy);border:1px solid rgba(0,42,74,.2)}
+.badge-etf{background:var(--gold-pale);color:#7a5a1a;border:1px solid rgba(188,150,84,.35)}
+.badge-esg{background:var(--green-pale);color:var(--green);border:1px solid rgba(82,183,136,.35)}
+.badge-ch{background:#f0f4f8;color:var(--navy);border:1px solid var(--border-mid)}
+.badge-eu{background:#f0f4f8;color:var(--blue);border:1px solid var(--border-mid)}
+.badge-us{background:#fff4e6;color:#8b5e1a;border:1px solid rgba(188,150,84,.3)}
+
+/* DOC LIST */
+.doc-list{display:flex;flex-direction:column;gap:8px}
+.doc-item{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:12px 16px;display:flex;align-items:center;gap:14px;transition:box-shadow .14s;cursor:pointer}
+.doc-item:hover{box-shadow:0 2px 10px rgba(0,42,74,.08);border-color:var(--blue-light)}
+.doc-icon{width:36px;height:36px;background:rgba(188,150,84,.1);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.doc-meta{flex:1}
+.doc-name{font-size:13px;color:var(--navy);font-weight:500;margin-bottom:2px}
+.doc-sub{font-size:11px;color:var(--text-muted)}
+.doc-date{font-size:11px;color:var(--text-muted);white-space:nowrap}
+.doc-star{margin-right:6px;color:var(--gold)}
+
+.star-badge{background:var(--gold-pale);border:1px solid rgba(188,150,84,.4);border-radius:3px;padding:1px 7px;font-size:9px;color:#7a5a1a;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
+
+/* BACK BTN */
+.back-btn{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--blue);cursor:pointer;margin-bottom:18px;padding:4px 0;transition:color .12s;background:none;border:none}
+.back-btn:hover{color:var(--navy)}
+
+/* SOVEREIGN GRID */
+.country-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.country-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:10px 14px;display:flex;align-items:center;gap:10px;cursor:pointer;transition:all .14s}
+.country-card:hover{border-color:var(--blue);background:#f0f5fa}
+.country-flag{font-size:20px}
+.country-name{font-size:12px;color:var(--navy);font-weight:500}
+
+/* STATS ROW */
+.stats-row{display:flex;gap:14px;margin-bottom:20px}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:12px 16px;flex:1;text-align:center}
+.stat-val{font-family:var(--font-b);font-size:26px;color:var(--navy);font-weight:500}
+.stat-lbl{font-size:10px;color:var(--text-muted);letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
+
+/* TILE COLORS */
+.tile-company .tile-img{background:linear-gradient(135deg,#013a63,#2a6fa0)}
+.tile-sovereign .tile-img{background:linear-gradient(135deg,#1a4a6b,#3d7a53)}
+.tile-funds .tile-img{background:linear-gradient(135deg,#2d5a3d,#52b788)}
+.tile-strprod .tile-img{background:linear-gradient(135deg,#4a3728,#9a7a28)}
+.tile-sri .tile-img{background:linear-gradient(135deg,#2a3d5c,#397aa9)}
+.tile-docs .tile-img{background:linear-gradient(135deg,#3d3d4a,#6b6b8a)}
+
+.tile-count-badge{position:absolute;bottom:12px;right:12px;background:rgba(0,0,0,.15);color:rgba(255,255,255,.9);font-size:9px;font-weight:700;letter-spacing:.1em;padding:2px 8px;border-radius:10px;font-family:var(--font-d)}
+
+/* PDF MODAL */
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* PORTAL LINK */
+
+/* HIDDEN UTILS */
+.hidden{display:none!important}
+.g-admin-btn{font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);background:none;border:1px solid rgba(255,255,255,.14);padding:3px 8px;cursor:pointer;border-radius:1px;margin-left:8px;transition:all .15s}
+.g-admin-btn:hover{color:#fff;border-color:rgba(255,255,255,.4)}
+#pdf-modal.open{display:flex!important}
+</style>
+</head>
+<body>
+
+<nav class="g-nav">
+  <a href="portal.html" class="g-logo">MIRABAUD<span class="g-logo-sub">Financial Research</span></a>
+  <div class="g-divider"></div>
+  <div class="g-links"><a href="portal.html" class="g-link">Portal</a><a href="equity_screener.html" class="g-link">Equity</a><a href="fixed_income.html" class="g-link">Fixed Income</a><a href="esg_sri.html" class="g-link active">ESG & SRI</a><a href="structured_products.html" class="g-link">Structured Products</a><a href="funds_etf.html" class="g-link">Funds &amp; ETFs</a><a href="thematics_amc.html" class="g-link">AMC</a><a href="research.html" class="g-link">Research Notes</a></div>
+  <div style="display:flex;align-items:center;gap:10px;margin-left:auto;flex-shrink:0">
+    <button style="font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);background:none;border:1px solid rgba(255,255,255,.14);padding:3px 8px;cursor:pointer;border-radius:1px" onclick="window.location.href='admin.html'">Admin</button>
+    <span class="g-badge">Internal Use Only</span>
+  </div>
+</nav>
+<div class="p-strip">
+  <div class="p-title">SRI &amp; ESG</div>
+  <div class="p-sub">ESG Leaders, Approved Funds, Sovereign Profiles · WM Financial Research</div>
+</div>
+<div style="background:var(--surface-2);border-bottom:1px solid var(--border);padding:6px 28px;display:flex;align-items:center;gap:8px;flex-shrink:0">
+  <span style="font-size:8px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);margin-right:6px">Reference Lists</span>
+  <a class="ref-btn-esg" onclick="openPdfModal('/z/Latest Publications/ESG Leader list - Companies.pdf','ESG Leader Companies')">ESG Companies</a>
+  <a class="ref-btn-esg" onclick="openPdfModal('/z/Latest Publications/ESG Leader list - Funds.pdf','ESG Leader Funds')">ESG Funds</a>
+</div>
+
+<div class="breadcrumb" id="breadcrumb">
+  <button class="sec-btn active" id="btn-home" onclick="showHome()">Home</button>
+  <button class="sec-btn" id="btn-company" onclick="showSection('company')">Companies</button>
+  <button class="sec-btn" id="btn-sovereign" onclick="showSection('sovereign')">Sovereign</button>
+  <button class="sec-btn" id="btn-funds" onclick="showSection('funds')">Funds & ETFs</button>
+  <button class="sec-btn" id="btn-strprod" onclick="showSection('strprod')">Str. Products</button>
+  <button class="sec-btn" id="btn-sri" onclick="showSection('sri')">SRI Strategy</button>
+  <button class="sec-btn" id="btn-docs" onclick="showSection('docs')">Documentation</button>
+</div>
+
+<div class="layout">
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- HOME = SECTION BOXES -->
+    <div id="view-home">
+      <div class="home-header">
+        <h1>SRI &amp; ESG</h1>
+        <p>Financial Research Department · Investment Wealth Management · November 2025</p>
+      </div>
+      <div class="tiles-grid">
+        <div class="tile tile-company" onclick="showSection('company')">
+          <div class="tile-img">🏢</div>
+          <div class="tile-body">
+            <div class="tile-title">ESG Company Profiles</div>
+            <div class="tile-desc">57 ESG Leader companies · Individual reports · Filter by sector and region</div>
+          </div>
+          <div class="tile-count-badge">57</div>
+          <span class="tile-arrow">→</span>
+        </div>
+        <div class="tile tile-sovereign" onclick="showSection('sovereign')">
+          <div class="tile-img">🌍</div>
+          <div class="tile-body">
+            <div class="tile-title">ESG Sovereign Profiles</div>
+            <div class="tile-desc">Country ESG assessments based on UN SDG index · 23 countries</div>
+          </div>
+          <div class="tile-count-badge">23</div>
+          <span class="tile-arrow">→</span>
+        </div>
+        <div class="tile tile-funds" onclick="showSection('funds')">
+          <div class="tile-img">📊</div>
+          <div class="tile-body">
+            <div class="tile-title">ESG Funds &amp; ETFs</div>
+            <div class="tile-desc">35 ESG Leader instruments · Art. 8 &amp; 9 SFDR · Filter by type and region</div>
+          </div>
+          <div class="tile-count-badge">35</div>
+          <span class="tile-arrow">→</span>
+        </div>
+        <div class="tile tile-strprod" onclick="showSection('strprod')">
+          <div class="tile-img">📁</div>
+          <div class="tile-body">
+            <div class="tile-title">ESG Str. Products &amp; Private Assets</div>
+            <div class="tile-desc">ESG profiles for structured products and private equity instruments</div>
+          </div>
+          <div class="tile-count-badge">2</div>
+          <span class="tile-arrow">→</span>
+        </div>
+        <div class="tile tile-sri" onclick="showSection('sri')">
+          <div class="tile-img">📋</div>
+          <div class="tile-body">
+            <div class="tile-title">SRI Strategy</div>
+            <div class="tile-desc">Mirabaud exclusion policy and responsible investment framework 2025</div>
+          </div>
+          <div class="tile-count-badge">1</div>
+          <span class="tile-arrow">→</span>
+        </div>
+        <div class="tile tile-docs" onclick="showSection('docs')">
+          <div class="tile-img">📚</div>
+          <div class="tile-body">
+            <div class="tile-title">Documentation &amp; Tools</div>
+            <div class="tile-desc">SRI briefing papers and toolkits for client advisory</div>
+          </div>
+          <div class="tile-count-badge">3</div>
+          <span class="tile-arrow">→</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPANY PROFILES -->
+    <div id="view-company" class="hidden">
+      <div class="section-header">
+        <h2>ESG Company Profiles</h2>
+        <p>ESG Leaders — 57 companies · November 2025 · Internal Use Only</p>
+      </div>
+      <div class="stats-row">
+        <div class="stat-card"><div class="stat-val" id="comp-count">57</div><div class="stat-lbl">Companies</div></div>
+        <div class="stat-card"><div class="stat-val">15</div><div class="stat-lbl">Sectors</div></div>
+        <div class="stat-card"><div class="stat-val">4</div><div class="stat-lbl">Regions</div></div>
+      </div>
+      <div class="filter-bar">
+        <input type="text" id="comp-search" placeholder="Search company..." oninput="filterCompanies()">
+        <select id="comp-sector" onchange="filterCompanies()">
+          <option value="">All Sectors</option>
+          <option>Banks</option>
+          <option>Auto Components</option>
+          <option>Building Products</option>
+          <option>Chemicals</option>
+          <option>Commercial Services</option>
+          <option>Construction &amp; Engineering</option>
+          <option>Construction Materials</option>
+          <option>Electrical Equipment</option>
+          <option>Food Products</option>
+          <option>Food Retailers</option>
+          <option>Industrial Conglomerates</option>
+          <option>Insurance</option>
+          <option>Pharmaceuticals</option>
+          <option>Real Estate</option>
+          <option>Semiconductors</option>
+          <option>Software &amp; Services</option>
+          <option>Technology Hardware</option>
+          <option>Telecommunication Services</option>
+          <option>Textiles &amp; Apparel</option>
+          <option>Transportation</option>
+          <option>Utilities</option>
+        </select>
+        <select id="comp-region" onchange="filterCompanies()">
+          <option value="">All Regions</option>
+          <option>Switzerland</option>
+          <option>Europe</option>
+          <option>United States</option>
+          <option>United Kingdom</option>
+        </select>
+        <button style="margin-left:auto;font-size:9px;color:var(--red);background:none;border:1px solid rgba(192,57,43,.3);padding:5px 12px;border-radius:2px;cursor:pointer;font-family:var(--font-d);font-weight:600;letter-spacing:.05em;text-transform:uppercase" onclick="clearESGFilters()">Clear Filters</button>
+        <span class="result-count" id="comp-result-count"></span>
+      </div>
+      <div class="table-wrap">
+        <table id="comp-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Company Name</th>
+              <th>Sector</th>
+              <th>Region</th>
+              <th>ESG Risk</th>
+              <th>Controversy</th>
+              
+            </tr>
+          </thead>
+          <tbody id="comp-tbody"></tbody>
+        </table>
+      </div>
+      <p style="margin-top:10px;font-size:11px;color:var(--text-muted)">📄 Individual ESG reports available as PDF files above.</p>
+    </div>
+
+    <!-- SOVEREIGN -->
+    <div id="view-sovereign" class="hidden">
+      <div class="section-header">
+        <h2>ESG Sovereign Profiles</h2>
+        <p>Country ESG assessments — 23 countries · 2025 Edition · Internal Use Only</p>
+      </div>
+      <div class="filter-bar">
+        <input type="text" id="sov-search" placeholder="Search country..." oninput="filterSovereign()">
+        <span class="result-count" id="sov-count">23 countries</span>
+      </div>
+      <div class="country-grid" id="sovereign-grid"></div>
+    </div>
+
+    <!-- FUNDS & ETFs -->
+    <div id="view-funds" class="hidden">
+      <div class="section-header">
+        <h2>ESG Funds &amp; ETFs</h2>
+        <p>ESG Leaders — 19 Funds · 16 ETFs · November 2025 · Internal Use Only</p>
+      </div>
+      <div class="stats-row">
+        <div class="stat-card"><div class="stat-val" id="funds-count">35</div><div class="stat-lbl">Instruments</div></div>
+        <div class="stat-card"><div class="stat-val">19</div><div class="stat-lbl">Funds</div></div>
+        <div class="stat-card"><div class="stat-val">16</div><div class="stat-lbl">ETFs</div></div>
+        <div class="stat-card"><div class="stat-val">17</div><div class="stat-lbl">Art. 9 SFDR</div></div>
+      </div>
+      <div class="filter-bar">
+        <input type="text" id="funds-search" placeholder="Search fund or ETF..." oninput="filterFunds()">
+        <select id="funds-type" onchange="filterFunds()">
+          <option value="">All Types</option>
+          <option>Funds</option>
+          <option>ETF</option>
+        </select>
+        <select id="funds-class" onchange="filterFunds()">
+          <option value="">All Asset Classes</option>
+          <option>Equities</option>
+          <option>Fixed Income</option>
+        </select>
+        <select id="funds-region" onchange="filterFunds()">
+          <option value="">All Regions</option>
+          <option>Global</option>
+          <option>Europe</option>
+          <option>US</option>
+          <option>Switzerland</option>
+          <option>UK</option>
+          <option>Japan</option>
+          <option>Emerging</option>
+          <option>Asia Pacific</option>
+        </select>
+        <select id="funds-sfdr" onchange="filterFunds()">
+          <option value="">All SFDR</option>
+          <option>Art. 8</option>
+          <option>Art. 9</option>
+        </select>
+        <span class="result-count" id="funds-result-count"></span>
+      </div>
+      <div class="table-wrap">
+        <table id="funds-table">
+          <thead>
+            <tr>
+              <th>Fund / ETF Name</th>
+              <th>Type</th>
+              <th>Asset Class</th>
+              <th>Region</th>
+              <th>SFDR</th>
+            </tr>
+          </thead>
+          <tbody id="funds-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- STR PRODUCTS -->
+    <div id="view-strprod" class="hidden">
+      <div class="section-header">
+        <h2>ESG Structured Products &amp; Private Assets</h2>
+        <p>2 documents · Internal Use Only</p>
+      </div>
+      <div class="doc-list">
+        <div class="doc-item" onclick="openPdfModal('/z/ESG Str Products  Private Assets/Private Equities - ESG Profile 2025.pdf','Private Equities — ESG Profile 2025')">
+          <div class="doc-icon">📄</div>
+          <div class="doc-meta">
+            <div class="doc-name">Private Equities — ESG Profile 2025</div>
+            <div class="doc-sub">ESG assessment · Mirabaud Grand Paris, Valfortec, Indigo · Click to open</div>
+          </div>
+          <div class="doc-date">Jan 2025</div>
+        </div>
+        <div class="doc-item" onclick="openPdfModal('/z/ESG Str Products  Private Assets/Smart Transition Index - AMC - ESG Report.pdf','Smart Transition Index — AMC — ESG Report')">
+          <div class="doc-icon">📄</div>
+          <div class="doc-meta">
+            <div class="doc-name">Smart Transition Index — AMC — ESG Report</div>
+            <div class="doc-sub">ESG report · Actively Managed Certificate · Climate transition · Click to open</div>
+          </div>
+          <div class="doc-date">Aug 2025</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SRI STRATEGY -->
+    <div id="view-sri" class="hidden">
+      <div class="section-header">
+        <h2>SRI Strategy</h2>
+        <p>Mirabaud responsible investment framework · Internal Use Only</p>
+      </div>
+      <div class="doc-list">
+        <div class="doc-item" onclick="openPdfModal('/z/Doc4/Exclusion Policy Mirabaud WM EN.pdf','Exclusion Policy — Mirabaud WM 2025')">
+          <div class="doc-icon">📋</div>
+          <div class="doc-meta">
+            <div class="doc-name">Exclusion Policy Mirabaud WM EN <span class="star-badge">★ Reference</span></div>
+            <div class="doc-sub">Mirabaud Wealth Management · Responsible Investment Framework 2025 · Click to open</div>
+          </div>
+          <div class="doc-date">2025</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOCUMENTATION -->
+    <div id="view-docs" class="hidden">
+      <div class="section-header">
+        <h2>Documentation &amp; Tools</h2>
+        <p>SRI reference materials · Internal Use Only</p>
+      </div>
+      <div class="doc-list">
+        <div class="doc-item" onclick="openPdfModal('/z/Doc4/Briefing Paper SRI Juin 2020 FR.pdf','Briefing Paper SRI — Juin 2020 (FR)')">
+          <div class="doc-icon">📚</div>
+          <div class="doc-meta">
+            <div class="doc-name">Briefing Paper SRI — Juin 2020 (FR)</div>
+            <div class="doc-sub">French version · L'essentiel sur l'ISR · Click to open</div>
+          </div>
+          <div class="doc-date">Jun 2020</div>
+        </div>
+        <div class="doc-item" onclick="openPdfModal('/z/Doc4/Briefing_Paper_SRI_June_2020_EN.pdf','Briefing Paper SRI — June 2020 (EN)')">
+          <div class="doc-icon">📚</div>
+          <div class="doc-meta">
+            <div class="doc-name">Briefing Paper SRI — June 2020 (EN)</div>
+            <div class="doc-sub">English version · SRI reference document · Click to open</div>
+          </div>
+          <div class="doc-date">Jun 2020</div>
+        </div>
+        <div class="doc-item" onclick="openPdfModal('/z/Doc4/Toolkit_August_2020.pdf','Toolkit — August 2020')">
+          <div class="doc-icon">🔧</div>
+          <div class="doc-meta">
+            <div class="doc-name">Toolkit — August 2020</div>
+            <div class="doc-sub">Practical tools and templates for SRI integration · Click to open</div>
+          </div>
+          <div class="doc-date">Aug 2020</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+/* ---- DATA ---- */
+const companies = [
+  {name:'ABB Ltd',sector:'Electrical Equipment',region:'Switzerland'},
+  {name:'Adidas AG',sector:'Textiles & Apparel',region:'Europe'},
+  {name:'Adobe Inc',sector:'Software & Services',region:'United States'},
+  {name:'Air Liquide SA',sector:'Chemicals',region:'Europe'},
+  {name:'Air Products and Chemicals Inc',sector:'Chemicals',region:'United States'},
+  {name:'American Water Works Co., Inc.',sector:'Utilities',region:'United States'},
+  {name:'Apple Inc',sector:'Technology Hardware',region:'United States'},
+  {name:'ASML Holding NV',sector:'Semiconductors',region:'Europe'},
+  {name:'AXA SA',sector:'Insurance',region:'Europe'},
+  {name:'Capgemini SE',sector:'Software & Services',region:'Europe'},
+  {name:'Cie de Saint-Gobain',sector:'Building Products',region:'Europe'},
+  {name:'Cie Generale des Etablissements Michelin SCA',sector:'Auto Components',region:'Europe'},
+  {name:'Clariant',sector:'Chemicals',region:'Switzerland'},
+  {name:'CRH PLC',sector:'Construction Materials',region:'United States'},
+  {name:'Danaher Corp.',sector:'Pharmaceuticals',region:'United States'},
+  {name:'Danone SA',sector:'Food Products',region:'Europe'},
+  {name:'Dell Technologies Inc',sector:'Technology Hardware',region:'United States'},
+  {name:'Deutsche Post AG',sector:'Transportation',region:'Europe'},
+  {name:'Deutsche Telekom AG',sector:'Telecommunication Services',region:'Europe'},
+  {name:'DSM-Firmenich AG',sector:'Pharmaceuticals',region:'Switzerland'},
+  {name:'E.ON SE',sector:'Utilities',region:'Europe'},
+  {name:'Ecolab Inc',sector:'Chemicals',region:'United States'},
+  {name:'EDP - Energias de Portugal SA',sector:'Utilities',region:'Europe'},
+  {name:'Endesa SA',sector:'Utilities',region:'Europe'},
+  {name:'Enel SpA',sector:'Utilities',region:'Europe'},
+  {name:'First Solar Inc',sector:'Semiconductors',region:'United States'},
+  {name:'Geberit AG',sector:'Building Products',region:'Switzerland'},
+  {name:'Givaudan SA',sector:'Chemicals',region:'Switzerland'},
+  {name:'Iberdrola SA',sector:'Utilities',region:'Europe'},
+  {name:'Infineon Technologies AG',sector:'Semiconductors',region:'Europe'},
+  {name:'Intesa Sanpaolo SpA',sector:'Banks',region:'Europe'},
+  {name:'Kering SA',sector:'Textiles & Apparel',region:'Europe'},
+  {name:'Kingspan Group PLC',sector:'Building Products',region:'Europe'},
+  {name:'Linde PLC',sector:'Chemicals',region:'United Kingdom'},
+  {name:'LVMH Moet Hennessy Louis Vuitton SE',sector:'Textiles & Apparel',region:'Europe'},
+  {name:'Microsoft Corp',sector:'Software & Services',region:'United States'},
+  {name:'NN Group NV',sector:'Insurance',region:'Europe'},
+  {name:'NVIDIA Corp',sector:'Semiconductors',region:'United States'},
+  {name:'Orsted',sector:'Utilities',region:'Europe'},
+  {name:'PayPal Holdings Inc',sector:'Software & Services',region:'United States'},
+  {name:'Prologis Inc',sector:'Real Estate',region:'United States'},
+  {name:'Roche Holding SA',sector:'Pharmaceuticals',region:'Switzerland'},
+  {name:'salesforce.com Inc',sector:'Software & Services',region:'United States'},
+  {name:'Schneider Electric SE',sector:'Electrical Equipment',region:'Europe'},
+  {name:'SGS SA',sector:'Commercial Services',region:'Switzerland'},
+  {name:'Siemens AG',sector:'Industrial Conglomerates',region:'Europe'},
+  {name:'Sika AG',sector:'Chemicals',region:'Switzerland'},
+  {name:'Swiss Re AG',sector:'Insurance',region:'Switzerland'},
+  {name:'Swisscom AG',sector:'Telecommunication Services',region:'Switzerland'},
+  {name:'Tesco PLC',sector:'Food Retailers',region:'United Kingdom'},
+  {name:'Veolia Environnement SA',sector:'Utilities',region:'Europe'},
+  {name:'Vestas Wind Systems A/S',sector:'Electrical Equipment',region:'Europe'},
+  {name:'Vinci SA',sector:'Construction & Engineering',region:'Europe'},
+  {name:'Vodafone Group PLC',sector:'Telecommunication Services',region:'United Kingdom'},
+  {name:'Vonovia',sector:'Real Estate',region:'Europe'},
+  {name:'Zurich Insurance Group AG',sector:'Insurance',region:'Switzerland'},
+];
+
+const funds = [
+  {name:'Mirabaud - Global Dividend',type:'Funds',assetClass:'Equities',region:'Global',sfdr:'Art. 8'},
+  {name:'Mirabaud - Global Focus',type:'Funds',assetClass:'Equities',region:'Global',sfdr:'Art. 8'},
+  {name:'Candriam - Sustainable Equity World',type:'Funds',assetClass:'Equities',region:'Global',sfdr:'Art. 9'},
+  {name:'Natixis Thematics - Water Fund',type:'Funds',assetClass:'Equities',region:'Global',sfdr:'Art. 9'},
+  {name:'Polar Capital - Smart Energy',type:'Funds',assetClass:'Equities',region:'Global',sfdr:'Art. 9'},
+  {name:'Sparinvest - Ethical Global Value',type:'Funds',assetClass:'Equities',region:'Global',sfdr:'Art. 8'},
+  {name:'Brown Advisory - US Sustainable Growth Fund',type:'Funds',assetClass:'Equities',region:'US',sfdr:'Art. 8'},
+  {name:'Candriam - Sustainable Equity Europe Small & Mid Caps',type:'Funds',assetClass:'Equities',region:'Europe',sfdr:'Art. 9'},
+  {name:'DNCA Invest - Beyond Semperosa',type:'Funds',assetClass:'Equities',region:'Europe',sfdr:'Art. 9'},
+  {name:'Mirova - Europe Environmental Equity',type:'Funds',assetClass:'Equities',region:'Europe',sfdr:'Art. 9'},
+  {name:'Sycomore - Selection Responsable',type:'Funds',assetClass:'Equities',region:'Europe',sfdr:'Art. 8'},
+  {name:'Mirabaud - Global Climate Bond Fund',type:'Funds',assetClass:'Fixed Income',region:'Global',sfdr:'Art. 9'},
+  {name:'Mirabaud - Convertibles Global',type:'Funds',assetClass:'Fixed Income',region:'Global',sfdr:'Art. 8'},
+  {name:'Mirova - Global Green Bond',type:'Funds',assetClass:'Fixed Income',region:'Global',sfdr:'Art. 9'},
+  {name:'Nuveen - U.S. Sustainable Bond Fund',type:'Funds',assetClass:'Fixed Income',region:'US',sfdr:'Art. 9'},
+  {name:'Candriam - Sustainable Bond Euro Corporate',type:'Funds',assetClass:'Fixed Income',region:'Europe',sfdr:'Art. 9'},
+  {name:'Columbia Threadneedle - European Social Bond',type:'Funds',assetClass:'Fixed Income',region:'Europe',sfdr:'Art. 9'},
+  {name:'BNY - Responsible Horizons EM Debt Impact Fund',type:'Funds',assetClass:'Fixed Income',region:'Emerging',sfdr:'Art. 9'},
+  {name:'responsAbility - Micro and SME Finance Debt Fund',type:'Funds',assetClass:'Fixed Income',region:'Emerging',sfdr:'Art. 9'},
+  {name:'BNP Paribas Easy - ECPI Circular Economy Leaders',type:'ETF',assetClass:'Equities',region:'Global',sfdr:'Art. 8'},
+  {name:'Invesco - Global Clean Energy',type:'ETF',assetClass:'Equities',region:'Global',sfdr:'Art. 8'},
+  {name:'Invesco - Solar Energy',type:'ETF',assetClass:'Equities',region:'Global',sfdr:'Art. 8'},
+  {name:'UBS - Global Gender Equality',type:'ETF',assetClass:'Equities',region:'Global',sfdr:'Art. 8'},
+  {name:'UBS - MSCI ACWI Socially Responsible',type:'ETF',assetClass:'Equities',region:'Global',sfdr:'Art. 8'},
+  {name:'UBS - MSCI World Socially Responsible',type:'ETF',assetClass:'Equities',region:'Global',sfdr:'Art. 8'},
+  {name:'UBS - MSCI USA Socially Responsible',type:'ETF',assetClass:'Equities',region:'US',sfdr:'Art. 8'},
+  {name:'BNP Paribas Easy - Low Carbon 100 PAB',type:'ETF',assetClass:'Equities',region:'Europe',sfdr:'Art. 9'},
+  {name:'UBS - MSCI EMU Socially Responsible',type:'ETF',assetClass:'Equities',region:'Europe',sfdr:'Art. 8'},
+  {name:'UBS - MSCI Switzerland IMI Socially Responsible',type:'ETF',assetClass:'Equities',region:'Switzerland',sfdr:'Art. 8'},
+  {name:'UBS - MSCI United Kingdom IMI Socially Responsible',type:'ETF',assetClass:'Equities',region:'UK',sfdr:'Art. 8'},
+  {name:'UBS - MSCI Japan Socially Responsible',type:'ETF',assetClass:'Equities',region:'Japan',sfdr:'Art. 8'},
+  {name:'UBS - MSCI Emerging Markets Socially Responsible',type:'ETF',assetClass:'Equities',region:'Emerging',sfdr:'Art. 8'},
+  {name:'UBS - MSCI Pacific Socially Responsible',type:'ETF',assetClass:'Equities',region:'Asia Pacific',sfdr:'Art. 8'},
+  {name:'iShares - Euro Govt Bond Climate',type:'ETF',assetClass:'Fixed Income',region:'Europe',sfdr:'Art. 8'},
+  {name:'iShares - Swiss Domestic Government Bond 3-7',type:'ETF',assetClass:'Fixed Income',region:'Switzerland',sfdr:''},
+];
+
+const sovereigns = [
+  {name:'Australia',  code:'au'},{name:'Austria',    code:'at'},{name:'Belgium',     code:'be'},
+  {name:'Canada',     code:'ca'},{name:'Chile',      code:'cl'},{name:'Finland',     code:'fi'},
+  {name:'France',     code:'fr'},{name:'Germany',    code:'de'},{name:'Greece',      code:'gr'},
+  {name:'Hungary',    code:'hu'},{name:'Italy',      code:'it'},{name:'Japan',       code:'jp'},
+  {name:'Netherlands',code:'nl'},{name:'New Zealand',code:'nz'},{name:'Norway',      code:'no'},
+  {name:'Poland',     code:'pl'},{name:'Portugal',   code:'pt'},{name:'Romania',     code:'ro'},
+  {name:'South Korea',code:'kr'},{name:'Spain',      code:'es'},{name:'Sweden',      code:'se'},
+  {name:'Switzerland',code:'ch'},{name:'United Kingdom',code:'gb'},
+];
+
+/* ---- LOGO MAP ---- */
+const companyLogos = {
+  'ABB Ltd':'abb.com','Adidas AG':'adidas.com','Adobe Inc':'adobe.com',
+  'Air Liquide SA':'airliquide.com','Air Products and Chemicals Inc':'airproducts.com',
+  'American Water Works Co., Inc.':'amwater.com','Apple Inc':'apple.com',
+  'ASML Holding NV':'asml.com','AXA SA':'axa.com','Capgemini SE':'capgemini.com',
+  'Cie de Saint-Gobain':'saint-gobain.com',
+  'Cie Generale des Etablissements Michelin SCA':'michelin.com',
+  'Clariant':'clariant.com','CRH PLC':'crh.com','Danaher Corp.':'danaher.com',
+  'Danone SA':'danone.com','Dell Technologies Inc':'dell.com',
+  'Deutsche Post AG':'dhl.com','Deutsche Telekom AG':'telekom.com',
+  'DSM-Firmenich AG':'dsm-firmenich.com','E.ON SE':'eon.com',
+  'Ecolab Inc':'ecolab.com','EDP - Energias de Portugal SA':'edp.com',
+  'Endesa SA':'endesa.com','Enel SpA':'enel.com','First Solar Inc':'firstsolar.com',
+  'Geberit AG':'geberit.com','Givaudan SA':'givaudan.com','Iberdrola SA':'iberdrola.com',
+  'Infineon Technologies AG':'infineon.com','Intesa Sanpaolo SpA':'intesasanpaolo.com',
+  'Kering SA':'kering.com','Kingspan Group PLC':'kingspan.com','Linde PLC':'linde.com',
+  'LVMH Moet Hennessy Louis Vuitton SE':'lvmh.com','Microsoft Corp':'microsoft.com',
+  'NN Group NV':'nn-group.com','NVIDIA Corp':'nvidia.com','Orsted':'orsted.com',
+  'PayPal Holdings Inc':'paypal.com','Prologis Inc':'prologis.com',
+  'Roche Holding SA':'roche.com','salesforce.com Inc':'salesforce.com',
+  'Schneider Electric SE':'se.com','SGS SA':'sgs.com','Siemens AG':'siemens.com',
+  'Sika AG':'sika.com','Swiss Re AG':'swissre.com','Swisscom AG':'swisscom.ch',
+  'Tesco PLC':'tesco.com','Veolia Environnement SA':'veolia.com',
+  'Vestas Wind Systems A/S':'vestas.com','Vinci SA':'vinci.com',
+  'Vodafone Group PLC':'vodafone.com','Vonovia':'vonovia.de',
+  'Zurich Insurance Group AG':'zurich.com'
+};
+
+var ESG_RISK={'ABB Ltd':{"s":22.6,"c":"No evidence of relev"},'Adidas AG':{"s":11.9,"c":"Category 2"},'Air Liquide SA':{"s":24.3,"c":"Category 2"},'Air Products and Chemicals Inc':{"s":24.3,"c":"Category 2"},'American Water Works Co., Inc.':{"s":23.4,"c":"Category 2"},'ASML Holding NV':{"s":8.8,"c":"Category 2"},'AXA SA':{"s":17.0,"c":"Category 2"},'Capgemini SE':{"s":10.5,"c":"Category 2"},'Clariant':{"s":22.2,"c":"Category 2"},'CRH PLC':{"s":19.1,"c":"Category 2"},'Danaher Corp.':{"s":8.9,"c":"Category 2"},'Danone SA':{"s":12.8,"c":"Category 2"},'Dell Technologies Inc':{"s":11.7,"c":"Category 2"},'Deutsche Post AG':{"s":9.0,"c":"Category 3"},'Deutsche Telekom AG':{"s":9.0,"c":"Category 3"},'E.ON SE':{"s":17.1,"c":"Category 2"},'EDP - Energias de Portugal SA':{"s":13.9,"c":"Category 3"},'Endesa SA':{"s":23.6,"c":"Category 2"},'Enel SpA':{"s":20.6,"c":"Category 3"},'First Solar Inc':{"s":18.2,"c":"Category 2"},'Geberit AG':{"s":15.4,"c":"Category 1"},'Givaudan SA':{"s":14.3,"c":"Category 2"},'Iberdrola SA':{"s":18.6,"c":"Category 2"},'Infineon Technologies AG':{"s":18.9,"c":"Category 1"},'Intesa Sanpaolo SpA':{"s":8.1,"c":"Category 2"},'Kering SA':{"s":9.7,"c":"Category 2"},'Kingspan Group PLC':{"s":19.3,"c":"Category 3"},'Linde PLC':{"s":10.7,"c":"Category 2"},'LVMH Moet Hennessy Louis Vuitton SE':{"s":13.6,"c":"Category 2"},'Microsoft Corp':{"s":14.4,"c":"Category 2"},'NN Group NV':{"s":16.2,"c":"Category 2"},'NVIDIA Corp':{"s":12.4,"c":"Category 2"},'PayPal Holdings Inc':{"s":19.5,"c":"Category 2"},'Roche Holding SA':{"s":21.2,"c":"Category 2"},'salesforce.com Inc':{"s":16.3,"c":"Category 2"},'Schneider Electric SE':{"s":7.1,"c":"Category 2"},'SGS SA':{"s":13.9,"c":"Category 2"},'Siemens AG':{"s":23.1,"c":"Category 2"},'Sika AG':{"s":21.7,"c":"Category 2"},'Swiss Re AG':{"s":14.7,"c":"Category 1"},'Swisscom AG':{"s":17.2,"c":"Category 2"},'Tesco PLC':{"s":18.8,"c":"Category 2"},'Veolia Environnement SA':{"s":19.5,"c":"Category 2"},'Vestas Wind Systems A/S':{"s":21.3,"c":"Category 2"},'Vinci SA':{"s":26.5,"c":"Category 2"},'Vodafone Group PLC':{"s":11.1,"c":"Category 2"},'Vonovia':{"s":6.4,"c":"Category 2"},'Zurich Insurance Group AG':{"s":14.8,"c":"Category 2"},};
+function logoHTML(name){
+  const domain = companyLogos[name];
+  if(!domain) return `<span class="comp-logo-fallback">${name.substring(0,2).toUpperCase()}</span>`;
+  return `<img class="comp-logo" src="https://www.google.com/s2/favicons?domain=${domain}&sz=64" onerror="this.outerHTML='<span class=comp-logo-fallback>${name.substring(0,2).toUpperCase()}</span>'" alt="">`;
+}
+
+/* ---- PDF MAP ---- */
+const companyPDFs = {
+  'ABB Ltd': '/z/ESG  SRI/ABB Ltd ESG Report - 2025.pdf',
+  'ASML Holding NV': '/z/ESG  SRI/ASML Holding NV ESG Report - 2025.pdf',
+  'AXA SA': '/z/ESG  SRI/AXA SA ESG Report - 2025.pdf',
+  'Adidas AG': '/z/ESG  SRI/adidas AG ESG Report - 2025.pdf',
+  'Adobe Inc': '/z/ESG  SRI/Adobe Inc ESG Report - 2025.pdf',
+  'Air Liquide SA': '/z/ESG  SRI/Air Liquide SA ESG Report - 2026.pdf',
+  'Air Products and Chemicals Inc': '/z/ESG  SRI/Air Products and Chemicals Inc ESG Report - 2025.pdf',
+  'American Water Works Co., Inc.': '/z/ESG  SRI/American Water Works Co., Inc. ESG Report - 2026.pdf',
+  'Apple Inc': '/z/ESG  SRI/Apple Inc ESG Report - 2025.pdf',
+  'CRH PLC': '/z/ESG  SRI/CRH plc ESG Report - 2026.pdf',
+  'Capgemini SE': '/z/ESG  SRI/Capgemini SE ESG Report - 2025.pdf',
+  'Cie Generale des Etablissements Michelin SCA': '/z/ESG  SRI/Cie Generale des Etablissements Michelin SCA ESG Report - 2025.pdf',
+  'Cie de Saint-Gobain': '/z/ESG  SRI/Cie de Saint-Gobain ESG Report - 2025.pdf',
+  'Clariant': '/z/ESG  SRI/Clariant AG ESG Report - 2026.pdf',
+  'DSM-Firmenich AG': '/z/ESG  SRI/DSM-Firmenich AG ESG Report - 2025.pdf',
+  'Danaher Corp.': '/z/ESG  SRI/Danaher Corp. ESG Report - 2026.pdf',
+  'Danone SA': '/z/ESG  SRI/Danone SA ESG Report - 2025.pdf',
+  'Dell Technologies Inc': '/z/ESG  SRI/Dell Technologies Inc ESG Report - 2025.pdf',
+  'Deutsche Post AG': '/z/ESG  SRI/DHL Group ESG Report - 2026.pdf',
+  'Deutsche Telekom AG': '/z/ESG  SRI/Deutsche Telekom AG ESG Report - 2025.pdf',
+  'E.ON SE': '/z/ESG  SRI/E.ON SE ESG Report - 2025.pdf',
+  'EDP - Energias de Portugal SA': '/z/ESG  SRI/EDP - Energias de Portugal SA ESG Report - 2025.pdf',
+  'Ecolab Inc': '/z/ESG  SRI/Ecolab Inc ESG Report - 2025.pdf',
+  'Endesa SA': '/z/ESG  SRI/Endesa SA ESG Report - 2025.pdf',
+  'Enel SpA': '/z/ESG  SRI/Enel SpA ESG Report - 2025.pdf',
+  'First Solar Inc': '/z/ESG  SRI/First Solar Inc ESG Report - 2026.pdf',
+  'Geberit AG': '/z/ESG  SRI/Geberit AG ESG Report - 2025.pdf',
+  'Givaudan SA': '/z/ESG  SRI/Givaudan SA ESG Report - 2025.pdf',
+  'Iberdrola SA': '/z/ESG  SRI/Iberdrola SA ESG Report - 2025.pdf',
+  'Infineon Technologies AG': '/z/ESG  SRI/Infineon Technologies AG ESG Report - 2026.pdf',
+  'Intesa Sanpaolo SpA': '/z/ESG  SRI/Intesa Sanpaolo SpA ESG Report - 2026.pdf',
+  'Kering SA': '/z/ESG  SRI/Kering SA ESG Report - 2025.pdf',
+  'Kingspan Group PLC': '/z/ESG  SRI/Kingspan Group Plc ESG Report ESG - 2026.pdf',
+  'LVMH Moet Hennessy Louis Vuitton SE': '/z/ESG  SRI/LVMH ESG Report - 2025.pdf',
+  'Linde PLC': '/z/ESG  SRI/Linde PLC ESG Report - 2025.pdf',
+  'Microsoft Corp': '/z/ESG  SRI/Microsoft Corp ESG Report - 2025.pdf',
+  'NN Group NV': '/z/ESG  SRI/NN Group N.V. ESG Report - 2026.pdf',
+  'NVIDIA Corp': '/z/ESG  SRI/Nvidia Corp ESG Report - 2025.pdf',
+  'Orsted': '/z/ESG  SRI/Orsted AS ESG Report - 2026.pdf',
+  'PayPal Holdings Inc': '/z/ESG  SRI/PayPal Holdings ESG Report - 2025.pdf',
+  'Prologis Inc': '/z/ESG  SRI/Prologis Inc ESG Report - 2026.pdf',
+  'Roche Holding SA': '/z/ESG  SRI/Roche Holding SA ESG Report - 2025.pdf',
+  'SGS SA': '/z/ESG  SRI/SGS SA ESG Report - 2025.pdf',
+  'Schneider Electric SE': '/z/ESG  SRI/Schneider Electric SE ESG Report - 2025.pdf',
+  'Siemens AG': '/z/ESG  SRI/Siemens AG ESG Report - 2025.pdf',
+  'Sika AG': '/z/ESG  SRI/Sika AG ESG Report - 2025.pdf',
+  'Swiss Re AG': '/z/ESG  SRI/Swiss Re AG ESG Report - 2025.pdf',
+  'Swisscom AG': '/z/ESG  SRI/Swisscom AG ESG Report - 2025.pdf',
+  'Tesco PLC': '/z/ESG  SRI/Tesco PLC ESG Report - 2025.pdf',
+  'Veolia Environnement SA': '/z/ESG  SRI/Veolia Environnement SA ESG Report - 2025.pdf',
+  'Vestas Wind Systems A/S': '/z/ESG  SRI/Vestas Wind Systems AS ESG Report - 2025.pdf',
+  'Vinci SA': '/z/ESG  SRI/Vinci ESG Report - 2025.pdf',
+  'Vodafone Group PLC': '/z/ESG  SRI/Vodafone Group PLC ESG Report - 2025.pdf',
+  'Vonovia': '/z/ESG  SRI/Vonovia SE ESG Report - 2025.pdf',
+  'Zurich Insurance Group AG': '/z/ESG  SRI/Zurich Insurance Group AG ESG Report - 2025.pdf',
+  'salesforce.com Inc': '/z/ESG  SRI/salesforce.com Inc ESG Report - 2025.pdf',
+};
+const sovereignPDFs = {
+  'Australia': '/z/ESG Sovereign/Australia - ESG 2025.pdf',
+  'Austria': '/z/ESG Sovereign/Austria - ESG 2025.pdf',
+  'Belgium': '/z/ESG Sovereign/Belgium - ESG 2025.pdf',
+  'Canada': '/z/ESG Sovereign/Canada - ESG 2025.pdf',
+  'Chile': '/z/ESG Sovereign/Chile - ESG 2025.pdf',
+  'Finland': '/z/ESG Sovereign/Finland - ESG 2025.pdf',
+  'France': '/z/ESG Sovereign/France - ESG 2025.pdf',
+  'Germany': '/z/ESG Sovereign/Germany - ESG 2025.pdf',
+  'Greece': '/z/ESG Sovereign/Greece - ESG 2025.pdf',
+  'Hungary': '/z/ESG Sovereign/Hungary - ESG 2025.pdf',
+  'Italy': '/z/ESG Sovereign/Italy - ESG 2025.pdf',
+  'Japan': '/z/ESG Sovereign/Japan - ESG 2025.pdf',
+  'Netherlands': '/z/ESG Sovereign/Netherlands - ESG 2025.pdf',
+  'New Zealand': '/z/ESG Sovereign/New Zealand - ESG 2025.pdf',
+  'Norway': '/z/ESG Sovereign/Norway - ESG 2025.pdf',
+  'Poland': '/z/ESG Sovereign/Poland - ESG 2025.pdf',
+  'Portugal': '/z/ESG Sovereign/Portugal - ESG 2025.pdf',
+  'Romania': '/z/ESG Sovereign/Romania - ESG 2025.pdf',
+  'South Korea': '/z/ESG Sovereign/South Korea - ESG 2025.pdf',
+  'Spain': '/z/ESG Sovereign/Spain - ESG 2025.pdf',
+  'Sweden': '/z/ESG Sovereign/Sweden - ESG 2025.pdf',
+  'Switzerland': '/z/ESG Sovereign/Switzerland - ESG 2025.pdf',
+  'United Kingdom': '/z/ESG Sovereign/United Kingdom - ESG 2025.pdf',
+};
+const fundPDFs = {
+  'BNP Paribas Easy - ECPI Circular Economy Leaders': '/z/ESG Catalog/BNP Paribas Easy ECPI Circular Economy Leaders - ETF - ESG Report.pdf',
+  'BNP Paribas Easy - Low Carbon 100 PAB': '/z/ESG Catalog/BNP Paribas Easy Low Carbon 100 PAB - ETF - ESG Report.pdf',
+  'BNY - Responsible Horizons EM Debt Impact Fund': '/z/ESG Catalog/BNY Responsible Horizon EM Debt Impact Fund - ESG report.pdf',
+  'Brown Advisory - US Sustainable Growth Fund': '/z/ESG Catalog/Brown Advisory US large-cap sustainable growth - ESG report.pdf',
+  'Candriam - Sustainable Bond Euro Corporate': '/z/ESG Catalog/Candriam Sustainable Bond Euro Corporate - ESG report.pdf',
+  'Candriam - Sustainable Equity Europe Small & Mid Caps': '/z/ESG Catalog/Candriam Sustainable Equity Europe Small-Mid Caps - ESG report.pdf',
+  'Candriam - Sustainable Equity World': '/z/ESG Catalog/Candriam Sustainable Equity World - ESG report.pdf',
+  'Columbia Threadneedle - European Social Bond': '/z/ESG Catalog/Columbia Threadneedle European Social Bond - ESG report.pdf',
+  'DNCA Invest - Beyond Semperosa': '/z/ESG Catalog/DNCA Invest Beyond Semperosa - ESG report.pdf',
+  'Invesco - Global Clean Energy': '/z/ESG Catalog/Invesco Global Clean Energy - ETF - ESG Report.pdf',
+  'Invesco - Solar Energy': '/z/ESG Catalog/Invesco Solar Energy - ETF - ESG Report.pdf',
+  'Mirabaud - Convertibles Global': '/z/ESG Catalog/Mirabaud Convertibles Global - ESG report.pdf',
+  'Mirabaud - Global Climate Bond Fund': '/z/ESG Catalog/Mirabaud Global Climate Bond - ESG report.pdf',
+  'Mirabaud - Global Dividend': '/z/ESG Catalog/Mirabaud Global Dividend - ESG report.pdf',
+  'Mirabaud - Global Focus': '/z/ESG Catalog/Mirabaud Global Focus - ESG report.pdf',
+  'Mirova - Europe Environmental Equity': '/z/ESG Catalog/Mirova Europe Environmental Equity - ESG report.pdf',
+  'Mirova - Global Green Bond': '/z/ESG Catalog/Mirova Global Green Bond - ESG report.pdf',
+  'Natixis Thematics - Water Fund': '/z/ESG Catalog/Natixis Thematics Water Fund - ESG report.pdf',
+  'Nuveen - U.S. Sustainable Bond Fund': '/z/ESG Catalog/Nuveen U.S. Sustainable Bond Fund - ESG report.pdf',
+  'Polar Capital - Smart Energy': '/z/ESG Catalog/Polar Capital Smart Energy - ESG report.pdf',
+  'Sparinvest - Ethical Global Value': '/z/ESG Catalog/Sparinvest Ethical Global Value - ESG report.pdf',
+  'Sycomore - Selection Responsable': '/z/ESG Catalog/Sycomore Selection Responsable - ESG report.pdf',
+  'UBS - Global Gender Equality': '/z/ESG Catalog/UBS Global Gender Equality - ETF - ESG Report.pdf',
+  'UBS - MSCI ACWI Socially Responsible': '/z/ESG Catalog/UBS MSCI ACWI Socially Responsible - ETF - ESG Report.pdf',
+  'UBS - MSCI EMU Socially Responsible': '/z/ESG Catalog/UBS MSCI EMU Socially Responsible - ETF - ESG Report .pdf',
+  'UBS - MSCI Emerging Markets Socially Responsible': '/z/ESG Catalog/UBS MSCI Emerging Markets Socially Responsible - ETF - ESG Report.pdf',
+  'UBS - MSCI Japan Socially Responsible': '/z/ESG Catalog/UBS MSCI Japan Socially Responsible - ETF - ESG Report.pdf',
+  'UBS - MSCI Pacific Socially Responsible': '/z/ESG Catalog/UBS MSCI Pacific Socially Responsible - ETF - ESG Report.pdf',
+  'UBS - MSCI Switzerland IMI Socially Responsible': '/z/ESG Catalog/UBS MSCI Switzerland IMI Socially Responsible - ETF - ESG Report.pdf',
+  'UBS - MSCI USA Socially Responsible': '/z/ESG Catalog/UBS MSCI USA Socially Responsible - ETF - ESG Report.pdf',
+  'UBS - MSCI United Kingdom IMI Socially Responsible': '/z/ESG Catalog/UBS MSCI United Kingdom IMI Socially Responsible - ETF - ESG Report.pdf',
+  'UBS - MSCI World Socially Responsible': '/z/ESG Catalog/UBS MSCI World Socially Responsible - ETF - ESG Report.pdf',
+  'iShares - Euro Govt Bond Climate': '/z/ESG Catalog/iShares Euro Govt Bond Climate - ETF - ESG Report.pdf',
+  'iShares - Swiss Domestic Government Bond 3-7': '/z/ESG Catalog/iShares Swiss Domestic Gov Bond 3-7 - ETF - ESG Report.pdf',
+  'responsAbility - Micro and SME Finance Debt Fund': '/z/ESG Catalog/responsability Micro and SME Finance Debt - ESG report.pdf',
+};
+
+/* ---- RENDER ---- */
+function renderCompanies(data){
+  const tb = document.getElementById('comp-tbody');
+  if(!data.length){tb.innerHTML='<tr><td colspan="6" class="no-results">No results found.</td></tr>';return;}
+  tb.innerHTML = data.map((c,i)=>{
+    const rb = c.region==='Switzerland'?'badge-ch':c.region==='United States'?'badge-us':c.region==='United Kingdom'?'badge-ch':'badge-eu';
+    const pdf = companyPDFs[c.name] || '/z/Latest Publications/ESG Leader list - Companies.pdf';
+    const hasOwn = !!companyPDFs[c.name];
+    const pdfBadge = hasOwn ? '<span style="margin-left:6px;font-size:9px;color:var(--gold);font-weight:600;">📄 REPORT</span>' : '';
+    return `<tr style="cursor:pointer" onclick="openPdfModal('${pdf}','${c.name} — ESG Profile 2025')" title="${hasOwn ? 'Click to open ESG report' : 'Click to open ESG Leader list'}">
+      <td style="color:var(--text-muted);width:36px">${i+1}</td>
+      <td style="display:flex;align-items:center;gap:0;padding:6px 14px">${logoHTML(c.name)}<strong>${c.name}</strong>${pdfBadge}</td>
+      <td>${c.sector}</td>
+      <td><span class="badge ${rb}">${c.region}</span></td>
+      <td style="font-weight:700;color:var(--navy)">${(ESG_RISK[c.name]&&ESG_RISK[c.name].s!=null)?ESG_RISK[c.name].s:'-'}</td>
+      <td style="font-size:10px">${(ESG_RISK[c.name]&&ESG_RISK[c.name].c)?ESG_RISK[c.name].c:'-'}</td>
+
+    </tr>`;
+  }).join('');
+  document.getElementById('comp-count').textContent = data.length;
+  document.getElementById('comp-result-count').textContent = data.length + ' / 57 companies';
+}
+
+function filterCompanies(){
+  const q = document.getElementById('comp-search').value.toLowerCase();
+  const sec = document.getElementById('comp-sector').value;
+  const reg = document.getElementById('comp-region').value;
+  const filtered = companies.filter(c=>
+    (!q || c.name.toLowerCase().includes(q) || c.sector.toLowerCase().includes(q)) &&
+    (!sec || c.sector===sec) &&
+    (!reg || c.region===reg)
+  );
+  renderCompanies(filtered);
+}
+
+function renderFunds(data){
+  const tb = document.getElementById('funds-tbody');
+  if(!data.length){tb.innerHTML='<tr><td colspan="6" class="no-results">No results found.</td></tr>';return;}
+  tb.innerHTML = data.map(f=>{
+    const tb2 = f.type==='ETF'?'badge-etf':'badge-fund';
+    const sb = f.sfdr==='Art. 9'?'badge-sfdr9':f.sfdr==='Art. 8'?'badge-sfdr8':'';
+    const rb = f.region==='Switzerland'?'badge-ch':f.region==='US'?'badge-us':f.region==='UK'?'badge-ch':'badge-eu';
+    const pdf = fundPDFs[f.name] || '/z/Latest Publications/ESG Leader list - Funds.pdf';
+    const hasOwn = !!fundPDFs[f.name];
+    const pdfBadge = hasOwn ? '<span style="margin-left:6px;font-size:9px;color:var(--gold);font-weight:600;">📄 REPORT</span>' : '';
+    return `<tr style="cursor:pointer" onclick="openPdfModal('${pdf}','${f.name} — ESG Profile')">
+      <td><strong>${f.name}</strong>${pdfBadge}</td>
+      <td><span class="badge ${tb2}">${f.type}</span></td>
+      <td>${f.assetClass}</td>
+      <td><span class="badge ${rb}">${f.region}</span></td>
+      <td>${f.sfdr?`<span class="badge ${sb}">${f.sfdr}</span>`:'-'}</td>
+    </tr>`;
+  }).join('');
+  document.getElementById('funds-count').textContent = data.length;
+  document.getElementById('funds-result-count').textContent = data.length + ' / 35 instruments';
+}
+
+function filterFunds(){
+  const q = document.getElementById('funds-search').value.toLowerCase();
+  const tp = document.getElementById('funds-type').value;
+  const cl = document.getElementById('funds-class').value;
+  const rg = document.getElementById('funds-region').value;
+  const sf = document.getElementById('funds-sfdr').value;
+  const filtered = funds.filter(f=>
+    (!q || f.name.toLowerCase().includes(q)) &&
+    (!tp || f.type===tp) &&
+    (!cl || f.assetClass===cl) &&
+    (!rg || f.region===rg) &&
+    (!sf || f.sfdr===sf)
+  );
+  renderFunds(filtered);
+}
+
+function renderSovereign(data){
+  const grid = document.getElementById('sovereign-grid');
+  grid.innerHTML = data.map(s=>{
+    const pdf = sovereignPDFs[s.name] || null;
+    const click = pdf ? `onclick="openPdfModal('${pdf}','${s.name} — ESG Sovereign Profile 2025')" style="cursor:pointer"` : '';
+    const badge = pdf ? '<div style="font-size:9px;color:var(--gold);font-weight:600;margin-top:2px;">📄 REPORT</div>' : '<div style="font-size:10px;color:var(--text-muted)">ESG 2025</div>';
+    return `
+    <div class="country-card" ${click}>
+      <img src="https://flagcdn.com/28x21/${s.code}.png" width="28" height="21" style="border-radius:2px;border:1px solid var(--border);flex-shrink:0" alt="${s.name}">
+      <div>
+        <div class="country-name">${s.name}</div>
+        ${badge}
+      </div>
+    </div>
+  `;}).join('');
+  document.getElementById('sov-count').textContent = data.length + ' countries';
+}
+
+function filterSovereign(){
+  const q = document.getElementById('sov-search').value.toLowerCase();
+  const filtered = sovereigns.filter(s=>!q||s.name.toLowerCase().includes(q));
+  renderSovereign(filtered);
+}
+
+/* ---- NAVIGATION ---- */
+const views = ['home','company','sovereign','funds','strprod','sri','docs'];
+const navLabels = {
+  home:'SRI & ESG',
+  company:'ESG Company Profiles',
+  sovereign:'ESG Sovereign Profiles',
+  funds:'ESG Funds & ETFs',
+  strprod:'ESG Str. Products & Private Assets',
+  sri:'SRI Strategy',
+  docs:'Documentation & Tools'
+};
+
+function showHome(){
+  views.forEach(v=>{
+    document.getElementById('view-'+v).classList.add('hidden');
+  });
+  document.getElementById('view-home').classList.remove('hidden');
+  document.querySelectorAll('.sec-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('btn-home').classList.add('active');
+}
+
+function showSection(id){
+  views.forEach(v=>{
+    document.getElementById('view-'+v).classList.add('hidden');
+  });
+  document.getElementById('view-'+id).classList.remove('hidden');
+  document.querySelectorAll('.sec-btn').forEach(b=>b.classList.remove('active'));
+  var btn = document.getElementById('btn-'+id);
+  if(btn) btn.classList.add('active');
+}
+
+/* ---- INIT ---- */
+renderCompanies(companies);
+renderFunds(funds);
+renderSovereign(sovereigns);
+
+// Home page lists
+function renderHomeCompanies(data){
+  const tb = document.getElementById('home-comp-tbody');
+  if(!tb) return;
+  if(!data.length){tb.innerHTML='<tr><td colspan="6" class="no-results">No results.</td></tr>';return;}
+  tb.innerHTML = data.map((c,i)=>{
+    const rb = c.region==='Switzerland'?'badge-ch':c.region==='United States'?'badge-us':c.region==='United Kingdom'?'badge-ch':'badge-eu';
+    const pdf = companyPDFs[c.name] || '/z/Latest Publications/ESG Leader list - Companies.pdf';
+    const hasOwn = !!companyPDFs[c.name];
+    const pdfBadge = hasOwn ? '<span style="margin-left:6px;font-size:9px;color:var(--gold);font-weight:600;">📄 REPORT</span>' : '';
+    return `<tr style="cursor:pointer" onclick="openPdfModal('${pdf}','${c.name} — ESG Profile 2025')">
+      <td style="color:var(--text-muted)">${i+1}</td>
+      <td style="display:flex;align-items:center;padding:6px 14px">${logoHTML(c.name)}<strong>${c.name}</strong>${pdfBadge}</td>
+      <td>${c.sector}</td>
+      <td><span class="badge ${rb}">${c.region}</span></td>
+      <td style="font-weight:700;color:var(--navy)">${(ESG_RISK[c.name]&&ESG_RISK[c.name].s!=null)?ESG_RISK[c.name].s:'-'}</td>
+      <td style="font-size:10px">${(ESG_RISK[c.name]&&ESG_RISK[c.name].c)?ESG_RISK[c.name].c:'-'}</td>
+
+    </tr>`;
+  }).join('');
+  document.getElementById('home-comp-count').textContent = data.length + ' / 57 companies';
+}
+
+function filterHomeCompanies(){
+  var el=document.getElementById('home-comp-search'); if(!el) return;
+  const q = el.value.toLowerCase();
+  const sec = document.getElementById('home-comp-sector').value;
+  const reg = document.getElementById('home-comp-region').value;
+  const filtered = companies.filter(c=>
+    (!q||c.name.toLowerCase().includes(q)||c.sector.toLowerCase().includes(q))&&
+    (!sec||c.sector===sec)&&(!reg||c.region===reg)
+  );
+  renderHomeCompanies(filtered);
+}
+
+function renderHomeFunds(data){
+  const tb = document.getElementById('home-funds-tbody');
+  if(!tb) return;
+  if(!data.length){tb.innerHTML='<tr><td colspan="6" class="no-results">No results.</td></tr>';return;}
+  tb.innerHTML = data.map(f=>{
+    const tb2 = f.type==='ETF'?'badge-etf':'badge-fund';
+    const sb = f.sfdr==='Art. 9'?'badge-sfdr9':f.sfdr==='Art. 8'?'badge-sfdr8':'';
+    const rb = f.region==='Switzerland'?'badge-ch':f.region==='US'?'badge-us':f.region==='UK'?'badge-ch':'badge-eu';
+    const pdf = fundPDFs[f.name] || '/z/Latest Publications/ESG Leader list - Funds.pdf';
+    const hasOwn = !!fundPDFs[f.name];
+    const pdfBadge = hasOwn ? '<span style="margin-left:6px;font-size:9px;color:var(--gold);font-weight:600;">📄 REPORT</span>' : '';
+    return `<tr style="cursor:pointer" onclick="openPdfModal('${pdf}','${f.name} — ESG Profile')">
+      <td><strong>${f.name}</strong>${pdfBadge}</td>
+      <td><span class="badge ${tb2}">${f.type}</span></td>
+      <td>${f.assetClass}</td>
+      <td><span class="badge ${rb}">${f.region}</span></td>
+      <td>${f.sfdr?`<span class="badge ${sb}">${f.sfdr}</span>`:'-'}</td>
+    </tr>`;
+  }).join('');
+  document.getElementById('home-funds-count').textContent = data.length + ' / 35 instruments';
+}
+
+function filterHomeFunds(){
+  var el=document.getElementById('home-funds-search'); if(!el) return;
+  const q = el.value.toLowerCase();
+  const tp = document.getElementById('home-funds-type').value;
+  const cl = document.getElementById('home-funds-class').value;
+  const sf = document.getElementById('home-funds-sfdr').value;
+  const filtered = funds.filter(f=>
+    (!q||f.name.toLowerCase().includes(q))&&
+    (!tp||f.type===tp)&&(!cl||f.assetClass===cl)&&(!sf||f.sfdr===sf)
+  );
+  renderHomeFunds(filtered);
+}
+
+renderHomeCompanies(companies);
+renderHomeFunds(funds);
+
+/* ---- PDF MODAL ---- */
+
+// Fonds & ETFs : individual PDF links handled in renderHomeFunds onclick
+
+function clearESGFilters(){
+  var s=document.getElementById('comp-search');if(s)s.value='';
+  document.querySelectorAll('select').forEach(function(el){el.selectedIndex=0;});
+  filterCompanies();
+}
+
+function openPdfModal(p,t){document.getElementById('pdf-modal-title').textContent=t||'';document.getElementById('pdf-modal-frame').src=p;document.getElementById('pdf-modal-ext').href=p;document.getElementById('pdf-modal').classList.add('open');}
+function closePdfModal(){document.getElementById('pdf-modal').classList.remove('open');document.getElementById('pdf-modal-frame').src='';}
+document.addEventListener('DOMContentLoaded',function(){var m=document.getElementById('pdf-modal');if(m)m.addEventListener('click',function(e){if(e.target===this)closePdfModal();});});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closePdfModal();});
+</script>
+<!-- PDF VIEWER MODAL -->
+<div id="pdf-modal" style="display:none;position:fixed;inset:0;background:rgba(0,15,35,.75);z-index:700;align-items:stretch;justify-content:center;backdrop-filter:blur(2px)">
+  <div style="display:flex;flex-direction:column;width:92vw;max-width:1100px;height:92vh;margin:auto;background:#1a1a2e;border-radius:4px;overflow:hidden;box-shadow:0 16px 64px rgba(0,0,0,.5)">
+    <div style="background:var(--navy);padding:10px 18px;display:flex;align-items:center;gap:12px;border-bottom:2px solid var(--gold);flex-shrink:0">
+      <div id="pdf-modal-title" style="font-size:13px;font-weight:700;color:#fff;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"></div>
+      <a id="pdf-modal-ext" href="#" target="_blank" style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(188,150,84,.4);padding:3px 10px;border-radius:1px;text-decoration:none;flex-shrink:0;transition:all .15s">Open</a>
+      <button onclick="closePdfModal()" style="background:none;border:none;color:rgba(255,255,255,.5);cursor:pointer;font-size:18px;flex-shrink:0;padding:0 0 0 8px;line-height:1">&#10005;</button>
+    </div>
+    <iframe id="pdf-modal-frame" src="" style="flex:1;border:none;background:#fff"></iframe>
+  </div>
+</div>
+</body>
+</html>

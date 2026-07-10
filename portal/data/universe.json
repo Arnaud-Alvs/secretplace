@@ -1,0 +1,6245 @@
+{
+ "universe": {
+  "ACN": {
+   "ticker": "ACN",
+   "symbol_raw": "ACN",
+   "name": "Accenture plc",
+   "region": "US",
+   "ranking": 4,
+   "isin": "IE00B4BNMY34",
+   "sector": "Information Technology",
+   "country": "Ireland"
+  },
+  "GOOGL": {
+   "ticker": "GOOGL",
+   "symbol_raw": "GOOGL",
+   "name": "Alphabet Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US02079K3059",
+   "sector": "Communication Services",
+   "country": "United States of America"
+  },
+  "AMZN": {
+   "ticker": "AMZN",
+   "symbol_raw": "AMZN",
+   "name": "Amazon.com Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US0231351067",
+   "sector": "Consumer Discretionary",
+   "country": "United States of America"
+  },
+  "AME": {
+   "ticker": "AME",
+   "symbol_raw": "AME",
+   "name": "AMETEK Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US0311001004",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "AAPL": {
+   "ticker": "AAPL",
+   "symbol_raw": "AAPL",
+   "name": "Apple Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US0378331005",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "ASML": {
+   "ticker": "ASML",
+   "symbol_raw": "ASML NA",
+   "name": "ASML Holding N.V.",
+   "region": "EUROPE",
+   "ranking": 5,
+   "isin": "NL0010273215",
+   "sector": "Information Technology",
+   "country": "Netherlands"
+  },
+  "CS": {
+   "ticker": "CS",
+   "symbol_raw": "CS FP",
+   "name": "AXA SA",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "FR0000120628",
+   "sector": "Financials",
+   "country": "France"
+  },
+  "AIR": {
+   "ticker": "AIR",
+   "symbol_raw": "AIR FP",
+   "name": "Airbus SE",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "NL0000235190",
+   "sector": "Industrials",
+   "country": "France"
+  },
+  "AZN": {
+   "ticker": "AZN",
+   "symbol_raw": "AZN LN",
+   "name": "AstraZeneca PLC",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "GB0009895292",
+   "sector": "Health Care",
+   "country": "United Kingdom"
+  },
+  "BMY": {
+   "ticker": "BMY",
+   "symbol_raw": "BMY",
+   "name": "Bristol-Myers Squibb Company",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US1101221083",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "CSCO": {
+   "ticker": "CSCO",
+   "symbol_raw": "CSCO",
+   "name": "Cisco Systems Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US17275R1023",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "CFR": {
+   "ticker": "CFR",
+   "symbol_raw": "CFR SW",
+   "name": "Compagnie Financiere Richemont SA",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "CH0210483332",
+   "sector": "Consumer Discretionary",
+   "country": "Switzerland"
+  },
+  "DTE": {
+   "ticker": "DTE",
+   "symbol_raw": "DTE GR",
+   "name": "Deutsche Telekom AG",
+   "region": "EUROPE",
+   "ranking": 5,
+   "isin": "DE0005557508",
+   "sector": "Communication Services",
+   "country": "Germany"
+  },
+  "ENEL": {
+   "ticker": "ENEL",
+   "symbol_raw": "ENEL IM",
+   "name": "Enel SpA",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "IT0003128367",
+   "sector": "Utilities",
+   "country": "Italy"
+  },
+  "SPGI": {
+   "ticker": "SPGI",
+   "symbol_raw": "SPGI",
+   "name": "S&P Global Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US78409V1044",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "RACE": {
+   "ticker": "RACE",
+   "symbol_raw": "RACE IM",
+   "name": "Ferrari N.V.",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "NL0011585146",
+   "sector": "Consumer Discretionary",
+   "country": "Italy"
+  },
+  "JPM": {
+   "ticker": "JPM",
+   "symbol_raw": "JPM",
+   "name": "JPMorgan Chase & Co.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US46625H1005",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "AI": {
+   "ticker": "AI",
+   "symbol_raw": "AI FP",
+   "name": "L'Air Liquide S.A.",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "FR0000120073",
+   "sector": "Materials",
+   "country": "France"
+  },
+  "MA": {
+   "ticker": "MA",
+   "symbol_raw": "MA",
+   "name": "Mastercard Incorporated",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US57636Q1040",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "META": {
+   "ticker": "META",
+   "symbol_raw": "META",
+   "name": "Meta Platforms Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US30303M1027",
+   "sector": "Communication Services",
+   "country": "United States of America"
+  },
+  "MSFT": {
+   "ticker": "MSFT",
+   "symbol_raw": "MSFT",
+   "name": "Microsoft Corporation",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US5949181045",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "NFLX": {
+   "ticker": "NFLX",
+   "symbol_raw": "NFLX",
+   "name": "Netflix Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US64110L1061",
+   "sector": "Communication Services",
+   "country": "United States of America"
+  },
+  "MS": {
+   "ticker": "MS",
+   "symbol_raw": "MS",
+   "name": "Morgan Stanley",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US6174464486",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "LLY": {
+   "ticker": "LLY",
+   "symbol_raw": "LLY",
+   "name": "Eli Lilly and Company",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US5324571083",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "NVDA": {
+   "ticker": "NVDA",
+   "symbol_raw": "NVDA",
+   "name": "NVIDIA Corporation",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US67066G1040",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "LONN": {
+   "ticker": "LONN",
+   "symbol_raw": "LONN SW",
+   "name": "Lonza Group AG",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "CH0013841017",
+   "sector": "Health Care",
+   "country": "Switzerland"
+  },
+  "ROG": {
+   "ticker": "ROG",
+   "symbol_raw": "ROG SW",
+   "name": "Roche Holding AG",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "CH0012032048",
+   "sector": "Health Care",
+   "country": "Switzerland"
+  },
+  "SAP": {
+   "ticker": "SAP",
+   "symbol_raw": "SAP GR",
+   "name": "SAP SE",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "DE0007164600",
+   "sector": "Information Technology",
+   "country": "Germany"
+  },
+  "SYK": {
+   "ticker": "SYK",
+   "symbol_raw": "SYK",
+   "name": "Stryker Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US8636671013",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "SU": {
+   "ticker": "SU",
+   "symbol_raw": "SU FP",
+   "name": "Schneider Electric S.E.",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "FR0000121972",
+   "sector": "Industrials",
+   "country": "France"
+  },
+  "SHELL": {
+   "ticker": "SHELL",
+   "symbol_raw": "SHELL NA",
+   "name": "Shell plc",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "GB00BP6MXD84",
+   "sector": "Energy",
+   "country": "Netherlands"
+  },
+  "SIKA": {
+   "ticker": "SIKA",
+   "symbol_raw": "SIKA SW",
+   "name": "Sika AG",
+   "region": "EUROPE",
+   "ranking": 2,
+   "isin": "CH0418792922",
+   "sector": "Materials",
+   "country": "Switzerland"
+  },
+  "PG": {
+   "ticker": "PG",
+   "symbol_raw": "PG",
+   "name": "The Procter & Gamble Company",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US7427181091",
+   "sector": "Consumer Staples",
+   "country": "United States of America"
+  },
+  "CPG": {
+   "ticker": "CPG",
+   "symbol_raw": "CPG LN",
+   "name": "Compass Group PLC",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "GB00BD6K4575",
+   "sector": "Consumer Discretionary",
+   "country": "United Kingdom"
+  },
+  "UBER": {
+   "ticker": "UBER",
+   "symbol_raw": "UBER",
+   "name": "Uber Technologies Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US90353T1007",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "V": {
+   "ticker": "V",
+   "symbol_raw": "V",
+   "name": "Visa Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US92826C8394",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "STMN": {
+   "ticker": "STMN",
+   "symbol_raw": "STMN SW",
+   "name": "Straumann Holding AG",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "CH1175448666",
+   "sector": "Health Care",
+   "country": "Switzerland"
+  },
+  "WMT": {
+   "ticker": "WMT",
+   "symbol_raw": "WMT",
+   "name": "Walmart Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US9311421039",
+   "sector": "Consumer Staples",
+   "country": "United States of America"
+  },
+  "AVGO": {
+   "ticker": "AVGO",
+   "symbol_raw": "AVGO",
+   "name": "Broadcom Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US11135F1012",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "DKSH": {
+   "ticker": "DKSH",
+   "symbol_raw": "DKSH SW",
+   "name": "DKSH Holding AG",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "CH0126673539",
+   "sector": "Industrials",
+   "country": "Switzerland"
+  },
+  "SFZN": {
+   "ticker": "SFZN",
+   "symbol_raw": "SFZN SW",
+   "name": "Siegfried Holding AG",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "CH1429326825",
+   "sector": "Health Care",
+   "country": "Switzerland"
+  },
+  "GF": {
+   "ticker": "GF",
+   "symbol_raw": "GF SW",
+   "name": "Georg Fischer AG",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "CH1169151003",
+   "sector": "Industrials",
+   "country": "Switzerland"
+  },
+  "SRAIL": {
+   "ticker": "SRAIL",
+   "symbol_raw": "SRAIL SW",
+   "name": "Stadler Rail AG",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "CH0002178181",
+   "sector": "Industrials",
+   "country": "Switzerland"
+  },
+  "EMSN": {
+   "ticker": "EMSN",
+   "symbol_raw": "EMSN SW",
+   "name": "EMS-Chemie Holding AG",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "CH0016440353",
+   "sector": "Materials",
+   "country": "Switzerland"
+  },
+  "SIGN": {
+   "ticker": "SIGN",
+   "symbol_raw": "SIGN SW",
+   "name": "SIG Group AG",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "CH0435377954",
+   "sector": "Materials",
+   "country": "Switzerland"
+  },
+  "III": {
+   "ticker": "III",
+   "symbol_raw": "III LN",
+   "name": "3i Group plc",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "GB00B1YW4409",
+   "sector": "Financials",
+   "country": "United Kingdom"
+  },
+  "VOLVB": {
+   "ticker": "VOLVB",
+   "symbol_raw": "VOLVB SS",
+   "name": "AB Volvo (publ)",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "SE0000115446",
+   "sector": "Industrials",
+   "country": "Sweden"
+  },
+  "ABBN": {
+   "ticker": "ABBN",
+   "symbol_raw": "ABBN SW",
+   "name": "ABB Ltd",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "CH0012221716",
+   "sector": "Industrials",
+   "country": "Switzerland"
+  },
+  "ABT": {
+   "ticker": "ABT",
+   "symbol_raw": "ABT",
+   "name": "Abbott Laboratories",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US0028241000",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "ABBV": {
+   "ticker": "ABBV",
+   "symbol_raw": "ABBV",
+   "name": "AbbVie Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US00287Y1091",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "ABN": {
+   "ticker": "ABN",
+   "symbol_raw": "ABN NA",
+   "name": "ABN AMRO Bank N.V.",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "NL0011540547",
+   "sector": "Financials",
+   "country": "Netherlands"
+  },
+  "AC": {
+   "ticker": "AC",
+   "symbol_raw": "AC FP",
+   "name": "Accor SA",
+   "region": "EUROPE",
+   "ranking": 5,
+   "isin": "FR0000120404",
+   "sector": "Consumer Discretionary",
+   "country": "France"
+  },
+  "ADEN": {
+   "ticker": "ADEN",
+   "symbol_raw": "ADEN SW",
+   "name": "Adecco Group AG",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "CH0012138605",
+   "sector": "Industrials",
+   "country": "Switzerland"
+  },
+  "ADS": {
+   "ticker": "ADS",
+   "symbol_raw": "ADS GR",
+   "name": "adidas AG",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "DE000A1EWWW0",
+   "sector": "Consumer Discretionary",
+   "country": "Germany"
+  },
+  "ADBE": {
+   "ticker": "ADBE",
+   "symbol_raw": "ADBE",
+   "name": "Adobe Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US00724F1012",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "AMD": {
+   "ticker": "AMD",
+   "symbol_raw": "AMD",
+   "name": "Advanced Micro Devices Inc.",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US0079031078",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "ADYEN": {
+   "ticker": "ADYEN",
+   "symbol_raw": "ADYEN NA",
+   "name": "Adyen N.V.",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "NL0012969182",
+   "sector": "Financials",
+   "country": "Netherlands"
+  },
+  "AENA": {
+   "ticker": "AENA",
+   "symbol_raw": "AENA SM",
+   "name": "Aena S.M.E. S.A.",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "ES0105046017",
+   "sector": "Industrials",
+   "country": "Spain"
+  },
+  "AER": {
+   "ticker": "AER",
+   "symbol_raw": "AER",
+   "name": "AerCap Holdings N.V.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "NL0000687663",
+   "sector": "Industrials",
+   "country": "Ireland"
+  },
+  "AFRM": {
+   "ticker": "AFRM",
+   "symbol_raw": "AFRM",
+   "name": "Affirm Holdings Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US00827B1061",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "AFL": {
+   "ticker": "AFL",
+   "symbol_raw": "AFL",
+   "name": "Aflac Incorporated",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US0010551028",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "A": {
+   "ticker": "A",
+   "symbol_raw": "A",
+   "name": "Agilent Technologies Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US00846U1016",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "AEM": {
+   "ticker": "AEM",
+   "symbol_raw": "AEM",
+   "name": "Agnico Eagle Mines Limited",
+   "region": "CANADA",
+   "ranking": 5,
+   "isin": "CA0084741085",
+   "sector": "Materials",
+   "country": "Canada"
+  },
+  "APD": {
+   "ticker": "APD",
+   "symbol_raw": "APD",
+   "name": "Air Products and Chemicals Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US0091581068",
+   "sector": "Materials",
+   "country": "United States of America"
+  },
+  "ABNB": {
+   "ticker": "ABNB",
+   "symbol_raw": "ABNB",
+   "name": "Airbnb Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US0090661010",
+   "sector": "Consumer Discretionary",
+   "country": "United States of America"
+  },
+  "ALC": {
+   "ticker": "ALC",
+   "symbol_raw": "ALC SW",
+   "name": "Alcon Inc.",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "CH0432492467",
+   "sector": "Health Care",
+   "country": "Switzerland"
+  },
+  "BABA": {
+   "ticker": "BABA",
+   "symbol_raw": "BABA",
+   "name": "Alibaba Group Holding Limited",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US01609W1027",
+   "sector": "Consumer Discretionary",
+   "country": "Hong Kong"
+  },
+  "ATD": {
+   "ticker": "ATD",
+   "symbol_raw": "ATD",
+   "name": "Alimentation Couche-Tard Inc.",
+   "region": "CANADA",
+   "ranking": 4,
+   "isin": "CA01626P1484",
+   "sector": "Consumer Staples",
+   "country": "Canada"
+  },
+  "ALV": {
+   "ticker": "ALV",
+   "symbol_raw": "ALV GR",
+   "name": "Allianz SE",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "DE0008404005",
+   "sector": "Financials",
+   "country": "Germany"
+  },
+  "ALNY": {
+   "ticker": "ALNY",
+   "symbol_raw": "ALNY",
+   "name": "Alnylam Pharmaceuticals Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US02043Q1076",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "GOOG": {
+   "ticker": "GOOG",
+   "symbol_raw": "GOOG",
+   "name": "Alphabet Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US02079K1079",
+   "sector": "Communication Services",
+   "country": "United States of America"
+  },
+  "AMS": {
+   "ticker": "AMS",
+   "symbol_raw": "AMS SM",
+   "name": "Amadeus IT Group S.A.",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "ES0109067019",
+   "sector": "Consumer Discretionary",
+   "country": "Spain"
+  },
+  "AEE": {
+   "ticker": "AEE",
+   "symbol_raw": "AEE",
+   "name": "Ameren Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US0236081024",
+   "sector": "Utilities",
+   "country": "United States of America"
+  },
+  "AMX": {
+   "ticker": "AMX",
+   "symbol_raw": "AMX",
+   "name": "America Movil S.A.B. de C.V.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "MX01AM050019",
+   "sector": "Communication Services",
+   "country": "Mexico"
+  },
+  "AEP": {
+   "ticker": "AEP",
+   "symbol_raw": "AEP",
+   "name": "American Electric Power Company Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US0255371017",
+   "sector": "Utilities",
+   "country": "United States of America"
+  },
+  "AXP": {
+   "ticker": "AXP",
+   "symbol_raw": "AXP",
+   "name": "American Express Company",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US0258161092",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "AIG": {
+   "ticker": "AIG",
+   "symbol_raw": "AIG",
+   "name": "American International Group Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US0268747849",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "AMT": {
+   "ticker": "AMT",
+   "symbol_raw": "AMT",
+   "name": "American Tower Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US03027X1000",
+   "sector": "Real Estate",
+   "country": "United States of America"
+  },
+  "AWK": {
+   "ticker": "AWK",
+   "symbol_raw": "AWK",
+   "name": "American Water Works Company Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US0304201033",
+   "sector": "Utilities",
+   "country": "United States of America"
+  },
+  "AMP": {
+   "ticker": "AMP",
+   "symbol_raw": "AMP",
+   "name": "Ameriprise Financial Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US03076C1062",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "AMGN": {
+   "ticker": "AMGN",
+   "symbol_raw": "AMGN",
+   "name": "Amgen Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US0311621009",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "APH": {
+   "ticker": "APH",
+   "symbol_raw": "APH",
+   "name": "Amphenol Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US0320951017",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "AMRZ": {
+   "ticker": "AMRZ",
+   "symbol_raw": "AMRZ",
+   "name": "Amrize AG",
+   "region": "US",
+   "ranking": 4,
+   "isin": "CH1430134226",
+   "sector": "Materials",
+   "country": "Switzerland"
+  },
+  "ADI": {
+   "ticker": "ADI",
+   "symbol_raw": "ADI",
+   "name": "Analog Devices Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US0326541051",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "AAL": {
+   "ticker": "AAL",
+   "symbol_raw": "AAL LN",
+   "name": "Anglo American plc",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "GB00BTK05J60",
+   "sector": "Materials",
+   "country": "United Kingdom"
+  },
+  "ABI": {
+   "ticker": "ABI",
+   "symbol_raw": "ABI BB",
+   "name": "Anheuser-Busch InBev SA/NV",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "BE0974293251",
+   "sector": "Consumer Staples",
+   "country": "Belgium"
+  },
+  "ANTO": {
+   "ticker": "ANTO",
+   "symbol_raw": "ANTO LN",
+   "name": "Antofagasta plc",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "GB0000456144",
+   "sector": "Materials",
+   "country": "United Kingdom"
+  },
+  "AON": {
+   "ticker": "AON",
+   "symbol_raw": "AON",
+   "name": "Aon plc",
+   "region": "US",
+   "ranking": 4,
+   "isin": "IE00BLP1HW54",
+   "sector": "Financials",
+   "country": "Ireland"
+  },
+  "APO": {
+   "ticker": "APO",
+   "symbol_raw": "APO",
+   "name": "Apollo Global Management Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US03769M1062",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "AMAT": {
+   "ticker": "AMAT",
+   "symbol_raw": "AMAT",
+   "name": "Applied Materials Inc.",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US0382221051",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "APP": {
+   "ticker": "APP",
+   "symbol_raw": "APP",
+   "name": "AppLovin Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US03831W1080",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "ARX": {
+   "ticker": "ARX",
+   "symbol_raw": "ARX",
+   "name": "ARC Resources Ltd.",
+   "region": "CANADA",
+   "ranking": 3,
+   "isin": "CA00208D4084",
+   "sector": "Energy",
+   "country": "Canada"
+  },
+  "MT": {
+   "ticker": "MT",
+   "symbol_raw": "MT NA",
+   "name": "ArcelorMittal S.A.",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "LU1598757687",
+   "sector": "Materials",
+   "country": "Netherlands"
+  },
+  "ACGL": {
+   "ticker": "ACGL",
+   "symbol_raw": "ACGL",
+   "name": "Arch Capital Group Ltd.",
+   "region": "US",
+   "ranking": 5,
+   "isin": "BMG0450A1053",
+   "sector": "Financials",
+   "country": "Bermuda"
+  },
+  "ADM": {
+   "ticker": "ADM",
+   "symbol_raw": "ADM",
+   "name": "Archer-Daniels-Midland Company",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US0394831020",
+   "sector": "Consumer Staples",
+   "country": "United States of America"
+  },
+  "ARES": {
+   "ticker": "ARES",
+   "symbol_raw": "ARES",
+   "name": "Ares Management Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US03990B1017",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "ANET": {
+   "ticker": "ANET",
+   "symbol_raw": "ANET",
+   "name": "Arista Networks Inc.",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US0404132054",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "ARM": {
+   "ticker": "ARM",
+   "symbol_raw": "ARM",
+   "name": "Arm Holdings plc",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US0420682058",
+   "sector": "Information Technology",
+   "country": "United Kingdom"
+  },
+  "AJG": {
+   "ticker": "AJG",
+   "symbol_raw": "AJG",
+   "name": "Arthur J. Gallagher & Co.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US3635761097",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "ASSAB": {
+   "ticker": "ASSAB",
+   "symbol_raw": "ASSAB SS",
+   "name": "ASSA ABLOY AB (publ)",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "SE0007100581",
+   "sector": "Industrials",
+   "country": "Sweden"
+  },
+  "G": {
+   "ticker": "G",
+   "symbol_raw": "G IM",
+   "name": "Assicurazioni Generali S.p.A.",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "IT0000062072",
+   "sector": "Financials",
+   "country": "Italy"
+  },
+  "ABF": {
+   "ticker": "ABF",
+   "symbol_raw": "ABF LN",
+   "name": "Associated British Foods plc",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "GB0006731235",
+   "sector": "Consumer Staples",
+   "country": "United Kingdom"
+  },
+  "T": {
+   "ticker": "T",
+   "symbol_raw": "T",
+   "name": "AT&T Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US00206R1023",
+   "sector": "Communication Services",
+   "country": "United States of America"
+  },
+  "ATCOA": {
+   "ticker": "ATCOA",
+   "symbol_raw": "ATCOA SS",
+   "name": "Atlas Copco AB (publ)",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "SE0017486889",
+   "sector": "Industrials",
+   "country": "Sweden"
+  },
+  "TEAM": {
+   "ticker": "TEAM",
+   "symbol_raw": "TEAM",
+   "name": "Atlassian Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US0494681010",
+   "sector": "Information Technology",
+   "country": "Australia"
+  },
+  "ATO": {
+   "ticker": "ATO",
+   "symbol_raw": "ATO",
+   "name": "Atmos Energy Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US0495601058",
+   "sector": "Utilities",
+   "country": "United States of America"
+  },
+  "ADSK": {
+   "ticker": "ADSK",
+   "symbol_raw": "ADSK",
+   "name": "Autodesk Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US0527691069",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "ADP": {
+   "ticker": "ADP",
+   "symbol_raw": "ADP",
+   "name": "Automatic Data Processing Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US0530151036",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "AZO": {
+   "ticker": "AZO",
+   "symbol_raw": "AZO",
+   "name": "AutoZone Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US0533321024",
+   "sector": "Consumer Discretionary",
+   "country": "United States of America"
+  },
+  "AVB": {
+   "ticker": "AVB",
+   "symbol_raw": "AVB",
+   "name": "AvalonBay Communities Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US0534841012",
+   "sector": "Real Estate",
+   "country": "United States of America"
+  },
+  "AV": {
+   "ticker": "AV",
+   "symbol_raw": "AV LN",
+   "name": "Aviva plc",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "GB00BPQY8M80",
+   "sector": "Financials",
+   "country": "United Kingdom"
+  },
+  "AXON": {
+   "ticker": "AXON",
+   "symbol_raw": "AXON",
+   "name": "Axon Enterprise Inc.",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US05464C1018",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "BIDU": {
+   "ticker": "BIDU",
+   "symbol_raw": "BIDU",
+   "name": "Baidu Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US0567521085",
+   "sector": "Communication Services",
+   "country": "China"
+  },
+  "BKR": {
+   "ticker": "BKR",
+   "symbol_raw": "BKR",
+   "name": "Baker Hughes Company",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US05722G1004",
+   "sector": "Energy",
+   "country": "United States of America"
+  },
+  "BBVA": {
+   "ticker": "BBVA",
+   "symbol_raw": "BBVA SM",
+   "name": "Banco Bilbao Vizcaya Argentaria S.A.",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "ES0113211835",
+   "sector": "Financials",
+   "country": "Spain"
+  },
+  "SAB": {
+   "ticker": "SAB",
+   "symbol_raw": "SAB SM",
+   "name": "Banco de Sabadell S.A.",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "ES0113860A34",
+   "sector": "Financials",
+   "country": "Spain"
+  },
+  "SAN": {
+   "ticker": "SAN",
+   "symbol_raw": "SAN SM",
+   "name": "Banco Santander S.A.",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "ES0113900J37",
+   "sector": "Financials",
+   "country": "Spain"
+  },
+  "BAC": {
+   "ticker": "BAC",
+   "symbol_raw": "BAC",
+   "name": "Bank of America Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US0605051046",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "BIRG": {
+   "ticker": "BIRG",
+   "symbol_raw": "BIRG ID",
+   "name": "Bank of Ireland Group plc",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "IE00BD1RP616",
+   "sector": "Financials",
+   "country": "Ireland"
+  },
+  "BMO": {
+   "ticker": "BMO",
+   "symbol_raw": "BMO",
+   "name": "Bank of Montreal",
+   "region": "US",
+   "ranking": 3,
+   "isin": "CA0636711016",
+   "sector": "Financials",
+   "country": "Canada"
+  },
+  "BARC": {
+   "ticker": "BARC",
+   "symbol_raw": "BARC LN",
+   "name": "Barclays PLC",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "GB0031348658",
+   "sector": "Financials",
+   "country": "United Kingdom"
+  },
+  "BMW": {
+   "ticker": "BMW",
+   "symbol_raw": "BMW GR",
+   "name": "Bayerische Motoren Werke Aktiengesellschaft",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "DE0005190003",
+   "sector": "Consumer Discretionary",
+   "country": "Germany"
+  },
+  "BCE": {
+   "ticker": "BCE",
+   "symbol_raw": "BCE",
+   "name": "BCE Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "CA05534B7604",
+   "sector": "Communication Services",
+   "country": "Canada"
+  },
+  "BDX": {
+   "ticker": "BDX",
+   "symbol_raw": "BDX",
+   "name": "Becton Dickinson and Company",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US0758871091",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "BRK.B": {
+   "ticker": "BRK.B",
+   "symbol_raw": "BRK.B",
+   "name": "Berkshire Hathaway Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US0846707026",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "BHP": {
+   "ticker": "BHP",
+   "symbol_raw": "BHP",
+   "name": "BHP Group Limited",
+   "region": "US",
+   "ranking": 3,
+   "isin": "AU000000BHP4",
+   "sector": "Materials",
+   "country": "Australia"
+  },
+  "BIIB": {
+   "ticker": "BIIB",
+   "symbol_raw": "BIIB",
+   "name": "Biogen Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US09062X1037",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "BLK": {
+   "ticker": "BLK",
+   "symbol_raw": "BLK",
+   "name": "BlackRock Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US09290D1019",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "BX": {
+   "ticker": "BX",
+   "symbol_raw": "BX",
+   "name": "Blackstone Inc.",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US09260D1072",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "XYZ": {
+   "ticker": "XYZ",
+   "symbol_raw": "XYZ",
+   "name": "Block Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US8522341036",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "BNP": {
+   "ticker": "BNP",
+   "symbol_raw": "BNP FP",
+   "name": "BNP Paribas SA",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "FR0000131104",
+   "sector": "Financials",
+   "country": "France"
+  },
+  "BBD.B": {
+   "ticker": "BBD.B",
+   "symbol_raw": "BBD.B",
+   "name": "Bombardier Inc.",
+   "region": "CANADA",
+   "ranking": 3,
+   "isin": "CA0977518616",
+   "sector": "Industrials",
+   "country": "Canada"
+  },
+  "BKNG": {
+   "ticker": "BKNG",
+   "symbol_raw": "BKNG",
+   "name": "Booking Holdings Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US09857L1089",
+   "sector": "Consumer Discretionary",
+   "country": "United States of America"
+  },
+  "BSX": {
+   "ticker": "BSX",
+   "symbol_raw": "BSX",
+   "name": "Boston Scientific Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US1011371077",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "BR": {
+   "ticker": "BR",
+   "symbol_raw": "BR",
+   "name": "Broadridge Financial Solutions Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US11133T1034",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "BAM": {
+   "ticker": "BAM",
+   "symbol_raw": "BAM",
+   "name": "Brookfield Asset Management Ltd.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "CA1130041058",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "BN": {
+   "ticker": "BN",
+   "symbol_raw": "BN",
+   "name": "Brookfield Corporation",
+   "region": "CANADA",
+   "ranking": 3,
+   "isin": "CA11271J1075",
+   "sector": "Financials",
+   "country": "Canada"
+  },
+  "BRO": {
+   "ticker": "BRO",
+   "symbol_raw": "BRO",
+   "name": "Brown & Brown Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US1152361010",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "BTA": {
+   "ticker": "BTA",
+   "symbol_raw": "BTA LN",
+   "name": "BT Group plc",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "GB0030913577",
+   "sector": "Communication Services",
+   "country": "United Kingdom"
+  },
+  "CDNS": {
+   "ticker": "CDNS",
+   "symbol_raw": "CDNS",
+   "name": "Cadence Design Systems Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US1273871087",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "CAE": {
+   "ticker": "CAE",
+   "symbol_raw": "CAE",
+   "name": "CAE Inc.",
+   "region": "CANADA",
+   "ranking": 3,
+   "isin": "CA1247651088",
+   "sector": "Industrials",
+   "country": "Canada"
+  },
+  "CABK": {
+   "ticker": "CABK",
+   "symbol_raw": "CABK SM",
+   "name": "CaixaBank S.A.",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "ES0140609019",
+   "sector": "Financials",
+   "country": "Spain"
+  },
+  "CM": {
+   "ticker": "CM",
+   "symbol_raw": "CM",
+   "name": "Canadian Imperial Bank of Commerce",
+   "region": "US",
+   "ranking": 4,
+   "isin": "CA1360691010",
+   "sector": "Financials",
+   "country": "Canada"
+  },
+  "CNI": {
+   "ticker": "CNI",
+   "symbol_raw": "CNI",
+   "name": "Canadian National Railway Company",
+   "region": "US",
+   "ranking": 3,
+   "isin": "CA1363751027",
+   "sector": "Industrials",
+   "country": "Canada"
+  },
+  "CP": {
+   "ticker": "CP",
+   "symbol_raw": "CP",
+   "name": "Canadian Pacific Kansas City Limited",
+   "region": "US",
+   "ranking": 4,
+   "isin": "CA13646K1084",
+   "sector": "Industrials",
+   "country": "Canada"
+  },
+  "CAP": {
+   "ticker": "CAP",
+   "symbol_raw": "CAP FP",
+   "name": "Capgemini SE",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "FR0000125338",
+   "sector": "Information Technology",
+   "country": "France"
+  },
+  "COF": {
+   "ticker": "COF",
+   "symbol_raw": "COF",
+   "name": "Capital One Financial Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US14040H1059",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "CAH": {
+   "ticker": "CAH",
+   "symbol_raw": "CAH",
+   "name": "Cardinal Health Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US14149Y1082",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "CARLB": {
+   "ticker": "CARLB",
+   "symbol_raw": "CARLB DC",
+   "name": "Carlsberg A/S",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "DK0010181759",
+   "sector": "Consumer Staples",
+   "country": "Denmark"
+  },
+  "CCL": {
+   "ticker": "CCL",
+   "symbol_raw": "CCL LN",
+   "name": "Carnival Corporation & plc",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "PA1436583006",
+   "sector": "Consumer Discretionary",
+   "country": "United Kingdom"
+  },
+  "CARR": {
+   "ticker": "CARR",
+   "symbol_raw": "CARR",
+   "name": "Carrier Global Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US14448C1045",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "CAT": {
+   "ticker": "CAT",
+   "symbol_raw": "CAT",
+   "name": "Caterpillar Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US1491231015",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "CBOE": {
+   "ticker": "CBOE",
+   "symbol_raw": "CBOE",
+   "name": "Cboe Global Markets Inc.",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US12503M1080",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "CBRE": {
+   "ticker": "CBRE",
+   "symbol_raw": "CBRE",
+   "name": "CBRE Group Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US12504L1098",
+   "sector": "Real Estate",
+   "country": "United States of America"
+  },
+  "CCL.B": {
+   "ticker": "CCL.B",
+   "symbol_raw": "CCL.B",
+   "name": "CCL Industries Inc.",
+   "region": "CANADA",
+   "ranking": 5,
+   "isin": "CA1249003098",
+   "sector": "Materials",
+   "country": "Canada"
+  },
+  "CLS": {
+   "ticker": "CLS",
+   "symbol_raw": "CLS",
+   "name": "Celestica Inc.",
+   "region": "CANADA",
+   "ranking": 5,
+   "isin": "CA15101Q2071",
+   "sector": "Information Technology",
+   "country": "Canada"
+  },
+  "CLNX": {
+   "ticker": "CLNX",
+   "symbol_raw": "CLNX SM",
+   "name": "Cellnex Telecom S.A.",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "ES0105066007",
+   "sector": "Communication Services",
+   "country": "Spain"
+  },
+  "COR": {
+   "ticker": "COR",
+   "symbol_raw": "COR",
+   "name": "Cencora Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US03073E1055",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "CVE": {
+   "ticker": "CVE",
+   "symbol_raw": "CVE",
+   "name": "Cenovus Energy Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "CA15135U1093",
+   "sector": "Energy",
+   "country": "Canada"
+  },
+  "CNC": {
+   "ticker": "CNC",
+   "symbol_raw": "CNC",
+   "name": "Centene Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US15135B1017",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "CNP": {
+   "ticker": "CNP",
+   "symbol_raw": "CNP",
+   "name": "CenterPoint Energy Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US15189T1079",
+   "sector": "Utilities",
+   "country": "United States of America"
+  },
+  "GIB.A": {
+   "ticker": "GIB.A",
+   "symbol_raw": "GIB.A",
+   "name": "CGI Inc.",
+   "region": "CANADA",
+   "ranking": 3,
+   "isin": "CA12532H1047",
+   "sector": "Information Technology",
+   "country": "Canada"
+  },
+  "LNG": {
+   "ticker": "LNG",
+   "symbol_raw": "LNG",
+   "name": "Cheniere Energy Inc.",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US16411R2085",
+   "sector": "Energy",
+   "country": "United States of America"
+  },
+  "CVX": {
+   "ticker": "CVX",
+   "symbol_raw": "CVX",
+   "name": "Chevron Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US1667641005",
+   "sector": "Energy",
+   "country": "United States of America"
+  },
+  "CMG": {
+   "ticker": "CMG",
+   "symbol_raw": "CMG",
+   "name": "Chipotle Mexican Grill Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US1696561059",
+   "sector": "Consumer Discretionary",
+   "country": "United States of America"
+  },
+  "LISN": {
+   "ticker": "LISN",
+   "symbol_raw": "LISN SW",
+   "name": "Chocoladefabriken Lindt & Sprungli AG",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "CH0010570759",
+   "sector": "Consumer Staples",
+   "country": "Switzerland"
+  },
+  "CB": {
+   "ticker": "CB",
+   "symbol_raw": "CB",
+   "name": "Chubb Limited",
+   "region": "US",
+   "ranking": 4,
+   "isin": "CH0044328745",
+   "sector": "Financials",
+   "country": "Switzerland"
+  },
+  "CIEN": {
+   "ticker": "CIEN",
+   "symbol_raw": "CIEN",
+   "name": "Ciena Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US1717793095",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "CINF": {
+   "ticker": "CINF",
+   "symbol_raw": "CINF",
+   "name": "Cincinnati Financial Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US1720621010",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "CTAS": {
+   "ticker": "CTAS",
+   "symbol_raw": "CTAS",
+   "name": "Cintas Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US1729081059",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "C": {
+   "ticker": "C",
+   "symbol_raw": "C",
+   "name": "Citigroup Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US1729674242",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "CFG": {
+   "ticker": "CFG",
+   "symbol_raw": "CFG",
+   "name": "Citizens Financial Group Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US1746101054",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "CLN": {
+   "ticker": "CLN",
+   "symbol_raw": "CLN SW",
+   "name": "Clariant AG",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "CH0012142631",
+   "sector": "Materials",
+   "country": "Switzerland"
+  },
+  "NET": {
+   "ticker": "NET",
+   "symbol_raw": "NET",
+   "name": "Cloudflare Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US18915M1071",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "CME": {
+   "ticker": "CME",
+   "symbol_raw": "CME",
+   "name": "CME Group Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US12572Q1058",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "CMS": {
+   "ticker": "CMS",
+   "symbol_raw": "CMS",
+   "name": "CMS Energy Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US1258961002",
+   "sector": "Utilities",
+   "country": "United States of America"
+  },
+  "CCEP": {
+   "ticker": "CCEP",
+   "symbol_raw": "CCEP NA",
+   "name": "Coca-Cola Europacific Partners PLC",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "GB00BDCPN049",
+   "sector": "Consumer Staples",
+   "country": "Netherlands"
+  },
+  "CCH": {
+   "ticker": "CCH",
+   "symbol_raw": "CCH LN",
+   "name": "Coca-Cola HBC AG",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "CH0198251305",
+   "sector": "Consumer Staples",
+   "country": "United Kingdom"
+  },
+  "CTSH": {
+   "ticker": "CTSH",
+   "symbol_raw": "CTSH",
+   "name": "Cognizant Technology Solutions Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US1924461023",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "COHR": {
+   "ticker": "COHR",
+   "symbol_raw": "COHR",
+   "name": "Coherent Corp.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US19247G1076",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "COIN": {
+   "ticker": "COIN",
+   "symbol_raw": "COIN",
+   "name": "Coinbase Global Inc.",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US19260Q1076",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "CL": {
+   "ticker": "CL",
+   "symbol_raw": "CL",
+   "name": "Colgate-Palmolive Company",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US1941621039",
+   "sector": "Consumer Staples",
+   "country": "United States of America"
+  },
+  "COLOB": {
+   "ticker": "COLOB",
+   "symbol_raw": "COLOB DC",
+   "name": "Coloplast A/S",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "DK0060448595",
+   "sector": "Health Care",
+   "country": "Denmark"
+  },
+  "CMCSA": {
+   "ticker": "CMCSA",
+   "symbol_raw": "CMCSA",
+   "name": "Comcast Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US20030N1019",
+   "sector": "Communication Services",
+   "country": "United States of America"
+  },
+  "CBK": {
+   "ticker": "CBK",
+   "symbol_raw": "CBK GR",
+   "name": "Commerzbank AG",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "DE000CBK1001",
+   "sector": "Financials",
+   "country": "Germany"
+  },
+  "SGO": {
+   "ticker": "SGO",
+   "symbol_raw": "SGO FP",
+   "name": "Compagnie de Saint-Gobain S.A.",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "FR0000125007",
+   "sector": "Industrials",
+   "country": "France"
+  },
+  "ML": {
+   "ticker": "ML",
+   "symbol_raw": "ML FP",
+   "name": "Compagnie Generale des Etablissements Michelin Societe en commandite par ac",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "FR001400AJ45",
+   "sector": "Consumer Discretionary",
+   "country": "France"
+  },
+  "COP": {
+   "ticker": "COP",
+   "symbol_raw": "COP",
+   "name": "ConocoPhillips",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US20825C1045",
+   "sector": "Energy",
+   "country": "United States of America"
+  },
+  "ED": {
+   "ticker": "ED",
+   "symbol_raw": "ED",
+   "name": "Consolidated Edison Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US2091151041",
+   "sector": "Utilities",
+   "country": "United States of America"
+  },
+  "STZ": {
+   "ticker": "STZ",
+   "symbol_raw": "STZ",
+   "name": "Constellation Brands Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US21036P1084",
+   "sector": "Consumer Staples",
+   "country": "United States of America"
+  },
+  "CEG": {
+   "ticker": "CEG",
+   "symbol_raw": "CEG",
+   "name": "Constellation Energy Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US21037T1097",
+   "sector": "Utilities",
+   "country": "United States of America"
+  },
+  "CSU": {
+   "ticker": "CSU",
+   "symbol_raw": "CSU",
+   "name": "Constellation Software Inc.",
+   "region": "CANADA",
+   "ranking": 3,
+   "isin": "CA21037X1006",
+   "sector": "Information Technology",
+   "country": "Canada"
+  },
+  "CON": {
+   "ticker": "CON",
+   "symbol_raw": "CON GR",
+   "name": "Continental Aktiengesellschaft",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "DE0005439004",
+   "sector": "Consumer Discretionary",
+   "country": "Germany"
+  },
+  "CPRT": {
+   "ticker": "CPRT",
+   "symbol_raw": "CPRT",
+   "name": "Copart Inc.",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US2172041061",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "CRWV": {
+   "ticker": "CRWV",
+   "symbol_raw": "CRWV",
+   "name": "CoreWeave Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US21873S1087",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "GLW": {
+   "ticker": "GLW",
+   "symbol_raw": "GLW",
+   "name": "Corning Incorporated",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US2193501051",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "CPAY": {
+   "ticker": "CPAY",
+   "symbol_raw": "CPAY",
+   "name": "Corpay Inc.",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US2199481068",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "CTVA": {
+   "ticker": "CTVA",
+   "symbol_raw": "CTVA",
+   "name": "Corteva Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US22052L1044",
+   "sector": "Materials",
+   "country": "United States of America"
+  },
+  "CSGP": {
+   "ticker": "CSGP",
+   "symbol_raw": "CSGP",
+   "name": "CoStar Group Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US22160N1090",
+   "sector": "Real Estate",
+   "country": "United States of America"
+  },
+  "COST": {
+   "ticker": "COST",
+   "symbol_raw": "COST",
+   "name": "Costco Wholesale Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US22160K1051",
+   "sector": "Consumer Staples",
+   "country": "United States of America"
+  },
+  "CTRA": {
+   "ticker": "CTRA",
+   "symbol_raw": "CTRA",
+   "name": "Coterra Energy Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US1270971039",
+   "sector": "Energy",
+   "country": "United States of America"
+  },
+  "CRH": {
+   "ticker": "CRH",
+   "symbol_raw": "CRH",
+   "name": "CRH plc",
+   "region": "US",
+   "ranking": 3,
+   "isin": "IE0001827041",
+   "sector": "Materials",
+   "country": "Ireland"
+  },
+  "CRWD": {
+   "ticker": "CRWD",
+   "symbol_raw": "CRWD",
+   "name": "CrowdStrike Holdings Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US22788C1053",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "CSX": {
+   "ticker": "CSX",
+   "symbol_raw": "CSX",
+   "name": "CSX Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US1264081035",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "CMI": {
+   "ticker": "CMI",
+   "symbol_raw": "CMI",
+   "name": "Cummins Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US2310211063",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "CVS": {
+   "ticker": "CVS",
+   "symbol_raw": "CVS",
+   "name": "CVS Health Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US1266501006",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "DHR": {
+   "ticker": "DHR",
+   "symbol_raw": "DHR",
+   "name": "Danaher Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US2358511028",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "DANSKE": {
+   "ticker": "DANSKE",
+   "symbol_raw": "DANSKE DC",
+   "name": "Danske Bank A/S",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "DK0010274414",
+   "sector": "Financials",
+   "country": "Denmark"
+  },
+  "DSY": {
+   "ticker": "DSY",
+   "symbol_raw": "DSY FP",
+   "name": "Dassault Systemes SE",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "FR0014003TT8",
+   "sector": "Information Technology",
+   "country": "France"
+  },
+  "DDOG": {
+   "ticker": "DDOG",
+   "symbol_raw": "DDOG",
+   "name": "Datadog Inc.",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US23804L1035",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "DE": {
+   "ticker": "DE",
+   "symbol_raw": "DE",
+   "name": "Deere & Company",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US2441991054",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "DELL": {
+   "ticker": "DELL",
+   "symbol_raw": "DELL",
+   "name": "Dell Technologies Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US24703L2025",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "DBK": {
+   "ticker": "DBK",
+   "symbol_raw": "DBK GR",
+   "name": "Deutsche Bank Aktiengesellschaft",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "DE0005140008",
+   "sector": "Financials",
+   "country": "Germany"
+  },
+  "DB1": {
+   "ticker": "DB1",
+   "symbol_raw": "DB1 GR",
+   "name": "Deutsche Borse AG",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "DE0005810055",
+   "sector": "Financials",
+   "country": "Germany"
+  },
+  "DHL": {
+   "ticker": "DHL",
+   "symbol_raw": "DHL GR",
+   "name": "Deutsche Post AG",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "DE0005552004",
+   "sector": "Industrials",
+   "country": "Germany"
+  },
+  "DXCM": {
+   "ticker": "DXCM",
+   "symbol_raw": "DXCM",
+   "name": "DexCom Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US2521311074",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "DGE": {
+   "ticker": "DGE",
+   "symbol_raw": "DGE LN",
+   "name": "Diageo plc",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "GB0002374006",
+   "sector": "Consumer Staples",
+   "country": "United Kingdom"
+  },
+  "FANG": {
+   "ticker": "FANG",
+   "symbol_raw": "FANG",
+   "name": "Diamondback Energy Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US25278X1090",
+   "sector": "Energy",
+   "country": "United States of America"
+  },
+  "DLR": {
+   "ticker": "DLR",
+   "symbol_raw": "DLR",
+   "name": "Digital Realty Trust Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US2538681030",
+   "sector": "Real Estate",
+   "country": "United States of America"
+  },
+  "DNB": {
+   "ticker": "DNB",
+   "symbol_raw": "DNB NO",
+   "name": "DNB Bank ASA",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "NO0010161896",
+   "sector": "Financials",
+   "country": "Norway"
+  },
+  "DG": {
+   "ticker": "DG",
+   "symbol_raw": "DG",
+   "name": "Dollar General Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US2566771059",
+   "sector": "Consumer Staples",
+   "country": "United States of America"
+  },
+  "D": {
+   "ticker": "D",
+   "symbol_raw": "D",
+   "name": "Dominion Energy Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US25746U1097",
+   "sector": "Utilities",
+   "country": "United States of America"
+  },
+  "DASH": {
+   "ticker": "DASH",
+   "symbol_raw": "DASH",
+   "name": "DoorDash Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US25809K1051",
+   "sector": "Consumer Discretionary",
+   "country": "United States of America"
+  },
+  "DOV": {
+   "ticker": "DOV",
+   "symbol_raw": "DOV",
+   "name": "Dover Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US2600031080",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "DSFIR": {
+   "ticker": "DSFIR",
+   "symbol_raw": "DSFIR NA",
+   "name": "DSM-Firmenich AG",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "CH1216478797",
+   "sector": "Materials",
+   "country": "Netherlands"
+  },
+  "DSV": {
+   "ticker": "DSV",
+   "symbol_raw": "DSV DC",
+   "name": "DSV A/S",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "DK0060079531",
+   "sector": "Industrials",
+   "country": "Denmark"
+  },
+  "DUK": {
+   "ticker": "DUK",
+   "symbol_raw": "DUK",
+   "name": "Duke Energy Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US26441C2044",
+   "sector": "Utilities",
+   "country": "United States of America"
+  },
+  "DD": {
+   "ticker": "DD",
+   "symbol_raw": "DD",
+   "name": "DuPont de Nemours Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US26614N1028",
+   "sector": "Materials",
+   "country": "United States of America"
+  },
+  "EOAN": {
+   "ticker": "EOAN",
+   "symbol_raw": "EOAN GR",
+   "name": "E.ON SE",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "DE000ENAG999",
+   "sector": "Utilities",
+   "country": "Germany"
+  },
+  "ETN": {
+   "ticker": "ETN",
+   "symbol_raw": "ETN",
+   "name": "Eaton Corporation plc",
+   "region": "US",
+   "ranking": 5,
+   "isin": "IE00B8KQN827",
+   "sector": "Industrials",
+   "country": "Ireland"
+  },
+  "EBAY": {
+   "ticker": "EBAY",
+   "symbol_raw": "EBAY",
+   "name": "eBay Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US2786421030",
+   "sector": "Consumer Discretionary",
+   "country": "United States of America"
+  },
+  "ECL": {
+   "ticker": "ECL",
+   "symbol_raw": "ECL",
+   "name": "Ecolab Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US2788651006",
+   "sector": "Materials",
+   "country": "United States of America"
+  },
+  "EDP": {
+   "ticker": "EDP",
+   "symbol_raw": "EDP PT",
+   "name": "EDP S.A.",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "PTEDP0AM0009",
+   "sector": "Utilities",
+   "country": "Portugal"
+  },
+  "EW": {
+   "ticker": "EW",
+   "symbol_raw": "EW",
+   "name": "Edwards Lifesciences Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US28176E1082",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "EA": {
+   "ticker": "EA",
+   "symbol_raw": "EA",
+   "name": "Electronic Arts Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US2855121099",
+   "sector": "Communication Services",
+   "country": "United States of America"
+  },
+  "ELV": {
+   "ticker": "ELV",
+   "symbol_raw": "ELV",
+   "name": "Elevance Health Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US0367521038",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "EMR": {
+   "ticker": "EMR",
+   "symbol_raw": "EMR",
+   "name": "Emerson Electric Co.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US2910111044",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "EMP.A": {
+   "ticker": "EMP.A",
+   "symbol_raw": "EMP.A",
+   "name": "Empire Company Limited",
+   "region": "CANADA",
+   "ranking": 3,
+   "isin": "CA2918434077",
+   "sector": "Consumer Staples",
+   "country": "Canada"
+  },
+  "ENB": {
+   "ticker": "ENB",
+   "symbol_raw": "ENB",
+   "name": "Enbridge Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "CA29250N1050",
+   "sector": "Energy",
+   "country": "Canada"
+  },
+  "ELE": {
+   "ticker": "ELE",
+   "symbol_raw": "ELE SM",
+   "name": "Endesa S.A.",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "ES0130670112",
+   "sector": "Utilities",
+   "country": "Spain"
+  },
+  "ENGI": {
+   "ticker": "ENGI",
+   "symbol_raw": "ENGI FP",
+   "name": "Engie SA",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "FR0010208488",
+   "sector": "Utilities",
+   "country": "France"
+  },
+  "ETR": {
+   "ticker": "ETR",
+   "symbol_raw": "ETR",
+   "name": "Entergy Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US29364G1031",
+   "sector": "Utilities",
+   "country": "United States of America"
+  },
+  "EPD": {
+   "ticker": "EPD",
+   "symbol_raw": "EPD",
+   "name": "Enterprise Products Partners L.P.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US2937921078",
+   "sector": "Energy",
+   "country": "United States of America"
+  },
+  "EOG": {
+   "ticker": "EOG",
+   "symbol_raw": "EOG",
+   "name": "EOG Resources Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US26875P1012",
+   "sector": "Energy",
+   "country": "United States of America"
+  },
+  "EPI": {
+   "ticker": "EPI",
+   "symbol_raw": "EPI A SS",
+   "name": "Epiroc AB (publ)",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "SE0015658109",
+   "sector": "Industrials",
+   "country": "Sweden"
+  },
+  "EQT": {
+   "ticker": "EQT",
+   "symbol_raw": "EQT",
+   "name": "EQT Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US26884L1098",
+   "sector": "Energy",
+   "country": "United States of America"
+  },
+  "EFX": {
+   "ticker": "EFX",
+   "symbol_raw": "EFX",
+   "name": "Equifax Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US2944291051",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "EQIX": {
+   "ticker": "EQIX",
+   "symbol_raw": "EQIX",
+   "name": "Equinix Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US29444U7000",
+   "sector": "Real Estate",
+   "country": "United States of America"
+  },
+  "EQR": {
+   "ticker": "EQR",
+   "symbol_raw": "EQR",
+   "name": "Equity Residential",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US29476L1070",
+   "sector": "Real Estate",
+   "country": "United States of America"
+  },
+  "EBS": {
+   "ticker": "EBS",
+   "symbol_raw": "EBS AV",
+   "name": "Erste Group Bank AG",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "AT0000652011",
+   "sector": "Financials",
+   "country": "Austria"
+  },
+  "EL": {
+   "ticker": "EL",
+   "symbol_raw": "EL FP",
+   "name": "EssilorLuxottica Societe anonyme",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "FR0000121667",
+   "sector": "Health Care",
+   "country": "France"
+  },
+  "ESSITYB": {
+   "ticker": "ESSITYB",
+   "symbol_raw": "ESSITYB SS",
+   "name": "Essity AB (publ)",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "SE0009922164",
+   "sector": "Consumer Staples",
+   "country": "Sweden"
+  },
+  "PSTG": {
+   "ticker": "PSTG",
+   "symbol_raw": "PSTG",
+   "name": "Everpure Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US74624M1027",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "ES": {
+   "ticker": "ES",
+   "symbol_raw": "ES",
+   "name": "Eversource Energy",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US30040W1080",
+   "sector": "Utilities",
+   "country": "United States of America"
+  },
+  "EXC": {
+   "ticker": "EXC",
+   "symbol_raw": "EXC",
+   "name": "Exelon Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US30161N1019",
+   "sector": "Utilities",
+   "country": "United States of America"
+  },
+  "EXE": {
+   "ticker": "EXE",
+   "symbol_raw": "EXE",
+   "name": "Expand Energy Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US1651677353",
+   "sector": "Energy",
+   "country": "United States of America"
+  },
+  "EXPE": {
+   "ticker": "EXPE",
+   "symbol_raw": "EXPE",
+   "name": "Expedia Group Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US30212P3038",
+   "sector": "Consumer Discretionary",
+   "country": "United States of America"
+  },
+  "EXPD": {
+   "ticker": "EXPD",
+   "symbol_raw": "EXPD",
+   "name": "Expeditors International of Washington Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US3021301094",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "EXPN": {
+   "ticker": "EXPN",
+   "symbol_raw": "EXPN LN",
+   "name": "Experian plc",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "GB00B19NLV48",
+   "sector": "Industrials",
+   "country": "United Kingdom"
+  },
+  "XOM": {
+   "ticker": "XOM",
+   "symbol_raw": "XOM",
+   "name": "Exxon Mobil Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US30231G1022",
+   "sector": "Energy",
+   "country": "United States of America"
+  },
+  "FICO": {
+   "ticker": "FICO",
+   "symbol_raw": "FICO",
+   "name": "Fair Isaac Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US3032501047",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "FFH": {
+   "ticker": "FFH",
+   "symbol_raw": "FFH",
+   "name": "Fairfax Financial Holdings Limited",
+   "region": "CANADA",
+   "ranking": 4,
+   "isin": "CA3039011026",
+   "sector": "Financials",
+   "country": "Canada"
+  },
+  "FERG": {
+   "ticker": "FERG",
+   "symbol_raw": "FERG",
+   "name": "Ferguson Enterprises Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US31488V1070",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "FER": {
+   "ticker": "FER",
+   "symbol_raw": "FER SM",
+   "name": "Ferrovial SE",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "NL0015001FS8",
+   "sector": "Industrials",
+   "country": "Spain"
+  },
+  "FIS": {
+   "ticker": "FIS",
+   "symbol_raw": "FIS",
+   "name": "Fidelity National Information Services Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US31620M1062",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "FITB": {
+   "ticker": "FITB",
+   "symbol_raw": "FITB",
+   "name": "Fifth Third Bancorp",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US3167731005",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "FCNC.A": {
+   "ticker": "FCNC.A",
+   "symbol_raw": "FCNC.A",
+   "name": "First Citizens BancShares Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US31946M1036",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "FM": {
+   "ticker": "FM",
+   "symbol_raw": "FM",
+   "name": "First Quantum Minerals Ltd.",
+   "region": "CANADA",
+   "ranking": 4,
+   "isin": "CA3359341052",
+   "sector": "Materials",
+   "country": "Canada"
+  },
+  "FSLR": {
+   "ticker": "FSLR",
+   "symbol_raw": "FSLR",
+   "name": "First Solar Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US3364331070",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "FE": {
+   "ticker": "FE",
+   "symbol_raw": "FE",
+   "name": "FirstEnergy Corp.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US3379321074",
+   "sector": "Utilities",
+   "country": "United States of America"
+  },
+  "FISV": {
+   "ticker": "FISV",
+   "symbol_raw": "FISV",
+   "name": "Fiserv Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US3377381088",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "FLEX": {
+   "ticker": "FLEX",
+   "symbol_raw": "FLEX",
+   "name": "Flex Ltd.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "SG9999000020",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "FLS": {
+   "ticker": "FLS",
+   "symbol_raw": "FLS",
+   "name": "Flowserve Corporation",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US34354P1057",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "FLTR": {
+   "ticker": "FLTR",
+   "symbol_raw": "FLTR LN",
+   "name": "Flutter Entertainment plc",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "IE00BWT6H894",
+   "sector": "Consumer Discretionary",
+   "country": "United Kingdom"
+  },
+  "F": {
+   "ticker": "F",
+   "symbol_raw": "F",
+   "name": "Ford Motor Company",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US3453708600",
+   "sector": "Consumer Discretionary",
+   "country": "United States of America"
+  },
+  "FWON.K": {
+   "ticker": "FWON.K",
+   "symbol_raw": "FWON.K",
+   "name": "Formula One Group",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US5312297717",
+   "sector": "Communication Services",
+   "country": "United States of America"
+  },
+  "FTNT": {
+   "ticker": "FTNT",
+   "symbol_raw": "FTNT",
+   "name": "Fortinet Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US34959E1091",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "FTS": {
+   "ticker": "FTS",
+   "symbol_raw": "FTS",
+   "name": "Fortis Inc.",
+   "region": "CANADA",
+   "ranking": 3,
+   "isin": "CA3495531079",
+   "sector": "Utilities",
+   "country": "Canada"
+  },
+  "FTV": {
+   "ticker": "FTV",
+   "symbol_raw": "FTV",
+   "name": "Fortive Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US34959J1088",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "FOXA": {
+   "ticker": "FOXA",
+   "symbol_raw": "FOXA",
+   "name": "Fox Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US35137L1052",
+   "sector": "Communication Services",
+   "country": "United States of America"
+  },
+  "FNV": {
+   "ticker": "FNV",
+   "symbol_raw": "FNV",
+   "name": "Franco-Nevada Corporation",
+   "region": "CANADA",
+   "ranking": 4,
+   "isin": "CA3518581051",
+   "sector": "Materials",
+   "country": "Canada"
+  },
+  "FCX": {
+   "ticker": "FCX",
+   "symbol_raw": "FCX",
+   "name": "Freeport-McMoRan Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US35671D8570",
+   "sector": "Materials",
+   "country": "United States of America"
+  },
+  "FRE": {
+   "ticker": "FRE",
+   "symbol_raw": "FRE GR",
+   "name": "Fresenius SE & Co. KGaA",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "DE0005785604",
+   "sector": "Health Care",
+   "country": "Germany"
+  },
+  "GALD": {
+   "ticker": "GALD",
+   "symbol_raw": "GALD SW",
+   "name": "Galderma Group AG",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "CH1335392721",
+   "sector": "Health Care",
+   "country": "Switzerland"
+  },
+  "GEHC": {
+   "ticker": "GEHC",
+   "symbol_raw": "GEHC",
+   "name": "GE HealthCare Technologies Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US36266G1076",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "GEV": {
+   "ticker": "GEV",
+   "symbol_raw": "GEV",
+   "name": "GE Vernova Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US36828A1016",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "GEBN": {
+   "ticker": "GEBN",
+   "symbol_raw": "GEBN SW",
+   "name": "Geberit AG",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "CH0030170408",
+   "sector": "Industrials",
+   "country": "Switzerland"
+  },
+  "GE": {
+   "ticker": "GE",
+   "symbol_raw": "GE",
+   "name": "General Electric Company",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US3696043013",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "GIS": {
+   "ticker": "GIS",
+   "symbol_raw": "GIS",
+   "name": "General Mills Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US3703341046",
+   "sector": "Consumer Staples",
+   "country": "United States of America"
+  },
+  "GM": {
+   "ticker": "GM",
+   "symbol_raw": "GM",
+   "name": "General Motors Company",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US37045V1008",
+   "sector": "Consumer Discretionary",
+   "country": "United States of America"
+  },
+  "GMAB": {
+   "ticker": "GMAB",
+   "symbol_raw": "GMAB DC",
+   "name": "Genmab A/S",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "DK0010272202",
+   "sector": "Health Care",
+   "country": "Denmark"
+  },
+  "WN": {
+   "ticker": "WN",
+   "symbol_raw": "WN",
+   "name": "George Weston Limited",
+   "region": "CANADA",
+   "ranking": 4,
+   "isin": "CA9611485090",
+   "sector": "Consumer Staples",
+   "country": "Canada"
+  },
+  "GIL": {
+   "ticker": "GIL",
+   "symbol_raw": "GIL",
+   "name": "Gildan Activewear Inc.",
+   "region": "CANADA",
+   "ranking": 3,
+   "isin": "CA3759161035",
+   "sector": "Consumer Discretionary",
+   "country": "Canada"
+  },
+  "GILD": {
+   "ticker": "GILD",
+   "symbol_raw": "GILD",
+   "name": "Gilead Sciences Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US3755581036",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "GIVN": {
+   "ticker": "GIVN",
+   "symbol_raw": "GIVN SW",
+   "name": "Givaudan SA",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "CH0010645932",
+   "sector": "Materials",
+   "country": "Switzerland"
+  },
+  "GPN": {
+   "ticker": "GPN",
+   "symbol_raw": "GPN",
+   "name": "Global Payments Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US37940X1028",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "GRAB": {
+   "ticker": "GRAB",
+   "symbol_raw": "GRAB",
+   "name": "Grab Holdings Limited",
+   "region": "US",
+   "ranking": 4,
+   "isin": "KYG4124C1096",
+   "sector": "Industrials",
+   "country": "Singapore"
+  },
+  "GWO": {
+   "ticker": "GWO",
+   "symbol_raw": "GWO",
+   "name": "Great-West Lifeco Inc.",
+   "region": "CANADA",
+   "ranking": 3,
+   "isin": "CA39138C1068",
+   "sector": "Financials",
+   "country": "Canada"
+  },
+  "GSK": {
+   "ticker": "GSK",
+   "symbol_raw": "GSK LN",
+   "name": "GSK plc",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "GB00BN7SWP63",
+   "sector": "Health Care",
+   "country": "United Kingdom"
+  },
+  "HMB": {
+   "ticker": "HMB",
+   "symbol_raw": "HMB SS",
+   "name": "H & M Hennes & Mauritz AB (publ)",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "SE0000106270",
+   "sector": "Consumer Discretionary",
+   "country": "Sweden"
+  },
+  "HAL": {
+   "ticker": "HAL",
+   "symbol_raw": "HAL",
+   "name": "Halliburton Company",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US4062161017",
+   "sector": "Energy",
+   "country": "United States of America"
+  },
+  "HLMA": {
+   "ticker": "HLMA",
+   "symbol_raw": "HLMA LN",
+   "name": "Halma plc",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "GB0004052071",
+   "sector": "Information Technology",
+   "country": "United Kingdom"
+  },
+  "HNR1": {
+   "ticker": "HNR1",
+   "symbol_raw": "HNR1 GR",
+   "name": "Hannover Ruck SE",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "DE0008402215",
+   "sector": "Financials",
+   "country": "Germany"
+  },
+  "HCA": {
+   "ticker": "HCA",
+   "symbol_raw": "HCA",
+   "name": "HCA Healthcare Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US40412C1018",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "HDB": {
+   "ticker": "HDB",
+   "symbol_raw": "HDB",
+   "name": "HDFC Bank Limited",
+   "region": "US",
+   "ranking": 3,
+   "isin": "INE040A01034",
+   "sector": "Financials",
+   "country": "India"
+  },
+  "HEI": {
+   "ticker": "HEI",
+   "symbol_raw": "HEI",
+   "name": "HEICO Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US4228061093",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "HEIA": {
+   "ticker": "HEIA",
+   "symbol_raw": "HEIA NA",
+   "name": "Heineken N.V.",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "NL0000009165",
+   "sector": "Consumer Staples",
+   "country": "Netherlands"
+  },
+  "HEN3": {
+   "ticker": "HEN3",
+   "symbol_raw": "HEN3 GR",
+   "name": "Henkel AG & Co. KGaA",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "DE0006048432",
+   "sector": "Consumer Staples",
+   "country": "Germany"
+  },
+  "RMS": {
+   "ticker": "RMS",
+   "symbol_raw": "RMS FP",
+   "name": "Hermes International Societe en commandite par actions",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "FR0000052292",
+   "sector": "Consumer Discretionary",
+   "country": "France"
+  },
+  "HPE": {
+   "ticker": "HPE",
+   "symbol_raw": "HPE",
+   "name": "Hewlett Packard Enterprise Company",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US42824C1099",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "HEXAB": {
+   "ticker": "HEXAB",
+   "symbol_raw": "HEXAB SS",
+   "name": "Hexagon AB (publ)",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "SE0015961909",
+   "sector": "Information Technology",
+   "country": "Sweden"
+  },
+  "HOLN": {
+   "ticker": "HOLN",
+   "symbol_raw": "HOLN SW",
+   "name": "Holcim AG",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "CH0012214059",
+   "sector": "Materials",
+   "country": "Switzerland"
+  },
+  "HWM": {
+   "ticker": "HWM",
+   "symbol_raw": "HWM",
+   "name": "Howmet Aerospace Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US4432011082",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "HSBA": {
+   "ticker": "HSBA",
+   "symbol_raw": "HSBA LN",
+   "name": "HSBC Holdings plc",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "GB0005405286",
+   "sector": "Financials",
+   "country": "United Kingdom"
+  },
+  "HUBB": {
+   "ticker": "HUBB",
+   "symbol_raw": "HUBB",
+   "name": "Hubbell Incorporated",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US4435106079",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "HUBS": {
+   "ticker": "HUBS",
+   "symbol_raw": "HUBS",
+   "name": "HubSpot Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US4435731009",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "HUM": {
+   "ticker": "HUM",
+   "symbol_raw": "HUM",
+   "name": "Humana Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US4448591028",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "HBAN": {
+   "ticker": "HBAN",
+   "symbol_raw": "HBAN",
+   "name": "Huntington Bancshares Incorporated",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US4461501045",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "IAG": {
+   "ticker": "IAG",
+   "symbol_raw": "IAG",
+   "name": "iA Financial Corporation Inc.",
+   "region": "CANADA",
+   "ranking": 3,
+   "isin": "CA45075E1043",
+   "sector": "Financials",
+   "country": "Canada"
+  },
+  "IBE": {
+   "ticker": "IBE",
+   "symbol_raw": "IBE SM",
+   "name": "Iberdrola S.A.",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "ES0144580Y14",
+   "sector": "Utilities",
+   "country": "Spain"
+  },
+  "IBN": {
+   "ticker": "IBN",
+   "symbol_raw": "IBN",
+   "name": "ICICI Bank Limited",
+   "region": "US",
+   "ranking": 4,
+   "isin": "INE090A01021",
+   "sector": "Financials",
+   "country": "India"
+  },
+  "IDXX": {
+   "ticker": "IDXX",
+   "symbol_raw": "IDXX",
+   "name": "IDEXX Laboratories Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US45168D1046",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "ILMN": {
+   "ticker": "ILMN",
+   "symbol_raw": "ILMN",
+   "name": "Illumina Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US4523271090",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "ITX": {
+   "ticker": "ITX",
+   "symbol_raw": "ITX SM",
+   "name": "Industria de Diseno Textil S.A.",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "ES0148396007",
+   "sector": "Consumer Discretionary",
+   "country": "Spain"
+  },
+  "IFX": {
+   "ticker": "IFX",
+   "symbol_raw": "IFX GR",
+   "name": "Infineon Technologies AG",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "DE0006231004",
+   "sector": "Information Technology",
+   "country": "Germany"
+  },
+  "INF": {
+   "ticker": "INF",
+   "symbol_raw": "INF LN",
+   "name": "Informa plc",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "GB00BMJ6DW54",
+   "sector": "Communication Services",
+   "country": "United Kingdom"
+  },
+  "INFO": {
+   "ticker": "INFO",
+   "symbol_raw": "INFO IN",
+   "name": "Infosys Limited",
+   "region": "ASIA",
+   "ranking": 3,
+   "isin": "INE009A01021",
+   "sector": "Information Technology",
+   "country": "India"
+  },
+  "INGA": {
+   "ticker": "INGA",
+   "symbol_raw": "INGA NA",
+   "name": "ING Groep N.V.",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "NL0011821202",
+   "sector": "Financials",
+   "country": "Netherlands"
+  },
+  "IR": {
+   "ticker": "IR",
+   "symbol_raw": "IR",
+   "name": "Ingersoll Rand Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US45687V1061",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "IFC": {
+   "ticker": "IFC",
+   "symbol_raw": "IFC",
+   "name": "Intact Financial Corporation",
+   "region": "CANADA",
+   "ranking": 3,
+   "isin": "CA45823T1066",
+   "sector": "Financials",
+   "country": "Canada"
+  },
+  "INTC": {
+   "ticker": "INTC",
+   "symbol_raw": "INTC",
+   "name": "Intel Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US4581401001",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "IBKR": {
+   "ticker": "IBKR",
+   "symbol_raw": "IBKR",
+   "name": "Interactive Brokers Group Inc.",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US45841N1072",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "ICE": {
+   "ticker": "ICE",
+   "symbol_raw": "ICE",
+   "name": "Intercontinental Exchange Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US45866F1049",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "IHG": {
+   "ticker": "IHG",
+   "symbol_raw": "IHG LN",
+   "name": "InterContinental Hotels Group PLC",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "GB00BHJYC057",
+   "sector": "Consumer Discretionary",
+   "country": "United Kingdom"
+  },
+  "IBM": {
+   "ticker": "IBM",
+   "symbol_raw": "IBM",
+   "name": "International Business Machines Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US4592001014",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "ISP": {
+   "ticker": "ISP",
+   "symbol_raw": "ISP IM",
+   "name": "Intesa Sanpaolo S.p.A.",
+   "region": "EUROPE",
+   "ranking": 5,
+   "isin": "IT0000072618",
+   "sector": "Financials",
+   "country": "Italy"
+  },
+  "INTU": {
+   "ticker": "INTU",
+   "symbol_raw": "INTU",
+   "name": "Intuit Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US4612021034",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "ISRG": {
+   "ticker": "ISRG",
+   "symbol_raw": "ISRG",
+   "name": "Intuitive Surgical Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US46120E6023",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "IQV": {
+   "ticker": "IQV",
+   "symbol_raw": "IQV",
+   "name": "IQVIA Holdings Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US46266C1053",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "IRM": {
+   "ticker": "IRM",
+   "symbol_raw": "IRM",
+   "name": "Iron Mountain Incorporated",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US46284V1017",
+   "sector": "Real Estate",
+   "country": "United States of America"
+  },
+  "JBL": {
+   "ticker": "JBL",
+   "symbol_raw": "JBL",
+   "name": "Jabil Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US4663131039",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "JD": {
+   "ticker": "JD",
+   "symbol_raw": "JD",
+   "name": "JD.com Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US47215P1066",
+   "sector": "Consumer Discretionary",
+   "country": "China"
+  },
+  "JNJ": {
+   "ticker": "JNJ",
+   "symbol_raw": "JNJ",
+   "name": "Johnson & Johnson",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US4781601046",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "JCI": {
+   "ticker": "JCI",
+   "symbol_raw": "JCI",
+   "name": "Johnson Controls International plc",
+   "region": "US",
+   "ranking": 4,
+   "isin": "IE00BY7QL619",
+   "sector": "Industrials",
+   "country": "Ireland"
+  },
+  "BAER": {
+   "ticker": "BAER",
+   "symbol_raw": "BAER SW",
+   "name": "Julius Bar Gruppe AG",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "CH0102484968",
+   "sector": "Financials",
+   "country": "Switzerland"
+  },
+  "KBC": {
+   "ticker": "KBC",
+   "symbol_raw": "KBC BB",
+   "name": "KBC Group NV",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "BE0003565737",
+   "sector": "Financials",
+   "country": "Belgium"
+  },
+  "KVUE": {
+   "ticker": "KVUE",
+   "symbol_raw": "KVUE",
+   "name": "Kenvue Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US49177J1025",
+   "sector": "Consumer Staples",
+   "country": "United States of America"
+  },
+  "KDP": {
+   "ticker": "KDP",
+   "symbol_raw": "KDP",
+   "name": "Keurig Dr Pepper Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US49271V1008",
+   "sector": "Consumer Staples",
+   "country": "United States of America"
+  },
+  "KEY": {
+   "ticker": "KEY",
+   "symbol_raw": "KEY",
+   "name": "KeyCorp",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US4932671088",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "KEYS": {
+   "ticker": "KEYS",
+   "symbol_raw": "KEYS",
+   "name": "Keysight Technologies Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US49338L1035",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "KMB": {
+   "ticker": "KMB",
+   "symbol_raw": "KMB",
+   "name": "Kimberly-Clark Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US4943681035",
+   "sector": "Consumer Staples",
+   "country": "United States of America"
+  },
+  "KXS": {
+   "ticker": "KXS",
+   "symbol_raw": "KXS",
+   "name": "Kinaxis Inc.",
+   "region": "CANADA",
+   "ranking": 5,
+   "isin": "CA49448Q1090",
+   "sector": "Information Technology",
+   "country": "Canada"
+  },
+  "KMI": {
+   "ticker": "KMI",
+   "symbol_raw": "KMI",
+   "name": "Kinder Morgan Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US49456B1017",
+   "sector": "Energy",
+   "country": "United States of America"
+  },
+  "KRX": {
+   "ticker": "KRX",
+   "symbol_raw": "KRX ID",
+   "name": "Kingspan Group plc",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "IE0004927939",
+   "sector": "Industrials",
+   "country": "Ireland"
+  },
+  "K": {
+   "ticker": "K",
+   "symbol_raw": "K",
+   "name": "Kinross Gold Corporation",
+   "region": "CANADA",
+   "ranking": 4,
+   "isin": "CA4969024047",
+   "sector": "Materials",
+   "country": "Canada"
+  },
+  "KKR": {
+   "ticker": "KKR",
+   "symbol_raw": "KKR",
+   "name": "KKR & Co. Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US48251W1045",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "KLAC": {
+   "ticker": "KLAC",
+   "symbol_raw": "KLAC",
+   "name": "KLA Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US4824801009",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "AD": {
+   "ticker": "AD",
+   "symbol_raw": "AD NA",
+   "name": "Koninklijke Ahold Delhaize N.V.",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "NL0011794037",
+   "sector": "Consumer Staples",
+   "country": "Netherlands"
+  },
+  "KPN": {
+   "ticker": "KPN",
+   "symbol_raw": "KPN NA",
+   "name": "Koninklijke KPN N.V.",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "NL0000009082",
+   "sector": "Communication Services",
+   "country": "Netherlands"
+  },
+  "KEP": {
+   "ticker": "KEP",
+   "symbol_raw": "KEP",
+   "name": "Korea Electric Power Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "KR7015760002",
+   "sector": "Utilities",
+   "country": "South Korea"
+  },
+  "KNIN": {
+   "ticker": "KNIN",
+   "symbol_raw": "KNIN SW",
+   "name": "Kuehne + Nagel International AG",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "CH0025238863",
+   "sector": "Industrials",
+   "country": "Switzerland"
+  },
+  "OR": {
+   "ticker": "OR",
+   "symbol_raw": "OR FP",
+   "name": "L'Oreal S.A.",
+   "region": "EUROPE",
+   "ranking": 5,
+   "isin": "FR0000120321",
+   "sector": "Consumer Staples",
+   "country": "France"
+  },
+  "LH": {
+   "ticker": "LH",
+   "symbol_raw": "LH",
+   "name": "Labcorp Holdings Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "FR0000120073",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "LRCX": {
+   "ticker": "LRCX",
+   "symbol_raw": "LRCX",
+   "name": "Lam Research Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US5128073062",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "LVS": {
+   "ticker": "LVS",
+   "symbol_raw": "LVS",
+   "name": "Las Vegas Sands Corp.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US5178341070",
+   "sector": "Consumer Discretionary",
+   "country": "United States of America"
+  },
+  "LGEN": {
+   "ticker": "LGEN",
+   "symbol_raw": "LGEN LN",
+   "name": "Legal & General Group Plc",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "GB0005603997",
+   "sector": "Financials",
+   "country": "United Kingdom"
+  },
+  "LR": {
+   "ticker": "LR",
+   "symbol_raw": "LR FP",
+   "name": "Legrand SA",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "FR0010307819",
+   "sector": "Industrials",
+   "country": "France"
+  },
+  "LEN": {
+   "ticker": "LEN",
+   "symbol_raw": "LEN",
+   "name": "Lennar Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US5260571048",
+   "sector": "Consumer Discretionary",
+   "country": "United States of America"
+  },
+  "LIN": {
+   "ticker": "LIN",
+   "symbol_raw": "LIN",
+   "name": "Linde plc",
+   "region": "US",
+   "ranking": 3,
+   "isin": "IE000S9YS762",
+   "sector": "Materials",
+   "country": "United Kingdom"
+  },
+  "LYV": {
+   "ticker": "LYV",
+   "symbol_raw": "LYV",
+   "name": "Live Nation Entertainment Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US5380341090",
+   "sector": "Communication Services",
+   "country": "United States of America"
+  },
+  "LLOY": {
+   "ticker": "LLOY",
+   "symbol_raw": "LLOY LN",
+   "name": "Lloyds Banking Group plc",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "GB0008706128",
+   "sector": "Financials",
+   "country": "United Kingdom"
+  },
+  "L": {
+   "ticker": "L",
+   "symbol_raw": "L",
+   "name": "Loblaw Companies Limited",
+   "region": "CANADA",
+   "ranking": 4,
+   "isin": "CA5394811015",
+   "sector": "Consumer Staples",
+   "country": "Canada"
+  },
+  "LOGI": {
+   "ticker": "LOGI",
+   "symbol_raw": "LOGI",
+   "name": "Logitech International S.A.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "CH0025751329",
+   "sector": "Information Technology",
+   "country": "Switzerland"
+  },
+  "LSEG": {
+   "ticker": "LSEG",
+   "symbol_raw": "LSEG LN",
+   "name": "London Stock Exchange Group plc",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "GB00B0SWJX34",
+   "sector": "Financials",
+   "country": "United Kingdom"
+  },
+  "LOW": {
+   "ticker": "LOW",
+   "symbol_raw": "LOW",
+   "name": "Lowe's Companies Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US5486611073",
+   "sector": "Consumer Discretionary",
+   "country": "United States of America"
+  },
+  "LPLA": {
+   "ticker": "LPLA",
+   "symbol_raw": "LPLA",
+   "name": "LPL Financial Holdings Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US50212V1008",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "LULU": {
+   "ticker": "LULU",
+   "symbol_raw": "LULU",
+   "name": "lululemon athletica inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US5500211090",
+   "sector": "Consumer Discretionary",
+   "country": "Canada"
+  },
+  "LITE": {
+   "ticker": "LITE",
+   "symbol_raw": "LITE",
+   "name": "Lumentum Holdings Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US55024U1097",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "MC": {
+   "ticker": "MC",
+   "symbol_raw": "MC FP",
+   "name": "LVMH Moet Hennessy - Louis Vuitton Societe Europeenne",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "FR0000121014",
+   "sector": "Consumer Discretionary",
+   "country": "France"
+  },
+  "LYB": {
+   "ticker": "LYB",
+   "symbol_raw": "LYB",
+   "name": "LyondellBasell Industries N.V.",
+   "region": "US",
+   "ranking": 2,
+   "isin": "NL0009434992",
+   "sector": "Materials",
+   "country": "United Kingdom"
+  },
+  "MTB": {
+   "ticker": "MTB",
+   "symbol_raw": "MTB",
+   "name": "M&T Bank Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US55261F1049",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "MFC": {
+   "ticker": "MFC",
+   "symbol_raw": "MFC",
+   "name": "Manulife Financial Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "CA56501R1064",
+   "sector": "Financials",
+   "country": "Canada"
+  },
+  "MPC": {
+   "ticker": "MPC",
+   "symbol_raw": "MPC",
+   "name": "Marathon Petroleum Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US56585A1025",
+   "sector": "Energy",
+   "country": "United States of America"
+  },
+  "MKL": {
+   "ticker": "MKL",
+   "symbol_raw": "MKL",
+   "name": "Markel Group Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US5705351048",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "MAR": {
+   "ticker": "MAR",
+   "symbol_raw": "MAR",
+   "name": "Marriott International Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US5719032022",
+   "sector": "Consumer Discretionary",
+   "country": "United States of America"
+  },
+  "MRSH": {
+   "ticker": "MRSH",
+   "symbol_raw": "MRSH",
+   "name": "Marsh & McLennan Companies Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US5717481023",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "MRVL": {
+   "ticker": "MRVL",
+   "symbol_raw": "MRVL",
+   "name": "Marvell Technology Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US5738741041",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "MCD": {
+   "ticker": "MCD",
+   "symbol_raw": "MCD",
+   "name": "McDonald's Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US5801351017",
+   "sector": "Consumer Discretionary",
+   "country": "United States of America"
+  },
+  "MCK": {
+   "ticker": "MCK",
+   "symbol_raw": "MCK",
+   "name": "McKesson Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US58155Q1031",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "MDT": {
+   "ticker": "MDT",
+   "symbol_raw": "MDT",
+   "name": "Medtronic plc",
+   "region": "US",
+   "ranking": 4,
+   "isin": "IE00BTN1Y115",
+   "sector": "Health Care",
+   "country": "Ireland"
+  },
+  "MRK": {
+   "ticker": "MRK",
+   "symbol_raw": "MRK",
+   "name": "Merck & Co. Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US58933Y1055",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "MET": {
+   "ticker": "MET",
+   "symbol_raw": "MET",
+   "name": "MetLife Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US59156R1086",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "MRU": {
+   "ticker": "MRU",
+   "symbol_raw": "MRU",
+   "name": "Metro Inc.",
+   "region": "CANADA",
+   "ranking": 3,
+   "isin": "CA59162N1096",
+   "sector": "Consumer Staples",
+   "country": "Canada"
+  },
+  "MTD": {
+   "ticker": "MTD",
+   "symbol_raw": "MTD",
+   "name": "Mettler-Toledo International Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US5926881054",
+   "sector": "Health Care",
+   "country": "Switzerland"
+  },
+  "MCHP": {
+   "ticker": "MCHP",
+   "symbol_raw": "MCHP",
+   "name": "Microchip Technology Incorporated",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US5950171042",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "MU": {
+   "ticker": "MU",
+   "symbol_raw": "MU",
+   "name": "Micron Technology Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US5951121038",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "MRNA": {
+   "ticker": "MRNA",
+   "symbol_raw": "MRNA",
+   "name": "Moderna Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US60770K1079",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "MONC": {
+   "ticker": "MONC",
+   "symbol_raw": "MONC IM",
+   "name": "Moncler S.p.A.",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "IT0004965148",
+   "sector": "Consumer Discretionary",
+   "country": "Italy"
+  },
+  "MDLZ": {
+   "ticker": "MDLZ",
+   "symbol_raw": "MDLZ",
+   "name": "Mondelez International Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US6092071058",
+   "sector": "Consumer Staples",
+   "country": "United States of America"
+  },
+  "MDB": {
+   "ticker": "MDB",
+   "symbol_raw": "MDB",
+   "name": "MongoDB Inc.",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US60937P1066",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "MPWR": {
+   "ticker": "MPWR",
+   "symbol_raw": "MPWR",
+   "name": "Monolithic Power Systems Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US6098391054",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "MNST": {
+   "ticker": "MNST",
+   "symbol_raw": "MNST",
+   "name": "Monster Beverage Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US61174X1090",
+   "sector": "Consumer Staples",
+   "country": "United States of America"
+  },
+  "MCO": {
+   "ticker": "MCO",
+   "symbol_raw": "MCO",
+   "name": "Moody's Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US6153691059",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "MSI": {
+   "ticker": "MSI",
+   "symbol_raw": "MSI",
+   "name": "Motorola Solutions Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US6200763075",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "MSCI": {
+   "ticker": "MSCI",
+   "symbol_raw": "MSCI",
+   "name": "MSCI Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US55354G1004",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "MTX": {
+   "ticker": "MTX",
+   "symbol_raw": "MTX GR",
+   "name": "MTU Aero Engines AG",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "DE000A0D9PT0",
+   "sector": "Industrials",
+   "country": "Germany"
+  },
+  "MUV2": {
+   "ticker": "MUV2",
+   "symbol_raw": "MUV2 GR",
+   "name": "Munchener Ruckversicherungs-Gesellschaft Aktiengesellschaft in Munchen",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "DE0008430026",
+   "sector": "Financials",
+   "country": "Germany"
+  },
+  "NDAQ": {
+   "ticker": "NDAQ",
+   "symbol_raw": "NDAQ",
+   "name": "Nasdaq Inc.",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US6311031081",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "NA": {
+   "ticker": "NA",
+   "symbol_raw": "NA",
+   "name": "National Bank of Canada",
+   "region": "CANADA",
+   "ranking": 4,
+   "isin": "CA6330671034",
+   "sector": "Financials",
+   "country": "Canada"
+  },
+  "NG": {
+   "ticker": "NG",
+   "symbol_raw": "NG LN",
+   "name": "National Grid plc",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "GB00BDR05C01",
+   "sector": "Utilities",
+   "country": "United Kingdom"
+  },
+  "NTGY": {
+   "ticker": "NTGY",
+   "symbol_raw": "NTGY SM",
+   "name": "Naturgy Energy Group S.A.",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "ES0116870314",
+   "sector": "Utilities",
+   "country": "Spain"
+  },
+  "NWG": {
+   "ticker": "NWG",
+   "symbol_raw": "NWG LN",
+   "name": "NatWest Group plc",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "GB00BM8PJY71",
+   "sector": "Financials",
+   "country": "United Kingdom"
+  },
+  "NESN": {
+   "ticker": "NESN",
+   "symbol_raw": "NESN SW",
+   "name": "Nestle S.A.",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "CH0038863350",
+   "sector": "Consumer Staples",
+   "country": "Switzerland"
+  },
+  "NTAP": {
+   "ticker": "NTAP",
+   "symbol_raw": "NTAP",
+   "name": "NetApp Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US64110D1046",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "NTES": {
+   "ticker": "NTES",
+   "symbol_raw": "NTES",
+   "name": "NetEase Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US64110W1027",
+   "sector": "Communication Services",
+   "country": "China"
+  },
+  "NEM": {
+   "ticker": "NEM",
+   "symbol_raw": "NEM",
+   "name": "Newmont Corporation",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US6516391066",
+   "sector": "Materials",
+   "country": "United States of America"
+  },
+  "NXT": {
+   "ticker": "NXT",
+   "symbol_raw": "NXT LN",
+   "name": "NEXT plc",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "GB0032089863",
+   "sector": "Consumer Discretionary",
+   "country": "United Kingdom"
+  },
+  "NEE": {
+   "ticker": "NEE",
+   "symbol_raw": "NEE",
+   "name": "NextEra Energy Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US65339F1012",
+   "sector": "Utilities",
+   "country": "United States of America"
+  },
+  "NKE": {
+   "ticker": "NKE",
+   "symbol_raw": "NKE",
+   "name": "NIKE Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US6541061031",
+   "sector": "Consumer Discretionary",
+   "country": "United States of America"
+  },
+  "NI": {
+   "ticker": "NI",
+   "symbol_raw": "NI",
+   "name": "NiSource Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US65473P1057",
+   "sector": "Utilities",
+   "country": "United States of America"
+  },
+  "NN": {
+   "ticker": "NN",
+   "symbol_raw": "NN NA",
+   "name": "NN Group N.V.",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "NL0010773842",
+   "sector": "Financials",
+   "country": "Netherlands"
+  },
+  "NOKIA": {
+   "ticker": "NOKIA",
+   "symbol_raw": "NOKIA FH",
+   "name": "Nokia Oyj",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "FI0009000681",
+   "sector": "Information Technology",
+   "country": "Finland"
+  },
+  "NDA": {
+   "ticker": "NDA",
+   "symbol_raw": "NDA SS",
+   "name": "Nordea Bank Abp",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "FI4000297767",
+   "sector": "Financials",
+   "country": "Sweden"
+  },
+  "NSC": {
+   "ticker": "NSC",
+   "symbol_raw": "NSC",
+   "name": "Norfolk Southern Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US6558441084",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "NTRS": {
+   "ticker": "NTRS",
+   "symbol_raw": "NTRS",
+   "name": "Northern Trust Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US6658591044",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "NOVN": {
+   "ticker": "NOVN",
+   "symbol_raw": "NOVN SW",
+   "name": "Novartis AG",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "CH0012005267",
+   "sector": "Health Care",
+   "country": "Switzerland"
+  },
+  "NOVOB": {
+   "ticker": "NOVOB",
+   "symbol_raw": "NOVOB DC",
+   "name": "Novo Nordisk A/S",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "DK0062498333",
+   "sector": "Health Care",
+   "country": "Denmark"
+  },
+  "NSISB": {
+   "ticker": "NSISB",
+   "symbol_raw": "NSISB DC",
+   "name": "Novozymes A/S",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "DK0060336014",
+   "sector": "Materials",
+   "country": "Denmark"
+  },
+  "NRG": {
+   "ticker": "NRG",
+   "symbol_raw": "NRG",
+   "name": "NRG Energy Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US6293775085",
+   "sector": "Utilities",
+   "country": "United States of America"
+  },
+  "NUE": {
+   "ticker": "NUE",
+   "symbol_raw": "NUE",
+   "name": "Nucor Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US6703461052",
+   "sector": "Materials",
+   "country": "United States of America"
+  },
+  "NXPI": {
+   "ticker": "NXPI",
+   "symbol_raw": "NXPI",
+   "name": "NXP Semiconductors N.V.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "NL0009538784",
+   "sector": "Information Technology",
+   "country": "Netherlands"
+  },
+  "ORLY": {
+   "ticker": "ORLY",
+   "symbol_raw": "ORLY",
+   "name": "O'Reilly Automotive Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US67103H1077",
+   "sector": "Consumer Discretionary",
+   "country": "United States of America"
+  },
+  "ODFL": {
+   "ticker": "ODFL",
+   "symbol_raw": "ODFL",
+   "name": "Old Dominion Freight Line Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US6795801009",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "OMC": {
+   "ticker": "OMC",
+   "symbol_raw": "OMC",
+   "name": "Omnicom Group Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US6819191064",
+   "sector": "Communication Services",
+   "country": "United States of America"
+  },
+  "ON": {
+   "ticker": "ON",
+   "symbol_raw": "ON",
+   "name": "ON Semiconductor Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US6821891057",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "OKE": {
+   "ticker": "OKE",
+   "symbol_raw": "OKE",
+   "name": "ONEOK Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US6826801036",
+   "sector": "Energy",
+   "country": "United States of America"
+  },
+  "OTEX": {
+   "ticker": "OTEX",
+   "symbol_raw": "OTEX",
+   "name": "Open Text Corporation",
+   "region": "CANADA",
+   "ranking": 3,
+   "isin": "CA6837151068",
+   "sector": "Information Technology",
+   "country": "Canada"
+  },
+  "ORCL": {
+   "ticker": "ORCL",
+   "symbol_raw": "ORCL",
+   "name": "Oracle Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US68389X1054",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "ORA": {
+   "ticker": "ORA",
+   "symbol_raw": "ORA FP",
+   "name": "Orange S.A.",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "FR0000133308",
+   "sector": "Communication Services",
+   "country": "France"
+  },
+  "ORSTED": {
+   "ticker": "ORSTED",
+   "symbol_raw": "ORSTED DC",
+   "name": "Orsted A/S",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "DK0060094928",
+   "sector": "Utilities",
+   "country": "Denmark"
+  },
+  "OTIS": {
+   "ticker": "OTIS",
+   "symbol_raw": "OTIS",
+   "name": "Otis Worldwide Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US68902V1070",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "PLTR": {
+   "ticker": "PLTR",
+   "symbol_raw": "PLTR",
+   "name": "Palantir Technologies Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US69608A1088",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "PANW": {
+   "ticker": "PANW",
+   "symbol_raw": "PANW",
+   "name": "Palo Alto Networks Inc.",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US6974351057",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "PH": {
+   "ticker": "PH",
+   "symbol_raw": "PH",
+   "name": "Parker-Hannifin Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US7010941042",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "PGHN": {
+   "ticker": "PGHN",
+   "symbol_raw": "PGHN SW",
+   "name": "Partners Group Holding AG",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "CH0024608827",
+   "sector": "Financials",
+   "country": "Switzerland"
+  },
+  "PAYX": {
+   "ticker": "PAYX",
+   "symbol_raw": "PAYX",
+   "name": "Paychex Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US7043261079",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "PYPL": {
+   "ticker": "PYPL",
+   "symbol_raw": "PYPL",
+   "name": "PayPal Holdings Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US70450Y1038",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "PPL": {
+   "ticker": "PPL",
+   "symbol_raw": "PPL",
+   "name": "Pembina Pipeline Corporation",
+   "region": "CANADA",
+   "ranking": 3,
+   "isin": "CA7063271034",
+   "sector": "Energy",
+   "country": "Canada"
+  },
+  "PEP": {
+   "ticker": "PEP",
+   "symbol_raw": "PEP",
+   "name": "PepsiCo Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US7134481081",
+   "sector": "Consumer Staples",
+   "country": "United States of America"
+  },
+  "RI": {
+   "ticker": "RI",
+   "symbol_raw": "RI FP",
+   "name": "Pernod Ricard SA",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "FR0000120693",
+   "sector": "Consumer Staples",
+   "country": "France"
+  },
+  "PFE": {
+   "ticker": "PFE",
+   "symbol_raw": "PFE",
+   "name": "Pfizer Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US7170811035",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "PSX": {
+   "ticker": "PSX",
+   "symbol_raw": "PSX",
+   "name": "Phillips 66",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US7185461040",
+   "sector": "Energy",
+   "country": "United States of America"
+  },
+  "PINS": {
+   "ticker": "PINS",
+   "symbol_raw": "PINS",
+   "name": "Pinterest Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US72352L1061",
+   "sector": "Communication Services",
+   "country": "United States of America"
+  },
+  "POW": {
+   "ticker": "POW",
+   "symbol_raw": "POW",
+   "name": "Power Corporation of Canada",
+   "region": "CANADA",
+   "ranking": 3,
+   "isin": "CA7392391016",
+   "sector": "Financials",
+   "country": "Canada"
+  },
+  "PPG": {
+   "ticker": "PPG",
+   "symbol_raw": "PPG",
+   "name": "PPG Industries Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US6935061076",
+   "sector": "Materials",
+   "country": "United States of America"
+  },
+  "PBH": {
+   "ticker": "PBH",
+   "symbol_raw": "PBH",
+   "name": "Premium Brands Holdings Corporation",
+   "region": "CANADA",
+   "ranking": 3,
+   "isin": "CA74061A1084",
+   "sector": "Consumer Staples",
+   "country": "Canada"
+  },
+  "PLD": {
+   "ticker": "PLD",
+   "symbol_raw": "PLD",
+   "name": "Prologis Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US74340W1036",
+   "sector": "Real Estate",
+   "country": "United States of America"
+  },
+  "PRX": {
+   "ticker": "PRX",
+   "symbol_raw": "PRX NA",
+   "name": "Prosus N.V.",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "NL0013654783",
+   "sector": "Consumer Discretionary",
+   "country": "Netherlands"
+  },
+  "PRU": {
+   "ticker": "PRU",
+   "symbol_raw": "PRU",
+   "name": "Prudential Financial Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US7443201022",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "PTC": {
+   "ticker": "PTC",
+   "symbol_raw": "PTC",
+   "name": "PTC Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US69370C1009",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "PEG": {
+   "ticker": "PEG",
+   "symbol_raw": "PEG",
+   "name": "Public Service Enterprise Group Incorporated",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US7445731067",
+   "sector": "Utilities",
+   "country": "United States of America"
+  },
+  "PSA": {
+   "ticker": "PSA",
+   "symbol_raw": "PSA",
+   "name": "Public Storage",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US74460D1090",
+   "sector": "Real Estate",
+   "country": "United States of America"
+  },
+  "PUB": {
+   "ticker": "PUB",
+   "symbol_raw": "PUB FP",
+   "name": "Publicis Groupe S.A.",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "FR0000130577",
+   "sector": "Communication Services",
+   "country": "France"
+  },
+  "QCOM": {
+   "ticker": "QCOM",
+   "symbol_raw": "QCOM",
+   "name": "QUALCOMM Incorporated",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US7475251036",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "PWR": {
+   "ticker": "PWR",
+   "symbol_raw": "PWR",
+   "name": "Quanta Services Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US74762E1029",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "RL": {
+   "ticker": "RL",
+   "symbol_raw": "RL",
+   "name": "Ralph Lauren Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US7512121010",
+   "sector": "Consumer Discretionary",
+   "country": "United States of America"
+  },
+  "RJF": {
+   "ticker": "RJF",
+   "symbol_raw": "RJF",
+   "name": "Raymond James Financial Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US7547301090",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "O": {
+   "ticker": "O",
+   "symbol_raw": "O",
+   "name": "Realty Income Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US7561091049",
+   "sector": "Real Estate",
+   "country": "United States of America"
+  },
+  "RKT": {
+   "ticker": "RKT",
+   "symbol_raw": "RKT LN",
+   "name": "Reckitt Benckiser Group plc",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "GB00BSZBP530",
+   "sector": "Consumer Staples",
+   "country": "United Kingdom"
+  },
+  "REGN": {
+   "ticker": "REGN",
+   "symbol_raw": "REGN",
+   "name": "Regeneron Pharmaceuticals Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US75886F1075",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "RF": {
+   "ticker": "RF",
+   "symbol_raw": "RF",
+   "name": "Regions Financial Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US7591EP1005",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "REL": {
+   "ticker": "REL",
+   "symbol_raw": "REL LN",
+   "name": "RELX PLC",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "GB00B2B0DG97",
+   "sector": "Industrials",
+   "country": "United Kingdom"
+  },
+  "RSG": {
+   "ticker": "RSG",
+   "symbol_raw": "RSG",
+   "name": "Republic Services Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US7607591002",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "RMD": {
+   "ticker": "RMD",
+   "symbol_raw": "RMD",
+   "name": "ResMed Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US7611521078",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "QSR": {
+   "ticker": "QSR",
+   "symbol_raw": "QSR",
+   "name": "Restaurant Brands International Inc.",
+   "region": "CANADA",
+   "ranking": 3,
+   "isin": "CA76131D1033",
+   "sector": "Consumer Discretionary",
+   "country": "United States of America"
+  },
+  "RIO": {
+   "ticker": "RIO",
+   "symbol_raw": "RIO LN",
+   "name": "Rio Tinto Group",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "GB0007188757",
+   "sector": "Materials",
+   "country": "United Kingdom"
+  },
+  "HOOD": {
+   "ticker": "HOOD",
+   "symbol_raw": "HOOD",
+   "name": "Robinhood Markets Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US7707001027",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "RBLX": {
+   "ticker": "RBLX",
+   "symbol_raw": "RBLX",
+   "name": "Roblox Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US7710491033",
+   "sector": "Communication Services",
+   "country": "United States of America"
+  },
+  "ROP": {
+   "ticker": "ROP",
+   "symbol_raw": "ROP SW",
+   "name": "Roche Holding AG",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "CH0012032048",
+   "sector": "Health Care",
+   "country": "Switzerland"
+  },
+  "RKLB": {
+   "ticker": "RKLB",
+   "symbol_raw": "RKLB",
+   "name": "Rocket Lab Corporation",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US7731211089",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "ROK": {
+   "ticker": "ROK",
+   "symbol_raw": "ROK",
+   "name": "Rockwell Automation Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US7739031091",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "ROL": {
+   "ticker": "ROL",
+   "symbol_raw": "ROL",
+   "name": "Rollins Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US7757111049",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "RR": {
+   "ticker": "RR",
+   "symbol_raw": "RR LN",
+   "name": "Rolls-Royce Holdings plc",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "GB00B63H8491",
+   "sector": "Industrials",
+   "country": "United Kingdom"
+  },
+  "ROST": {
+   "ticker": "ROST",
+   "symbol_raw": "ROST",
+   "name": "Ross Stores Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US7782961038",
+   "sector": "Consumer Discretionary",
+   "country": "United States of America"
+  },
+  "RY": {
+   "ticker": "RY",
+   "symbol_raw": "RY",
+   "name": "Royal Bank of Canada",
+   "region": "US",
+   "ranking": 4,
+   "isin": "CA7800871021",
+   "sector": "Financials",
+   "country": "Canada"
+  },
+  "RCL": {
+   "ticker": "RCL",
+   "symbol_raw": "RCL",
+   "name": "Royal Caribbean Cruises Ltd.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "LR0008862868",
+   "sector": "Consumer Discretionary",
+   "country": "United States of America"
+  },
+  "RWE": {
+   "ticker": "RWE",
+   "symbol_raw": "RWE GR",
+   "name": "RWE Aktiengesellschaft",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "DE0007037129",
+   "sector": "Utilities",
+   "country": "Germany"
+  },
+  "RYA": {
+   "ticker": "RYA",
+   "symbol_raw": "RYA ID",
+   "name": "Ryanair Holdings plc",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "IE00BYTBXV33",
+   "sector": "Industrials",
+   "country": "Ireland"
+  },
+  "SAF": {
+   "ticker": "SAF",
+   "symbol_raw": "SAF FP",
+   "name": "Safran SA",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "FR0000073272",
+   "sector": "Industrials",
+   "country": "France"
+  },
+  "CRM": {
+   "ticker": "CRM",
+   "symbol_raw": "CRM",
+   "name": "Salesforce Inc.",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US79466L3024",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "SAMPO": {
+   "ticker": "SAMPO",
+   "symbol_raw": "SAMPO FH",
+   "name": "Sampo Oyj",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "FI4000552500",
+   "sector": "Financials",
+   "country": "Finland"
+  },
+  "SAND": {
+   "ticker": "SAND",
+   "symbol_raw": "SAND SS",
+   "name": "Sandvik AB (publ)",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "SE0000667891",
+   "sector": "Industrials",
+   "country": "Sweden"
+  },
+  "SBAC": {
+   "ticker": "SBAC",
+   "symbol_raw": "SBAC",
+   "name": "SBA Communications Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US78410G1040",
+   "sector": "Real Estate",
+   "country": "United States of America"
+  },
+  "SE": {
+   "ticker": "SE",
+   "symbol_raw": "SE",
+   "name": "Sea Limited",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US81141R1005",
+   "sector": "Consumer Discretionary",
+   "country": "Singapore"
+  },
+  "STX": {
+   "ticker": "STX",
+   "symbol_raw": "STX",
+   "name": "Seagate Technology Holdings plc",
+   "region": "US",
+   "ranking": 4,
+   "isin": "IE00BKVD2N49",
+   "sector": "Information Technology",
+   "country": "Singapore"
+  },
+  "SGRO": {
+   "ticker": "SGRO",
+   "symbol_raw": "SGRO LN",
+   "name": "SEGRO Plc",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "GB00B5ZN1N88",
+   "sector": "Real Estate",
+   "country": "United Kingdom"
+  },
+  "SRE": {
+   "ticker": "SRE",
+   "symbol_raw": "SRE",
+   "name": "Sempra",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US8168511090",
+   "sector": "Utilities",
+   "country": "United States of America"
+  },
+  "NOW": {
+   "ticker": "NOW",
+   "symbol_raw": "NOW",
+   "name": "ServiceNow Inc.",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US81762P1021",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "SGSN": {
+   "ticker": "SGSN",
+   "symbol_raw": "SGSN SW",
+   "name": "SGS SA",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "CH1256740924",
+   "sector": "Industrials",
+   "country": "Switzerland"
+  },
+  "SHOP": {
+   "ticker": "SHOP",
+   "symbol_raw": "SHOP",
+   "name": "Shopify Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "CA82509L1076",
+   "sector": "Information Technology",
+   "country": "Canada"
+  },
+  "SIE": {
+   "ticker": "SIE",
+   "symbol_raw": "SIE GR",
+   "name": "Siemens Aktiengesellschaft",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "DE0007236101",
+   "sector": "Industrials",
+   "country": "Germany"
+  },
+  "SPG": {
+   "ticker": "SPG",
+   "symbol_raw": "SPG",
+   "name": "Simon Property Group Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US8288061091",
+   "sector": "Real Estate",
+   "country": "United States of America"
+  },
+  "SLB": {
+   "ticker": "SLB",
+   "symbol_raw": "SLB",
+   "name": "SLB N.V.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "AN8068571086",
+   "sector": "Energy",
+   "country": "United States of America"
+  },
+  "SW": {
+   "ticker": "SW",
+   "symbol_raw": "SW",
+   "name": "Smurfit Westrock Plc",
+   "region": "US",
+   "ranking": 3,
+   "isin": "IE00028FXN24",
+   "sector": "Materials",
+   "country": "Ireland"
+  },
+  "SRG": {
+   "ticker": "SRG",
+   "symbol_raw": "SRG IM",
+   "name": "Snam S.p.A.",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "IT0003153415",
+   "sector": "Utilities",
+   "country": "Italy"
+  },
+  "SNOW": {
+   "ticker": "SNOW",
+   "symbol_raw": "SNOW",
+   "name": "Snowflake Inc.",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US8334451098",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "GLE": {
+   "ticker": "GLE",
+   "symbol_raw": "GLE FP",
+   "name": "Societe Generale Societe anonyme",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "FR0000130809",
+   "sector": "Financials",
+   "country": "France"
+  },
+  "SOFI": {
+   "ticker": "SOFI",
+   "symbol_raw": "SOFI",
+   "name": "SoFi Technologies Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US83406F1021",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "SOON": {
+   "ticker": "SOON",
+   "symbol_raw": "SOON SW",
+   "name": "Sonova Holding AG",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "CH0012549785",
+   "sector": "Health Care",
+   "country": "Switzerland"
+  },
+  "SONY": {
+   "ticker": "SONY",
+   "symbol_raw": "SONY",
+   "name": "Sony Group Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "JP3435000009",
+   "sector": "Consumer Discretionary",
+   "country": "Japan"
+  },
+  "SCCO": {
+   "ticker": "SCCO",
+   "symbol_raw": "SCCO",
+   "name": "Southern Copper Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US84265V1052",
+   "sector": "Materials",
+   "country": "United States of America"
+  },
+  "LUV": {
+   "ticker": "LUV",
+   "symbol_raw": "LUV",
+   "name": "Southwest Airlines Co.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US8447411088",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "SPOT": {
+   "ticker": "SPOT",
+   "symbol_raw": "SPOT",
+   "name": "Spotify Technology S.A.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "LU1778762911",
+   "sector": "Communication Services",
+   "country": "Sweden"
+  },
+  "SSE": {
+   "ticker": "SSE",
+   "symbol_raw": "SSE LN",
+   "name": "SSE plc",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "GB0007908733",
+   "sector": "Utilities",
+   "country": "United Kingdom"
+  },
+  "STAN": {
+   "ticker": "STAN",
+   "symbol_raw": "STAN LN",
+   "name": "Standard Chartered PLC",
+   "region": "EUROPE",
+   "ranking": 5,
+   "isin": "GB0004082847",
+   "sector": "Financials",
+   "country": "United Kingdom"
+  },
+  "STT": {
+   "ticker": "STT",
+   "symbol_raw": "STT",
+   "name": "State Street Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US8574771031",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "STLD": {
+   "ticker": "STLD",
+   "symbol_raw": "STLD",
+   "name": "Steel Dynamics Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US8581191009",
+   "sector": "Materials",
+   "country": "United States of America"
+  },
+  "STM": {
+   "ticker": "STM",
+   "symbol_raw": "STM FP",
+   "name": "STMicroelectronics N.V.",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "NL0000226223",
+   "sector": "Information Technology",
+   "country": "France"
+  },
+  "MSTR": {
+   "ticker": "MSTR",
+   "symbol_raw": "MSTR",
+   "name": "Strategy Inc",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US5949724083",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "SLF": {
+   "ticker": "SLF",
+   "symbol_raw": "SLF",
+   "name": "Sun Life Financial Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "CA8667961053",
+   "sector": "Financials",
+   "country": "Canada"
+  },
+  "SWEDA": {
+   "ticker": "SWEDA",
+   "symbol_raw": "SWEDA SS",
+   "name": "Swedbank AB (publ)",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "SE0000242455",
+   "sector": "Financials",
+   "country": "Sweden"
+  },
+  "SLHN": {
+   "ticker": "SLHN",
+   "symbol_raw": "SLHN SW",
+   "name": "Swiss Life Holding AG",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "CH0014852781",
+   "sector": "Financials",
+   "country": "Switzerland"
+  },
+  "SPSN": {
+   "ticker": "SPSN",
+   "symbol_raw": "SPSN SW",
+   "name": "Swiss Prime Site AG",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "CH0008038389",
+   "sector": "Real Estate",
+   "country": "Switzerland"
+  },
+  "SREN": {
+   "ticker": "SREN",
+   "symbol_raw": "SREN SW",
+   "name": "Swiss Re AG",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "CH0126881561",
+   "sector": "Financials",
+   "country": "Switzerland"
+  },
+  "SCMN": {
+   "ticker": "SCMN",
+   "symbol_raw": "SCMN SW",
+   "name": "Swisscom AG",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "CH0008742519",
+   "sector": "Communication Services",
+   "country": "Switzerland"
+  },
+  "SYF": {
+   "ticker": "SYF",
+   "symbol_raw": "SYF",
+   "name": "Synchrony Financial",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US87165B1035",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "SNPS": {
+   "ticker": "SNPS",
+   "symbol_raw": "SNPS",
+   "name": "Synopsys Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US8716071076",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "TMUS": {
+   "ticker": "TMUS",
+   "symbol_raw": "TMUS",
+   "name": "T-Mobile US Inc.",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US8725901040",
+   "sector": "Communication Services",
+   "country": "United States of America"
+  },
+  "TROW": {
+   "ticker": "TROW",
+   "symbol_raw": "TROW",
+   "name": "T. Rowe Price Group Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US74144T1088",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "TSM": {
+   "ticker": "TSM",
+   "symbol_raw": "TSM",
+   "name": "Taiwan Semiconductor Manufacturing Company Limited",
+   "region": "US",
+   "ranking": 4,
+   "isin": "TW0002330008",
+   "sector": "Information Technology",
+   "country": "Taiwan"
+  },
+  "TTWO": {
+   "ticker": "TTWO",
+   "symbol_raw": "TTWO",
+   "name": "Take-Two Interactive Software Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US8740541094",
+   "sector": "Communication Services",
+   "country": "United States of America"
+  },
+  "TGT": {
+   "ticker": "TGT",
+   "symbol_raw": "TGT",
+   "name": "Target Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US87612E1064",
+   "sector": "Consumer Staples",
+   "country": "United States of America"
+  },
+  "TEL": {
+   "ticker": "TEL",
+   "symbol_raw": "TEL",
+   "name": "TE Connectivity plc",
+   "region": "US",
+   "ranking": 4,
+   "isin": "IE000IVNQZ81",
+   "sector": "Information Technology",
+   "country": "Ireland"
+  },
+  "TECK": {
+   "ticker": "TECK",
+   "symbol_raw": "TECK",
+   "name": "Teck Resources Limited",
+   "region": "US",
+   "ranking": 3,
+   "isin": "CA8787422044",
+   "sector": "Materials",
+   "country": "Canada"
+  },
+  "TEL2B": {
+   "ticker": "TEL2B",
+   "symbol_raw": "TEL2B SS",
+   "name": "Tele2 AB (publ)",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "SE0005190238",
+   "sector": "Communication Services",
+   "country": "Sweden"
+  },
+  "TDY": {
+   "ticker": "TDY",
+   "symbol_raw": "TDY",
+   "name": "Teledyne Technologies Incorporated",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US8793601050",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "ERICB": {
+   "ticker": "ERICB",
+   "symbol_raw": "ERICB SS",
+   "name": "Telefonaktiebolaget LM Ericsson (publ)",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "SE0000108656",
+   "sector": "Information Technology",
+   "country": "Sweden"
+  },
+  "TELIA": {
+   "ticker": "TELIA",
+   "symbol_raw": "TELIA SS",
+   "name": "Telia Company AB (publ)",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "SE0000667925",
+   "sector": "Communication Services",
+   "country": "Sweden"
+  },
+  "TU": {
+   "ticker": "TU",
+   "symbol_raw": "TU",
+   "name": "TELUS Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "CA87971M1032",
+   "sector": "Communication Services",
+   "country": "Canada"
+  },
+  "TEMN": {
+   "ticker": "TEMN",
+   "symbol_raw": "TEMN SW",
+   "name": "Temenos AG",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "CH0012453913",
+   "sector": "Information Technology",
+   "country": "Switzerland"
+  },
+  "TME": {
+   "ticker": "TME",
+   "symbol_raw": "TME",
+   "name": "Tencent Music Entertainment Group",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US88034P1093",
+   "sector": "Communication Services",
+   "country": "China"
+  },
+  "TRN": {
+   "ticker": "TRN",
+   "symbol_raw": "TRN IM",
+   "name": "Terna S.p.A.",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "IT0003242622",
+   "sector": "Utilities",
+   "country": "Italy"
+  },
+  "TSCO": {
+   "ticker": "TSCO",
+   "symbol_raw": "TSCO LN",
+   "name": "Tesco PLC",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "GB00BLGZ9862",
+   "sector": "Consumer Staples",
+   "country": "United Kingdom"
+  },
+  "TEVA": {
+   "ticker": "TEVA",
+   "symbol_raw": "TEVA",
+   "name": "Teva Pharmaceutical Industries Limited",
+   "region": "US",
+   "ranking": 3,
+   "isin": "IL0006290147",
+   "sector": "Health Care",
+   "country": "Israel"
+  },
+  "TXN": {
+   "ticker": "TXN",
+   "symbol_raw": "TXN",
+   "name": "Texas Instruments Incorporated",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US8825081040",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "HO": {
+   "ticker": "HO",
+   "symbol_raw": "HO FP",
+   "name": "Thales S.A.",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "FR0000121329",
+   "sector": "Industrials",
+   "country": "France"
+  },
+  "ALL": {
+   "ticker": "ALL",
+   "symbol_raw": "ALL",
+   "name": "The Allstate Corporation",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US0200021014",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "BK": {
+   "ticker": "BK",
+   "symbol_raw": "BK",
+   "name": "The Bank of New York Mellon Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US0640581007",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "BA": {
+   "ticker": "BA",
+   "symbol_raw": "BA",
+   "name": "The Boeing Company",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US0970231058",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "CG": {
+   "ticker": "CG",
+   "symbol_raw": "CG",
+   "name": "The Carlyle Group Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US14316J1088",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "SCHW": {
+   "ticker": "SCHW",
+   "symbol_raw": "SCHW",
+   "name": "The Charles Schwab Corporation",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US8085131055",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "CI": {
+   "ticker": "CI",
+   "symbol_raw": "CI",
+   "name": "The Cigna Group",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US1255231003",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "KO": {
+   "ticker": "KO",
+   "symbol_raw": "KO",
+   "name": "The Coca-Cola Company",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US1912161007",
+   "sector": "Consumer Staples",
+   "country": "United States of America"
+  },
+  "GS": {
+   "ticker": "GS",
+   "symbol_raw": "GS",
+   "name": "The Goldman Sachs Group Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US38141G1040",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "HIG": {
+   "ticker": "HIG",
+   "symbol_raw": "HIG",
+   "name": "The Hartford Insurance Group Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US4165151048",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "HSY": {
+   "ticker": "HSY",
+   "symbol_raw": "HSY",
+   "name": "The Hershey Company",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US4278661081",
+   "sector": "Consumer Staples",
+   "country": "United States of America"
+  },
+  "KHC": {
+   "ticker": "KHC",
+   "symbol_raw": "KHC",
+   "name": "The Kraft Heinz Company",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US5007541064",
+   "sector": "Consumer Staples",
+   "country": "United States of America"
+  },
+  "KR": {
+   "ticker": "KR",
+   "symbol_raw": "KR",
+   "name": "The Kroger Co.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US5010441013",
+   "sector": "Consumer Staples",
+   "country": "United States of America"
+  },
+  "PNC": {
+   "ticker": "PNC",
+   "symbol_raw": "PNC",
+   "name": "The PNC Financial Services Group Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US6934751057",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "PGR": {
+   "ticker": "PGR",
+   "symbol_raw": "PGR",
+   "name": "The Progressive Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US7433151039",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "SHW": {
+   "ticker": "SHW",
+   "symbol_raw": "SHW",
+   "name": "The Sherwin-Williams Company",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US8243481061",
+   "sector": "Materials",
+   "country": "United States of America"
+  },
+  "SO": {
+   "ticker": "SO",
+   "symbol_raw": "SO",
+   "name": "The Southern Company",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US8425871071",
+   "sector": "Utilities",
+   "country": "United States of America"
+  },
+  "UHR": {
+   "ticker": "UHR",
+   "symbol_raw": "UHR SW",
+   "name": "The Swatch Group AG",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "CH0012255151",
+   "sector": "Consumer Discretionary",
+   "country": "Switzerland"
+  },
+  "TD": {
+   "ticker": "TD",
+   "symbol_raw": "TD",
+   "name": "The Toronto-Dominion Bank",
+   "region": "US",
+   "ranking": 3,
+   "isin": "CA8911605092",
+   "sector": "Financials",
+   "country": "Canada"
+  },
+  "TTD": {
+   "ticker": "TTD",
+   "symbol_raw": "TTD",
+   "name": "The Trade Desk Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US88339J1051",
+   "sector": "Communication Services",
+   "country": "United States of America"
+  },
+  "TRV": {
+   "ticker": "TRV",
+   "symbol_raw": "TRV",
+   "name": "The Travelers Companies Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US89417E1091",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "DIS": {
+   "ticker": "DIS",
+   "symbol_raw": "DIS",
+   "name": "The Walt Disney Company",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US2546871060",
+   "sector": "Communication Services",
+   "country": "United States of America"
+  },
+  "TMO": {
+   "ticker": "TMO",
+   "symbol_raw": "TMO",
+   "name": "Thermo Fisher Scientific Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US8835561023",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "TRI": {
+   "ticker": "TRI",
+   "symbol_raw": "TRI",
+   "name": "Thomson Reuters Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "CA8849038085",
+   "sector": "Industrials",
+   "country": "Canada"
+  },
+  "TOU": {
+   "ticker": "TOU",
+   "symbol_raw": "TOU",
+   "name": "Tourmaline Oil Corp.",
+   "region": "CANADA",
+   "ranking": 4,
+   "isin": "CA89156V1067",
+   "sector": "Energy",
+   "country": "Canada"
+  },
+  "TM": {
+   "ticker": "TM",
+   "symbol_raw": "TM",
+   "name": "Toyota Motor Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "JP3633400001",
+   "sector": "Consumer Discretionary",
+   "country": "Japan"
+  },
+  "TT": {
+   "ticker": "TT",
+   "symbol_raw": "TT",
+   "name": "Trane Technologies plc",
+   "region": "US",
+   "ranking": 4,
+   "isin": "IE00BK9ZQ967",
+   "sector": "Industrials",
+   "country": "Ireland"
+  },
+  "TCOM": {
+   "ticker": "TCOM",
+   "symbol_raw": "TCOM",
+   "name": "Trip.com Group Limited",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US89677Q1076",
+   "sector": "Consumer Discretionary",
+   "country": "Singapore"
+  },
+  "TFC": {
+   "ticker": "TFC",
+   "symbol_raw": "TFC",
+   "name": "Truist Financial Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US89832Q1094",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "TWLO": {
+   "ticker": "TWLO",
+   "symbol_raw": "TWLO",
+   "name": "Twilio Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US90138F1021",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "TSN": {
+   "ticker": "TSN",
+   "symbol_raw": "TSN",
+   "name": "Tyson Foods Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US9024941034",
+   "sector": "Consumer Staples",
+   "country": "United States of America"
+  },
+  "UI": {
+   "ticker": "UI",
+   "symbol_raw": "UI",
+   "name": "Ubiquiti Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US90353W1036",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "UBSG": {
+   "ticker": "UBSG",
+   "symbol_raw": "UBSG SW",
+   "name": "UBS Group AG",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "CH0244767585",
+   "sector": "Financials",
+   "country": "Switzerland"
+  },
+  "UCB": {
+   "ticker": "UCB",
+   "symbol_raw": "UCB BB",
+   "name": "UCB SA",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "BE0003739530",
+   "sector": "Health Care",
+   "country": "Belgium"
+  },
+  "ULTA": {
+   "ticker": "ULTA",
+   "symbol_raw": "ULTA",
+   "name": "Ulta Beauty Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US90384S3031",
+   "sector": "Consumer Discretionary",
+   "country": "United States of America"
+  },
+  "URW": {
+   "ticker": "URW",
+   "symbol_raw": "URW FP",
+   "name": "Unibail-Rodamco-Westfield SE",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "FR0013326246",
+   "sector": "Real Estate",
+   "country": "France"
+  },
+  "UCG": {
+   "ticker": "UCG",
+   "symbol_raw": "UCG IM",
+   "name": "UniCredit S.p.A.",
+   "region": "EUROPE",
+   "ranking": 5,
+   "isin": "IT0005239360",
+   "sector": "Financials",
+   "country": "Italy"
+  },
+  "UL": {
+   "ticker": "UL",
+   "symbol_raw": "UL",
+   "name": "Unilever PLC",
+   "region": "US",
+   "ranking": 4,
+   "isin": "GB00BVZK7T90",
+   "sector": "Consumer Staples",
+   "country": "United Kingdom"
+  },
+  "UNP": {
+   "ticker": "UNP",
+   "symbol_raw": "UNP",
+   "name": "Union Pacific Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US9078181081",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "UAL": {
+   "ticker": "UAL",
+   "symbol_raw": "UAL",
+   "name": "United Airlines Holdings Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US9100471096",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "URI": {
+   "ticker": "URI",
+   "symbol_raw": "URI",
+   "name": "United Rentals Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US9113631090",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "UMG": {
+   "ticker": "UMG",
+   "symbol_raw": "UMG NA",
+   "name": "Universal Music Group N.V.",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "NL0015000IY2",
+   "sector": "Communication Services",
+   "country": "Netherlands"
+  },
+  "VLO": {
+   "ticker": "VLO",
+   "symbol_raw": "VLO",
+   "name": "Valero Energy Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US91913Y1001",
+   "sector": "Energy",
+   "country": "United States of America"
+  },
+  "VEEV": {
+   "ticker": "VEEV",
+   "symbol_raw": "VEEV",
+   "name": "Veeva Systems Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US9224751084",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "VTR": {
+   "ticker": "VTR",
+   "symbol_raw": "VTR",
+   "name": "Ventas Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US92276F1003",
+   "sector": "Real Estate",
+   "country": "United States of America"
+  },
+  "VIE": {
+   "ticker": "VIE",
+   "symbol_raw": "VIE FP",
+   "name": "Veolia Environnement SA",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "FR0000124141",
+   "sector": "Utilities",
+   "country": "France"
+  },
+  "VLTO": {
+   "ticker": "VLTO",
+   "symbol_raw": "VLTO",
+   "name": "Veralto Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US92338C1036",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "VRSK": {
+   "ticker": "VRSK",
+   "symbol_raw": "VRSK",
+   "name": "Verisk Analytics Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US92345Y1064",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "VRTX": {
+   "ticker": "VRTX",
+   "symbol_raw": "VRTX",
+   "name": "Vertex Pharmaceuticals Incorporated",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US92532F1003",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "VRT": {
+   "ticker": "VRT",
+   "symbol_raw": "VRT",
+   "name": "Vertiv Holdings Co",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US92537N1081",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "VWS": {
+   "ticker": "VWS",
+   "symbol_raw": "VWS DC",
+   "name": "Vestas Wind Systems A/S",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "DK0061539921",
+   "sector": "Industrials",
+   "country": "Denmark"
+  },
+  "VICI": {
+   "ticker": "VICI",
+   "symbol_raw": "VICI",
+   "name": "VICI Properties Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US9256521090",
+   "sector": "Real Estate",
+   "country": "United States of America"
+  },
+  "VST": {
+   "ticker": "VST",
+   "symbol_raw": "VST",
+   "name": "Vistra Corp.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US92840M1027",
+   "sector": "Utilities",
+   "country": "United States of America"
+  },
+  "VOD": {
+   "ticker": "VOD",
+   "symbol_raw": "VOD LN",
+   "name": "Vodafone Group Public Limited Company",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "GB00BH4HKS39",
+   "sector": "Communication Services",
+   "country": "United Kingdom"
+  },
+  "VOW3": {
+   "ticker": "VOW3",
+   "symbol_raw": "VOW3 GR",
+   "name": "Volkswagen AG",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "DE0007664039",
+   "sector": "Consumer Discretionary",
+   "country": "Germany"
+  },
+  "VNA": {
+   "ticker": "VNA",
+   "symbol_raw": "VNA GR",
+   "name": "Vonovia SE",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "DE000A1ML7J1",
+   "sector": "Real Estate",
+   "country": "Germany"
+  },
+  "WRB": {
+   "ticker": "WRB",
+   "symbol_raw": "WRB",
+   "name": "W. R. Berkley Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US0844231029",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "WBD": {
+   "ticker": "WBD",
+   "symbol_raw": "WBD",
+   "name": "Warner Bros. Discovery Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US9344231041",
+   "sector": "Communication Services",
+   "country": "United States of America"
+  },
+  "WCN": {
+   "ticker": "WCN",
+   "symbol_raw": "WCN",
+   "name": "Waste Connections Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "CA94106B1013",
+   "sector": "Industrials",
+   "country": "Canada"
+  },
+  "WM": {
+   "ticker": "WM",
+   "symbol_raw": "WM",
+   "name": "Waste Management Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US94106L1098",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "WAT": {
+   "ticker": "WAT",
+   "symbol_raw": "WAT",
+   "name": "Waters Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US9418481035",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "WEC": {
+   "ticker": "WEC",
+   "symbol_raw": "WEC",
+   "name": "WEC Energy Group Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US92939U1060",
+   "sector": "Utilities",
+   "country": "United States of America"
+  },
+  "WFC": {
+   "ticker": "WFC",
+   "symbol_raw": "WFC",
+   "name": "Wells Fargo & Company",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US9497461015",
+   "sector": "Financials",
+   "country": "United States of America"
+  },
+  "WELL": {
+   "ticker": "WELL",
+   "symbol_raw": "WELL",
+   "name": "Welltower Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US95040Q1040",
+   "sector": "Real Estate",
+   "country": "United States of America"
+  },
+  "WDC": {
+   "ticker": "WDC",
+   "symbol_raw": "WDC",
+   "name": "Western Digital Corporation",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US9581021055",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "WAB": {
+   "ticker": "WAB",
+   "symbol_raw": "WAB",
+   "name": "Westinghouse Air Brake Technologies Corporation",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US9297401088",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "WPM": {
+   "ticker": "WPM",
+   "symbol_raw": "WPM",
+   "name": "Wheaton Precious Metals Corp.",
+   "region": "CANADA",
+   "ranking": 5,
+   "isin": "CA9628791027",
+   "sector": "Materials",
+   "country": "Canada"
+  },
+  "WCP": {
+   "ticker": "WCP",
+   "symbol_raw": "WCP",
+   "name": "Whitecap Resources Inc.",
+   "region": "CANADA",
+   "ranking": 3,
+   "isin": "CA96467A2002",
+   "sector": "Energy",
+   "country": "Canada"
+  },
+  "WTW": {
+   "ticker": "WTW",
+   "symbol_raw": "WTW",
+   "name": "Willis Towers Watson Public Limited Company",
+   "region": "US",
+   "ranking": 4,
+   "isin": "IE00BDB6Q211",
+   "sector": "Financials",
+   "country": "United Kingdom"
+  },
+  "WIT": {
+   "ticker": "WIT",
+   "symbol_raw": "WIT",
+   "name": "Wipro Limited",
+   "region": "US",
+   "ranking": 3,
+   "isin": "INE075A01022",
+   "sector": "Information Technology",
+   "country": "India"
+  },
+  "WKL": {
+   "ticker": "WKL",
+   "symbol_raw": "WKL NA",
+   "name": "Wolters Kluwer N.V.",
+   "region": "EUROPE",
+   "ranking": 4,
+   "isin": "NL0000395903",
+   "sector": "Industrials",
+   "country": "Netherlands"
+  },
+  "WDAY": {
+   "ticker": "WDAY",
+   "symbol_raw": "WDAY",
+   "name": "Workday Inc.",
+   "region": "US",
+   "ranking": 3,
+   "isin": "US98138H1014",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "WSP": {
+   "ticker": "WSP",
+   "symbol_raw": "WSP",
+   "name": "WSP Global Inc.",
+   "region": "CANADA",
+   "ranking": 4,
+   "isin": "CA92938W2022",
+   "sector": "Industrials",
+   "country": "Canada"
+  },
+  "XEL": {
+   "ticker": "XEL",
+   "symbol_raw": "XEL",
+   "name": "Xcel Energy Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US98389B1008",
+   "sector": "Utilities",
+   "country": "United States of America"
+  },
+  "XYL": {
+   "ticker": "XYL",
+   "symbol_raw": "XYL",
+   "name": "Xylem Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US98419M1009",
+   "sector": "Industrials",
+   "country": "United States of America"
+  },
+  "YUM": {
+   "ticker": "YUM",
+   "symbol_raw": "YUM",
+   "name": "Yum! Brands Inc.",
+   "region": "US",
+   "ranking": 5,
+   "isin": "US9884981013",
+   "sector": "Consumer Discretionary",
+   "country": "United States of America"
+  },
+  "ZTS": {
+   "ticker": "ZTS",
+   "symbol_raw": "ZTS",
+   "name": "Zoetis Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US98978V1035",
+   "sector": "Health Care",
+   "country": "United States of America"
+  },
+  "ZS": {
+   "ticker": "ZS",
+   "symbol_raw": "ZS",
+   "name": "Zscaler Inc.",
+   "region": "US",
+   "ranking": 4,
+   "isin": "US98980G1022",
+   "sector": "Information Technology",
+   "country": "United States of America"
+  },
+  "ZURN": {
+   "ticker": "ZURN",
+   "symbol_raw": "ZURN SW",
+   "name": "Zurich Insurance Group AG",
+   "region": "EUROPE",
+   "ranking": 3,
+   "isin": "CH0011075394",
+   "sector": "Financials",
+   "country": "Switzerland"
+  }
+ },
+ "count": 624
+}

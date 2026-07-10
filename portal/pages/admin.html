@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mirabaud | Portal Admin</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+:root{
+  --navy:#002a4a; --navy2:#013a63;
+  --blue:#397aa9; --blue-pale:#e8edf5;
+  --gold:#bc9654; --gold-pale:#f5edd8;
+  --bg:#f4f5f7; --surface:#fff; --surface-2:#f8f9fb;
+  --border:#dde3ec; --border-mid:#c8d2e0;
+  --text:#002a4a; --text-muted:#6b8097;
+  --green:#2d6a4f; --green-pale:#d8f3dc;
+  --red:#c0392b; --red-pale:#fdecea;
+  --amber:#b45309; --amber-pale:#fef3c7;
+  --font-d:'Century Gothic','Trebuchet MS',sans-serif;
+  --font-b:'Baskerville','Georgia',serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{zoom:1.1}
+body{background:var(--bg);color:var(--text);font-family:var(--font-d);font-size:13px;line-height:1.55}
+
+/* NAV */
+.g-nav{background:var(--navy);height:52px;display:flex;align-items:center;padding:0 28px;gap:0;position:sticky;top:0;z-index:300;border-bottom:1px solid rgba(255,255,255,.08)}
+.g-logo{font-family:var(--font-d);font-weight:700;font-size:15px;letter-spacing:2.5px;text-transform:uppercase;color:#fff;text-decoration:none;flex-shrink:0}
+.g-logo-sub{font-size:9px;font-weight:400;letter-spacing:.2em;color:var(--gold);margin-left:10px;opacity:.9}
+.g-divider{width:1px;height:22px;background:rgba(255,255,255,.18);margin:0 20px;flex-shrink:0}
+.g-links{display:flex;align-items:center;gap:2px;flex:1}
+.g-link{font-family:var(--font-d);font-size:10px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none;padding:6px 12px;border-bottom:2px solid transparent;transition:all .15s;white-space:nowrap;height:100%}
+.g-link:hover{color:#fff;border-bottom-color:rgba(188,150,84,.5)}
+.g-link.active{color:#fff;border-bottom-color:var(--gold);font-weight:700}
+.g-badge{margin-left:auto;font-family:var(--font-d);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(188,150,84,.8);flex-shrink:0;padding:3px 10px;border:1px solid rgba(188,150,84,.3);border-radius:1px}
+
+/* PAGE */
+.page-wrap{max-width:1200px;margin:0 auto;padding:28px}
+.page-title{font-family:var(--font-d);font-size:22px;font-weight:700;color:var(--navy);letter-spacing:.02em;margin-bottom:4px}
+.page-sub{font-family:var(--font-b);font-size:13px;font-style:italic;color:var(--text-muted);margin-bottom:24px}
+
+/* LOGIN */
+.login-box{max-width:440px;margin:60px auto;background:var(--surface);border:1px solid var(--border);padding:28px;box-shadow:0 4px 16px rgba(0,42,74,.08)}
+.login-title{font-family:var(--font-d);font-size:18px;font-weight:700;color:var(--navy);letter-spacing:.05em;text-transform:uppercase;margin-bottom:6px}
+.login-sub{font-size:12px;color:var(--text-muted);font-family:var(--font-b);font-style:italic;margin-bottom:20px;line-height:1.6}
+.field-label{font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:5px}
+.field-input{width:100%;font-family:var(--font-d);font-size:13px;border:1px solid var(--border);padding:9px 12px;outline:none;border-radius:1px;background:var(--surface)}
+.field-input:focus{border-color:var(--gold)}
+.login-btn{margin-top:14px;font-family:var(--font-d);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--navy);color:#fff;border:none;padding:10px 24px;cursor:pointer;width:100%;border-radius:1px;transition:background .15s}
+.login-btn:hover{background:var(--navy2)}
+.login-note{margin-top:10px;font-size:10px;color:var(--text-muted);font-family:var(--font-b);font-style:italic}
+.login-error{display:none;color:var(--red);font-size:11px;margin-top:8px;font-weight:700}
+.login-error.show{display:block}
+
+/* ADMIN SHELL */
+.admin-shell{display:none}
+.admin-shell.open{display:block}
+
+/* SECTION */
+.section-bar{background:var(--surface);border:1px solid var(--border);border-radius:2px;margin-bottom:16px;overflow:hidden}
+.section-bar-hdr{background:var(--navy);padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
+.section-bar-title{font-family:var(--font-d);font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#fff}
+.section-bar-badge{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border:1px solid;border-radius:1px}
+.badge-weekly{color:var(--gold);border-color:rgba(188,150,84,.5);background:rgba(188,150,84,.1)}
+.badge-monthly{color:var(--blue);border-color:rgba(57,122,169,.4);background:var(--blue-pale)}
+.badge-quarterly{color:var(--green);border-color:rgba(45,106,79,.4);background:var(--green-pale)}
+.section-bar-body{padding:16px 20px;background:var(--surface-2)}
+
+/* UPLOAD GRID */
+.upload-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.upload-card{background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:14px 16px}
+.upload-card-title{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:4px}
+.upload-card-desc{font-size:11px;color:var(--text-muted);font-family:var(--font-b);font-style:italic;margin-bottom:10px;line-height:1.5}
+.upload-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.upload-btn{font-family:var(--font-d);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border:1px solid var(--border);background:var(--surface);color:var(--text-muted);cursor:pointer;border-radius:1px;transition:all .15s}
+.upload-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.upload-status{font-size:10px;color:var(--text-muted);font-family:var(--font-b);font-style:italic;min-height:16px}
+.upload-status.ok{color:var(--green);font-style:normal;font-weight:700}
+
+/* EDITORIAL CARD - for IC message / WIM */
+.editorial-card{background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:16px 20px;margin-bottom:0}
+.editorial-label{font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.editorial-label::after{content:'';flex:1;height:1px;background:rgba(188,150,84,.3)}
+.editorial-textarea{width:100%;font-family:var(--font-b);font-style:italic;font-size:13px;border:1px solid var(--border);padding:10px 12px;min-height:80px;resize:vertical;outline:none;border-radius:1px;color:var(--navy);background:var(--surface)}
+.editorial-textarea:focus{border-color:var(--gold)}
+.editorial-meta{font-size:10px;color:var(--text-muted);margin-top:6px;font-family:var(--font-d)}
+.save-btn{margin-top:10px;font-family:var(--font-d);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--navy);color:#fff;border:none;padding:7px 18px;cursor:pointer;border-radius:1px;transition:background .15s}
+.save-btn:hover{background:var(--navy2)}
+.save-confirm{font-size:10px;color:var(--green);font-weight:700;display:none;margin-left:10px}
+.save-confirm.show{display:inline}
+
+/* 2-col editorial */
+.editorial-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+/* STATUS TABLE */
+.status-table{width:100%;border-collapse:collapse;font-size:11px;margin-top:12px}
+.status-table th{font-family:var(--font-d);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);padding:6px 12px;text-align:left;border-bottom:2px solid var(--border);background:var(--surface)}
+.status-table td{padding:7px 12px;border-bottom:1px solid var(--border);vertical-align:middle}
+.status-table tr:hover td{background:var(--blue-pale)}
+.tag-ok{font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:1px;background:var(--green-pale);color:var(--green);border:1px solid rgba(45,106,79,.25)}
+.tag-pending{font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:1px;background:var(--amber-pale);color:var(--amber);border:1px solid rgba(180,83,9,.25)}
+.tag-empty{font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:1px;background:var(--surface-2);color:var(--text-muted);border:1px solid var(--border)}
+
+/* SIGNOUT */
+.admin-bar{background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.admin-bar-title{font-family:var(--font-d);font-size:13px;font-weight:700;color:var(--navy);letter-spacing:.04em}
+.signout-btn{font-family:var(--font-d);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:none;border:1px solid var(--border);color:var(--text-muted);padding:6px 14px;cursor:pointer;border-radius:1px;transition:all .15s}
+.signout-btn:hover{border-color:var(--red);color:var(--red)}
+
+/* CLEAR BTN */
+.clear-btn{font-family:var(--font-d);font-size:9px;letter-spacing:.1em;text-transform:uppercase;background:none;border:1px solid rgba(192,57,43,.3);color:var(--red);padding:5px 12px;cursor:pointer;border-radius:1px;transition:all .15s}
+.clear-btn:hover{background:var(--red-pale)}
+#pdf-modal.open{display:flex!important}
+</style>
+</head>
+<body>
+
+<nav class="g-nav">
+  <a href="portal.html" class="g-logo">MIRABAUD<span class="g-logo-sub">Financial Research</span></a>
+  <div class="g-divider"></div>
+  <div class="g-links"><a href="portal.html" class="g-link">Portal</a><a href="equity_screener.html" class="g-link">Equity</a><a href="fixed_income.html" class="g-link">Fixed Income</a><a href="esg_sri.html" class="g-link">ESG & SRI</a><a href="structured_products.html" class="g-link">Structured Products</a><a href="funds_etf.html" class="g-link">Funds &amp; ETFs</a><a href="thematics_amc.html" class="g-link">AMC</a><a href="research.html" class="g-link">Research Notes</a></div>
+  <div style="display:flex;align-items:center;gap:10px;margin-left:auto;flex-shrink:0">
+    <a href="admin.html" class="g-link active" style="font-size:9px;border-bottom:none">Admin</a>
+    <span class="g-badge">Internal Use Only</span>
+  </div>
+</nav>
+
+<div class="page-wrap">
+
+  <!-- LOGIN BOX -->
+  <div class="login-box" id="login-box">
+    <div class="login-title">Admin — Restricted Access</div>
+    <div class="login-sub">
+      Manage portal data: upload CSVs and PDFs, update the IC message and WIM summary, 
+      and control advisory narrative content. Filenames are stored in browser storage 
+      as a front-end prototype. QualIT integration is the next deployment step.
+    </div>
+    <label class="field-label" for="pw">Password</label>
+    <input class="field-input" type="password" id="pw" placeholder="Enter password" onkeydown="if(event.key==='Enter')login()">
+    <button class="login-btn" onclick="login()">Sign In</button>
+    <div class="login-error" id="login-error">Incorrect password.</div>
+    <div class="login-note">Demo password: <strong>CHANGE_ME_BEFORE_USE</strong></div>
+  </div>
+
+  <!-- ADMIN SHELL -->
+  <div class="admin-shell" id="admin-shell">
+
+    <div class="admin-bar">
+      <div class="admin-bar-title">⚙ Portal Administration — File &amp; Content Hub</div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <span id="admin-date" style="font-size:11px;color:var(--text-muted);font-family:var(--font-b);font-style:italic"></span>
+        <button class="signout-btn" onclick="logout()">Sign Out</button>
+      </div>
+    </div>
+
+    <!-- EDITORIAL CONTENT -->
+    <div class="section-bar">
+      <div class="section-bar-hdr">
+        <div class="section-bar-title">Editorial Content</div>
+        <span class="section-bar-badge badge-weekly">Weekly</span>
+      </div>
+      <div class="section-bar-body">
+        <div class="editorial-grid">
+
+          <!-- IC Message -->
+          <div class="editorial-card">
+            <div class="editorial-label">IC Message — Investment Committee</div>
+
+            <!-- NEW: Source text block for AI generation -->
+            <div style="margin-bottom:10px;padding:10px;background:rgba(188,150,84,.05);border:1px dashed rgba(188,150,84,.3);border-radius:6px">
+              <div style="font-family:var(--font-d);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:6px">Source text → AI summary</div>
+              <textarea class="editorial-textarea" id="ic-source" style="min-height:90px;font-size:11px" placeholder="Paste the full IC note, news article, or long text here. Click Generate and AI will condense it into a 3-paragraph IC Message that fits the portal block without scrolling."></textarea>
+              <div style="display:flex;align-items:center;margin-top:8px;gap:10px">
+                <button class="save-btn" style="background:var(--gold);border-color:var(--gold)" onclick="generateIcMessage()">✨ Generate with AI</button>
+                <span id="ic-gen-status" style="font-size:10px;color:var(--text-muted);font-family:var(--font-b);font-style:italic"></span>
+              </div>
+            </div>
+
+            <textarea class="editorial-textarea" id="ic-text" placeholder="Enter the weekly IC message for advisors…">Maintain overweight Equities vs Fixed Income. Within equities, favour Quality Growth over Value. In FI, stay short duration with preference for IG credit over govies. Continue to reduce USD exposure as Fed divergence widens vs ECB.</textarea>
+            <div class="editorial-meta">Displayed on Portal homepage · Week header</div>
+            <div style="display:flex;align-items:center;margin-top:8px">
+              <button class="save-btn" onclick="saveField('ic-text','mhc_ic')">Save IC Message</button>
+              <span class="save-confirm" id="ic-confirm">✓ Saved</span>
+            </div>
+          </div>
+
+          <!-- Advisory Narrative -->
+          <div class="editorial-card">
+            <div class="editorial-label">Advisory Narrative — Talking Points</div>
+            <textarea class="editorial-textarea" id="adv-text" placeholder="Enter the advisory narrative for Front Office…">Central banks remain on hold amid resilient labour markets and sticky services inflation. Equity valuations are pricing in a soft landing — selectivity is key. In Fixed Income, short duration IG corporates offer compelling carry. Thematic focus: AI infrastructure and European defence remain our top convictions.</textarea>
+            <div class="editorial-meta">Displayed in top bar of Portal · Front Office talking points</div>
+            <div style="display:flex;align-items:center;margin-top:8px">
+              <button class="save-btn" onclick="saveField('adv-text','mhc_advisory')">Save Narrative</button>
+              <span class="save-confirm" id="adv-confirm">✓ Saved</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- WIM -->
+    <div class="section-bar">
+      <div class="section-bar-hdr">
+        <div class="section-bar-title">WIM — Weekly Investment Meeting</div>
+        <span class="section-bar-badge badge-weekly">Every Wednesday</span>
+      </div>
+      <div class="section-bar-body">
+        <div class="upload-grid" style="grid-template-columns:1fr 1fr">
+
+          <div class="upload-card">
+            <div class="upload-card-title">WIM PDF → AI Summary</div>
+            <div class="upload-card-desc">Upload the WIM PDF. Claude reads it and generates the formatted summary displayed on the portal sidebar automatically.</div>
+            <div class="upload-row" style="align-items:center;gap:12px">
+              <label class="upload-btn">📄 Upload &amp; Generate<input type="file" hidden accept=".pdf" onchange="handleWimPdf(this.files)"></label>
+              <span id="wim-gen-status" style="font-size:10px;color:var(--text-muted);font-family:var(--font-b);font-style:italic"></span>
+            </div>
+            <div class="upload-status" id="st-wimPdf"></div>
+          </div>
+
+          <div class="upload-card">
+            <div class="upload-card-title">WIM Preview</div>
+            <div class="upload-card-desc">Last generated summary — as displayed on the portal sidebar.</div>
+            <div id="wim-preview" style="font-size:10px;color:var(--text-muted);font-family:var(--font-b);font-style:italic;line-height:1.6;margin-top:6px">No summary generated yet.</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEKLY FOREX -->
+    <div class="section-bar">
+      <div class="section-bar-hdr">
+        <div class="section-bar-title">Weekly Forex</div>
+        <span class="section-bar-badge badge-weekly">Weekly</span>
+      </div>
+      <div class="section-bar-body">
+        <div class="upload-grid" style="grid-template-columns:1fr 1fr">
+
+          <div class="upload-card">
+            <div class="upload-card-title">Forex PDF &rarr; AI Summary</div>
+            <div class="upload-card-desc">Upload the Weekly Forex note. Claude reads it and generates the formatted summary displayed on the portal strategy bar automatically.</div>
+            <div class="upload-row" style="align-items:center;gap:12px">
+              <label class="upload-btn">&#128196; Upload &amp; Generate<input type="file" hidden accept=".pdf" onchange="handleForexPdf(this.files)"></label>
+              <span id="forex-gen-status" style="font-size:10px;color:var(--text-muted);font-family:var(--font-b);font-style:italic"></span>
+            </div>
+            <div class="upload-status" id="st-forexPdf"></div>
+          </div>
+
+          <div class="upload-card">
+            <div class="upload-card-title">Forex Preview</div>
+            <div class="upload-card-desc">Last generated summary - as displayed on the portal strategy bar.</div>
+            <div id="forex-preview" style="font-size:10px;color:var(--text-muted);font-family:var(--font-b);font-style:italic;line-height:1.6;margin-top:6px">No summary generated yet.</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- EQUITY -->
+    <div class="section-bar">
+      <div class="section-bar-hdr">
+        <div class="section-bar-title">Equity</div>
+        <span class="section-bar-badge badge-weekly">Weekly / On Event</span>
+      </div>
+      <div class="section-bar-body">
+        <div class="upload-grid">
+          <div class="upload-card">
+            <div class="upload-card-title">Universe CSV</div>
+            <div class="upload-card-desc">Main equity universe from Bloomberg (ISIN, ticker, ratings, targets)</div>
+            <div class="upload-row"><label class="upload-btn">Upload CSV<input type="file" hidden accept=".csv" onchange="handleUpload('eqCsv',this.files)"></label></div>
+            <div class="upload-status" id="st-eqCsv"></div>
+          </div>
+          <div class="upload-card">
+            <div class="upload-card-title">Research Notes PDFs</div>
+            <div class="upload-card-desc">Initiations, upgrades, updates — individual equity research notes</div>
+            <div class="upload-row"><label class="upload-btn">Upload PDFs<input type="file" hidden accept=".pdf" multiple onchange="handleUpload('eqPdf',this.files)"></label></div>
+            <div class="upload-status" id="st-eqPdf"></div>
+          </div>
+          <div class="upload-card">
+            <div class="upload-card-title">Quant / Qual CSV</div>
+            <div class="upload-card-desc">Quantitative scores and qualitative ratings overlay for the screener</div>
+            <div class="upload-row"><label class="upload-btn">Upload CSV<input type="file" hidden accept=".csv" onchange="handleUpload('eqQuant',this.files)"></label></div>
+            <div class="upload-status" id="st-eqQuant"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FIXED INCOME -->
+    <div class="section-bar">
+      <div class="section-bar-hdr">
+        <div class="section-bar-title">Fixed Income</div>
+        <span class="section-bar-badge badge-weekly">Weekly</span>
+      </div>
+      <div class="section-bar-body">
+        <div class="upload-grid">
+          <div class="upload-card">
+            <div class="upload-card-title">Bond Universe CSV</div>
+            <div class="upload-card-desc">Full bond screener data (ISIN, issuer, coupon, maturity, spread, rating)</div>
+            <div class="upload-row"><label class="upload-btn">Upload CSV<input type="file" hidden accept=".csv" onchange="handleUpload('fiCsv',this.files)"></label></div>
+            <div class="upload-status" id="st-fiCsv"></div>
+          </div>
+          <div class="upload-card">
+            <div class="upload-card-title">Issuer Notes PDFs</div>
+            <div class="upload-card-desc">Credit research notes, monthly views, DOCU pricing sheets</div>
+            <div class="upload-row"><label class="upload-btn">Upload PDFs<input type="file" hidden accept=".pdf" multiple onchange="handleUpload('fiPdf',this.files)"></label></div>
+            <div class="upload-status" id="st-fiPdf"></div>
+          </div>
+          <div class="upload-card">
+            <div class="upload-card-title">DOCU Pricing Sheet</div>
+            <div class="upload-card-desc">Weekly DOCU pricing runs (CSV or PDF) for the WIM forex section</div>
+            <div class="upload-row"><label class="upload-btn">Upload<input type="file" hidden accept=".csv,.pdf" onchange="handleUpload('fiDocu',this.files)"></label></div>
+            <div class="upload-status" id="st-fiDocu"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STRUCTURED PRODUCTS -->
+    <div class="section-bar">
+      <div class="section-bar-hdr">
+        <div class="section-bar-title">Structured Products</div>
+        <span class="section-bar-badge badge-weekly">Weekly / On Trade</span>
+      </div>
+      <div class="section-bar-body">
+        <div class="upload-grid">
+          <div class="upload-card">
+            <div class="upload-card-title">Portfolio CSV (Suivi)</div>
+            <div class="upload-card-desc">Suivi_Produits_Structurés.xlsm export — products, ISIN, barrier, coupon</div>
+            <div class="upload-row"><label class="upload-btn">Upload XLSM/CSV<input type="file" hidden accept=".csv,.xlsx,.xlsm" onchange="handleUpload('spCsv',this.files)"></label></div>
+            <div class="upload-status" id="st-spCsv"></div>
+          </div>
+          <div class="upload-card">
+            <div class="upload-card-title">KIDs &amp; Term Sheets</div>
+            <div class="upload-card-desc">Product documents: KID, Term Sheet, One Pager (named by ISIN)</div>
+            <div class="upload-row"><label class="upload-btn">Upload PDFs<input type="file" hidden accept=".pdf" multiple onchange="handleUpload('spPdf',this.files)"></label></div>
+            <div class="upload-status" id="st-spPdf"></div>
+          </div>
+          <div class="upload-card">
+            <div class="upload-card-title">SP Opportunities &amp; Offering</div>
+            <div class="upload-card-desc">SP Opportunities PDF, SP Offering PDF, Swiss Derivative Map</div>
+            <div class="upload-row"><label class="upload-btn">Upload PDFs<input type="file" hidden accept=".pdf" multiple onchange="handleUpload('spOpp',this.files)"></label></div>
+            <div class="upload-status" id="st-spOpp"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ESG -->
+    <div class="section-bar">
+      <div class="section-bar-hdr">
+        <div class="section-bar-title">ESG &amp; SRI</div>
+        <span class="section-bar-badge badge-quarterly">Quarterly / Annual</span>
+      </div>
+      <div class="section-bar-body">
+        <div class="upload-grid">
+          <div class="upload-card">
+            <div class="upload-card-title">ESG Leader List CSV</div>
+            <div class="upload-card-desc">Companies ESG scoring, sector, region classifications</div>
+            <div class="upload-row"><label class="upload-btn">Upload CSV<input type="file" hidden accept=".csv" onchange="handleUpload('esgCsv',this.files)"></label></div>
+            <div class="upload-status" id="st-esgCsv"></div>
+          </div>
+          <div class="upload-card">
+            <div class="upload-card-title">ESG Reports PDFs</div>
+            <div class="upload-card-desc">Company ESG profiles, sovereign assessments, SRI strategy docs</div>
+            <div class="upload-row"><label class="upload-btn">Upload PDFs<input type="file" hidden accept=".pdf" multiple onchange="handleUpload('esgPdf',this.files)"></label></div>
+            <div class="upload-status" id="st-esgPdf"></div>
+          </div>
+          <div class="upload-card">
+            <div class="upload-card-title">Sovereign ESG CSV</div>
+            <div class="upload-card-desc">Sovereign assessment scoring and country profiles</div>
+            <div class="upload-row"><label class="upload-btn">Upload CSV<input type="file" hidden accept=".csv" onchange="handleUpload('esgSov',this.files)"></label></div>
+            <div class="upload-status" id="st-esgSov"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FUNDS -->
+    <div class="section-bar">
+      <div class="section-bar-hdr">
+        <div class="section-bar-title">Funds &amp; ETFs Selection</div>
+        <span class="section-bar-badge badge-monthly">Monthly / On Decision</span>
+      </div>
+      <div class="section-bar-body">
+        <div class="upload-grid">
+          <div class="upload-card">
+            <div class="upload-card-title">Approved Funds CSV</div>
+            <div class="upload-card-desc">Full approved funds universe (equity, FI, alternatives, ETFs) with SFDR, geography, strategy</div>
+            <div class="upload-row"><label class="upload-btn">Upload CSV<input type="file" hidden accept=".csv" onchange="handleUpload('fundCsv',this.files)"></label></div>
+            <div class="upload-status" id="st-fundCsv"></div>
+          </div>
+          <div class="upload-card">
+            <div class="upload-card-title">Fund Factsheets &amp; KIDs</div>
+            <div class="upload-card-desc">Factsheets, KIDs and manager meeting notes (named by fund)</div>
+            <div class="upload-row"><label class="upload-btn">Upload PDFs<input type="file" hidden accept=".pdf" multiple onchange="handleUpload('fundPdf',this.files)"></label></div>
+            <div class="upload-status" id="st-fundPdf"></div>
+          </div>
+          <div class="upload-card">
+            <div class="upload-card-title">Latest Decisions Log</div>
+            <div class="upload-card-desc">Recent Add/Sell/Watch decisions with rationale (CSV or manual)</div>
+            <div class="upload-row"><label class="upload-btn">Upload CSV<input type="file" hidden accept=".csv" onchange="handleUpload('fundDecisions',this.files)"></label></div>
+            <div class="upload-status" id="st-fundDecisions"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATUS OVERVIEW -->
+    <div class="section-bar">
+      <div class="section-bar-hdr">
+        <div class="section-bar-title">Platform Data Status</div>
+        <button class="clear-btn" onclick="clearAll()" style="margin-left:auto">Clear All Stored Files</button>
+      </div>
+      <div class="section-bar-body" style="padding:0">
+        <table class="status-table">
+          <thead>
+            <tr>
+              <th>Section</th>
+              <th>Asset Type</th>
+              <th>Frequency</th>
+              <th>Last Upload</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="status-tbody"></tbody>
+        </table>
+        <div style="padding:10px 12px;font-size:10px;color:var(--text-muted);font-family:var(--font-b);font-style:italic;border-top:1px solid var(--border)">
+          Front-end prototype: filenames stored in browser localStorage. Backend integration (QualIT) is the next deployment step.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /admin-shell -->
+</div><!-- /page-wrap -->
+
+<script>
+var _AK='YOUR_ANTHROPIC_API_KEY_HERE';
+
+// ─── IC MESSAGE AI GENERATION ────────────────────────────────
+async function generateIcMessage(){
+  var src=document.getElementById('ic-source').value.trim();
+  var status=document.getElementById('ic-gen-status');
+  var out=document.getElementById('ic-text');
+  if(!src){if(status)status.textContent='Paste source text first.';return;}
+  if(status)status.textContent='Generating summary…';
+
+  var systemPrompt='You are summarising an Investment Committee (IC) note for a wealth management portal. The summary must fit in a narrow sidebar block with plenty of breathing room (no scrolling).\n\nProduce EXACTLY 3 short paragraphs separated by ONE blank line each. Follow this structure strictly:\n\nParagraph 1 (1 sentence, max 15 words): The main IC decision. Lead with an action verb (Reduce, Increase, Maintain, Shift, etc.). No preamble.\n\nParagraph 2 (2 sentences, max 30 words total): First sentence names the trigger (macro, central bank, geopolitics) in 1 short clause. Second sentence states the execution style (gradual, conditional, immediate). Do NOT cram details, frameworks, or lists into this paragraph.\n\nParagraph 3 (1 to 2 short sentences, max 20 words total): Other positions maintained (currency, duration, gold, credit).\n\nHARD RULES:\n- TOTAL LENGTH: 55 to 80 words maximum across all 3 paragraphs.\n- Each paragraph must feel airy, not dense. Prefer short sentences over long compound sentences.\n- No signature, no date, no title, no greeting, no conclusion.\n- No bullets, no headers, no bold, no markdown.\n- Plain sentences separated by blank lines only.\n- English, factual, advisor-friendly tone.\n- Keep specific numbers only if they appear in the source.\n- Never invent data not present in the source.\n- Drop secondary details: specific frameworks, point-by-point demands, lists of conditions, rhetorical commentary.\n- Do not repeat the same word more than twice across the whole summary.\n\nOutput the 3 paragraphs ONLY, nothing else.';
+
+  try{
+    var resp=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','x-api-key':_AK,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:400,
+        system:systemPrompt,
+        messages:[{role:'user',content:[{type:'text',text:'Source text to summarise:\n\n'+src}]}]
+      })
+    });
+    var data=await resp.json();
+    var text=data.content&&data.content[0]?data.content[0].text.trim():'';
+    if(!text){if(status)status.textContent='Empty response, try again.';return;}
+    out.value=text;
+    if(status)status.textContent='✓ Summary ready. Review then click Save IC Message.';
+  }catch(e){
+    if(status)status.textContent='Error — check API access.';
+  }
+}
+// ─────────────────────────────────────────────────────────────
+
+
+async function handleWimPdf(files){
+  if(!files||!files.length)return;
+  var file=files[0];
+  var status=document.getElementById('wim-gen-status');
+  var stEl=document.getElementById('st-wimPdf');
+  var preview=document.getElementById('wim-preview');
+  if(status)status.textContent='Reading PDF…';
+  if(stEl){stEl.textContent=file.name;stEl.className='upload-status ok';}
+  localStorage.setItem('mir-upload-wimPdf', JSON.stringify({files:[file.name], date:new Date().toLocaleDateString('en-GB')}));
+  renderTable();
+
+  var b64=await new Promise(function(res,rej){
+    var r=new FileReader();
+    r.onload=function(){res(r.result.split(',')[1]);};
+    r.onerror=rej;
+    r.readAsDataURL(file);
+  });
+
+  if(status)status.textContent='Generating summary…';
+  try{
+    var resp=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','x-api-key':_AK,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:600,
+        messages:[{role:'user',content:[
+          {type:'document',source:{type:'base64',media_type:'application/pdf',data:b64}},
+          {type:'text',text:'You are summarising a Weekly Investment Meeting (WIM) document for a wealth management portal sidebar. Produce a compact summary structured EXACTLY as follows:\n\nDATE: [date from document, e.g. "2 Apr 2026"]\nSECTIONS: [comma-separated section names, e.g. "Macro · Forex · SP"]\n\nThen for each major topic found (max 4 sections, 2-3 bullets each):\n\n## [Section Name]\n• [bullet — use **bold** for key terms, tickers, asset names. Include specific numbers. Keep under 15 words per bullet.]\n• [bullet]\n• [bullet]\n\nRules: Use **bold** around important terms (EUR/USD, Gold, S&P500, specific rates). Include actual numbers (+2.3%, $4,600, 1.14). Use + for positive and - for negative moves. Be factual and specific. No introductions or conclusions.'}
+        ]}]
+      })
+    });
+    var data=await resp.json();
+    var text=data.content&&data.content[0]?data.content[0].text:'';
+    // Save to localStorage for portal to read
+    var lines=text.split('\n');
+    var dateStr='',sectionsStr='';
+    lines.forEach(function(l){
+      if(l.startsWith('DATE:'))dateStr=l.replace('DATE:','').trim();
+      if(l.startsWith('SECTIONS:'))sectionsStr=l.replace('SECTIONS:','').trim();
+    });
+    localStorage.setItem('mhc_wim_summary', JSON.stringify({text:text,date:dateStr,sections:sectionsStr}));
+    // Save filename so portal can build the PDF link
+    try{localStorage.setItem('mhc_wim_pdf_name',file.name);}catch(e){}
+    if(status)status.textContent='✓ Summary saved to portal';
+    if(preview){
+      // Show plain text preview
+      var previewText=text.replace(/\*\*/g,'').replace(/^DATE:.*$/m,'').replace(/^SECTIONS:.*$/m,'').trim();
+      preview.style.fontStyle='normal';
+      preview.style.color='var(--text-body)';
+      preview.textContent=previewText.slice(0,400)+(previewText.length>400?'…':'');
+    }
+  }catch(e){
+    if(status)status.textContent='Error — check API access';
+  }
+}
+// ─────────────────────────────────────────────────────────────
+
+// ─── FOREX AI GENERATION ─────────────────────────────────────
+async function handleForexPdf(files){
+  if(!files||!files.length)return;
+  var file=files[0];
+  var status=document.getElementById('forex-gen-status');
+  var stEl=document.getElementById('st-forexPdf');
+  var preview=document.getElementById('forex-preview');
+  if(status)status.textContent='Reading PDF...';
+  if(stEl){stEl.textContent=file.name;stEl.className='upload-status ok';}
+  localStorage.setItem('mir-upload-forexPdf', JSON.stringify({files:[file.name], date:new Date().toLocaleDateString('en-GB')}));
+  renderTable();
+
+  // Save filename so portal can build the PDF link
+  try{localStorage.setItem('mhc_forex_pdf_name',file.name);}catch(e){}
+
+  var b64=await new Promise(function(res,rej){
+    var r=new FileReader();
+    r.onload=function(){res(r.result.split(',')[1]);};
+    r.onerror=rej;
+    r.readAsDataURL(file);
+  });
+
+  if(status)status.textContent='Generating summary...';
+  try{
+    var resp=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','x-api-key':_AK,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:600,
+        messages:[{role:'user',content:[
+          {type:'document',source:{type:'base64',media_type:'application/pdf',data:b64}},
+          {type:'text',text:'You are summarising a Weekly Forex note for a wealth management portal. Produce a compact summary structured EXACTLY as follows:\n\nDATE: [date from document, e.g. "7 Apr 2026"]\nSECTIONS: [comma-separated currency pairs covered]\n\nThen for each major currency pair or theme (only include topics present in this document, max 5 sections, 2-3 bullets each):\n\n## [Currency Pair or Theme, e.g. EUR/USD]\n\u2022 [bullet - use **bold** for currency pairs, rates, key figures. Include specific numbers. Max 15 words.]\n\u2022 [bullet]\n\nRules: Use **bold** around important terms. Include actual numbers (1.0845, +0.6%, 150.20). Use + for positive and - for negative moves. Be factual. No introductions or conclusions. Only include topics actually present in the document.'}
+        ]}]
+      })
+    });
+    var data=await resp.json();
+    var text=data.content&&data.content[0]?data.content[0].text:'';
+    var lines=text.split('\n');
+    var dateStr='',sectionsStr='';
+    lines.forEach(function(l){
+      if(l.startsWith('DATE:'))dateStr=l.replace('DATE:','').trim();
+      if(l.startsWith('SECTIONS:'))sectionsStr=l.replace('SECTIONS:','').trim();
+    });
+    localStorage.setItem('mhc_forex_summary', JSON.stringify({text:text,date:dateStr,sections:sectionsStr}));
+    if(status)status.textContent='Summary saved to portal';
+    if(preview){
+      var previewText=text.replace(/\*\*/g,'').replace(/^DATE:.*$/m,'').replace(/^SECTIONS:.*$/m,'').trim();
+      preview.style.fontStyle='normal';
+      preview.style.color='var(--text-body)';
+      preview.textContent=previewText.slice(0,400)+(previewText.length>400?'...':'');
+    }
+  }catch(e){
+    if(status)status.textContent='Error - check API access';
+  }
+}
+// ─────────────────────────────────────────────────────────────
+
+var FIELDS=[
+  {id:'wimPdf',     label:'WIM PDF',            section:'WIM',              freq:'Weekly'},
+  {id:'forexPdf',   label:'Forex PDF',          section:'Weekly Forex',     freq:'Weekly'},
+  {id:'eqCsv',      label:'Equity Universe CSV', section:'Equity',           freq:'Weekly'},
+  {id:'eqPdf',      label:'Equity Notes PDFs',   section:'Equity',           freq:'On event'},
+  {id:'eqQuant',    label:'Quant/Qual CSV',       section:'Equity',           freq:'Weekly'},
+  {id:'fiCsv',      label:'Bond Universe CSV',    section:'Fixed Income',     freq:'Weekly'},
+  {id:'fiPdf',      label:'FI Notes PDFs',        section:'Fixed Income',     freq:'On event'},
+  {id:'fiDocu',     label:'DOCU Pricing',         section:'Fixed Income',     freq:'Weekly'},
+  {id:'spCsv',      label:'SP Portfolio CSV',     section:'Struct. Products', freq:'Weekly'},
+  {id:'spPdf',      label:'SP KIDs/TS PDFs',      section:'Struct. Products', freq:'On trade'},
+  {id:'spOpp',      label:'SP Opportunities PDFs',section:'Struct. Products', freq:'Weekly'},
+  {id:'esgCsv',     label:'ESG Leaders CSV',      section:'ESG & SRI',        freq:'Quarterly'},
+  {id:'esgPdf',     label:'ESG Reports PDFs',     section:'ESG & SRI',        freq:'Quarterly'},
+  {id:'esgSov',     label:'Sovereign ESG CSV',    section:'ESG & SRI',        freq:'Annual'},
+  {id:'fundCsv',    label:'Approved Funds CSV',   section:'Funds & ETFs',     freq:'Monthly'},
+  {id:'fundPdf',    label:'Fund Factsheets PDFs', section:'Funds & ETFs',     freq:'On decision'},
+  {id:'fundDecisions',label:'Decisions Log CSV',  section:'Funds & ETFs',     freq:'Monthly'},
+];
+
+function sk(id){return 'mir-upload-'+id;}
+function handleUpload(id, files){
+  if(!files||!files.length)return;
+  var names=Array.from(files).map(function(f){return f.name;});
+  localStorage.setItem(sk(id), JSON.stringify({files:names, date:new Date().toLocaleDateString('en-GB')}));
+  renderStatus(id);
+  renderTable();
+}
+function getStored(id){
+  try{var v=localStorage.getItem(sk(id));return v?JSON.parse(v):null;}catch(e){return null;}
+}
+function renderStatus(id){
+  var el=document.getElementById('st-'+id);
+  if(!el)return;
+  var d=getStored(id);
+  if(!d){el.textContent='No file uploaded';el.className='upload-status';return;}
+  var label=d.files.length===1?d.files[0]:'('+d.files.length+' files) '+d.files[0];
+  el.textContent='✓ '+label+' — '+d.date;
+  el.className='upload-status ok';
+}
+function renderAllStatus(){FIELDS.forEach(function(f){renderStatus(f.id);});}
+
+function renderTable(){
+  var tbody=document.getElementById('status-tbody');
+  if(!tbody)return;
+  tbody.innerHTML=FIELDS.map(function(f){
+    var d=getStored(f.id);
+    var status=d?'<span class="tag-ok">✓ Uploaded</span>':'<span class="tag-empty">No file</span>';
+    var last=d?d.date:'—';
+    return '<tr><td style="font-weight:500">'+f.label+'</td><td style="color:var(--text-muted)">'+f.section+'</td><td><span class="tag-pending">'+f.freq+'</span></td><td style="color:var(--text-muted)">'+last+'</td><td>'+status+'</td></tr>';
+  }).join('');
+}
+
+function saveField(textareaId, storageKey){
+  var val=document.getElementById(textareaId).value.trim();
+  if(!val)return;
+  localStorage.setItem(storageKey, JSON.stringify({text:val}));
+  var confirmId=textareaId.replace('adv-text','adv').replace('ic-text','ic').replace('wim-macro','wim-macro');
+  // show confirm
+  var conf=document.getElementById(textareaId.split('-').slice(0,-1).join('-')+'-confirm') ||
+           document.getElementById(textareaId+'-confirm');
+  // find the sibling confirm span
+  var btn=document.activeElement;
+  var parent=btn?btn.parentNode:null;
+  if(parent){
+    var spans=parent.querySelectorAll('.save-confirm');
+    if(spans.length){spans[0].classList.add('show');setTimeout(function(){spans[0].classList.remove('show');},2000);}
+  }
+}
+function saveWimMeta(){
+  var d=document.getElementById('wim-date').value.trim();
+  var s=document.getElementById('wim-sections').value.trim();
+  if(d)localStorage.setItem('mhc_wim_date',JSON.stringify({text:d}));
+  if(s)localStorage.setItem('mhc_wim_sections',JSON.stringify({text:s}));
+  var conf=document.getElementById('wim-meta-confirm');
+  if(conf){conf.classList.add('show');setTimeout(function(){conf.classList.remove('show');},2000);}
+}
+function clearAll(){
+  if(!confirm('Clear all stored file names from browser storage?'))return;
+  FIELDS.forEach(function(f){localStorage.removeItem(sk(f.id));});
+  renderAllStatus();renderTable();
+}
+
+// Login
+function login(){
+  var pw=document.getElementById('pw').value;
+  var err=document.getElementById('login-error');
+  if(pw==='CHANGE_ME_BEFORE_USE'){
+    document.getElementById('login-box').style.display='none';
+    document.getElementById('admin-shell').classList.add('open');
+    renderAllStatus();renderTable();
+  } else {
+    err.classList.add('show');
+    setTimeout(function(){err.classList.remove('show');},2000);
+  }
+}
+function logout(){
+  document.getElementById('login-box').style.display='block';
+  document.getElementById('admin-shell').classList.remove('open');
+  document.getElementById('pw').value='';
+}
+
+// Load saved editorial content
+(function(){
+  var d=new Date();
+  var el=document.getElementById('admin-date');
+  if(el)el.textContent=d.toLocaleDateString('en-GB',{weekday:'long',day:'2-digit',month:'long',year:'numeric'});
+
+  // Pre-fill textareas from saved values
+  function loadField(textareaId, storageKey){
+    var v=localStorage.getItem(storageKey);
+    if(v){try{var o=JSON.parse(v);if(o.text){var el=document.getElementById(textareaId);if(el)el.value=o.text;}}catch(e){}}
+  }
+  // Migration : si l'ancienne cle mhc_ic_admin existe et que la nouvelle est vide, on recopie
+  try{
+    var oldIc=localStorage.getItem('mhc_ic_admin');
+    var newIc=localStorage.getItem('mhc_ic');
+    if(oldIc&&!newIc){localStorage.setItem('mhc_ic',oldIc);}
+  }catch(e){}
+  loadField('ic-text','mhc_ic');
+  loadField('adv-text','mhc_advisory');
+
+  // Load WIM preview if exists
+  var wim=localStorage.getItem('mhc_wim_summary');
+  if(wim){try{var wo=JSON.parse(wim);var wp=document.getElementById('wim-preview');if(wp&&wo.text){var pt=wo.text.replace(/\*\*/g,'').replace(/^DATE:.*$/m,'').replace(/^SECTIONS:.*$/m,'').trim();wp.style.fontStyle='normal';wp.style.color='var(--text-body)';wp.textContent=pt.slice(0,400)+(pt.length>400?'...':'');}}catch(e){}}
+  var wimSt=localStorage.getItem('mir-upload-wimPdf');
+  if(wimSt){try{var ws=JSON.parse(wimSt);var wse=document.getElementById('st-wimPdf');if(wse&&ws.files){wse.textContent='OK '+ws.files[0]+' - '+ws.date;wse.className='upload-status ok';}}catch(e){}}
+
+  // Load Forex preview if exists
+  var forex=localStorage.getItem('mhc_forex_summary');
+  if(forex){try{var fo=JSON.parse(forex);var fp=document.getElementById('forex-preview');if(fp&&fo.text){var fpt=fo.text.replace(/\*\*/g,'').replace(/^DATE:.*$/m,'').replace(/^SECTIONS:.*$/m,'').trim();fp.style.fontStyle='normal';fp.style.color='var(--text-body)';fp.textContent=fpt.slice(0,400)+(fpt.length>400?'...':'');}}catch(e){}}
+  var forexSt=localStorage.getItem('mir-upload-forexPdf');
+  if(forexSt){try{var fs=JSON.parse(forexSt);var fse=document.getElementById('st-forexPdf');if(fse&&fs.files){fse.textContent='OK '+fs.files[0]+' - '+fs.date;fse.className='upload-status ok';}}catch(e){}}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mirabaud | AMC</title>
+<style>
+:root{--navy:#002a4a;--blue:#397aa9;--blue-lt:#afbed6;--blue-pale:#e8edf5;--gold:#bc9654;--gold-pale:#f5edd8;--white:#fff;--bg:#f4f5f7;--surface:#fff;--s2:#f8f9fb;--border:#dde3ec;--bm:#c8d2e0;--text:#002a4a;--tb:#1d3550;--tm:#6b8097;--green:#2d6a4f;--gp:#d8f3dc;--red:#c0392b;--rp:#fdecea;--font-d:'Century Gothic','Trebuchet MS',sans-serif;--font-b:'Baskerville','Georgia',serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{zoom:1.1}
+body{background:var(--bg);color:var(--text);font-family:var(--font-d);font-size:13px;height:100vh;overflow:hidden;display:flex;flex-direction:column}
+.g-nav{background:var(--navy);height:52px;display:flex;align-items:center;padding:0 28px;position:sticky;top:0;z-index:300;border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0}
+.g-logo{font-family:var(--font-d);font-weight:700;font-size:15px;letter-spacing:2.5px;text-transform:uppercase;color:#fff;text-decoration:none;flex-shrink:0}
+.g-logo-sub{font-size:9px;font-weight:400;letter-spacing:.2em;color:var(--gold);margin-left:10px;opacity:.9}
+.g-divider{width:1px;height:22px;background:rgba(255,255,255,.18);margin:0 20px;flex-shrink:0}
+.g-links{display:flex;align-items:center;gap:2px;flex:1}
+.g-link{font-family:var(--font-d);font-size:10px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none;padding:6px 12px;border-bottom:2px solid transparent;transition:all .15s;white-space:nowrap;height:100%}
+.g-link:hover{color:#fff;border-bottom-color:rgba(188,150,84,.5)}
+.g-link.active{color:#fff;border-bottom-color:var(--gold);font-weight:700}
+.g-badge{margin-left:auto;font-family:var(--font-d);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(188,150,84,.8);flex-shrink:0;padding:3px 10px;border:1px solid rgba(188,150,84,.3);border-radius:1px}
+.g-admin{font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);background:none;border:1px solid rgba(255,255,255,.14);padding:3px 8px;cursor:pointer;margin-left:8px}
+.p-strip{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 28px;display:flex;align-items:baseline;gap:14px;flex-shrink:0}
+.p-title{font-size:18px;font-weight:700;color:var(--navy)}
+.p-sub{font-family:var(--font-b);font-size:12px;color:var(--tm);font-style:italic}
+.ref-bar{background:var(--s2);border-bottom:1px solid var(--border);padding:6px 28px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;flex-shrink:0}
+.ref-lbl{font-size:8px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--tm);margin-right:6px}
+.ref-btn{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);background:var(--surface);border:1px solid var(--border);padding:4px 10px;border-radius:2px;cursor:pointer;text-decoration:none;transition:all .12s}
+.ref-btn:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-pale)}
+.main{flex:1;overflow-y:auto;padding:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;max-width:1200px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:6px;overflow:hidden;transition:box-shadow .15s,transform .12s}
+.card:hover{box-shadow:0 4px 16px rgba(0,42,74,.12);transform:translateY(-1px)}
+.card-head{padding:14px 18px 10px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border)}
+.card-icon{width:36px;height:36px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.card-title{font-size:14px;font-weight:700;color:var(--navy);line-height:1.2}
+.card-desc{font-size:10px;color:var(--tm);margin-top:2px}
+.card-body{padding:12px 18px 16px}
+.doc-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgba(0,0,0,.04);cursor:pointer;transition:background .1s;border-radius:2px;margin:0 -6px;padding-left:6px;padding-right:6px}
+.doc-row:last-child{border-bottom:none}
+.doc-row:hover{background:var(--blue-pale)}
+.doc-tag{font-size:8px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border-radius:2px;flex-shrink:0;min-width:48px;text-align:center}
+.tag-report{background:var(--blue-pale);color:var(--blue);border:1px solid rgba(57,122,169,.2)}
+.tag-kid{background:var(--gold-pale);color:#7a5a1a;border:1px solid rgba(188,150,84,.3)}
+.tag-ts{background:#f0f4f8;color:var(--navy);border:1px solid var(--bm)}
+.tag-pres{background:var(--gp);color:var(--green);border:1px solid rgba(45,106,79,.2)}
+.doc-name{font-size:11px;color:var(--tb);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.doc-date{font-size:10px;color:var(--tm);flex-shrink:0}
+/* PDF MODAL */
+#pdf-modal.open{display:flex!important}
+</style>
+</head>
+<body>
+<nav class="g-nav">
+  <a href="portal.html" class="g-logo">MIRABAUD<span class="g-logo-sub">Financial Research</span></a>
+  <div class="g-divider"></div>
+  <div class="g-links"><a href="portal.html" class="g-link">Portal</a><a href="equity_screener.html" class="g-link">Equity</a><a href="fixed_income.html" class="g-link">Fixed Income</a><a href="esg_sri.html" class="g-link">ESG & SRI</a><a href="structured_products.html" class="g-link">Structured Products</a><a href="funds_etf.html" class="g-link">Funds &amp; ETFs</a><a href="thematics_amc.html" class="g-link active">AMC</a><a href="research.html" class="g-link">Research Notes</a></div>
+  <div style="display:flex;align-items:center;gap:10px;margin-left:auto;flex-shrink:0">
+    <button style="font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);background:none;border:1px solid rgba(255,255,255,.14);padding:3px 8px;cursor:pointer;border-radius:1px" onclick="window.location.href='admin.html'">Admin</button>
+    <span class="g-badge">Internal Use Only</span>
+  </div>
+</nav>
+<div class="p-strip">
+  <div class="p-title">AMC</div>
+  <div class="p-sub">Thematic Trackers, Baskets & Actively Managed Certificates</div>
+  <div style="margin-left:auto;display:flex;gap:6px">
+    <a href="equity_screener.html" style="font-size:10px;color:var(--blue);text-decoration:none;border:1px solid var(--border);padding:4px 10px;border-radius:2px">← Equity Screener</a>
+  </div>
+</div>
+<div class="ref-bar">
+  <span class="ref-lbl">Reference Lists</span>
+  <a class="ref-btn" onclick="openPdfModal('/z/Latest Publications/9.1 Thematic Static and AMC universe.pdf','Thematics & AMC Universe')">Thematics & AMC Universe</a>
+  <a class="ref-btn" onclick="openPdfModal('/z/Latest Publications/1. Equity High Convictions.pdf','HC List')">HC List</a>
+</div>
+<div class="main">
+<div class="grid" id="grid"></div>
+</div>
+<script>
+var THEMATICS = [
+  {
+    name:'Happy Ageing',icon:'bg:linear-gradient(135deg,#2d6a4f,#52b788)',emoji:'🌿',
+    desc:'Longevity, healthcare, well-being (CHF/EUR/USD)',
+    docs:[
+      {tag:'report',label:'Monthly Report (CHF)',file:'/z/Thematics Report/Happy Ageing - CHF - 2026.03.pdf',date:'Mar 2026'},
+      {tag:'report',label:'Monthly Report (EUR)',file:'/z/Thematics Report/Happy Ageing - EUR - 2026.03.pdf',date:'Mar 2026'},
+      {tag:'report',label:'Monthly Report (USD)',file:'/z/Thematics Report/Happy Ageing - USD - 2026.03.pdf',date:'Mar 2026'},
+      {tag:'kid',label:'KID (EN)',file:'/z/Happy Ageing/EN KID Tracker Happy Ageing in CHF.pdf'},
+      {tag:'kid',label:'KID (FR)',file:'/z/Happy Ageing/FR KID Tracker Happy Ageing in CHF.pdf'},
+      {tag:'kid',label:'KID (DE)',file:'/z/Happy Ageing/DE KID Tracker Happy Ageing in EUR.pdf'},
+      {tag:'ts',label:'Termsheet',file:'/z/Happy Ageing/Termsheet Happy Ageing CHF.pdf'}
+    ]
+  },
+  {
+    name:'Disruptive Technology',icon:'bg:linear-gradient(135deg,#013a63,#397aa9)',emoji:'🚀',
+    desc:'AI, cloud, cybersecurity, fintech',
+    docs:[
+      {tag:'report',label:'Monthly Report',file:'/z/Thematics Report/Disruptive Technology Basket - 2026.03.pdf',date:'Mar 2026'},
+      {tag:'kid',label:'KID (EN)',file:'/z/Disruptive Technology/ENG KID Disruptive Technology.pdf'},
+      {tag:'kid',label:'KID (FR)',file:'/z/Disruptive Technology/FR KID Disruptive Technology.pdf'},
+      {tag:'ts',label:'Termsheet',file:'/z/Disruptive Technology/Termsheet Disruptive Technology.pdf'}
+    ]
+  },
+  {
+    name:'Smart Transition (ESG)',icon:'bg:linear-gradient(135deg,#1a4a6b,#3d7a53)',emoji:'🌍',
+    desc:'Climate transition, clean energy, ESG',
+    docs:[
+      {tag:'report',label:'Monthly Report',file:'/z/Thematics Report/Smart Transition -ESG - March 2026 USD.pdf',date:'Mar 2026'},
+      {tag:'kid',label:'KID (EN)',file:'/z/Climate Transition/UK KID The Smart Transition Index.pdf'},
+      {tag:'kid',label:'KID (FR)',file:'/z/Climate Transition/FR KID The Smart Transition Index.pdf'},
+      {tag:'kid',label:'KID (DE)',file:'/z/Climate Transition/DE KID The Smart Transition Index.pdf'},
+      {tag:'ts',label:'Termsheet',file:'/z/Climate Transition/Termsheet Smart Transition.pdf'}
+    ]
+  },
+  {
+    name:'Europe Momentum',icon:'bg:linear-gradient(135deg,#2a3d5c,#5a7db0)',emoji:'📈',
+    desc:'European momentum strategy index',
+    docs:[
+      {tag:'report',label:'Monthly Report',file:'/z/Thematics Report/The Europe Momentum Index 03312026.pdf',date:'Mar 2026'},
+      {tag:'kid',label:'KID (EN)',file:'/z/Europe Momentum/UK KID Europe Momentum.pdf'},
+      {tag:'kid',label:'KID (FR)',file:'/z/Europe Momentum/KID (FR) Europe Momentum.pdf'},
+      {tag:'ts',label:'Termsheet',file:'/z/Europe Momentum/Termsheet Europe Momentum.pdf'}
+    ]
+  },
+  {
+    name:'Low Volatility',icon:'bg:linear-gradient(135deg,#3d3d5c,#6b6b9a)',emoji:'🛡️',
+    desc:'US low volatility equity basket',
+    docs:[
+      {tag:'report',label:'Monthly Report',file:'/z/Thematics Report/Low Volatility Basket - USD - 2026.03.pdf',date:'Mar 2026'},
+      {tag:'pres',label:'Presentation',file:'/z/Low Volatility/Presentation Low Volatility Tracker_ext 2024.pdf'},
+      {tag:'kid',label:'KID (EN)',file:'/z/Low Volatility/UK KID Low Volatility Tracker.pdf'},
+      {tag:'ts',label:'Termsheet',file:'/z/Low Volatility/Termsheet Low Volatility.pdf'}
+    ]
+  },
+  {
+    name:'Opportunistic Thematic',icon:'bg:linear-gradient(135deg,#4a3728,#9a7a28)',emoji:'🎯',
+    desc:'Tactical thematic opportunities',
+    docs:[
+      {tag:'report',label:'Monthly Report',file:'/z/Thematics Report/Opportunistic Thematic Basket - USD - 2026.03.pdf',date:'Mar 2026'},
+      {tag:'kid',label:'KID (EN)',file:'/z/Opportunistic Thematic/ENG KID Opportunistic Thematic.pdf'},
+      {tag:'kid',label:'KID (FR)',file:'/z/Opportunistic Thematic/FR KID Opportunistic Thematic.pdf'},
+      {tag:'ts',label:'Termsheet',file:'/z/Opportunistic Thematic/Termsheet Opportunistic Thematic.pdf'}
+    ]
+  },
+  {
+    name:'EU High Convictions',icon:'bg:linear-gradient(135deg,#013a63,#2a6fa0)',emoji:'🇪🇺',
+    desc:'European high conviction equity basket',
+    docs:[
+      {tag:'report',label:'Monthly Report',file:'/z/Thematics Report/EU High Conviction - EUR - 2026.02.pdf',date:'Feb 2026'},
+      {tag:'kid',label:'KID (EN)',file:'/z/EU High Convictions/ENG KID EU High Conviction.pdf'},
+      {tag:'kid',label:'KID (FR)',file:'/z/EU High Convictions/FR KID EU High Conviction.pdf'},
+      {tag:'ts',label:'Termsheet',file:'/z/EU High Convictions/Termsheet EU High Conviction.pdf'}
+    ]
+  },
+  {
+    name:'US High Convictions',icon:'bg:linear-gradient(135deg,#3d2a1a,#7a5a28)',emoji:'🇺🇸',
+    desc:'US high conviction equity basket',
+    docs:[
+      {tag:'report',label:'Monthly Report',file:'/z/Thematics Report/US High Conviction - 2026.02.pdf',date:'Feb 2026'},
+      {tag:'kid',label:'KID (EN)',file:'/z/US High Convictions/ENG KID US High Conviction.pdf'},
+      {tag:'pres',label:'Presentation',file:'/z/US High Convictions/CH1271531654 - Presentation US High Conviction.pdf'},
+      {tag:'ts',label:'Termsheet',file:'/z/US High Convictions/Termsheet US High Conviction.pdf'}
+    ]
+  },
+  {
+    name:'AMC Semiconductor',icon:'bg:linear-gradient(135deg,#1a3a5c,#5a9ab0)',emoji:'💎',
+    desc:'Semiconductor industry tracker (AMC)',
+    docs:[
+      {tag:'report',label:'Monthly Report',file:'/z/Thematics Report/AMC Semiconductor Tracker - 2026.03.pdf',date:'Mar 2026'}
+    ]
+  },
+  {
+    name:'Sector Allocation',icon:'bg:linear-gradient(135deg,#2d3a5c,#5a6a9a)',emoji:'📊',
+    desc:'Sector rotation basket',
+    docs:[
+      {tag:'kid',label:'KID (EN)',file:'/z/Sector Basket/KID (EN) - Sector Allocation.pdf'},
+      {tag:'kid',label:'KID (DE)',file:'/z/Sector Basket/KID (GE) - Sector Allocation.pdf'},
+      {tag:'ts',label:'Termsheet',file:'/z/Sector Basket/Termsheet - Sector Allocation.pdf'}
+    ]
+  },
+  {
+    name:'Metaverse',icon:'bg:linear-gradient(135deg,#3d1a5c,#8a5ab0)',emoji:'🕶️',
+    desc:'Metaverse & virtual worlds tracker',
+    docs:[
+      {tag:'report',label:'Monthly Report',file:'/z/Thematics Report/Metaverse Tracker - 2026.03.pdf',date:'Mar 2026'}
+    ]
+  },
+  {
+    name:'Diversified Liquid Alt',icon:'bg:linear-gradient(135deg,#1a2a3a,#3d5a7a)',emoji:'💧',
+    desc:'Liquid alternatives diversification (USD)',
+    docs:[
+      {tag:'report',label:'Monthly Report',file:'/z/Thematics Report/Diversified Liquid Alt - USD_202601.pdf',date:'Jan 2026'}
+    ]
+  }
+];
+
+var grid = document.getElementById('grid');
+THEMATICS.forEach(function(t){
+  var card = document.createElement('div');
+  card.className = 'card';
+  var docsHTML = t.docs.map(function(d){
+    var tagClass = d.tag==='report'?'tag-report':d.tag==='kid'?'tag-kid':d.tag==='ts'?'tag-ts':'tag-pres';
+    var tagLabel = d.tag==='report'?'Report':d.tag==='kid'?'KID':d.tag==='ts'?'T.Sheet':'Pres.';
+    return '<div class="doc-row" onclick="openPdfModal(\''+d.file.replace(/'/g,"\\'")+'\',\''+t.name+' - '+d.label.replace(/'/g,"\\'")+'\')">'
+      +'<span class="doc-tag '+tagClass+'">'+tagLabel+'</span>'
+      +'<span class="doc-name">'+d.label+'</span>'
+      +(d.date?'<span class="doc-date">'+d.date+'</span>':'')
+      +'</div>';
+  }).join('');
+  card.innerHTML = '<div class="card-head">'
+    +'<div class="card-icon" style="'+t.icon+'">'+t.emoji+'</div>'
+    +'<div><div class="card-title">'+t.name+'</div><div class="card-desc">'+t.desc+'</div></div>'
+    +'</div>'
+    +'<div class="card-body">'+docsHTML+'</div>';
+  grid.appendChild(card);
+});
+
+function openPdfModal(p,t){document.getElementById('pdf-modal-title').textContent=t||'';document.getElementById('pdf-modal-frame').src=p;document.getElementById('pdf-modal-ext').href=p;document.getElementById('pdf-modal').classList.add('open');}
+function closePdfModal(){document.getElementById('pdf-modal').classList.remove('open');document.getElementById('pdf-modal-frame').src='';}
+document.addEventListener('DOMContentLoaded',function(){var m=document.getElementById('pdf-modal');if(m)m.addEventListener('click',function(e){if(e.target===this)closePdfModal();});});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closePdfModal();});
+</script>
+<!-- PDF VIEWER MODAL -->
+<div id="pdf-modal" style="display:none;position:fixed;inset:0;background:rgba(0,15,35,.75);z-index:700;align-items:stretch;justify-content:center;backdrop-filter:blur(2px)">
+  <div style="display:flex;flex-direction:column;width:92vw;max-width:1100px;height:92vh;margin:auto;background:#1a1a2e;border-radius:4px;overflow:hidden;box-shadow:0 16px 64px rgba(0,0,0,.5)">
+    <div style="background:var(--navy);padding:10px 18px;display:flex;align-items:center;gap:12px;border-bottom:2px solid var(--gold);flex-shrink:0">
+      <div id="pdf-modal-title" style="font-size:13px;font-weight:700;color:#fff;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"></div>
+      <a id="pdf-modal-ext" href="#" target="_blank" style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(188,150,84,.4);padding:3px 10px;border-radius:1px;text-decoration:none;flex-shrink:0;transition:all .15s">Open</a>
+      <button onclick="closePdfModal()" style="background:none;border:none;color:rgba(255,255,255,.5);cursor:pointer;font-size:18px;flex-shrink:0;padding:0 0 0 8px;line-height:1">&#10005;</button>
+    </div>
+    <iframe id="pdf-modal-frame" src="" style="flex:1;border:none;background:#fff"></iframe>
+  </div>
+</div>
+</body>
+</html>

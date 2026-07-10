@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mirabaud | SP Run Pricing</title>
+<style>
+:root{--navy:#002a4a;--navy2:#003d6e;--blue:#397aa9;--blue-lt:#afbed6;--blue-pale:#e8edf5;--gold:#bc9654;--gold-dark:#7a5a1a;--gold-pale:#f5edd8;--white:#fff;--bg:#f4f5f7;--surface:#fff;--s2:#f8f9fb;--border:#dde3ec;--bm:#c8d2e0;--text:#002a4a;--tb:#1d3550;--tm:#6b8097;--green:#2d6a4f;--gp:#d8f3dc;--red:#c0392b;--rp:#fdecea;--purple:#6d28d9;--purple-dark:#5b21b6;--purple-pale:#ede9ff;--purple-mid:#c4b5fd;--font-d:'Century Gothic','Trebuchet MS',sans-serif;--font-b:'Baskerville','Georgia',serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{zoom:1.1}
+body{background:var(--bg);color:var(--text);font-family:var(--font-d);font-size:13px;height:100vh;overflow:hidden;display:flex;flex-direction:column}
+
+/* ── Global nav (same as portal) ── */
+.g-nav{background:var(--navy);height:52px;display:flex;align-items:center;padding:0 28px;position:sticky;top:0;z-index:300;border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0}
+.g-logo{font-family:var(--font-d);font-weight:700;font-size:15px;letter-spacing:2.5px;text-transform:uppercase;color:#fff;text-decoration:none;flex-shrink:0}
+.g-logo-sub{font-size:9px;font-weight:400;letter-spacing:.2em;color:var(--gold);margin-left:10px;opacity:.9}
+.g-divider{width:1px;height:22px;background:rgba(255,255,255,.18);margin:0 20px;flex-shrink:0}
+.g-links{display:flex;align-items:center;gap:2px;flex:1}
+.g-link{font-family:var(--font-d);font-size:10px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none;padding:6px 12px;border-bottom:2px solid transparent;transition:all .15s;white-space:nowrap;height:100%}
+.g-link:hover{color:#fff;border-bottom-color:rgba(188,150,84,.5)}
+.g-link.active{color:#fff;border-bottom-color:var(--gold);font-weight:700}
+.g-badge{margin-left:auto;font-family:var(--font-d);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(188,150,84,.8);flex-shrink:0;padding:3px 10px;border:1px solid rgba(188,150,84,.3);border-radius:1px}
+
+/* ── Title + sub-nav ── */
+.p-strip{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 28px;display:flex;align-items:baseline;gap:14px;flex-shrink:0}
+.p-title{font-size:18px;font-weight:700;color:var(--navy)}
+.p-sub{font-family:var(--font-b);font-size:12px;color:var(--tm);font-style:italic}
+.p-kpis{margin-left:auto;display:flex;gap:8px}
+.p-kpi{background:var(--blue-pale);border:1px solid var(--border);border-radius:2px;padding:3px 10px;font-size:11px;color:var(--tm)}
+.p-kpi .v{color:var(--navy);font-weight:700;margin-left:4px}
+
+.sub-nav{background:var(--surface);border-bottom:1px solid var(--border);padding:0 28px;display:flex;align-items:center;gap:2px;flex-shrink:0;height:36px}
+.sub-btn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--tm);background:none;border:none;padding:0 14px;height:100%;cursor:pointer;border-bottom:2px solid transparent;transition:all .15s;text-decoration:none;display:inline-flex;align-items:center}
+.sub-btn:hover{color:var(--navy)}
+.sub-btn.active{color:var(--navy);border-bottom-color:var(--gold)}
+.sub-info{margin-left:auto;font-size:10px;color:var(--tm);font-family:var(--font-b);font-style:italic}
+
+/* ── Layout Deritrade : filters left + table right ── */
+.main-layout{flex:1;display:flex;overflow:hidden;min-height:0}
+.filters-panel{width:300px;background:var(--surface);border-right:1px solid var(--border);overflow-y:auto;flex-shrink:0;padding:16px}
+.table-panel{flex:1;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+
+/* Double range slider */
+.slider-wrap{position:relative;height:30px;margin:8px 4px 4px}
+.slider-track{position:absolute;top:12px;left:0;right:0;height:6px;border-radius:3px;background:#e5e7eb;pointer-events:none}
+.slider-range{position:absolute;top:8px;left:0;right:0;width:100%;height:14px;background:transparent;pointer-events:none;-webkit-appearance:none;appearance:none;margin:0;padding:0;border:none;outline:none}
+.slider-range::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:50%;background:var(--purple);border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.3);cursor:pointer;pointer-events:auto}
+.slider-range::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--purple);border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.3);cursor:pointer;pointer-events:auto}
+.slider-range::-webkit-slider-runnable-track{background:transparent;height:14px}
+.slider-range::-moz-range-track{background:transparent;height:14px}
+.slider-scale{display:flex;justify-content:space-between;font-size:9px;color:var(--tm);padding:0 2px;margin-top:2px}
+
+/* Filter groups */
+.fg-title{font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--navy);margin-bottom:6px;padding-bottom:4px;border-bottom:1px solid var(--border)}
+.fg-group{margin-bottom:18px}
+.fg-chips{display:flex;flex-wrap:wrap;gap:4px}
+.fg-chip{font-family:var(--font-d);font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border);cursor:pointer;background:var(--surface);transition:all .12s;border-radius:12px;color:var(--navy)}
+.fg-chip:hover{border-color:var(--gold);color:var(--gold)}
+.fg-chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.fg-chip.on.ccy-chf{background:#c0392b;border-color:#c0392b}
+.fg-chip.on.ccy-eur{background:#005091;border-color:#005091}
+.fg-chip.on.ccy-usd{background:#2d6a4f;border-color:#2d6a4f}
+.fg-chip.on.ccy-gbp{background:#6d28d9;border-color:#6d28d9}
+.fg-search{width:100%;font-family:var(--font-d);font-size:11px;padding:6px 10px;border:1px solid var(--border);border-radius:3px;outline:none;color:var(--navy);background:var(--s2)}
+.fg-search:focus{border-color:var(--gold);background:#fff}
+.fg-clear{font-family:var(--font-d);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);background:none;border:1px solid rgba(192,57,43,.3);padding:5px 10px;cursor:pointer;border-radius:2px;width:100%;margin-top:6px}
+.fg-clear:hover{background:var(--rp)}
+
+.info-box{background:var(--gold-pale);border:1px solid var(--gold);border-radius:3px;padding:10px 12px;font-size:10px;color:var(--gold-dark);line-height:1.5;margin-bottom:18px}
+.info-box strong{color:var(--navy);font-size:10px;letter-spacing:.05em}
+
+/* Loading / error */
+.loading{padding:60px 28px;text-align:center;color:var(--tm);font-family:var(--font-b);font-style:italic}
+.error-box{padding:40px 28px;text-align:center;color:var(--red);font-family:var(--font-d)}
+.error-box button{margin-top:12px;font-family:var(--font-d);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--navy);color:#fff;border:none;padding:8px 18px;cursor:pointer;border-radius:2px}
+
+/* Top bar above table */
+.tbar{background:var(--s2);border-bottom:1px solid var(--border);padding:8px 20px;display:flex;align-items:center;gap:12px;flex-shrink:0;flex-wrap:wrap}
+.tbar-title{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--navy)}
+.tbar-legend{display:flex;align-items:center;gap:6px;font-size:9px;color:var(--tm);margin-left:auto}
+.legend-box{width:14px;height:14px;border-radius:2px;display:inline-block}
+.legend-top{background:var(--purple)}
+.legend-hi{background:var(--purple-pale);border:1px solid var(--purple-mid)}
+.legend-mid{background:var(--blue-pale);border:1px solid var(--bm)}
+.legend-low{background:var(--s2);border:1px solid var(--border)}
+.tbar-date{font-size:10px;color:var(--tm);font-family:var(--font-b);font-style:italic}
+
+/* Table wrapper */
+.tw-run{flex:1;overflow:auto;background:var(--surface)}
+table.run{width:100%;border-collapse:collapse;font-family:var(--font-d);font-size:11px}
+table.run thead{position:sticky;top:0;z-index:10;background:var(--navy)}
+table.run thead th{padding:10px 10px;text-align:left;font-size:9px;font-weight:600;letter-spacing:1.3px;text-transform:uppercase;color:#fff;background:var(--navy);border-right:1px solid rgba(255,255,255,.08);white-space:nowrap;border-bottom:2px solid var(--gold)}
+table.run thead th.center{text-align:center}
+table.run thead th.coupon-head{background:var(--navy2);padding:6px 8px;text-align:center;font-size:8px}
+table.run thead th.coupon-head .sub{font-size:7px;font-weight:400;color:var(--gold);display:block;margin-top:1px;letter-spacing:.08em}
+
+/* Group separator row */
+table.run tr.group-sep td{background:var(--navy2);color:var(--gold);font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:6px 10px;border-top:1px solid var(--gold)}
+
+/* Data rows */
+table.run tbody tr.data-row{border-bottom:1px solid var(--border);cursor:pointer;transition:background .1s}
+table.run tbody tr.data-row:nth-child(even){background:#fafbfc}
+table.run tbody tr.data-row:hover{background:rgba(57,122,169,.08)!important}
+table.run tbody td{padding:7px 10px;vertical-align:middle;border-right:1px solid var(--border)}
+table.run .theme-cell{font-weight:700;color:var(--navy);min-width:180px}
+table.run .theme-badge{font-size:8px;color:var(--tm);font-weight:400;font-family:var(--font-b);font-style:italic;display:block;margin-top:2px}
+table.run .und-cell{min-width:160px}
+table.run .und-inner{display:flex;align-items:center;gap:6px}
+table.run .und-name{font-size:11px;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* Logos */
+.cl{width:22px;height:22px;border-radius:3px;object-fit:contain;background:#fff;border:1px solid var(--border);padding:1px;flex-shrink:0;vertical-align:middle}
+.cf{width:22px;height:22px;border-radius:3px;background:var(--navy);color:#fff;font-size:8px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;vertical-align:middle}
+.cf-indice{background:var(--gold);color:#fff}
+
+/* Coupon cells with heatmap */
+table.run td.coupon-cell{text-align:right;font-weight:700;font-size:12px;padding:7px 10px;white-space:nowrap;position:relative}
+table.run td.coupon-cell.c-top{background:var(--purple);color:#fff}
+table.run td.coupon-cell.c-hi{background:var(--purple-pale);color:var(--purple-dark)}
+table.run td.coupon-cell.c-mid{background:var(--blue-pale);color:var(--blue)}
+table.run td.coupon-cell.c-low{background:var(--s2);color:var(--navy)}
+table.run td.coupon-cell.c-na{color:var(--tm);font-style:italic;font-weight:400;font-size:11px}
+
+/* No results */
+.no-results{padding:40px;text-align:center;color:var(--tm);font-family:var(--font-b);font-style:italic;font-size:13px}
+
+.fg-chip.disabled{opacity:.3;cursor:not-allowed;pointer-events:none;background:#f3f4f6;color:#9ca3af}
+
+/* Top bar buttons */
+.tbar-btn{font-family:var(--font-d);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);background:rgba(188,150,84,.08);border:1px solid var(--gold);padding:5px 12px;cursor:pointer;border-radius:2px;transition:all .15s;display:inline-flex;align-items:center;gap:6px;text-decoration:none}
+.tbar-btn:hover{background:rgba(188,150,84,.18);color:var(--gold-dark)}
+
+/* Modal export button */
+.mexp{font-family:var(--font-d);font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);background:rgba(188,150,84,.1);border:1px solid var(--gold);padding:6px 14px;cursor:pointer;border-radius:2px;display:inline-flex;align-items:center;gap:6px;margin-right:8px}
+.mexp:hover{background:rgba(188,150,84,.2)}
+.mhdr-actions{display:flex;align-items:center;margin-bottom:10px}
+
+/* ── Modal (product detail) ── */
+.overlay{position:fixed;inset:0;background:rgba(0,20,40,.65);z-index:900;display:none;justify-content:flex-end;backdrop-filter:blur(2px)}
+.overlay.open{display:flex}
+.modal{width:680px;max-width:92vw;height:100%;background:var(--bg);overflow-y:auto;border-left:3px solid var(--gold)}
+.mhdr{background:var(--navy);color:#fff;padding:20px 24px;position:sticky;top:0;z-index:1;border-bottom:3px solid var(--gold)}
+.mclose{font-family:var(--font-d);font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;background:none;border:none;color:rgba(255,255,255,.6);cursor:pointer;margin-bottom:10px;display:block;transition:color .15s}
+.mclose:hover{color:var(--gold)}
+.mtag{font-size:8px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.mname{font-size:20px;font-weight:700;line-height:1.2;margin-bottom:3px;font-family:var(--font-d)}
+.msub{font-size:10px;color:var(--blue-lt);letter-spacing:.1em}
+.mbody{padding:20px 24px}
+.msec{margin-bottom:20px;background:var(--surface);border:1px solid var(--border);border-radius:3px;overflow:hidden}
+.msec-head{background:var(--navy);color:#fff;padding:8px 14px;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;border-bottom:2px solid var(--gold)}
+.msec-body{padding:14px}
+
+/* Underlying cards */
+.und-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.und-card{background:var(--s2);border:1px solid var(--border);border-radius:3px;padding:10px;text-align:center}
+.und-card-logo{margin-bottom:6px;display:flex;justify-content:center}
+.und-card .cl,.und-card .cf{width:32px;height:32px;font-size:10px}
+.und-card-name{font-size:10px;font-weight:700;color:var(--navy);line-height:1.3}
+.und-card-lbl{font-size:7px;color:var(--tm);font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:4px}
+
+/* Key-value rows */
+.kv{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--s2);font-size:11px}
+.kv:last-child{border-bottom:none}
+.kv-k{color:var(--tm);font-weight:700;text-transform:uppercase;letter-spacing:.07em;font-size:9px}
+.kv-v{color:var(--navy);font-weight:700}
+.kv-v.big{font-size:18px;color:var(--purple)}
+
+/* Metric boxes */
+.mgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.mbox{background:var(--s2);border:1px solid var(--border);padding:10px;border-radius:3px;text-align:center}
+.mbox-lbl{font-size:7px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);margin-bottom:4px}
+.mbox-val{font-size:14px;font-weight:700;color:var(--navy);font-family:var(--font-d)}
+
+/* Redemption scenario table */
+table.scen{width:100%;border-collapse:collapse;font-family:var(--font-d);font-size:10px}
+table.scen th,table.scen td{padding:6px 8px;text-align:right;border-bottom:1px solid var(--s2);border-right:1px solid var(--s2)}
+table.scen th:first-child,table.scen td:first-child{text-align:left}
+table.scen thead th{background:var(--s2);color:var(--navy);font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-bottom:2px solid var(--border)}
+table.scen tbody tr:last-child td{border-bottom:none}
+table.scen td.pos{color:var(--green);font-weight:700}
+table.scen td.neg{color:var(--red);font-weight:700}
+table.scen td.par{color:var(--purple);font-weight:700}
+
+/* Product type badge */
+.ptype-badge{display:inline-block;font-size:8px;font-weight:700;padding:3px 8px;border-radius:2px;letter-spacing:.1em;text-transform:uppercase;margin-right:6px}
+.ptype-brc{background:var(--purple-pale);color:var(--purple-dark)}
+.ptype-rc{background:var(--blue-pale);color:var(--blue)}
+</style>
+</head>
+<body>
+
+<nav class="g-nav">
+  <a href="portal.html" class="g-logo">MIRABAUD<span class="g-logo-sub">Financial Research</span></a>
+  <div class="g-divider"></div>
+  <div class="g-links">
+    <a href="portal.html" class="g-link">Portal</a>
+    <a href="equity_screener.html" class="g-link">Equity</a>
+    <a href="fixed_income.html" class="g-link">Fixed Income</a>
+    <a href="esg_sri.html" class="g-link">ESG &amp; SRI</a>
+    <a href="structured_products.html" class="g-link active">Structured Products</a>
+    <a href="funds_etf.html" class="g-link">Funds &amp; ETFs</a>
+    <a href="thematics_amc.html" class="g-link">AMC</a>
+    <a href="research.html" class="g-link">Research Notes</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;margin-left:auto;flex-shrink:0">
+    <button style="font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);background:none;border:1px solid rgba(255,255,255,.14);padding:3px 8px;cursor:pointer;border-radius:1px" onclick="window.location.href='admin.html'">Admin</button>
+    <span class="g-badge">Internal Use Only</span>
+  </div>
+</nav>
+
+<div class="p-strip">
+  <div class="p-title">Structured Products</div>
+  <div class="p-sub">Indicative Pricing Run &middot; Vontobel</div>
+  <div class="p-kpis">
+    <div class="p-kpi">Themes<span class="v" id="k-themes">0</span></div>
+    <div class="p-kpi">Matching<span class="v" id="k-match">0</span></div>
+    <div class="p-kpi" id="k-date">Loading...</div>
+  </div>
+</div>
+
+<div class="sub-nav">
+  <a href="structured_products.html" class="sub-btn">Tracking</a>
+  <a href="structured_products_run.html" class="sub-btn active">Run Pricing</a>
+  <span class="sub-info">Yield Enhancement Notes &middot; Minimum size 200k &middot; Updated weekly</span>
+</div>
+
+<div class="main-layout">
+  <!-- Filters panel (left) -->
+  <div class="filters-panel">
+    <div class="info-box">
+      <strong>INDICATIVE PRICING RUNS</strong><br>
+      Yield Enhancement Notes: Barrier Reverse Convertible (BRC) or Reverse Convertible (RC) over 1 year, quarterly autocallable.
+    </div>
+
+    <div class="fg-group">
+      <div class="fg-title">Search</div>
+      <input type="text" class="fg-search" id="f-search" placeholder="Theme or underlying..." oninput="Run.onFilter()">
+    </div>
+
+    <div class="fg-group">
+      <div class="fg-title">Currency</div>
+      <div class="fg-chips" id="f-ccy"></div>
+    </div>
+
+    <div class="fg-group">
+      <div class="fg-title">Region</div>
+      <div class="fg-chips" id="f-region"></div>
+    </div>
+
+    <div class="fg-group">
+      <div class="fg-title">Sector</div>
+      <div class="fg-chips" id="f-sector"></div>
+    </div>
+
+    <div class="fg-group">
+      <div class="fg-title">Product Type</div>
+      <div class="fg-chips" id="f-ptype"></div>
+    </div>
+
+    <div class="fg-group">
+      <div class="fg-title">Strike / Barrier</div>
+      <div class="fg-chips" id="f-strike"></div>
+    </div>
+
+    <div class="fg-group">
+      <div class="fg-title">Coupon Range <span id="slider-lbl" style="float:right;color:var(--purple);font-weight:700;font-size:10px">0% - 30%</span></div>
+      <div class="slider-wrap">
+        <div class="slider-track" id="slider-track"></div>
+        <input type="range" min="0" max="30" value="0" step="1" id="slider-min" class="slider-range" oninput="Run.onSliderChange.call(this)">
+        <input type="range" min="0" max="30" value="30" step="1" id="slider-max" class="slider-range" oninput="Run.onSliderChange.call(this)">
+      </div>
+      <div class="slider-scale"><span>0%</span><span>15%</span><span>30%</span></div>
+    </div>
+
+    <div class="fg-group">
+      <div class="fg-title">Quick Filter</div>
+      <div id="f-topyield"></div>
+    </div>
+
+    <button class="fg-clear" onclick="Run.clearFilters()">&#10005; Clear all filters</button>
+  </div>
+
+  <!-- Table panel (right) -->
+  <div class="table-panel">
+    <div class="tbar">
+      <span class="tbar-title" id="tbar-count">Loading...</span>
+      <span class="tbar-date" id="tbar-date"></span>
+      <button class="tbar-btn" onclick="openPdfModal('/data/sp-run-pdf','SP Run - Indicative Pricing')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>View Run PDF</button>
+      <div class="tbar-legend">
+        <span class="legend-box legend-top"></span><span>Top 3</span>
+        <span class="legend-box legend-hi"></span><span>High</span>
+        <span class="legend-box legend-mid"></span><span>Mid</span>
+        <span class="legend-box legend-low"></span><span>Low</span>
+      </div>
+    </div>
+
+    <div class="tw-run" id="tw-run">
+      <div class="loading">Loading pricing run...</div>
+    </div>
+  </div>
+</div>
+
+<!-- Product detail modal -->
+<div class="overlay" id="prod-modal" onclick="if(event.target===this)Run.closeModal()">
+  <div class="modal" id="modal-content"></div>
+</div>
+
+<!-- PDF modal (unified style) -->
+<div id="pdf-modal" style="display:none;position:fixed;inset:0;background:rgba(0,15,35,.75);z-index:1000;align-items:stretch;justify-content:center;backdrop-filter:blur(2px)">
+  <div style="display:flex;flex-direction:column;width:92vw;max-width:1100px;height:92vh;margin:auto;background:#1a1a2e;border-radius:4px;overflow:hidden;box-shadow:0 16px 64px rgba(0,0,0,.5)">
+    <div style="background:var(--navy);padding:10px 18px;display:flex;align-items:center;gap:12px;border-bottom:2px solid var(--gold);flex-shrink:0">
+      <div id="pdf-modal-title" style="font-size:13px;font-weight:700;color:#fff;flex:1"></div>
+      <button onclick="closePdfModal()" style="background:none;border:none;color:rgba(255,255,255,.5);cursor:pointer;font-size:18px">&#10005;</button>
+    </div>
+    <iframe id="pdf-modal-frame" src="" style="flex:1;border:none;background:#fff"></iframe>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+function openPdfModal(p,t){document.getElementById('pdf-modal-title').textContent=t||'';document.getElementById('pdf-modal-frame').src=p;document.getElementById('pdf-modal').style.display='flex';}
+function closePdfModal(){document.getElementById('pdf-modal').style.display='none';document.getElementById('pdf-modal-frame').src='';}
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closePdfModal();if(Run.closeModal)Run.closeModal();}});
+
+// ═══════════════════════════════════════════════════════════════
+// Run Pricing namespace
+// ═══════════════════════════════════════════════════════════════
+var Run = (function(){
+
+var themes = []; // Parsed themes from Excel
+var filters = {
+  search: '',
+  ccy: [],
+  ptype: [],
+  strike: [],
+  region: [],
+  sector: [],
+  couponMin: 0,    // in percent (0..30)
+  couponMax: 30,   // in percent
+  topYieldsOnly: false
+};
+var runDate = '';
+
+// ── UTILS ──
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function pct(v,d){ if(v===null||v===undefined||isNaN(v))return '-'; return (v*100).toFixed(d||2)+'%'; }
+
+// ── LOGO SYSTEM ──
+var _domainCache = {};
+var companyLogos = {
+  // Indices (use custom icon)
+  'SX5E':'__INDEX__','SMI':'__INDEX__','SPX':'__INDEX__',
+  // Stocks from Run
+  'Nestl\u00e9':'nestle.com','Nestle':'nestle.com','Roche':'roche.com','Novartis':'novartis.com',
+  'Straumann':'straumann.com','Lafarge':'holcim.com','Holcim':'holcim.com','Richemont':'richemont.com',
+  'Sika':'sika.com','Givaudan':'givaudan.com','EMS-Chemie':'ems-group.com',
+  'Lonza':'lonza.com','Geberit':'geberit.com',
+  'Swiss Re':'swissre.com','Zurich insurance':'zurich.com','Zurich':'zurich.com','Swiss Life':'swisslife.com',
+  'Swatch':'swatchgroup.com','Sonova':'sonova.com',
+  'ST Microelectronics':'st.com','STMicroelectronics':'st.com','BNP Paribas':'bnpparibas.com','Heineken':'theheinekencompany.com',
+  'Axa':'axa.com','AXA':'axa.com','Royal Dutch Shell':'shell.com','Shell':'shell.com','Orange':'orange.com',
+  'Volkswagen':'volkswagenag.com','Air Liquide':'airliquide.com','Infineon':'infineon.com',
+  'Siemens':'siemens.com','Schneider':'se.com','Vinci':'vinci.com','BMW':'bmwgroup.com','Michelin':'michelin.com',
+  'Allianz':'allianz.com','Generali':'generali.com','Stellantis (IM)':'stellantis.com','Stellantis':'stellantis.com',
+  'Saint Gobain':'saint-gobain.com','ASML':'asml.com','Cap Gemini':'capgemini.com','SAP':'sap.com',
+  'Intesa Sanpaolo':'intesasanpaolo.com','Banco Santander':'santander.com','Santander':'santander.com',
+  'Unilever':'unilever.com','Danone':'danone.com','AB Inbev':'ab-inbev.com',
+  'Airbus':'airbus.com','Safran':'safran-group.com','Thales':'thalesgroup.com','Total':'totalenergies.com',
+  'Ferrari':'ferrari.com','Hermes':'hermes.com','LVMH':'lvmh.com','Royal Dutch':'shell.com','Eni':'eni.com',
+  'United Rentals':'unitedrentals.com','Ulta Beauty':'ulta.com','Netflix':'netflix.com',
+  'Exxon Mobil':'exxonmobil.com','LyondellBasell':'lyondellbasell.com','Morgan Stanley':'morganstanley.com','Cisco':'cisco.com',
+  'Adobe':'adobe.com','Alphabet':'abc.xyz','Amazon':'amazon.com','Uber':'uber.com','Ametek':'ametek.com',
+  'Apple':'apple.com','Booking':'booking.com','Paypal':'paypal.com','Microsoft':'microsoft.com',
+  'Citigroup':'citigroup.com','Mastercard':'mastercard.com',
+  'Ulta Beauty':'ulta.com','Walmart':'walmart.com','McDonalds':'mcdonalds.com',"McDonald's":'mcdonalds.com',
+  'Nike':'nike.com','Procter Gamble':'pg.com','Home Depot':'homedepot.com',
+  'Merck & Co':'merck.com','Pfizer':'pfizer.com','BMS':'bms.com','Gilead':'gilead.com','Boston Scientific':'bostonscientific.com','Eli Lilly':'lilly.com',
+  'Take Two':'take2games.com','Walt Disney':'disney.com',
+  'Legal & General':'legalandgeneral.com','Rio Tinto':'riotinto.com','Glaxosmithkline':'gsk.com','GSK':'gsk.com',
+  'Anglo American':'angloamerican.com','Diageo':'diageo.com','Tesco':'tesco.com','AstraZeneca':'astrazeneca.com',
+  'Barclays':'barclays.com','Lloyds':'lloydsbankinggroup.com'
+};
+
+function guessDomain(name){
+  if(!name) return null;
+  if(_domainCache[name]!==undefined) return _domainCache[name];
+  // Exact match
+  if(companyLogos[name]){ _domainCache[name]=companyLogos[name]; return companyLogos[name]; }
+  // Partial match (name contains key or key contains name)
+  var nu = name.toUpperCase();
+  for(var k in companyLogos){
+    var ku = k.toUpperCase();
+    if(nu===ku || (ku.length>=4 && (nu.indexOf(ku)===0 || ku.indexOf(nu)===0))){
+      _domainCache[name]=companyLogos[k]; return companyLogos[k];
+    }
+  }
+  // Auto guess
+  var stripped = name.replace(/\b(Inc|Corp|PLC|SA|AG|SE|NV|Ltd|Co|Group|Holding|Holdings|International|Intl|Technologies|Systems|Platforms|SpA|NV|GmbH)\b\.?/gi,'').trim();
+  var words = stripped.split(/\s+/).filter(function(w){return w.length>0;});
+  var d = null;
+  if(words.length===1) d = words[0].toLowerCase()+'.com';
+  else if(words.length>=2){
+    var w1 = words[0].toLowerCase();
+    if(w1.length<=3) d = (w1+words[1].toLowerCase())+'.com';
+    else d = w1+'.com';
+  }
+  _domainCache[name]=d; return d;
+}
+
+function initials(name){
+  return String(name||'').replace(/\b(Inc|Corp|PLC|SA|AG|SE|NV|Ltd|Co|Group|Holding)\b/gi,'').trim()
+    .split(/\s+/).map(function(w){return w[0]||'';}).join('').slice(0,2).toUpperCase();
+}
+
+function logoHTML(name, size){
+  var d = guessDomain(name);
+  var ini = initials(name);
+  var sz = size || 22;
+  var style = size && size!==22 ? ' style="width:'+sz+'px;height:'+sz+'px;font-size:'+(sz<20?'7':'10')+'px"' : '';
+  // Indices (SX5E / SPX / SMI): show a gold square with "IDX"
+  if(d === '__INDEX__'){
+    return '<span class="cf cf-indice"' + style + '>' + esc(name) + '</span>';
+  }
+  var fb = encodeURIComponent('<span class="cf"' + style + '>' + ini + '</span>');
+  if(!d) return '<span class="cf"' + style + '>' + ini + '</span>';
+  return '<img class="cl"' + style + ' src="https://www.google.com/s2/favicons?domain='+encodeURIComponent(d)+'&sz=64" onerror="this.outerHTML=decodeURIComponent(this.dataset.fb)" data-fb="'+fb+'">';
+}
+
+// ═══════════════════════════════════════════════════════════════
+// PARSE EXCEL
+// Structure of Feuil1 (based on analysis):
+//   Header rows describe BRC and RC products
+//   Then blocks per currency (CHF / EUR / USD / GBP)
+//   Each block: header "in XXX" + rows "Theme | U1 | U2 | U3 | BRC75% | BRC80% | RC75% | RC80%"
+// ═══════════════════════════════════════════════════════════════
+function parseExcel(arrayBuffer){
+  var workbook = XLSX.read(arrayBuffer, { type: 'array' });
+  var sheet = workbook.Sheets['Feuil1'] || workbook.Sheets[workbook.SheetNames[0]];
+  var rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: '' });
+
+  var out = [];
+  var currentCcy = null;
+
+  for (var i = 0; i < rows.length; i++) {
+    var r = rows[i];
+    if (!r || r.length === 0) continue;
+    var c0 = String(r[0]||'').trim();
+    var c1 = String(r[1]||'').trim();
+
+    // Detect currency block header: "in CHF", "in EUR", ... (always in col 0)
+    if (/^in\s+(CHF|EUR|USD|GBP)$/i.test(c0)) {
+      currentCcy = c0.replace(/^in\s+/i,'').toUpperCase();
+      continue;
+    }
+
+    // Data row: theme in col 1, 3 underlyings in cols 2/3/4, coupons in cols 5/6/7/8
+    if (currentCcy && c1 && r[2] && r[3] && r[4]) {
+      // Skip parasitic rows like "in USD" appearing in GBP block
+      if (/^in\s+(CHF|EUR|USD|GBP)$/i.test(c1)) continue;
+      var theme = c1;
+      var u1 = String(r[2]||'').trim();
+      var u2 = String(r[3]||'').trim();
+      var u3 = String(r[4]||'').trim();
+      var brc75 = typeof r[5] === 'number' ? r[5] : null;
+      var brc80 = typeof r[6] === 'number' ? r[6] : null;
+      var rc75  = typeof r[7] === 'number' ? r[7] : null;
+      var rc80  = typeof r[8] === 'number' ? r[8] : null;
+
+      // Skip rows with no coupon at all
+      if (brc75 === null && brc80 === null && rc75 === null && rc80 === null) continue;
+
+      // Auto-detect region and sector from theme name
+      var themeLower = theme.toLowerCase();
+      var region = 'Global'; // Default for generic themes (Indices, High coupon, etc.)
+      if (/swiss/.test(themeLower)) region = 'Swiss';
+      else if (/\bUK\b|british|london/i.test(theme)) region = 'UK';
+      else if (/french/.test(themeLower)) region = 'French';
+      else if (/\beuropean\b|\beuro\b/.test(themeLower)) region = 'European';
+      else if (/\bUS\b|american/i.test(theme)) region = 'US';
+
+      var sector = 'Broad'; // Default for themes that are not sector-specific
+      if (/healthcare|medtech|pharma/.test(themeLower)) sector = 'Healthcare';
+      else if (/tech|telecom/.test(themeLower)) sector = 'Tech';
+      else if (/insurance|bank|financial/.test(themeLower)) sector = 'Financials';
+      else if (/industrial|builder|defense|cars|mobility|energy/.test(themeLower)) sector = 'Industrials';
+      else if (/goods|lux|food|retail/.test(themeLower)) sector = 'Consumer';
+      else if (/chemical|mining|materials/.test(themeLower)) sector = 'Materials';
+
+      // Check if theme has index underlying (SX5E, SMI, SPX)
+      var hasIndex = [u1,u2,u3].some(function(u){ return /^(SX5E|SMI|SPX|NDX|DAX|CAC)$/i.test(u); });
+
+      // Max coupon across all 4 columns (used for range filter)
+      var maxCoupon = Math.max(
+        brc75 || 0, brc80 || 0, rc75 || 0, rc80 || 0
+      );
+
+      out.push({
+        ccy: currentCcy,
+        theme: theme,
+        region: region,
+        sector: sector,
+        hasIndex: hasIndex,
+        maxCoupon: maxCoupon,
+        underlyings: [u1, u2, u3],
+        brc75: brc75,
+        brc80: brc80,
+        rc75: rc75,
+        rc80: rc80
+      });
+    }
+  }
+
+  return out;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// HEATMAP: classify coupon cells by ccy x product type
+// ═══════════════════════════════════════════════════════════════
+function buildHeatmap() {
+  // For each currency x product type, compute quartiles to classify
+  var maps = {}; // { 'CHF_brc75': [sorted values], ... }
+  ['CHF','EUR','USD','GBP'].forEach(function(c) {
+    ['brc75','brc80','rc75','rc80'].forEach(function(p) {
+      var vals = themes.filter(function(t){return t.ccy===c && t[p]!==null;}).map(function(t){return t[p];});
+      vals.sort(function(a,b){return b-a;}); // desc
+      maps[c+'_'+p] = vals;
+    });
+  });
+  return maps;
+}
+
+function couponClass(heat, ccy, ptype, value) {
+  if (value === null || value === undefined) return 'c-na';
+  var arr = heat[ccy+'_'+ptype] || [];
+  if (arr.length === 0) return 'c-low';
+  var idx = arr.indexOf(value);
+  if (idx < 3) return 'c-top';
+  var p33 = arr[Math.floor(arr.length * 0.33)];
+  var p66 = arr[Math.floor(arr.length * 0.66)];
+  if (value >= p33) return 'c-hi';
+  if (value >= p66) return 'c-mid';
+  return 'c-low';
+}
+
+// ═══════════════════════════════════════════════════════════════
+// RENDER FILTERS
+// ═══════════════════════════════════════════════════════════════
+// Count pool: apply all filters EXCEPT the one specified (so chip counts are adaptive)
+function poolExcept(group) {
+  var data = themes.slice();
+  if (group !== 'ccy' && filters.ccy.length > 0) data = data.filter(function(t){return filters.ccy.indexOf(t.ccy)>-1;});
+  if (group !== 'region' && filters.region.length > 0) data = data.filter(function(t){return filters.region.indexOf(t.region)>-1;});
+  if (group !== 'sector' && filters.sector.length > 0) data = data.filter(function(t){return filters.sector.indexOf(t.sector)>-1;});
+  if (group !== 'ptype' && filters.ptype.length > 0) {
+    data = data.filter(function(t) {
+      return filters.ptype.some(function(p) {
+        if (p === 'brc') return t.brc75 !== null || t.brc80 !== null;
+        if (p === 'rc')  return t.rc75 !== null || t.rc80 !== null;
+        return false;
+      });
+    });
+  }
+  if (group !== 'strike' && filters.strike.length > 0) {
+    data = data.filter(function(t) {
+      return filters.strike.some(function(s) {
+        if (s === '75') return t.brc75 !== null || t.rc75 !== null;
+        if (s === '80') return t.brc80 !== null || t.rc80 !== null;
+        return false;
+      });
+    });
+  }
+  if (group !== 'search' && filters.search) {
+    var q = filters.search.toLowerCase();
+    data = data.filter(function(t) {
+      if (t.theme.toLowerCase().indexOf(q) > -1) return true;
+      return t.underlyings.some(function(u){return u.toLowerCase().indexOf(q)>-1;});
+    });
+  }
+  if (group !== 'range') {
+    var rMin = filters.couponMin / 100;
+    var rMax = filters.couponMax / 100;
+    data = data.filter(function(t) {
+      return [t.brc75, t.brc80, t.rc75, t.rc80].some(function(v) {
+        return v !== null && v >= rMin && v <= rMax;
+      });
+    });
+  }
+  if (group !== 'topY' && filters.topYieldsOnly) {
+    var allMax = themes.map(function(t){return t.maxCoupon;}).sort(function(a,b){return b-a;});
+    var threshold = allMax[Math.floor(allMax.length * 0.1)] || 0;
+    data = data.filter(function(t){return t.maxCoupon >= threshold;});
+  }
+  return data;
+}
+
+function renderFilters() {
+  // Currency chips (adaptive: count based on other filters)
+  var pool_ccy = poolExcept('ccy');
+  var ccys = ['CHF','EUR','USD','GBP'];
+  document.getElementById('f-ccy').innerHTML = ccys.map(function(c) {
+    var on = filters.ccy.indexOf(c) > -1;
+    var count = pool_ccy.filter(function(t){return t.ccy===c;}).length;
+    var disabled = count === 0 && !on;
+    return '<button class="fg-chip ccy-'+c.toLowerCase()+(on?' on':'')+(disabled?' disabled':'')+'"' +
+      (disabled ? '' : ' onclick="Run.toggleCcy(\''+c+'\')"') +
+      ' title="'+count+' themes">'+c+'</button>';
+  }).join('');
+
+  // Region chips (adaptive)
+  var pool_reg = poolExcept('region');
+  var regs = ['Swiss','European','French','US','UK','Global'];
+  document.getElementById('f-region').innerHTML = regs.map(function(r) {
+    var on = filters.region.indexOf(r) > -1;
+    var count = pool_reg.filter(function(t){return t.region===r;}).length;
+    var disabled = count === 0 && !on;
+    return '<button class="fg-chip'+(on?' on':'')+(disabled?' disabled':'')+'"' +
+      (disabled ? '' : ' onclick="Run.toggleRegion(\''+r+'\')"') +
+      ' title="'+count+' themes">'+r+' <span style="opacity:.5;font-weight:400">'+count+'</span></button>';
+  }).join('');
+
+  // Sector chips (adaptive)
+  var pool_sec = poolExcept('sector');
+  var secs = ['Healthcare','Tech','Financials','Industrials','Consumer','Materials','Broad'];
+  document.getElementById('f-sector').innerHTML = secs.map(function(s) {
+    var on = filters.sector.indexOf(s) > -1;
+    var count = pool_sec.filter(function(t){return t.sector===s;}).length;
+    var disabled = count === 0 && !on;
+    return '<button class="fg-chip'+(on?' on':'')+(disabled?' disabled':'')+'"' +
+      (disabled ? '' : ' onclick="Run.toggleSector(\''+s+'\')"') +
+      ' title="'+count+' themes">'+s+' <span style="opacity:.5;font-weight:400">'+count+'</span></button>';
+  }).join('');
+
+  // Product type chips (adaptive)
+  var pool_pt = poolExcept('ptype');
+  var ptypes = [
+    {k:'brc',l:'BRC',check:function(t){return t.brc75!==null || t.brc80!==null;}},
+    {k:'rc',l:'RC',check:function(t){return t.rc75!==null || t.rc80!==null;}}
+  ];
+  document.getElementById('f-ptype').innerHTML = ptypes.map(function(p) {
+    var on = filters.ptype.indexOf(p.k) > -1;
+    var count = pool_pt.filter(p.check).length;
+    var disabled = count === 0 && !on;
+    return '<button class="fg-chip'+(on?' on':'')+(disabled?' disabled':'')+'"' +
+      (disabled ? '' : ' onclick="Run.togglePtype(\''+p.k+'\')"') +
+      ' title="'+count+' themes">'+p.l+'</button>';
+  }).join('');
+
+  // Strike chips (adaptive)
+  var pool_str = poolExcept('strike');
+  var strikes = [
+    {k:'75',l:'75%',check:function(t){return t.brc75!==null || t.rc75!==null;}},
+    {k:'80',l:'80%',check:function(t){return t.brc80!==null || t.rc80!==null;}}
+  ];
+  document.getElementById('f-strike').innerHTML = strikes.map(function(s) {
+    var on = filters.strike.indexOf(s.k) > -1;
+    var count = pool_str.filter(s.check).length;
+    var disabled = count === 0 && !on;
+    return '<button class="fg-chip'+(on?' on':'')+(disabled?' disabled':'')+'"' +
+      (disabled ? '' : ' onclick="Run.toggleStrike(\''+s.k+'\')"') +
+      ' title="'+count+' themes">'+s.l+'</button>';
+  }).join('');
+
+  // Top yields toggle
+  var pool_ty = poolExcept('topY');
+  var topCount = 0;
+  if (pool_ty.length) {
+    var allMax = themes.map(function(t){return t.maxCoupon;}).sort(function(a,b){return b-a;});
+    var threshold = allMax[Math.floor(allMax.length * 0.1)] || 0;
+    topCount = pool_ty.filter(function(t){return t.maxCoupon >= threshold;}).length;
+  }
+  document.getElementById('f-topyield').innerHTML =
+    '<button class="fg-chip'+(filters.topYieldsOnly?' on':'')+'" onclick="Run.toggleTopYields()" style="width:100%">' +
+    (filters.topYieldsOnly ? '\u2713 Top 10% yields only ('+topCount+')' : 'Show all yields') +
+    '</button>';
+
+  // Range slider values
+  document.getElementById('slider-min').value = filters.couponMin;
+  document.getElementById('slider-max').value = filters.couponMax;
+  document.getElementById('slider-lbl').textContent = filters.couponMin + '% - ' + filters.couponMax + '%';
+  updateSliderFill();
+}
+
+function updateSliderFill() {
+  // Visual fill between the two sliders
+  var minP = (filters.couponMin / 30) * 100;
+  var maxP = (filters.couponMax / 30) * 100;
+  var track = document.getElementById('slider-track');
+  if (track) {
+    track.style.background =
+      'linear-gradient(to right, ' +
+      '#e5e7eb 0%, #e5e7eb ' + minP + '%, ' +
+      'var(--purple) ' + minP + '%, var(--purple) ' + maxP + '%, ' +
+      '#e5e7eb ' + maxP + '%, #e5e7eb 100%)';
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// APPLY FILTERS
+// ═══════════════════════════════════════════════════════════════
+function applyFilters() {
+  var data = themes.slice();
+
+  // Currency
+  if (filters.ccy.length > 0) data = data.filter(function(t){return filters.ccy.indexOf(t.ccy)>-1;});
+
+  // Region
+  if (filters.region.length > 0) data = data.filter(function(t){return filters.region.indexOf(t.region)>-1;});
+
+  // Sector
+  if (filters.sector.length > 0) data = data.filter(function(t){return filters.sector.indexOf(t.sector)>-1;});
+
+  // Search
+  if (filters.search) {
+    var q = filters.search.toLowerCase();
+    data = data.filter(function(t) {
+      if (t.theme.toLowerCase().indexOf(q) > -1) return true;
+      return t.underlyings.some(function(u){return u.toLowerCase().indexOf(q)>-1;});
+    });
+  }
+
+  // Product type: needs at least one coupon visible in the allowed types
+  if (filters.ptype.length > 0) {
+    data = data.filter(function(t) {
+      return filters.ptype.some(function(p) {
+        if (p === 'brc') return t.brc75 !== null || t.brc80 !== null;
+        if (p === 'rc')  return t.rc75 !== null || t.rc80 !== null;
+        return false;
+      });
+    });
+  }
+
+  // Strike
+  if (filters.strike.length > 0) {
+    data = data.filter(function(t) {
+      return filters.strike.some(function(s) {
+        if (s === '75') return t.brc75 !== null || t.rc75 !== null;
+        if (s === '80') return t.brc80 !== null || t.rc80 !== null;
+        return false;
+      });
+    });
+  }
+
+  // Coupon range: keep themes where at least one coupon falls within [min, max]
+  var rMin = filters.couponMin / 100;
+  var rMax = filters.couponMax / 100;
+  data = data.filter(function(t) {
+    return [t.brc75, t.brc80, t.rc75, t.rc80].some(function(v) {
+      return v !== null && v >= rMin && v <= rMax;
+    });
+  });
+
+  // Top yields only: global top 10% by maxCoupon
+  if (filters.topYieldsOnly) {
+    var allMax = themes.map(function(t){return t.maxCoupon;}).sort(function(a,b){return b-a;});
+    var threshold = allMax[Math.floor(allMax.length * 0.1)] || 0;
+    data = data.filter(function(t){return t.maxCoupon >= threshold;});
+  }
+
+  return data;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// RENDER TABLE
+// ═══════════════════════════════════════════════════════════════
+function renderTable() {
+  var heat = buildHeatmap();
+  var data = applyFilters();
+  var container = document.getElementById('tw-run');
+  document.getElementById('tbar-count').textContent = data.length + ' theme' + (data.length>1?'s':'') + ' matching';
+  document.getElementById('k-match').textContent = data.length;
+
+  if (data.length === 0) {
+    container.innerHTML = '<div class="no-results">No matching products. Try clearing filters.</div>';
+    return;
+  }
+
+  // Group by currency for section headers
+  var byCcy = {};
+  data.forEach(function(t) {
+    if (!byCcy[t.ccy]) byCcy[t.ccy] = [];
+    byCcy[t.ccy].push(t);
+  });
+
+  var html = '<table class="run"><thead><tr>' +
+    '<th style="min-width:180px">Theme</th>' +
+    '<th style="min-width:160px">Underlying 1</th>' +
+    '<th style="min-width:160px">Underlying 2</th>' +
+    '<th style="min-width:160px">Underlying 3</th>' +
+    '<th class="coupon-head">BRC 75%<span class="sub">at maturity</span></th>' +
+    '<th class="coupon-head">BRC 80%<span class="sub">at maturity</span></th>' +
+    '<th class="coupon-head">RC 75%<span class="sub">Low Strike</span></th>' +
+    '<th class="coupon-head">RC 80%<span class="sub">Low Strike</span></th>' +
+    '</tr></thead><tbody>';
+
+  ['CHF','EUR','USD','GBP'].forEach(function(ccy) {
+    var rows = byCcy[ccy];
+    if (!rows || rows.length === 0) return;
+    html += '<tr class="group-sep"><td colspan="8">' + ccy + ' &middot; ' + rows.length + ' theme' + (rows.length>1?'s':'') + '</td></tr>';
+    rows.forEach(function(t, idx) {
+      var undHtml = t.underlyings.map(function(u) {
+        return '<td class="und-cell"><div class="und-inner">' + logoHTML(u) + '<span class="und-name">' + esc(u) + '</span></div></td>';
+      }).join('');
+
+      function coupCell(val, ptype) {
+        var cls = couponClass(heat, t.ccy, ptype, val);
+        var txt = val !== null ? (val*100).toFixed(2) + '%' : '-';
+        return '<td class="coupon-cell ' + cls + '">' + txt + '</td>';
+      }
+
+      html += '<tr class="data-row" onclick="Run.openModal(\'' + ccy + '\',' + idx + ')">' +
+        '<td class="theme-cell">' + esc(t.theme) + '</td>' +
+        undHtml +
+        coupCell(t.brc75, 'brc75') +
+        coupCell(t.brc80, 'brc80') +
+        coupCell(t.rc75, 'rc75') +
+        coupCell(t.rc80, 'rc80') +
+        '</tr>';
+    });
+  });
+
+  html += '</tbody></table>';
+  container.innerHTML = html;
+  // Store for modal retrieval
+  window._runByCcy = byCcy;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// MODAL (product detail)
+// ═══════════════════════════════════════════════════════════════
+function openModal(ccy, idx) {
+  var t = (window._runByCcy[ccy] || [])[idx];
+  if (!t) return;
+
+  var undCards = t.underlyings.map(function(u, i) {
+    return '<div class="und-card">' +
+      '<div class="und-card-lbl">Underlying ' + (i+1) + '</div>' +
+      '<div class="und-card-logo">' + logoHTML(u, 32) + '</div>' +
+      '<div class="und-card-name">' + esc(u) + '</div>' +
+    '</div>';
+  }).join('');
+
+  function couponRow(val, label, ptype, strike, barrier) {
+    if (val === null) return '';
+    var pTypeCls = ptype === 'BRC' ? 'ptype-brc' : 'ptype-rc';
+    return '<div class="kv">' +
+      '<span class="kv-k"><span class="ptype-badge ' + pTypeCls + '">' + ptype + '</span>' + label + '</span>' +
+      '<span class="kv-v" style="font-size:15px;color:var(--purple)">' + (val*100).toFixed(2) + '%</span>' +
+    '</div>';
+  }
+
+  // Best coupon for headline
+  var coupons = [
+    {v:t.brc75, t:'BRC', s:'75%'}, {v:t.brc80, t:'BRC', s:'80%'},
+    {v:t.rc75, t:'RC', s:'75%'}, {v:t.rc80, t:'RC', s:'80%'}
+  ].filter(function(x){return x.v !== null;}).sort(function(a,b){return b.v - a.v;});
+  var best = coupons[0];
+
+  // Redemption scenario table for BRC
+  var brcScenHtml = '';
+  if (t.brc75 !== null || t.brc80 !== null) {
+    var useBarrier = t.brc75 !== null ? 0.75 : 0.80;
+    var useCoupon = t.brc75 !== null ? t.brc75 : t.brc80;
+    var couponSingle = useCoupon / 4; // Quarterly approx for illustration
+    brcScenHtml =
+      '<div class="msec">' +
+      '<div class="msec-head">Redemption Scenario &middot; Barrier Reverse Convertible (' + (useBarrier*100).toFixed(0) + '% barrier)</div>' +
+      '<div class="msec-body">' +
+      '<p style="font-size:10px;color:var(--tm);margin-bottom:10px;font-family:var(--font-b);font-style:italic">For illustration purposes. Coupon: ' + (useCoupon*100).toFixed(2) + '%. Autocall trigger: 100%.</p>' +
+      '<table class="scen">' +
+      '<thead><tr>' +
+        '<th>Worst-of level</th>' +
+        '<th>0%</th><th>' + (useBarrier*50).toFixed(0) + '%</th>' +
+        '<th>' + (useBarrier*100-10).toFixed(0) + '%</th>' +
+        '<th>' + (useBarrier*100).toFixed(0) + '%</th>' +
+        '<th>90%</th><th>100%</th><th>110%</th>' +
+      '</tr></thead>' +
+      '<tbody><tr>' +
+        '<td>Total redemption</td>' +
+        '<td class="neg">' + (useCoupon*100).toFixed(2) + '%</td>' +
+        '<td class="neg">' + (50+useCoupon*100).toFixed(2) + '%</td>' +
+        '<td class="neg">' + ((useBarrier*100-10)+useCoupon*100).toFixed(2) + '%</td>' +
+        '<td class="par">' + ((useBarrier*100)+useCoupon*100).toFixed(2) + '%</td>' +
+        '<td class="par">' + (90+useCoupon*100).toFixed(2) + '%</td>' +
+        '<td class="pos">' + (100+useCoupon*100).toFixed(2) + '%</td>' +
+        '<td class="pos">' + (100+useCoupon*100).toFixed(2) + '%</td>' +
+      '</tr></tbody></table>' +
+      '<p style="font-size:9px;color:var(--tm);margin-top:10px;line-height:1.5">If all underlyings close above the barrier at maturity: 100% capital + coupon. Otherwise, physical delivery of the worst performer at final level.</p>' +
+      '</div></div>';
+  }
+
+  var rcScenHtml = '';
+  if (t.rc75 !== null || t.rc80 !== null) {
+    var useStrike = t.rc75 !== null ? 0.75 : 0.80;
+    var useCouponRC = t.rc75 !== null ? t.rc75 : t.rc80;
+    rcScenHtml =
+      '<div class="msec">' +
+      '<div class="msec-head">Redemption Scenario &middot; Reverse Convertible (' + (useStrike*100).toFixed(0) + '% low strike)</div>' +
+      '<div class="msec-body">' +
+      '<p style="font-size:10px;color:var(--tm);margin-bottom:10px;font-family:var(--font-b);font-style:italic">For illustration purposes. Coupon: ' + (useCouponRC*100).toFixed(2) + '%. Autocall trigger: 100%.</p>' +
+      '<table class="scen">' +
+      '<thead><tr>' +
+        '<th>Worst-of level</th>' +
+        '<th>0%</th>' +
+        '<th>' + (useStrike*50).toFixed(0) + '%</th>' +
+        '<th>' + (useStrike*100-4).toFixed(0) + '%</th>' +
+        '<th>' + (useStrike*100).toFixed(0) + '%</th>' +
+        '<th>90%</th><th>100%</th><th>110%</th>' +
+      '</tr></thead>' +
+      '<tbody><tr>' +
+        '<td>Total redemption</td>' +
+        '<td class="neg">' + (useCouponRC*100).toFixed(2) + '%</td>' +
+        '<td class="neg">' + (useStrike*50+useCouponRC*100).toFixed(2) + '%</td>' +
+        '<td class="neg">' + ((useStrike*100-4)+useCouponRC*100).toFixed(2) + '%</td>' +
+        '<td class="par">' + ((useStrike*100)+useCouponRC*100).toFixed(2) + '%</td>' +
+        '<td class="par">' + (90+useCouponRC*100).toFixed(2) + '%</td>' +
+        '<td class="pos">' + (100+useCouponRC*100).toFixed(2) + '%</td>' +
+        '<td class="pos">' + (100+useCouponRC*100).toFixed(2) + '%</td>' +
+      '</tr></tbody></table>' +
+      '<p style="font-size:9px;color:var(--tm);margin-top:10px;line-height:1.5">If all underlyings close above low strike at maturity: 100% capital + coupon. Otherwise, physical delivery at a discount to initial level.</p>' +
+      '</div></div>';
+  }
+
+  var html =
+    '<div class="mhdr">' +
+      '<div class="mhdr-actions">' +
+        '<button class="mclose" onclick="Run.closeModal()" style="margin:0">&#10005; Close</button>' +
+        '<div style="margin-left:auto">' +
+          '<button class="mexp" onclick="Run.exportDetailPDF(\'' + ccy + '\',' + idx + ')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Export PDF</button>' +
+        '</div>' +
+      '</div>' +
+      '<div class="mtag">' + ccy + ' &middot; Yield Enhancement Note</div>' +
+      '<div class="mname">' + esc(t.theme) + '</div>' +
+      '<div class="msub">Best coupon: <b style="color:var(--gold);font-size:14px">' + (best.v*100).toFixed(2) + '%</b> &middot; ' + best.t + ' ' + best.s + '</div>' +
+    '</div>' +
+    '<div class="mbody">' +
+      // Underlyings
+      '<div class="msec">' +
+        '<div class="msec-head">Underlyings</div>' +
+        '<div class="msec-body"><div class="und-grid">' + undCards + '</div></div>' +
+      '</div>' +
+      // Coupons summary
+      '<div class="msec">' +
+        '<div class="msec-head">Indicative Coupons (p.a.)</div>' +
+        '<div class="msec-body">' +
+          couponRow(t.brc75, ' &middot; 75% barrier at maturity', 'BRC', '75%', '75%') +
+          couponRow(t.brc80, ' &middot; 80% barrier at maturity', 'BRC', '80%', '80%') +
+          couponRow(t.rc75,  ' &middot; 75% low strike',          'RC',  '75%', '-') +
+          couponRow(t.rc80,  ' &middot; 80% low strike',          'RC',  '80%', '-') +
+        '</div>' +
+      '</div>' +
+      // Product terms
+      '<div class="msec">' +
+        '<div class="msec-head">Product Terms</div>' +
+        '<div class="msec-body">' +
+          '<div class="mgrid">' +
+            '<div class="mbox"><div class="mbox-lbl">Maturity</div><div class="mbox-val">1 Year</div></div>' +
+            '<div class="mbox"><div class="mbox-lbl">Frequency</div><div class="mbox-val">Quarterly</div></div>' +
+            '<div class="mbox"><div class="mbox-lbl">Min size</div><div class="mbox-val">200k</div></div>' +
+          '</div>' +
+          '<div style="margin-top:12px;font-size:10px;color:var(--tm);line-height:1.6">' +
+            'Quarterly autocallable from the 6th month if all shares close above their initial level. Guaranteed coupon.' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+      brcScenHtml +
+      rcScenHtml +
+      // Disclaimer
+      '<div style="padding:14px;background:var(--s2);border-left:3px solid var(--gold);font-size:9px;color:var(--tm);font-family:var(--font-b);line-height:1.6">' +
+        'Terms are strictly indicative and subject to market conditions. Termsheets and KIDs available upon request. For Advisory Clients, a KID must be provided before trading. Structured Products cannot be offered to Execution Only Clients. Minimum size: 200k.' +
+      '</div>' +
+    '</div>';
+
+  document.getElementById('modal-content').innerHTML = html;
+  document.getElementById('prod-modal').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('prod-modal').classList.remove('open');
+}
+
+// ═══════════════════════════════════════════════════════════════
+// EXPORT PDF (product detail one-pager)
+// ═══════════════════════════════════════════════════════════════
+function exportDetailPDF(ccy, idx) {
+  var t = (window._runByCcy[ccy] || [])[idx];
+  if (!t) return;
+  if (!window.jspdf) { alert('jsPDF library not loaded yet'); return; }
+
+  var doc = new window.jspdf.jsPDF({ orientation:'portrait', unit:'pt', format:'a4' });
+  var W = doc.internal.pageSize.getWidth();   // 595
+  var H = doc.internal.pageSize.getHeight();  // 842
+  var M = 30;
+  var CW = W - 2*M; // 535
+  var navy=[0,42,74], gold=[188,150,84], grey=[107,128,151], white=[255,255,255];
+  var green=[45,106,79], red=[192,57,43], purple=[109,40,217], bg=[248,249,251];
+  var y = 0;
+
+  // ── HEADER ──
+  doc.setFillColor.apply(doc, navy); doc.rect(0,0,W,60,'F');
+  doc.setFillColor.apply(doc, gold); doc.rect(0,60,W,3,'F');
+  doc.setFontSize(7); doc.setTextColor.apply(doc, gold);
+  doc.text('MIRABAUD  |  FINANCIAL RESEARCH  |  SP RUN ONE-PAGER', M, 16);
+  doc.setFontSize(17); doc.setTextColor.apply(doc, white);
+  doc.text((t.theme || '').toUpperCase(), M, 38);
+  doc.setFontSize(8); doc.setTextColor(175,190,214);
+  doc.text(ccy + '  \u00B7  ' + t.region + '  \u00B7  ' + t.sector + '  \u00B7  Yield Enhancement Note', M, 52);
+  doc.setFontSize(9); doc.setTextColor.apply(doc, gold);
+  doc.text('1 YEAR  \u00B7  QUARTERLY', W-M, 30, {align:'right'});
+  doc.setTextColor.apply(doc, white); doc.setFontSize(10);
+  doc.text('Min size: 200k', W-M, 46, {align:'right'});
+  y = 75;
+
+  // ── HELPERS ──
+  function secBar(title) {
+    doc.setFillColor.apply(doc, navy); doc.rect(M, y, CW, 14, 'F');
+    doc.setFontSize(7); doc.setTextColor.apply(doc, white); doc.setFont(undefined,'bold');
+    doc.text(title.toUpperCase(), M+6, y+10); y += 20;
+  }
+  function kvLine(x, w, label, value, color) {
+    doc.setFontSize(8); doc.setTextColor.apply(doc, grey); doc.setFont(undefined,'normal');
+    doc.text(label, x, y);
+    doc.setTextColor.apply(doc, color||navy); doc.setFont(undefined,'bold');
+    doc.text(String(value||'-'), x+w, y, {align:'right'}); y += 12;
+  }
+
+  // ── BEST COUPON BAR ──
+  var coupons = [
+    {v:t.brc75, t:'BRC', s:'75%'}, {v:t.brc80, t:'BRC', s:'80%'},
+    {v:t.rc75, t:'RC', s:'75%'}, {v:t.rc80, t:'RC', s:'80%'}
+  ].filter(function(x){return x.v!==null;}).sort(function(a,b){return b.v-a.v;});
+  var best = coupons[0];
+  doc.setFillColor.apply(doc, purple); doc.rect(M, y, CW, 40, 'F');
+  doc.setFontSize(8); doc.setTextColor(230,215,255); doc.setFont(undefined,'normal');
+  doc.text('BEST INDICATIVE COUPON', M+12, y+14);
+  doc.setFontSize(22); doc.setTextColor.apply(doc, white); doc.setFont(undefined,'bold');
+  doc.text((best.v*100).toFixed(2) + '%', M+12, y+33);
+  doc.setFontSize(10); doc.setTextColor(230,215,255); doc.setFont(undefined,'normal');
+  doc.text(best.t + ' ' + best.s, W-M-12, y+28, {align:'right'});
+  y += 50;
+
+  // ── UNDERLYINGS (3 boxes) ──
+  secBar('Underlyings');
+  var bw = (CW - 10) / 3;
+  t.underlyings.forEach(function(u, i) {
+    var x = M + i*(bw+5);
+    doc.setFillColor.apply(doc, bg); doc.rect(x, y, bw, 44, 'F');
+    doc.setDrawColor(221,227,236); doc.rect(x, y, bw, 44, 'S');
+    doc.setFontSize(7); doc.setTextColor.apply(doc, grey); doc.setFont(undefined,'normal');
+    doc.text('UNDERLYING ' + (i+1), x+8, y+12);
+    doc.setFontSize(12); doc.setTextColor.apply(doc, navy); doc.setFont(undefined,'bold');
+    var un = u.length > 24 ? u.substring(0,22) + '..' : u;
+    doc.text(un, x+8, y+30);
+  });
+  y += 54;
+
+  // ── COUPON TABLE (4 rows) ──
+  secBar('Indicative Coupons (p.a.)');
+  var couponRows = [
+    {label:'Barrier Reverse Convertible 75% at maturity', val:t.brc75, type:'BRC'},
+    {label:'Barrier Reverse Convertible 80% at maturity', val:t.brc80, type:'BRC'},
+    {label:'Reverse Convertible 75% Low Strike',          val:t.rc75, type:'RC'},
+    {label:'Reverse Convertible 80% Low Strike',          val:t.rc80, type:'RC'}
+  ];
+  couponRows.forEach(function(cr) {
+    var tagW = 32;
+    var tagCol = cr.type === 'BRC' ? purple : [57,122,169];
+    doc.setFillColor.apply(doc, tagCol); doc.rect(M, y-9, tagW, 13, 'F');
+    doc.setFontSize(7); doc.setTextColor.apply(doc, white); doc.setFont(undefined,'bold');
+    doc.text(cr.type, M+tagW/2, y, {align:'center'});
+    doc.setFontSize(9); doc.setTextColor.apply(doc, navy); doc.setFont(undefined,'normal');
+    doc.text(cr.label, M+tagW+6, y);
+    doc.setFontSize(12); doc.setFont(undefined,'bold');
+    if (cr.val !== null) {
+      doc.setTextColor.apply(doc, purple);
+      doc.text((cr.val*100).toFixed(2)+'%', W-M, y, {align:'right'});
+    } else {
+      doc.setTextColor.apply(doc, grey);
+      doc.text('-', W-M, y, {align:'right'});
+    }
+    y += 16;
+  });
+  y += 4;
+
+  // ── PRODUCT TERMS (3 boxes) ──
+  secBar('Product Terms');
+  var terms = [['Maturity','1 Year'],['Frequency','Quarterly'],['Min size','200k']];
+  terms.forEach(function(tm, i) {
+    var x = M + i*(bw+5);
+    doc.setFillColor.apply(doc, bg); doc.rect(x, y, bw, 38, 'F');
+    doc.setDrawColor(221,227,236); doc.rect(x, y, bw, 38, 'S');
+    doc.setFontSize(7); doc.setTextColor.apply(doc, grey); doc.setFont(undefined,'normal');
+    doc.text(tm[0].toUpperCase(), x+8, y+12);
+    doc.setFontSize(13); doc.setTextColor.apply(doc, navy); doc.setFont(undefined,'bold');
+    doc.text(tm[1], x+8, y+28);
+  });
+  y += 44;
+  doc.setFontSize(8); doc.setTextColor.apply(doc, grey); doc.setFont(undefined,'italic');
+  doc.text('Quarterly autocallable from the 6th month if all shares close above their initial level.', M, y);
+  y += 10;
+  doc.text('Guaranteed coupon. Autocall trigger: 100%.', M, y);
+  y += 14;
+
+  // ── REDEMPTION SCENARIO (BRC 75% if exists, else RC 75%) ──
+  var brcVal = t.brc75 !== null ? t.brc75 : t.brc80;
+  var brcBarrier = t.brc75 !== null ? 0.75 : 0.80;
+  if (brcVal !== null) {
+    secBar('Redemption Scenario  |  BRC ' + (brcBarrier*100).toFixed(0) + '% barrier');
+    var levels = [0, brcBarrier*50, brcBarrier*100-10, brcBarrier*100, 90, 100, 110];
+    var cellW = (CW - 100) / levels.length;
+
+    // Header row
+    doc.setFillColor(232,237,245); doc.rect(M, y, 100, 14, 'F');
+    doc.setFillColor(232,237,245); doc.rect(M+100, y, CW-100, 14, 'F');
+    doc.setFontSize(7); doc.setTextColor.apply(doc, navy); doc.setFont(undefined,'bold');
+    doc.text("Worst-of's level", M+4, y+10);
+    levels.forEach(function(lv, i) {
+      doc.text(lv.toFixed(0)+'%', M+100+i*cellW+cellW/2, y+10, {align:'center'});
+    });
+    y += 14;
+
+    // Data row
+    doc.setFillColor.apply(doc, bg); doc.rect(M, y, 100, 14, 'F');
+    doc.setFillColor.apply(doc, bg); doc.rect(M+100, y, CW-100, 14, 'F');
+    doc.setFontSize(7); doc.setTextColor.apply(doc, navy); doc.setFont(undefined,'normal');
+    doc.text('Total redemption', M+4, y+10);
+    var redemptions = levels.map(function(lv) {
+      if (lv < brcBarrier*100) return (lv + brcVal*100).toFixed(2) + '%';
+      return (100 + brcVal*100).toFixed(2) + '%';
+    });
+    redemptions.forEach(function(v, i) {
+      var col = levels[i] < brcBarrier*100 ? red : (levels[i] === brcBarrier*100 || levels[i] === 90 ? purple : green);
+      doc.setFont(undefined,'bold'); doc.setTextColor.apply(doc, col);
+      doc.text(v, M+100+i*cellW+cellW/2, y+10, {align:'center'});
+    });
+    y += 18;
+
+    doc.setFontSize(8); doc.setTextColor.apply(doc, grey); doc.setFont(undefined,'italic');
+    doc.text('If all underlyings close above barrier at maturity: 100% + coupon. Otherwise physical delivery of worst performer.', M, y);
+    y += 14;
+  }
+
+  // RC Scenario
+  var rcVal = t.rc75 !== null ? t.rc75 : t.rc80;
+  var rcStrike = t.rc75 !== null ? 0.75 : 0.80;
+  if (rcVal !== null && y < H - 120) {
+    secBar('Redemption Scenario  |  RC ' + (rcStrike*100).toFixed(0) + '% low strike');
+    var rcLevels = [0, rcStrike*50, rcStrike*100-4, rcStrike*100, 90, 100, 110];
+    var cellW2 = (CW - 100) / rcLevels.length;
+
+    doc.setFillColor(232,237,245); doc.rect(M, y, 100, 14, 'F');
+    doc.setFillColor(232,237,245); doc.rect(M+100, y, CW-100, 14, 'F');
+    doc.setFontSize(7); doc.setTextColor.apply(doc, navy); doc.setFont(undefined,'bold');
+    doc.text("Worst-of's level", M+4, y+10);
+    rcLevels.forEach(function(lv, i) {
+      doc.text(lv.toFixed(0)+'%', M+100+i*cellW2+cellW2/2, y+10, {align:'center'});
+    });
+    y += 14;
+
+    doc.setFillColor.apply(doc, bg); doc.rect(M, y, 100, 14, 'F');
+    doc.setFillColor.apply(doc, bg); doc.rect(M+100, y, CW-100, 14, 'F');
+    doc.setFontSize(7); doc.setTextColor.apply(doc, navy); doc.setFont(undefined,'normal');
+    doc.text('Total redemption', M+4, y+10);
+    var rcRedemptions = rcLevels.map(function(lv) {
+      if (lv < rcStrike*100) return (lv + rcVal*100).toFixed(2) + '%';
+      return (100 + rcVal*100).toFixed(2) + '%';
+    });
+    rcRedemptions.forEach(function(v, i) {
+      var col = rcLevels[i] < rcStrike*100 ? red : (rcLevels[i] === rcStrike*100 || rcLevels[i] === 90 ? purple : green);
+      doc.setFont(undefined,'bold'); doc.setTextColor.apply(doc, col);
+      doc.text(v, M+100+i*cellW2+cellW2/2, y+10, {align:'center'});
+    });
+    y += 16;
+  }
+
+  // ── FOOTER ──
+  var footY = H - 24;
+  doc.setFillColor.apply(doc, navy); doc.rect(0, footY-4, W, 28, 'F');
+  doc.setFillColor.apply(doc, gold); doc.rect(0, footY-4, W, 2, 'F');
+  doc.setFontSize(6); doc.setTextColor.apply(doc, gold);
+  doc.text('MIRABAUD & CIE SA  |  FINANCIAL RESEARCH  |  INTERNAL USE ONLY', M, footY+8);
+  doc.setTextColor(180,180,180);
+  doc.text('Indicative pricing. Terms subject to market conditions. KID required before trading for Advisory Clients.', M, footY+16);
+  doc.setTextColor.apply(doc, gold);
+  doc.text(new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'long',year:'numeric'}), W-M, footY+8, {align:'right'});
+
+  var fname = 'Mirabaud_SPRun_' + ccy + '_' + (t.theme || 'theme').replace(/[^a-zA-Z0-9]/g,'_').slice(0,30) + '_' + new Date().toISOString().slice(0,10) + '.pdf';
+  doc.save(fname);
+}
+
+// ═══════════════════════════════════════════════════════════════
+// LOADER
+// ═══════════════════════════════════════════════════════════════
+function load() {
+  fetch('/data/sp-run')
+    .then(function(r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.arrayBuffer();
+    })
+    .then(function(buf) {
+      themes = parseExcel(buf);
+      document.getElementById('k-themes').textContent = themes.length;
+      document.getElementById('k-date').textContent = 'Run loaded: ' + themes.length + ' themes';
+
+      // Try to detect date from a cell (optional - fallback to current date)
+      var today = new Date();
+      runDate = today.toLocaleDateString('en-GB', {day:'numeric',month:'long',year:'numeric'});
+      document.getElementById('tbar-date').textContent = 'Run date: ' + runDate;
+
+      renderFilters();
+      renderTable();
+    })
+    .catch(function(err) {
+      document.getElementById('tw-run').innerHTML =
+        '<div class="error-box">' +
+        '<div style="font-size:14px;margin-bottom:8px">Failed to load SP Run file</div>' +
+        '<div style="font-size:10px;font-family:var(--font-b);font-style:italic">' + esc(err.message) + '</div><br>' +
+        '<div style="font-size:10px;color:var(--tm);line-height:1.6">Check that start_server.py is running,<br>' +
+        'and that the file exists at<br>' +
+        '<code style="font-family:monospace;background:var(--s2);padding:2px 6px">G:\\IT Project\\ServeurWeb\\excel\\Run produits structur&eacute;s - Vontobel.xlsx</code></div>' +
+        '<button onclick="location.reload()">Retry</button></div>';
+    });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// PUBLIC API
+// ═══════════════════════════════════════════════════════════════
+return {
+  toggleCcy: function(c) { var i=filters.ccy.indexOf(c); if(i>-1)filters.ccy.splice(i,1); else filters.ccy.push(c); renderFilters(); renderTable(); },
+  togglePtype: function(p) { var i=filters.ptype.indexOf(p); if(i>-1)filters.ptype.splice(i,1); else filters.ptype.push(p); renderFilters(); renderTable(); },
+  toggleStrike: function(s) { var i=filters.strike.indexOf(s); if(i>-1)filters.strike.splice(i,1); else filters.strike.push(s); renderFilters(); renderTable(); },
+  toggleRegion: function(r) { var i=filters.region.indexOf(r); if(i>-1)filters.region.splice(i,1); else filters.region.push(r); renderFilters(); renderTable(); },
+  toggleSector: function(s) { var i=filters.sector.indexOf(s); if(i>-1)filters.sector.splice(i,1); else filters.sector.push(s); renderFilters(); renderTable(); },
+  toggleTopYields: function() { filters.topYieldsOnly = !filters.topYieldsOnly; renderFilters(); renderTable(); },
+  onSliderChange: function() {
+    var mn = parseInt(document.getElementById('slider-min').value);
+    var mx = parseInt(document.getElementById('slider-max').value);
+    // Prevent crossover
+    if (mn > mx - 1) {
+      if (this && this.id === 'slider-min') { mn = mx - 1; document.getElementById('slider-min').value = mn; }
+      else { mx = mn + 1; document.getElementById('slider-max').value = mx; }
+    }
+    filters.couponMin = mn;
+    filters.couponMax = mx;
+    document.getElementById('slider-lbl').textContent = mn + '% - ' + mx + '%';
+    updateSliderFill();
+    renderTable();
+  },
+  onFilter: function() { filters.search = document.getElementById('f-search').value; renderTable(); },
+  clearFilters: function() {
+    filters = { search:'', ccy:[], ptype:[], strike:[], region:[], sector:[], couponMin:0, couponMax:30, topYieldsOnly:false };
+    document.getElementById('f-search').value='';
+    renderFilters(); renderTable();
+  },
+  openModal: openModal,
+  closeModal: closeModal,
+  exportDetailPDF: exportDetailPDF,
+  init: load
+};
+
+})();
+
+window.addEventListener('DOMContentLoaded', function(){ Run.init(); });
+</script>
+</body>
+</html>

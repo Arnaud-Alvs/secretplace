@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mirabaud | Funds & ETFs</title>
+<style>
+:root{--navy:#002a4a;--blue:#397aa9;--blue-pale:#e8edf5;--gold:#bc9654;--gold-pale:#f5edd8;--white:#fff;--bg:#f4f5f7;--surface:#fff;--s2:#f8f9fb;--border:#dde3ec;--bm:#c8d2e0;--text:#002a4a;--tb:#1d3550;--tm:#6b8097;--green:#2d6a4f;--gp:#d8f3dc;--red:#c0392b;--font-d:'Century Gothic','Trebuchet MS',sans-serif;--font-b:'Baskerville','Georgia',serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{zoom:1.1}
+body{background:var(--bg);color:var(--text);font-family:var(--font-d);font-size:13px;height:100vh;overflow:hidden;display:flex;flex-direction:column}
+.g-nav{background:var(--navy);height:52px;display:flex;align-items:center;padding:0 28px;position:sticky;top:0;z-index:300;border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0}
+.g-logo{font-family:var(--font-d);font-weight:700;font-size:15px;letter-spacing:2.5px;text-transform:uppercase;color:#fff;text-decoration:none;flex-shrink:0}
+.g-logo-sub{font-size:9px;font-weight:400;letter-spacing:.2em;color:var(--gold);margin-left:10px;opacity:.9}
+.g-divider{width:1px;height:22px;background:rgba(255,255,255,.18);margin:0 20px;flex-shrink:0}
+.g-links{display:flex;align-items:center;gap:2px;flex:1}
+.g-link{font-family:var(--font-d);font-size:10px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none;padding:6px 12px;border-bottom:2px solid transparent;transition:all .15s;white-space:nowrap;height:100%}
+.g-link:hover{color:#fff;border-bottom-color:rgba(188,150,84,.5)}
+.g-link.active{color:#fff;border-bottom-color:var(--gold);font-weight:700}
+.g-badge{margin-left:auto;font-family:var(--font-d);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(188,150,84,.8);flex-shrink:0;padding:3px 10px;border:1px solid rgba(188,150,84,.3);border-radius:1px}
+.g-admin{font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);background:none;border:1px solid rgba(255,255,255,.14);padding:3px 8px;cursor:pointer;margin-left:8px}
+.p-strip{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 28px;display:flex;align-items:baseline;gap:14px;flex-shrink:0}
+.p-title{font-size:18px;font-weight:700;color:var(--navy)}
+.p-sub{font-family:var(--font-b);font-size:12px;color:var(--tm);font-style:italic}
+.p-kpis{margin-left:auto;display:flex;gap:8px}
+.p-kpi{background:var(--blue-pale);border:1px solid var(--border);border-radius:2px;padding:3px 10px;font-size:11px;color:var(--tm)}
+.p-kpi .v{color:var(--navy);font-weight:700;margin-left:4px}
+.ref-bar{background:var(--s2);border-bottom:1px solid var(--border);padding:6px 28px;display:flex;align-items:center;gap:8px;flex-shrink:0}
+.ref-btn{font-size:10px;font-weight:600;color:var(--navy);background:var(--surface);border:1px solid var(--border);padding:4px 10px;border-radius:2px;cursor:pointer;text-decoration:none}
+.ref-btn:hover{border-color:var(--gold);color:var(--gold)}
+.ref-lbl{font-size:8px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--tm);margin-right:6px}
+.fbar{background:var(--surface);border-bottom:1px solid var(--border);padding:8px 28px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;flex-shrink:0}
+.fbar input,.fbar select{border:1px solid var(--bm);border-radius:3px;padding:5px 10px;font-size:12px;font-family:var(--font-d);outline:none}
+.fbar input{width:220px}
+.tb2{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border:1px solid var(--border);background:var(--s2);cursor:pointer;color:var(--tm);border-radius:2px}
+.tb2:hover{color:var(--navy)}
+.tb2.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.rc{margin-left:auto;font-size:11px;color:var(--tm);font-style:italic;font-family:var(--font-b)}
+.tw{flex:1;overflow:auto}
+table{width:100%;border-collapse:collapse}
+thead{background:var(--navy);position:sticky;top:0;z-index:10}
+th{padding:7px 8px;text-align:left;font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);border-right:1px solid rgba(255,255,255,.08);white-space:nowrap}
+tr{border-bottom:1px solid var(--border)}
+tbody tr:hover{background:#edf2f7}
+tbody tr:nth-child(even){background:#f7f9fb}
+td{padding:5px 8px;font-size:11px;color:var(--tb);border-right:1px solid var(--border);white-space:nowrap}
+.nr{text-align:center;padding:32px;color:var(--tm);font-style:italic}
+.bg{display:inline-block;padding:2px 5px;border-radius:2px;font-size:9px;font-weight:600}
+.b-etf{background:var(--gold-pale);color:#7a5a1a;border:1px solid rgba(188,150,84,.3)}
+.b-idx{background:var(--blue-pale);color:var(--blue);border:1px solid rgba(57,122,169,.2)}
+.b-act{background:var(--gp);color:var(--green);border:1px solid rgba(45,106,79,.2)}
+.b-esg{background:var(--gp);color:var(--green);border:1px solid rgba(82,183,136,.35);font-size:8px}
+.po{display:none;position:fixed;inset:0;background:rgba(0,20,40,.75);z-index:1000}
+.po.open{display:flex;align-items:center;justify-content:center}
+.pm{background:var(--surface);border-radius:6px;width:92vw;height:92vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.45)}
+.ph{background:var(--navy);padding:12px 20px;display:flex;align-items:center;gap:14px;flex-shrink:0;border-bottom:2px solid var(--gold)}
+.pt2{font-family:var(--font-b);font-size:16px;color:var(--gold);flex:1}
+.pc{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:3px;padding:4px 12px;cursor:pointer;font-size:12px}
+.pa2{background:rgba(188,150,84,.15);border:1px solid rgba(188,150,84,.4);color:var(--gold);border-radius:3px;padding:4px 12px;font-size:11px;text-decoration:none}
+.pi{flex:1;border:none;width:100%}
+#pdf-modal.open{display:flex!important}
+</style>
+</head>
+<body>
+<nav class="g-nav">
+  <a href="portal.html" class="g-logo">MIRABAUD<span class="g-logo-sub">Financial Research</span></a>
+  <div class="g-divider"></div>
+  <div class="g-links"><a href="portal.html" class="g-link">Portal</a><a href="equity_screener.html" class="g-link">Equity</a><a href="fixed_income.html" class="g-link">Fixed Income</a><a href="esg_sri.html" class="g-link">ESG & SRI</a><a href="structured_products.html" class="g-link">Structured Products</a><a href="funds_etf.html" class="g-link active">Funds &amp; ETFs</a><a href="thematics_amc.html" class="g-link">AMC</a><a href="research.html" class="g-link">Research Notes</a></div>
+  <div style="display:flex;align-items:center;gap:10px;margin-left:auto;flex-shrink:0">
+    <button style="font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);background:none;border:1px solid rgba(255,255,255,.14);padding:3px 8px;cursor:pointer;border-radius:1px" onclick="window.location.href='admin.html'">Admin</button>
+    <span class="g-badge">Internal Use Only</span>
+  </div>
+</nav>
+<div class="p-strip">
+  <div class="p-title">Funds &amp; ETFs</div>
+  <div class="p-sub">Approved Funds, ETFs &amp; Index Funds &middot; WM Financial Research</div>
+  <div class="p-kpis">
+    <div class="p-kpi">Instruments<span class="v" id="k-tot">0</span></div>
+    <div class="p-kpi">Matching<span class="v" id="k-mat">0</span></div>
+  </div>
+</div>
+<div class="ref-bar">
+  <span class="ref-lbl">Reference Lists</span>
+  <a class="ref-btn" onclick="openPdfModal('/z/Latest Publications/8. ETF and Passive Funds Rec List.pdf','ETF Rec List')">ETF Rec List</a>
+  <a class="ref-btn" onclick="openPdfModal('/z/Latest Publications/3. Approved Funds.pdf','Approved Funds')">Approved Funds</a>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;overflow:hidden">
+  <div style="flex:1;display:flex;align-items:center;justify-content:center;background:var(--bg)">
+    <div style="text-align:center;max-width:480px;padding:40px">
+      <div style="font-size:48px;margin-bottom:16px;opacity:.6">📊</div>
+      <div style="font-family:var(--font-b);font-size:22px;color:var(--navy);margin-bottom:8px">Funds & ETFs Dashboard</div>
+      <div style="font-size:12px;color:var(--tm);margin-bottom:24px;line-height:1.6">Le dashboard interactif Power BI contient les donnees ETFs, Index Funds et Active Funds avec filtres avances, performance et analytics.</div>
+      <a href="https://app.powerbi.com/links/WpjSmxu1CO?ctid=b32e9d1f-5925-4759-9cd3-f19f7ccaff5a&pbi_source=linkShare" target="_blank" style="display:inline-block;background:var(--navy);color:#fff;padding:12px 28px;border-radius:3px;font-size:13px;font-weight:600;letter-spacing:.06em;text-decoration:none;transition:background .15s;border:2px solid var(--gold)">Open Power BI Dashboard ↗</a>
+      <div style="font-size:10px;color:var(--tm);margin-top:16px">Necessite un acces Mirabaud Power BI (SSO)</div>
+    </div>
+  </div>
+</div>
+<script>
+
+function openPdfModal(p,t){document.getElementById('pdf-modal-title').textContent=t||'';document.getElementById('pdf-modal-frame').src=p;document.getElementById('pdf-modal-ext').href=p;document.getElementById('pdf-modal').classList.add('open');}
+function closePdfModal(){document.getElementById('pdf-modal').classList.remove('open');document.getElementById('pdf-modal-frame').src='';}
+document.addEventListener('DOMContentLoaded',function(){var m=document.getElementById('pdf-modal');if(m)m.addEventListener('click',function(e){if(e.target===this)closePdfModal();});});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closePdfModal();});
+</script><!-- PDF VIEWER MODAL -->
+<div id="pdf-modal" style="display:none;position:fixed;inset:0;background:rgba(0,15,35,.75);z-index:700;align-items:stretch;justify-content:center;backdrop-filter:blur(2px)">
+  <div style="display:flex;flex-direction:column;width:92vw;max-width:1100px;height:92vh;margin:auto;background:#1a1a2e;border-radius:4px;overflow:hidden;box-shadow:0 16px 64px rgba(0,0,0,.5)">
+    <div style="background:var(--navy);padding:10px 18px;display:flex;align-items:center;gap:12px;border-bottom:2px solid var(--gold);flex-shrink:0">
+      <div id="pdf-modal-title" style="font-size:13px;font-weight:700;color:#fff;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"></div>
+      <a id="pdf-modal-ext" href="#" target="_blank" style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(188,150,84,.4);padding:3px 10px;border-radius:1px;text-decoration:none;flex-shrink:0;transition:all .15s">Open</a>
+      <button onclick="closePdfModal()" style="background:none;border:none;color:rgba(255,255,255,.5);cursor:pointer;font-size:18px;flex-shrink:0;padding:0 0 0 8px;line-height:1">&#10005;</button>
+    </div>
+    <iframe id="pdf-modal-frame" src="" style="flex:1;border:none;background:#fff"></iframe>
+  </div>
+</div>
+</body></html>

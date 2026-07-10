@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mirabaud | Research Notes & Publications</title>
+<style>
+:root{--navy:#002a4a;--blue:#397aa9;--blue-lt:#afbed6;--blue-pale:#e8edf5;--gold:#bc9654;--gold-pale:#f5edd8;--white:#fff;--bg:#f4f5f7;--surface:#fff;--surface-2:#f8f9fb;--border:#dde3ec;--border-mid:#c8d2e0;--text:#002a4a;--text-body:#1d3550;--text-muted:#6b8097;--green:#2d6a4f;--green-pale:#d8f3dc;--red:#c0392b;--red-pale:#fdecea;--font-d:'Century Gothic','Trebuchet MS','Gill Sans MT',sans-serif;--font-b:'Baskerville','Georgia','Times New Roman',serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{zoom:1.1}
+body{background:var(--bg);color:var(--text);font-family:var(--font-d);font-size:13px;height:100vh;overflow:hidden;display:flex;flex-direction:column}
+.g-nav{background:var(--navy);height:52px;display:flex;align-items:center;padding:0 28px;position:sticky;top:0;z-index:300;border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0}
+.g-logo{font-family:var(--font-d);font-weight:700;font-size:15px;letter-spacing:2.5px;text-transform:uppercase;color:#fff;text-decoration:none;flex-shrink:0}
+.g-logo-sub{font-size:9px;font-weight:400;letter-spacing:.2em;color:var(--gold);margin-left:10px;opacity:.9}
+.g-divider{width:1px;height:22px;background:rgba(255,255,255,.18);margin:0 20px;flex-shrink:0}
+.g-links{display:flex;align-items:center;gap:2px;flex:1}
+.g-link{font-family:var(--font-d);font-size:10px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none;padding:6px 12px;border-bottom:2px solid transparent;transition:all .15s;white-space:nowrap;height:100%}
+.g-link:hover{color:#fff;border-bottom-color:rgba(188,150,84,.5)}
+.g-link.active{color:#fff;border-bottom-color:var(--gold);font-weight:700}
+.g-admin{font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);background:none;border:1px solid rgba(255,255,255,.14);padding:3px 8px;cursor:pointer;margin-left:8px}
+.g-badge{margin-left:auto;font-family:var(--font-d);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(188,150,84,.8);flex-shrink:0;padding:3px 10px;border:1px solid rgba(188,150,84,.3);border-radius:1px}
+
+/* PAGE HEADER */
+.page-hdr{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 28px;display:flex;align-items:baseline;gap:14px;flex-shrink:0}
+.page-hdr h1{font-size:18px;font-weight:700;color:var(--navy);margin:0}
+.page-hdr p{font-family:var(--font-b);font-size:12px;color:var(--text-muted);font-style:italic;margin:0}
+
+/* FILTER SECTION */
+.filter-section{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 28px;flex-shrink:0}
+.filter-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.filter-row+.filter-row{margin-top:8px}
+.f-input{border:1px solid var(--border-mid);border-radius:3px;padding:6px 12px;font-size:12px;font-family:var(--font-d);outline:none;background:var(--surface)}
+.f-input:focus{border-color:var(--gold)}
+.f-search{flex:0 0 320px}
+.f-date{width:140px}
+.f-select{min-width:120px}
+.f-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)}
+.sort-wrap{margin-left:auto;display:flex;align-items:center;gap:6px}
+.sort-wrap select{border:1px solid var(--border);border-radius:3px;padding:5px 10px;font-size:11px;font-family:var(--font-d);outline:none}
+.result-count{font-size:11px;color:var(--text-muted);font-style:italic;font-family:var(--font-b);margin-left:auto}
+.tf-btn{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border:1px solid var(--border);background:var(--surface-2);cursor:pointer;color:var(--text-muted);border-radius:2px;font-family:var(--font-d);transition:all .12s}
+.tf-btn:hover{color:var(--navy);border-color:var(--blue-lt)}
+.tf-btn.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+/* TABLE */
+.table-wrap{flex:1;overflow:auto;border:1px solid var(--border);border-radius:4px}
+table{width:100%;border-collapse:collapse}
+thead{background:var(--navy);position:sticky;top:0;z-index:10}
+thead th{padding:7px 8px;text-align:left;font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);border-right:1px solid rgba(255,255,255,.08);white-space:nowrap;cursor:pointer;font-family:var(--font-d)}
+thead th:last-child{border-right:none}
+thead th:hover{background:#003d6e;color:#fff}
+tbody tr{border-bottom:1px solid var(--border);transition:background .1s}
+tbody tr:hover{background:rgba(57,122,169,.08)}
+tbody tr:nth-child(even){background:#f7f9fb}
+tbody tr:nth-child(even):hover{background:rgba(57,122,169,.08)}
+tbody td{padding:7px 8px;font-size:11px;color:var(--text-body);white-space:nowrap}
+td.td-title{white-space:normal;max-width:220px;font-weight:600;color:var(--navy)}
+td.td-stock{white-space:normal;max-width:160px;font-size:11px}
+td.td-sector{white-space:normal;max-width:140px;font-size:11px;color:var(--text-muted)}
+td.td-thematic{white-space:normal;max-width:140px;font-size:11px}
+.no-results{text-align:center;padding:32px;color:var(--text-muted);font-style:italic}
+
+/* DOC TYPE BADGES */
+.dt-badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;padding:3px 8px;border-radius:2px;white-space:nowrap}
+.dt-wa{background:rgba(0,128,128,.12);color:#00796b;border:1px solid rgba(0,128,128,.2)}
+.dt-fs{background:rgba(0,128,128,.12);color:#00796b;border:1px solid rgba(0,128,128,.2)}
+.dt-th{background:rgba(109,40,217,.08);color:#6d28d9;border:1px solid rgba(109,40,217,.18)}
+.dt-ta{background:rgba(188,150,84,.15);color:#7a5a1a;border:1px solid rgba(188,150,84,.3)}
+
+/* REGION BADGE */
+.rg-badge{font-size:9px;font-weight:600;color:var(--text-muted);letter-spacing:.04em}
+
+/* ACTIONS */
+.act-btns{display:flex;gap:6px;align-items:center}
+.act-btn{font-size:11px;color:var(--text-muted);cursor:pointer;padding:2px 4px;border:none;background:none;transition:color .12s}
+.act-btn:hover{color:var(--gold)}
+.view-pdf-btn{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-d);font-size:8px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--navy);border:none;padding:4px 10px;border-radius:3px;cursor:pointer;transition:all .15s}
+.view-pdf-btn:hover{background:var(--gold)}
+
+/* PDF MODAL */
+/* SORT ARROWS */
+thead th.sort-asc::after{content:" \2191";color:var(--gold)}
+thead th.sort-desc::after{content:" \2193";color:var(--gold)}
+#pdf-modal.open{display:flex!important}
+</style>
+</head>
+<body>
+<nav class="g-nav">
+  <a href="portal.html" class="g-logo">MIRABAUD<span class="g-logo-sub">Financial Research</span></a>
+  <div class="g-divider"></div>
+  <div class="g-links"><a href="portal.html" class="g-link">Portal</a><a href="equity_screener.html" class="g-link">Equity</a><a href="fixed_income.html" class="g-link">Fixed Income</a><a href="esg_sri.html" class="g-link">ESG & SRI</a><a href="structured_products.html" class="g-link">Structured Products</a><a href="funds_etf.html" class="g-link">Funds &amp; ETFs</a><a href="thematics_amc.html" class="g-link">AMC</a><a href="research.html" class="g-link active">Research Notes</a></div>
+  <div style="display:flex;align-items:center;gap:10px;margin-left:auto;flex-shrink:0">
+    <button style="font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);background:none;border:1px solid rgba(255,255,255,.14);padding:3px 8px;cursor:pointer;border-radius:1px" onclick="window.location.href='admin.html'">Admin</button>
+    <span class="g-badge">Internal Use Only</span>
+  </div>
+</nav>
+
+<div class="page-hdr">
+  <h1>Research Notes</h1>
+  <p>Explore our complete library of financial research and market analysis. Use filters to find publications by date, type, sector, or market focus.</p>
+</div>
+
+<div class="filter-section">
+  <div class="filter-row">
+    <span class="f-label">Search</span>
+    <input class="f-input f-search" id="f-search" type="text" placeholder="What are you looking for?" oninput="applyFilters()">
+    <span class="f-label" style="margin-left:12px">From</span>
+    <input class="f-input f-date" id="f-from" type="date" onchange="applyFilters()">
+    <span class="f-label">To</span>
+    <input class="f-input f-date" id="f-to" type="date" onchange="applyFilters()">
+    <div class="sort-wrap">
+      <select id="f-sort" onchange="applyFilters()">
+        <option value="date-desc">Sort by date (newest)</option>
+        <option value="date-asc">Sort by date (oldest)</option>
+        <option value="title-asc">Sort by title (A-Z)</option>
+      </select>
+    </div>
+  </div>
+  <div class="filter-row">
+    <select class="f-input f-select" id="f-type" onchange="applyFilters()"><option value="">Doc Type</option></select>
+    <select class="f-input f-select" id="f-stock" onchange="applyFilters()"><option value="">Stock</option></select>
+    <select class="f-input f-select" id="f-sector" onchange="applyFilters()"><option value="">Sector</option></select>
+    <select class="f-input f-select" id="f-thematic" onchange="applyFilters()"><option value="">Thematic</option></select>
+    <select class="f-input f-select" id="f-region" onchange="applyFilters()"><option value="">Region</option></select>
+    <button class="tf-btn" id="btn-saved" onclick="toggleSaved()">&#9745; Saved</button>
+    <span class="result-count" id="result-count"></span>
+  </div>
+</div>
+<div style="display:flex;align-items:center;justify-content:flex-end;padding:4px 28px;background:var(--surface-2);border-bottom:1px solid var(--border);gap:6px;flex-shrink:0">
+  <button style="font-size:9px;color:#c0392b;background:none;border:1px solid rgba(192,57,43,.3);padding:4px 10px;border-radius:2px;cursor:pointer;font-family:var(--font-d);font-weight:600;letter-spacing:.05em;text-transform:uppercase" onclick="clearAllFilters()">Clear Filters</button>
+</div>
+
+<div class="table-wrap">
+  <table>
+    <thead><tr>
+      <th onclick="sortCol('dt')">Date</th>
+      <th onclick="sortCol('ti')">Title</th>
+      <th onclick="sortCol('tp')">Doc Type</th>
+      <th onclick="sortCol('st')">Stock</th>
+      <th onclick="sortCol('se')">Sector</th>
+      <th onclick="sortCol('th')">Thematic</th>
+      <th onclick="sortCol('rg')">Region</th>
+      <th>Actions</th>
+    </tr></thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+
+
+
+<script>
+var PUBS=[{"dt":"2026-04-13","ti":"The Week Ahead","tp":"Week Ahead","st":"","se":"","th":"Macro","rg":"Worldwide"},{"dt":"2026-04-13","ti":"Trend Alert","tp":"Trend Alert","st":"","se":"","th":"Macro","rg":"Worldwide"},{"dt":"2026-04-10","ti":"Herm\u00e8s","tp":"Focus Stock","st":"Herm\u00e8s","se":"Consumer Discretionary","th":"Luxury","rg":"EU"},{"dt":"2026-04-07","ti":"The Week Ahead","tp":"Week Ahead","st":"","se":"","th":"Macro","rg":"Worldwide"},{"dt":"2026-03-30","ti":"The Week Ahead","tp":"Week Ahead","st":"","se":"","th":"Macro","rg":"Worldwide"},{"dt":"2026-03-27","ti":"Partners Group","tp":"Focus Stock","st":"Partners Group","se":"Financials","th":"Financials","rg":"EU"},{"dt":"2026-03-23","ti":"The Week Ahead","tp":"Week Ahead","st":"","se":"","th":"Macro","rg":"Worldwide"},{"dt":"2026-03-20","ti":"Novartis","tp":"Focus Stock","st":"Novartis","se":"Healthcare","th":"Healthcare, Pharma","rg":"EU"},{"dt":"2026-03-16","ti":"The Week Ahead","tp":"Week Ahead","st":"","se":"","th":"Macro","rg":"Worldwide"},{"dt":"2026-03-13","ti":"Electrification of the Economy","tp":"Thematic","st":"","se":"Energy, Utilities","th":"ESG, Energy","rg":"Worldwide"},{"dt":"2026-03-13","ti":"Oracle","tp":"Focus Stock","st":"Oracle","se":"Information Technology","th":"Artificial Intelligence, Software","rg":"US"},{"dt":"2026-03-09","ti":"The Week Ahead","tp":"Week Ahead","st":"","se":"","th":"Macro","rg":"Worldwide"},{"dt":"2026-03-06","ti":"Axa","tp":"Focus Stock","st":"Axa","se":"Financials","th":"Insurance","rg":"EU"},{"dt":"2026-03-04","ti":"From Oil Shock to Electricity Supercycle","tp":"Thematic","st":"Exxon, Siemens Energy, Schneider","se":"Energy, Utilities, Industrials","th":"Energy, Artificial Intelligence, Defense","rg":"Worldwide"},{"dt":"2026-03-03","ti":"Clean Energy Investments","tp":"Thematic","st":"","se":"","th":"ESG","rg":"Worldwide"},{"dt":"2026-03-02","ti":"The Week Ahead","tp":"Week Ahead","st":"","se":"","th":"Macro","rg":"Worldwide"},{"dt":"2026-02-27","ti":"Nvidia","tp":"Focus Stock","st":"Nvidia","se":"Information Technology","th":"Artificial Intelligence","rg":"US"},{"dt":"2026-02-23","ti":"The Week Ahead","tp":"Week Ahead","st":"","se":"","th":"Macro","rg":"Worldwide"},{"dt":"2026-02-20","ti":"Munich Security Conference 2026","tp":"Thematic","st":"","se":"Information Technology, Industrials","th":"Defense","rg":"Worldwide"},{"dt":"2026-02-20","ti":"Eli Lilly","tp":"Focus Stock","st":"Eli Lilly","se":"Healthcare","th":"","rg":"US"},{"dt":"2026-02-16","ti":"The Week Ahead","tp":"Week Ahead","st":"","se":"","th":"Macro","rg":"Worldwide"},{"dt":"2026-02-13","ti":"Tech Sector Rotation","tp":"Thematic","st":"Microsoft, Amazon, Google","se":"Information Technology","th":"","rg":"US"},{"dt":"2026-02-10","ti":"Mag7's","tp":"Thematic","st":"Apple, Meta, Nvidia, Amazon, Microsoft, Google, Tesla","se":"Information Technology","th":"","rg":"US"},{"dt":"2026-02-09","ti":"The Week Ahead","tp":"Week Ahead","st":"","se":"","th":"Macro","rg":"Worldwide"},{"dt":"2026-02-06","ti":"IS AI Eating Software","tp":"Thematic","st":"Anthropic, Google, OpenAI","se":"Information Technology","th":"","rg":"US"},{"dt":"2026-02-02","ti":"The Week Ahead","tp":"Week Ahead","st":"","se":"","th":"Macro","rg":"Worldwide"},{"dt":"2026-01-30","ti":"Procter & Gamble","tp":"Focus Stock","st":"Procter & Gamble","se":"Consumer Staples","th":"","rg":"US"},{"dt":"2026-01-26","ti":"The Week Ahead","tp":"Week Ahead","st":"","se":"","th":"Macro","rg":"Worldwide"},{"dt":"2026-01-23","ti":"Netflix III","tp":"Focus Stock","st":"Netflix","se":"Communication Services","th":"","rg":"US"},{"dt":"2026-01-19","ti":"The Week Ahead","tp":"Week Ahead","st":"","se":"","th":"Macro","rg":"Worldwide"},{"dt":"2026-01-16","ti":"US Banks","tp":"Thematic","st":"JP Morgan, Citigroup, Wells Fargo, Bank of America, Goldman Sachs","se":"Financials","th":"Banks","rg":"US"},{"dt":"2026-01-12","ti":"The Week Ahead","tp":"Week Ahead","st":"","se":"","th":"Macro","rg":"Worldwide"},{"dt":"2026-01-07","ti":"Schlumberger","tp":"Focus Stock","st":"Schlumberger","se":"Energy","th":"","rg":"US"},{"dt":"2026-01-05","ti":"Venezuela","tp":"Thematic","st":"","se":"","th":"President Trump, Geopolitics, Oil","rg":"Worldwide"},{"dt":"2025-12-23","ti":"AI's Industrial Age","tp":"Thematic","st":"","se":"Information Technology","th":"Artificial Intelligence","rg":"Worldwide"},{"dt":"2025-12-23","ti":"Boston Scientific","tp":"Focus Stock","st":"Boston Scientific","se":"Healthcare","th":"","rg":"US"},{"dt":"2025-12-19","ti":"Medical Devices","tp":"Thematic","st":"Boston Scientific","se":"Healthcare","th":"Healthcare","rg":"Worldwide"},{"dt":"2025-12-12","ti":"Netflix II","tp":"Focus Stock","st":"Netflix","se":"Communication Services","th":"","rg":"US"},{"dt":"2025-12-04","ti":"Nvidia III","tp":"Focus Stock","st":"Nvidia","se":"Information Technology","th":"","rg":"US"},{"dt":"2025-11-28","ti":"US Inflation conondrum","tp":"Thematic","st":"","se":"","th":"Inflation","rg":"US"},{"dt":"2025-11-26","ti":"Walmart","tp":"Focus Stock","st":"Walmart","se":"Consumer Staples","th":"","rg":"US"},{"dt":"2025-11-21","ti":"Nvidia II","tp":"Focus Stock","st":"Nvidia","se":"Information Technology","th":"","rg":"US"},{"dt":"2025-11-21","ti":"Oracle II","tp":"Focus Stock","st":"Oracle","se":"Information Technology","th":"","rg":"US"},{"dt":"2025-11-14","ti":"Arista Networks","tp":"Focus Stock","st":"Arista Networks","se":"Information Technology","th":"","rg":"US"},{"dt":"2025-11-12","ti":"Subsea 7","tp":"Focus Stock","st":"Subsea 7","se":"Industrials","th":"","rg":"EU"},{"dt":"2025-11-11","ti":"Nuclear Energy","tp":"Thematic","st":"","se":"","th":"Nuclear, Energy, ESG","rg":"Worldwide"},{"dt":"2025-11-07","ti":"AI Powering the mag7's next growth wave","tp":"Thematic","st":"Microsoft, Google, Meta, Apple, Amazon, Nvidia, Tesla","se":"Information Technology","th":"Artificial Intelligence","rg":"US"},{"dt":"2025-11-04","ti":"Amazon","tp":"Focus Stock","st":"Amazon","se":"Consumer Discretionary","th":"","rg":"US"},{"dt":"2025-10-28","ti":"FED Dot Plot","tp":"Thematic","st":"","se":"","th":"Macro","rg":"US"},{"dt":"2025-10-27","ti":"Netflix","tp":"Focus Stock","st":"Netflix","se":"Communication Services","th":"","rg":"US"},{"dt":"2025-10-20","ti":"Nestle","tp":"Focus Stock","st":"Nestle","se":"Consumer Staples","th":"","rg":"EU"},{"dt":"2025-10-17","ti":"Gender Equality","tp":"Thematic","st":"","se":"","th":"ESG","rg":"Worldwide"},{"dt":"2025-10-14","ti":"Thermo Fisher","tp":"Focus Stock","st":"Thermo Fisher","se":"Healthcare","th":"","rg":"US"},{"dt":"2025-10-10","ti":"First Brands","tp":"Focus Stock","st":"First Brands","se":"Financials","th":"","rg":"US"},{"dt":"2025-10-07","ti":"Pharma","tp":"Thematic","st":"Pfizer","se":"Healthcare","th":"Health Care","rg":"EU/US"},{"dt":"2025-10-03","ti":"Nike","tp":"Focus Stock","st":"Nike","se":"Consumer Discretionary","th":"","rg":"US"},{"dt":"2025-09-29","ti":"Government shutdown","tp":"Thematic","st":"","se":"","th":"President Trump, Geopolitics","rg":"US"},{"dt":"2025-09-26","ti":"Europe at Crossroads","tp":"Thematic","st":"European stocks","se":"","th":"Macro, Europe Investment","rg":"EU"},{"dt":"2025-09-23","ti":"Accenture","tp":"Focus Stock","st":"Accenture","se":"Information Technology","th":"","rg":"US"},{"dt":"2025-09-19","ti":"Nuclear Energy & the Age of Power","tp":"Thematic","st":"Cameco, GE Vernova, Constellation Energy, Oklo, NuScale","se":"Utilities","th":"Nuclear, Artificial Intelligence","rg":"Worldwide"},{"dt":"2025-09-15","ti":"Oracle","tp":"Focus Stock","st":"Oracle","se":"Information Technology","th":"","rg":"US"},{"dt":"2025-09-12","ti":"Long Rates on the Rise","tp":"Thematic","st":"","se":"","th":"Fixed Income","rg":"Worldwide"},{"dt":"2025-09-10","ti":"Gold: A new Golden Age","tp":"Thematic","st":"Newmont, Barrick, Agnico Eagle","se":"Materials","th":"Gold","rg":"EU/US"},{"dt":"2025-09-09","ti":"Broadcom","tp":"Focus Stock","st":"Broadcom","se":"Information Technology","th":"","rg":"US"},{"dt":"2025-09-08","ti":"IT Services & the Age of Tech. Revolution","tp":"Thematic","st":"Accenture, Capgemini, Cognizant, Infosys","se":"Information Technology","th":"Artificial Intelligence","rg":"EU/US"},{"dt":"2025-09-03","ti":"Nvidia","tp":"Focus Stock","st":"Nvidia","se":"Information Technology","th":"","rg":"US"},{"dt":"2025-09-02","ti":"Investing to solve water scarcity","tp":"Thematic","st":"","se":"Utilities","th":"ESG","rg":"Worldwide"},{"dt":"2025-08-28","ti":"Traps to watch in September","tp":"Thematic","st":"","se":"","th":"Macro","rg":"EU/US"},{"dt":"2025-08-27","ti":"S&P 500 Seasonality","tp":"Thematic","st":"","se":"","th":"Macro","rg":"EU/US"},{"dt":"2025-08-26","ti":"Walmart","tp":"Focus Stock","st":"Walmart","se":"Consumer Staples","th":"","rg":"US"},{"dt":"2025-08-22","ti":"Growing fears of AI Disruption","tp":"Thematic","st":"SAP, Nestl\u00e9, RELX, Wolters Kluwer, STM, Gartner","se":"Communication Services","th":"Artificial Intelligence","rg":"EU/US"},{"dt":"2025-08-21","ti":"Palo Alto Networks","tp":"Focus Stock","st":"Palo Alto Networks","se":"Information Technology","th":"","rg":"US"},{"dt":"2025-08-12","ti":"Ageing Population & Consumption Habits","tp":"Thematic","st":"Meta, Amazon, JP Morgan, American Express, Boston Scientific, Progressive, Booking","se":"","th":"ESG","rg":"EU/US"},{"dt":"2025-08-06","ti":"Ferrari","tp":"Focus Stock","st":"Ferrari","se":"Consumer Discretionary","th":"","rg":"EU"},{"dt":"2025-08-04","ti":"Investment Banking revival","tp":"Thematic","st":"JP Morgan, Morgan Stanley, Goldman Sachs","se":"Financials","th":"Banks","rg":"EU/US"},{"dt":"2025-07-30","ti":"Netflix","tp":"Focus Stock","st":"Netflix","se":"Communication Services","th":"","rg":"US"},{"dt":"2025-07-28","ti":"The decline of google's search dominance","tp":"Thematic","st":"Alphabet","se":"Information Technology","th":"Artificial Intelligence","rg":"US"},{"dt":"2025-07-21","ti":"The UK Great retail retreat","tp":"Thematic","st":"Next plc, JD Sport Fashion, Frasers Group plc","se":"Consumer Discretionary","th":"Consumer","rg":"EU/US"},{"dt":"2025-07-17","ti":"JP Morgan","tp":"Focus Stock","st":"JP Morgan","se":"Financials","th":"","rg":"US"},{"dt":"2025-07-17","ti":"Amrize","tp":"Focus Stock","st":"Amrize","se":"Materials","th":"","rg":"US"},{"dt":"2025-07-14","ti":"The Responsible Defence","tp":"Thematic","st":"","se":"Industrials","th":"ESG, Defense","rg":"EU/US"},{"dt":"2025-07-09","ti":"Visa & Mastercard","tp":"Focus Stock","st":"Visa & Mastercard","se":"Financials","th":"","rg":"EU"},{"dt":"2025-07-09","ti":"Service Now","tp":"Focus Stock","st":"Service Now","se":"Information Technology","th":"","rg":"EU"},{"dt":"2025-07-05","ti":"Stablecoins","tp":"Thematic","st":"","se":"Information Technology","th":"Crypto","rg":"US"},{"dt":"2025-07-04","ti":"Deutsche Telekom","tp":"Focus Stock","st":"Deutsche Telekom","se":"Communication Services","th":"","rg":"EU"},{"dt":"2025-07-03","ti":"Diageo","tp":"Focus Stock","st":"Diageo","se":"Consumer Staples","th":"","rg":"EU"},{"dt":"2025-07-03","ti":"Keeping the lights on","tp":"Thematic","st":"Nextera Energy, AES, Engie","se":"Utilities","th":"ESG, Energy","rg":"EU/US"},{"dt":"2025-07-01","ti":"Progressive","tp":"Focus Stock","st":"Progressive","se":"Financials","th":"","rg":"US"},{"dt":"2025-07-01","ti":"Veolia","tp":"Focus Stock","st":"Veolia","se":"Utilities","th":"","rg":"EU"},{"dt":"2025-06-30","ti":"EU Financing Plan","tp":"Thematic","st":"","se":"Financials","th":"Europe Investment, Geopolitics","rg":"EU"},{"dt":"2025-06-30","ti":"Nike","tp":"Focus Stock","st":"Nike","se":"Consumer Discretionary","th":"","rg":"US"},{"dt":"2025-06-27","ti":"SNB","tp":"Thematic","st":"","se":"Financials","th":"Switzerland, Macro","rg":"EU"},{"dt":"2025-06-25","ti":"Broadcom","tp":"Focus Stock","st":"Broadcom","se":"Information Technology","th":"","rg":"US"},{"dt":"2025-06-25","ti":"Accenture","tp":"Focus Stock","st":"Accenture","se":"Information Technology","th":"","rg":"US"},{"dt":"2025-06-25","ti":"Infineon","tp":"Focus Stock","st":"Infineon","se":"Information Technology","th":"","rg":"EU"},{"dt":"2025-06-25","ti":"Compass","tp":"Focus Stock","st":"Compass","se":"Consumer Discretionary","th":"","rg":"US"},{"dt":"2025-06-25","ti":"Holcim","tp":"Focus Stock","st":"Holcim","se":"Materials","th":"","rg":"EU"},{"dt":"2025-06-25","ti":"Palo Alto","tp":"Focus Stock","st":"Palo Alto","se":"Information Technology","th":"","rg":"US"},{"dt":"2025-06-25","ti":"Airbus","tp":"Focus Stock","st":"Airbus","se":"Industrials","th":"","rg":"EU"},{"dt":"2025-06-25","ti":"Ametek","tp":"Focus Stock","st":"Ametek","se":"Industrials","th":"","rg":"US"},{"dt":"2025-06-24","ti":"Semiconductor","tp":"Thematic","st":"ASML, Broadcom, Infineon, STMicroelectronics","se":"Information Technology","th":"Artificial Intelligence, Semiconductor","rg":"EU/US"},{"dt":"2025-06-21","ti":"Pinch point the detroit of Hormuz","tp":"Thematic","st":"","se":"","th":"Macro","rg":"Worldwide"},{"dt":"2025-06-20","ti":"Adobe","tp":"Focus Stock","st":"Adobe","se":"Information Technology","th":"","rg":"US"},{"dt":"2025-06-18","ti":"Summer Travel 2025","tp":"Thematic","st":"Booking Holdings, Airbnb, Marriott International, Delta Air Lines, U.S. Global Jets ETF","se":"Consumer Discretionary","th":"Consumer","rg":"EU/US"},{"dt":"2025-06-16","ti":"Inditex","tp":"Focus Stock","st":"Inditex","se":"Consumer Discretionary","th":"","rg":"EU"},{"dt":"2025-06-16","ti":"Warner Bross","tp":"Focus Stock","st":"Warner Bros","se":"Communication Services","th":"","rg":"US"},{"dt":"2025-06-16","ti":"Intel","tp":"Focus Stock","st":"Intel","se":"Information Technology","th":"","rg":"US"},{"dt":"2025-06-14","ti":"Boeing","tp":"Thematic","st":"Boeing, United Airlines, British Airways","se":"Industrials","th":"ESG","rg":"EU/US"},{"dt":"2025-06-12","ti":"Economy of Attention","tp":"Thematic","st":"Salesforce, Amazon, Microsoft","se":"Information Technology","th":"Consumer, Artificial Intelligence","rg":"US"}];
+
+var _saved=JSON.parse(localStorage.getItem('mhc_research_saved')||'[]');
+var _showSaved=false;
+
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+function formatDate(dt){
+  if(!dt)return'';
+  var p=dt.split('-');if(p.length!==3)return dt;
+  return p[1].replace(/^0/,'')+'/'+p[2].replace(/^0/,'')+'/'+p[0];
+}
+
+function dtBadge(tp){
+  if(tp==='Week Ahead')return'<span class="dt-badge dt-wa">Week Ahead</span>';
+  if(tp==='Focus Stock')return'<span class="dt-badge dt-fs">Focus Stock</span>';
+  if(tp==='Thematic')return'<span class="dt-badge dt-th">Thematic</span>';
+  if(tp==='Trend Alert')return'<span class="dt-badge dt-ta">Trend Alert</span>';
+  return'<span class="dt-badge">'+esc(tp)+'</span>';
+}
+
+function getPdfPath(pub){
+  var t=pub.tp,ti=pub.ti,dt=pub.dt;
+  // Format date as YYYY.MM.DD for filename prefix
+  var dateParts=dt.split('-');
+  var datePrefix=dateParts[0]+'.'+dateParts[1]+'.'+dateParts[2];
+  if(t==='Focus Stock')return'/z/focus-stocks/'+encodeURIComponent(datePrefix+' - '+ti+' EN.pdf');
+  if(t==='Thematic')return'/z/thematics-en/'+encodeURIComponent(datePrefix+' - '+ti+' EN.pdf');
+  if(t==='Week Ahead'){
+    // Actual filenames: {uuid}-DD.MM.YYYY - Week ahead EN.pdf
+    var dateFmt=dateParts[2]+'.'+dateParts[1]+'.'+dateParts[0];
+    return'/z/week-ahead/'+encodeURIComponent(dateFmt+' - Week ahead EN.pdf');
+  }
+  if(t==='Trend Alert'){
+    return'/z/trend-alert/'+encodeURIComponent(datePrefix+' - '+ti+' EN.pdf');
+  }
+  return null;
+}
+
+function shareByEmail(pub){
+  var subj=encodeURIComponent('Mirabaud Research: '+pub.ti);
+  var body=encodeURIComponent('Please find attached the following publication from Mirabaud Financial Research:\n\nTitle: '+pub.ti+'\nType: '+pub.tp+'\nDate: '+formatDate(pub.dt)+'\n\nBest regards');
+  window.open('mailto:?subject='+subj+'&body='+body,'_self');
+}
+
+function toggleSaved(){
+  _showSaved=!_showSaved;
+  document.getElementById('btn-saved').classList.toggle('on',_showSaved);
+  applyFilters();
+}
+
+function toggleBookmark(idx){
+  var i=_saved.indexOf(idx);
+  if(i>=0)_saved.splice(i,1);else _saved.push(idx);
+  localStorage.setItem('mhc_research_saved',JSON.stringify(_saved));
+  applyFilters();
+}
+
+// Init filter dropdowns (called on load AND after server refresh)
+function populateFilters(){
+  var types={},stocks={},sectors={},thematics={},regions={};
+  PUBS.forEach(function(p){
+    if(p.tp)types[p.tp]=1;
+    if(p.st)p.st.split(',').forEach(function(s){s=s.trim();if(s)stocks[s]=1;});
+    if(p.se)p.se.split(',').forEach(function(s){s=s.trim();if(s)sectors[s]=1;});
+    if(p.th)p.th.split(',').forEach(function(s){s=s.trim();if(s)thematics[s]=1;});
+    if(p.rg)regions[p.rg]=1;
+  });
+  function fill(id,obj){
+    var s=document.getElementById(id);
+    // Preserve the current selection and the first "empty" option
+    var current=s.value;
+    // Rebuild: keep first option only
+    while(s.options.length>1)s.remove(1);
+    Object.keys(obj).sort().forEach(function(k){var o=document.createElement('option');o.value=k;o.textContent=k;s.appendChild(o);});
+    if(current)s.value=current;
+  }
+  fill('f-type',types);fill('f-stock',stocks);fill('f-sector',sectors);fill('f-thematic',thematics);fill('f-region',regions);
+}
+populateFilters();
+
+function applyFilters(){
+  var q=document.getElementById('f-search').value.toLowerCase();
+  var from=document.getElementById('f-from').value;
+  var to=document.getElementById('f-to').value;
+  var tp=document.getElementById('f-type').value;
+  var st=document.getElementById('f-stock').value;
+  var se=document.getElementById('f-sector').value;
+  var th=document.getElementById('f-thematic').value;
+  var rg=document.getElementById('f-region').value;
+  var sort=document.getElementById('f-sort').value;
+
+  var f=PUBS.map(function(p,i){p._idx=i;return p;}).filter(function(p){
+    if(_showSaved&&_saved.indexOf(p._idx)<0)return false;
+    if(q&&(p.ti+' '+p.st+' '+p.se+' '+p.th+' '+p.tp).toLowerCase().indexOf(q)<0)return false;
+    if(from&&p.dt<from)return false;
+    if(to&&p.dt>to)return false;
+    if(tp&&p.tp!==tp)return false;
+    if(st&&(!p.st||p.st.indexOf(st)<0))return false;
+    if(se&&(!p.se||p.se.indexOf(se)<0))return false;
+    if(th&&(!p.th||p.th.indexOf(th)<0))return false;
+    if(rg&&p.rg!==rg)return false;
+    return true;
+  });
+
+  if(sort==='date-asc')f.sort(function(a,b){return a.dt<b.dt?-1:1;});
+  else if(sort==='title-asc')f.sort(function(a,b){return a.ti.toLowerCase()<b.ti.toLowerCase()?-1:1;});
+  else f.sort(function(a,b){return b.dt<a.dt?-1:1;});
+
+  document.getElementById('result-count').textContent=f.length+' / '+PUBS.length+' publications';
+
+  var tb=document.getElementById('tbody');
+  if(!f.length){tb.innerHTML='<tr><td colspan="8" class="no-results">No publications match your filters.</td></tr>';return;}
+
+  tb.innerHTML=f.map(function(p){
+    var path=getPdfPath(p);
+    var isSaved=_saved.indexOf(p._idx)>=0;
+    return'<tr'+(path?' style="cursor:pointer" onclick="openPub('+p._idx+')"':'')+'>'+
+      '<td>'+formatDate(p.dt)+'</td>'+
+      '<td class="td-title">'+esc(p.ti)+'</td>'+
+      '<td>'+dtBadge(p.tp)+'</td>'+
+      '<td class="td-stock">'+esc(p.st)+'</td>'+
+      '<td class="td-sector">'+esc(p.se)+'</td>'+
+      '<td class="td-thematic">'+esc(p.th)+'</td>'+
+      '<td><span class="rg-badge">'+esc(p.rg)+'</span></td>'+
+      '<td><div class="act-btns">'+
+        (path?'<button class="view-pdf-btn" onclick="event.stopPropagation();openPdfModal(\''+esc(path)+'\',\''+esc(p.ti)+'\')">View PDF Report</button>':'')+
+        '<button class="act-btn" title="Share by email" onclick="event.stopPropagation();shareByEmail(PUBS['+p._idx+'])">&#9993;</button>'+
+        '<button class="act-btn" title="'+(isSaved?'Remove bookmark':'Bookmark')+'" onclick="event.stopPropagation();toggleBookmark('+p._idx+')" style="'+(isSaved?'color:var(--gold)':'')+'">'+(isSaved?'&#9733;':'&#9734;')+'</button>'+
+      '</div></td>'+
+    '</tr>';
+  }).join('');
+}
+
+function openPub(idx){
+  var p=PUBS[idx];
+  var path=getPdfPath(p);
+  if(path)openPdfModal(path,p.ti+' - '+p.tp);
+}
+
+var _sortDir={};
+function sortCol(key){
+  _sortDir[key]=!_sortDir[key];
+  document.querySelectorAll('thead th').forEach(function(t){t.classList.remove('sort-asc','sort-desc');});
+  var ths=document.querySelectorAll('thead th');
+  ths.forEach(function(t){if(t.getAttribute('onclick')&&t.getAttribute('onclick').indexOf("'"+key+"'")>=0)t.classList.add(_sortDir[key]?'sort-asc':'sort-desc');});
+  PUBS.sort(function(a,b){
+    var va=(a[key]||'').toLowerCase(),vb=(b[key]||'').toLowerCase();
+    return _sortDir[key]?(va<vb?-1:1):(va>vb?-1:1);
+  });
+  applyFilters();
+}
+
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closePdfModal();});
+
+applyFilters();
+
+// ─── Live publications refresh ────────────────────────────────────
+// After loading the hardcoded fallback library, ask the server for the
+// actual list of PDFs on disk. Append any publications that are not
+// already present (matched by title + date) and re-render.
+// Silent fallback: if the endpoint fails, hardcoded data stays in place.
+async function refreshPublicationsFromServer(){
+  try{
+    var resp=await fetch('/api/publications',{cache:'no-store'});
+    if(!resp.ok)return;
+    var data=await resp.json();
+    if(!data||!data.publications||!data.publications.length)return;
+
+    // Build a fast lookup of what's already in PUBS
+    var seen={};
+    PUBS.forEach(function(p){seen[(p.ti||'').toLowerCase()+'|'+(p.dt||'')]=1;});
+
+    // Append server items that are not already there
+    var added=0;
+    data.publications.forEach(function(p){
+      var key=(p.title||'').toLowerCase()+'|'+(p.date||'');
+      if(seen[key])return;
+      PUBS.push({
+        dt: p.date,
+        ti: p.title,
+        tp: p.type,
+        st: '',          // no metadata from filename
+        se: '',
+        th: p.type==='Week Ahead'||p.type==='Trend Alert'?'Macro':'',
+        rg: p.type==='Week Ahead'||p.type==='Trend Alert'?'Worldwide':''
+      });
+      seen[key]=1;added++;
+    });
+
+    if(added>0){
+      populateFilters();
+      applyFilters();
+    }
+  }catch(e){
+    // Silent: fallback data is already rendered
+  }
+}
+setTimeout(refreshPublicationsFromServer,200);
+// ──────────────────────────────────────────────────────────────────
+
+function clearAllFilters(){
+  document.querySelectorAll('.f-search,.f-input').forEach(function(el){el.value='';});
+  document.querySelectorAll('.f-select,.sort-wrap select').forEach(function(el){el.selectedIndex=0;});
+  applyFilters();
+}
+
+function openPdfModal(p,t){document.getElementById('pdf-modal-title').textContent=t||'';document.getElementById('pdf-modal-frame').src=p;document.getElementById('pdf-modal-ext').href=p;document.getElementById('pdf-modal').classList.add('open');}
+function closePdfModal(){document.getElementById('pdf-modal').classList.remove('open');document.getElementById('pdf-modal-frame').src='';}
+document.addEventListener('DOMContentLoaded',function(){var m=document.getElementById('pdf-modal');if(m)m.addEventListener('click',function(e){if(e.target===this)closePdfModal();});});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closePdfModal();});
+</script>
+<!-- PDF VIEWER MODAL -->
+<div id="pdf-modal" style="display:none;position:fixed;inset:0;background:rgba(0,15,35,.75);z-index:700;align-items:stretch;justify-content:center;backdrop-filter:blur(2px)">
+  <div style="display:flex;flex-direction:column;width:92vw;max-width:1100px;height:92vh;margin:auto;background:#1a1a2e;border-radius:4px;overflow:hidden;box-shadow:0 16px 64px rgba(0,0,0,.5)">
+    <div style="background:var(--navy);padding:10px 18px;display:flex;align-items:center;gap:12px;border-bottom:2px solid var(--gold);flex-shrink:0">
+      <div id="pdf-modal-title" style="font-size:13px;font-weight:700;color:#fff;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"></div>
+      <a id="pdf-modal-ext" href="#" target="_blank" style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(188,150,84,.4);padding:3px 10px;border-radius:1px;text-decoration:none;flex-shrink:0;transition:all .15s">Open</a>
+      <button onclick="closePdfModal()" style="background:none;border:none;color:rgba(255,255,255,.5);cursor:pointer;font-size:18px;flex-shrink:0;padding:0 0 0 8px;line-height:1">&#10005;</button>
+    </div>
+    <iframe id="pdf-modal-frame" src="" style="flex:1;border:none;background:#fff"></iframe>
+  </div>
+</div>
+</body>
+</html>
